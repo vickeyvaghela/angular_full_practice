@@ -25,6 +25,11 @@
   margin-left: 0px;
 }
 
+.mes_to {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
 .sch_head {
   font-family: Rubik;
   font-weight: bold;
@@ -678,7 +683,7 @@ a:focus {
   .sp_vg {
     padding: 10px 20px !important;
   }
-  #content-wrapper{
+  #content-wrapper {
     padding-left: 15px;
   }
 }
