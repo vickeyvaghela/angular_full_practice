@@ -12,7 +12,7 @@ const admin = require('./server/admin');
 const app = express();
 
 const cors = require('cors');
-// hhhhhhhhhhhhhhhhhhhh
+
 
 // Parsers for POST data
 app.use(bodyParser.json());
