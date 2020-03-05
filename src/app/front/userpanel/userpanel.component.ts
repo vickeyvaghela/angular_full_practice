@@ -19,8 +19,8 @@ export class UserpanelComponent implements OnInit {
   constructor(private userPanelServ: UserpanelService) { }
 
   ngOnInit(): void {
-    $('body').removeClass('modal-open');
-    $('.modal-backdrop').remove();
+    // $('body').removeClass('modal-open');
+    // $('.modal-backdrop').remove();
     this.initialize();
   }
 
