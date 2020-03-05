@@ -10,11 +10,11 @@ const admin = require('./server/admin');
 
 
 const app = express();
+
 const cors = require('cors');
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 
 app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/front/authService/login','/front/authService/signup']}));
 
@@ -25,6 +25,9 @@ app.use(function (err, req, res, next) {
     res.json({"success":false,"message":"unauthorized_access"})
   }
 });
+
+
+
 
 
 // Point static path to dist
