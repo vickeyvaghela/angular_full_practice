@@ -1,6 +1,7 @@
 const route = require('express').Router();
 const sql = require("mssql");
-const config = { user: 'sa', password: 'OPTICAL', server: '192.168.1.112\\SQL2014', database: 'NAROLA_DB',options:{encrypt:false}};
+const config = { user: process.env.DB_USER, password: process.env.DB_PASSWORD, server: process.env.DB_SERVER, database: process.env.DB_DATABASE};
+
 
 route.get('/', (req, res) => {
   res.send('default route for userpanel FRONT');

@@ -1,6 +1,7 @@
 const models = require('express').Router();
 const sql = require("mssql");
 const jwt = require('jsonwebtoken');
+const config = { user: process.env.DB_USER, password: process.env.DB_PASSWORD, server: process.env.DB_SERVER, database: process.env.DB_DATABASE};
 
 models.get('/', (req, res) => {
   res.send('default route for auth service FRONT');
@@ -15,36 +16,10 @@ models.post('/login', (req, res) => {
   }else{
     res.json({success:false,message:"Invalid Username or Password"})
   }
-
-
-
-
-
-  //res.header("Access-Control-Allow-Origin", "*");
-  //res.send({"success":true,"message":"login success"});
-  // return;
-  // var config = { user: 'sa', password: 'OPTICAL', server: '192.168.1.112\\SQL2014', database: 'NAROLA_DB'};
-  //
-  // sql.connect(config, function(err) {
-  //
-  //   if (err) console.log(err);
-  //
-  //   var request = new sql.Request();
-  //
-  //   request.query('select * from EFacMast', function(err, recordset) {
-  //
-  //     sql.close();
-  //     res.send(recordset);
-  //   });
-  //
-  // });
-  //res.send('login method for auth service FRONT');
 });
 
 
 models.get('/sp_test', (req, res) => {
-
-  var config = { user: 'sa', password: 'OPTICAL', server: '192.168.1.112\\SQL2014', database: 'NAROLA_DB'};
 
   var getCities = function() {
     //var conn = new sql.Connection(config);
@@ -53,7 +28,6 @@ models.get('/sp_test', (req, res) => {
       request.input('UserId', sql.VarChar(30), 'nik');
       //request.input('NameNew', sql.VarChar(30), 'Cbe');
       request.execute('WB_Login_Restriction').then(function(err, recordsets, returnValue, affected) {
-        console.log('vvvvvvvvv');
         console.log(err.recordset);
         //console.dir(recordsets);
         //console.dir(err);

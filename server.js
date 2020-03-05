@@ -38,7 +38,7 @@ app.use('/admin', admin);
 //   res.sendFile(path.join(__dirname, 'dist/index.html'));
 // });
 
-console.log('vvvvvvvvvvv '+process.env.TEST_ENV_KEY);
+//process.env.TEST_ENV_KEY
 const port = process.env.PORT || '3000';
 app.set('port', port);
 
