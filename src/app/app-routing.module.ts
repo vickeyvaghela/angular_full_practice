@@ -9,6 +9,7 @@ import { AuthGuard } from './front/services/auth.guard';
 
 import { HomeComponent } from './front/home/home.component';
 import { UserpanelComponent } from './front/userpanel/userpanel.component';
+import { SearchdiamondComponent } from './front/searchdiamond/searchdiamond.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: HomeComponent },
   // { path: 'UserPanel', component: UserpanelComponent, canActivate: [AuthGuard] },
   { path: 'UserPanel', component: UserpanelComponent },
+  { path: 'searchdiamond', component: SearchdiamondComponent },
 ];
 // const routes: Routes = [
 //   { path: '', component: HomeComponent },

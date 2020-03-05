@@ -14,7 +14,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './front/home/home.component';
 import { UserpanelComponent } from './front/userpanel/userpanel.component';
 import { CommonComponent } from './front/common/common/common.component';
-
+import { SearchdiamondComponent } from './front/searchdiamond/searchdiamond.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -25,10 +27,13 @@ export function tokenGetter() {
     AppComponent,
     HomeComponent,
     UserpanelComponent,
-    CommonComponent
+    CommonComponent,
+    SearchdiamondComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -38,7 +43,8 @@ export function tokenGetter() {
         whitelistedDomains: ['http://localhost:4200'],
         blacklistedRoutes: ['http://localhost:4200/login']
       }
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [AuthGuard,AuthService,{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
