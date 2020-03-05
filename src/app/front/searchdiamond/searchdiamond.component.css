@@ -581,6 +581,89 @@ a:focus {
   .mares {
     margin-top: 10px;
   }
+  .plpad {
+    padding-left: 0px !important;
+  }
+  .flr_sm {
+    width: 18%;
+    margin-top: 10px;
+  }
+  .fluor_inline .mat-chip {
+    padding: 10px 18px;
+    margin-top: 10px;
+  }
+  .eye_sm {
+    width: 17.5%;
+  }
+  .lab_sm {
+    width: 18%;
+    margin-top: 10px;
+  }
+  .cut_inline .mat-chip {
+    padding: 10px 20px;
+  }
+  .eye_inline .mat-chip {
+    padding: 10px 32px;
+  }
+  .pol_inline .mat-chip {
+    padding: 10px 20px;
+  }
+  .lab_inline .mat-chip {
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+  .lust_sm {
+    width: 18%;
+    margin-top: 10px;
+  }
+  .lust_inline .mat-chip {
+    padding: 10px 22px;
+    margin-top: 10px;
+  }
+  .ha_sm {
+    width: 18%;
+    margin-top: 10px;
+  }
+  .sym_inline .mat-chip {
+    padding: 10px 22px;
+  }
+  .plres {
+    padding-left: 15px;
+  }
+
+  .org_sm1 {
+    width: 17%;
+    margin-top: 10px;
+  }
+  .org_select {
+    width: 150px;
+    margin-top: 10px;
+  }
+  .org_sm {
+    width: 17%;
+    margin-top: 10px;
+  }
+  .tois_sm1 {
+    width: 18%;
+    margin-top: 10px;
+  }
+  .frmgia_sm {
+    width: 18%;
+    margin-top: 10px;
+  }
+  .togia_sm {
+    width: 18%;
+    margin-top: 10px;
+  }
+  .dt_sche1 {
+    margin-top: 10px;
+  }
+  .flrdn_inline .mat-chip {
+    padding: 10px 19px;
+  }
+  .inc_sm {
+    width: 18%;
+  }
 }
 
 @media screen and (max-width: 414px) {
@@ -594,5 +677,8 @@ a:focus {
 
   .sp_vg {
     padding: 10px 20px !important;
+  }
+  #content-wrapper{
+    padding-left: 15px;
   }
 }

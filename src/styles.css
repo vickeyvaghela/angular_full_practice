@@ -67,3 +67,9 @@
     width: 120px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .date_sch .mat-form-field-infix {
+    width: 170px;
+  }
+}
