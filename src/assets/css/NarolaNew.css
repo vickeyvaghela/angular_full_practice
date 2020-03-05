@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "NarolaNew";
+  src: url("../fonts/NarolaNew.eot?eyvura");
+  src: url("../fonts/NarolaNew.eot?eyvura#iefix") format("embedded-opentype"),
+    url("../fonts/NarolaNew.ttf?eyvura") format("truetype"), url("../fonts/NarolaNew.woff?eyvura") format("woff"),
+    url("../fonts/NarolaNew.svg?eyvura#NarolaNew") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "NarolaNew" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mail:before {
+  content: "\52";
+  color: #70879d;
+}
+.icon-plus:before {
+  content: "\51";
+}
+
+.icon-up_arrow:before {
+  content: "\50";
+}
+
+.icon-down-arrow:before {
+  content: "\4f";
+}
+
+.icon-download:before {
+  content: "\4e";
+  color: #70879d;
+}
+
+.icon-new_stone:before {
+  content: "\4d";
+}
+
+.icon-basket:before {
+  content: "\4c";
+}
+
+.icon-dashboard:before {
+  content: "\4b";
+}
+
+.icon-favrouite:before {
+  content: "\4a";
+}
+
+.icon-help:before {
+  content: "\49";
+}
+
+.icon-hold:before {
+  content: "\48";
+}
+
+.icon-nda:before {
+  content: "\47";
+}
+
+.icon-order:before {
+  content: "\46";
+}
+
+.icon-refresh:before {
+  content: "\45";
+}
+
+.icon-search:before {
+  content: "\44";
+}
+
+.icon-close:before {
+  content: "\43";
+}
+
+.icon-key:before {
+  content: "\41";
+}
+
+.icon-user:before {
+  content: "\42";
+}

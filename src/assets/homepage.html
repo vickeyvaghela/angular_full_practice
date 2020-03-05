@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Narola Gems</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Marcellus&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/NarolaNew.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
+</head>
+<body>
+    <div class="border_row">
+        <ul class="nav">
+            <li><a data-scroll="index" href="#index" class="bo_menu bo1 active"></a></li>
+            <li><a data-scroll="about" href="#about" class="bo_menu bo2"></a></li>
+            <li><a data-scroll="craft" href="#craft" class="bo_menu bo3"></a></li>
+            <li><a href="#" class="bo_menu bo4"></a></li>
+            <li><a href="#" class="bo_menu bo5"></a></li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-expand-sm fixed-top nav_nv">
+        <div class="brand" id="headerlogo">
+            <a class="head_lg">
+                <img src="img/narola_small.png" class="logo_sm" />
+            </a>
+        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-bars nav_bar"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" data-toggle="modal" data-target="#myModal2">
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="img/login.png" />
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <section id="index">
+        <div class="ind_bg">
+            <div class="container">
+                <div class="main_logo wow zoomIn" data-wow-duration="5s">
+                    <img src="img/narola.png" class="brand_logo" id="divlogo1" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="ab_bg">
+            <div class="container">
+                <div class="about_sec">
+                    <h3 class="ab_head wow zoomIn" data-wow-duration="5s">About Us</h3>
+                    <p class="wow fadeInUp" data-wow-duration="5s">
+                        <span class="ab_para">
+                            Narola a bright company started in 1989 with small unit of manufacturing
+                        </span>
+                        <span class="ab_para">
+                            in Surat (INDIA) having only one passion in mind to produce finest
+                        </span>
+                        <span class="ab_para">
+                            quality of diamonds and supply to the World.
+                        </span>
+                    </p>
+                    <button class="btn_arr"><i class="fa fa-angle-right know_btn"></i>Know More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="craft">
+        <div class="crf_bg">
+            <div class="craft_sec">
+                <h3 class="craft_head wow zoomIn" data-wow-duration="5s">CRAFTMENSHIP</h3>
+                <p class="wow fadeInUp" data-wow-duration="5s">
+                    <span class="crf_para">
+                        Narola a bright company started in 1989 with small unit of manu
+                    </span>
+                    <span class="crf_para">
+                        in Surat (INDIA) having only one passion in mind to produce finest
+                    </span>
+                    <span class="crf_para">
+                        quality of diamonds and supply to the World.
+                    </span>
+                </p>
+                <button class="btn_arr"><i class="fa fa-angle-right know_btn"></i>Know More</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal right fade" id="myModal2" role="dialog">
+        <div class="modal-dialog md_log" role="document">
+            <div class="modal-content mdb_con">
+
+                <div class="modal-header mod_head">
+                    <h4 class="modal-title" id="myModalLabel2">Login</h4>
+                    <button type="button" class="close cls_mod" data-dismiss="modal">
+                        <i class="icon-close ncr_icon"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container conr">
+                        <div class="user_login">
+                            <h6 class="use_head">Username</h6>
+                            <div class="input-group us_grp">
+                                <input type="text" placeholder="Username" class="inp_us">
+                                <span class="input-group-addon"><i class="icon-user ncr_icon"></i></span>
+                            </div>
+                        </div>
+                        <div class="pswd_login">
+                            <h6 class="use_head">Password</h6>
+                            <div class="input-group us_grp">
+                                <input type="password" placeholder="Password" class="inp_us">
+                                <span class="input-group-addon"><i class="icon-key ncr_icon"></i></span>
+                            </div>
+                        </div>
+                        <p class="frg">Forgot password?</p>
+                        <div class="log_btn">
+                            <button class="btn btn_login">Login</button>
+                            <h5 class="cret">Create Account</h5>
+                        </div>
+                    </div>
+                    <div class="container-fluid evnt">
+                        <div class="event_head">
+                            <img src="img/login_event.png" />
+                        </div>
+                    </div>
+                </div>
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div>
+    <a id="button">
+        <img src="img/scroll_btn.png" class="scrl_btn" />
+    </a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js'></script>
+    <!-- Wow Animation -->
+    <script type="text/javascript">
+        new WOW().init();
+    </script>
+    <!-- Logo show hide -->
+    <script type="text/javascript">
+        var $ = jQuery.noConflict();
+        $('#headerlogo').hide();
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 370 && $(this).scrollTop() < 6850) {
+                $('#headerlogo').show();
+                $('#divlogo1').hide();
+            } else {
+                $('#headerlogo').hide();
+                $('#divlogo1').show();
+            }
+        });
+    </script>
+    <!-- Side bar active deactive -->
+    <script type="text/javascript">
+        $(function () {
+            var link = $('.border_row a.bo_menu ');
+
+            link.on('click', function (e) {
+                var target = $($(this).attr('href'));
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 600);
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+
+            $(window).on('scroll', function () {
+                scrNav();
+            });
+
+            function scrNav() {
+                var sTop = $(window).scrollTop();
+                $('section').each(function () {
+                    var id = $(this).attr('id'),
+                        offset = $(this).offset().top - 1,
+                        height = $(this).height();
+                    if (sTop >= offset && sTop < offset + height) {
+                        link.removeClass('active');
+                        $('.border_row').find('[data-scroll="' + id + '"]').addClass('active');
+                    }
+                });
+            }
+            scrNav();
+        });
+    </script>
+    <!-- scroll up on cutton click -->
+    <script type="text/javascript">
+        var btn = $('#button');
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+    </script>
+</body>
+</html>

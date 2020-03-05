@@ -1,0 +1,133 @@
+<div class="border_row">
+  <ul class="nav">
+    <li><a data-scroll="index" href="#index" class="bo_menu bo1 active"></a></li>
+    <li><a data-scroll="about" href="#about" class="bo_menu bo2"></a></li>
+    <li><a data-scroll="craft" href="#craft" class="bo_menu bo3"></a></li>
+    <li><a href="#" class="bo_menu bo4"></a></li>
+    <li><a href="#" class="bo_menu bo5"></a></li>
+  </ul>
+</div>
+<nav class="navbar navbar-expand-sm fixed-top nav_nv">
+  <div class="brand" id="headerlogo">
+    <a class="head_lg" style="display: none;" id="head_lg">
+      <img src="../../assets/img/narola_small.png" class="logo_sm" />
+    </a>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fa fa-bars nav_bar"></i>
+      </a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto" data-toggle="modal" data-target="#myModal2">
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <img src="../../assets/img/login.png" />
+      </a>
+    </li>
+  </ul>
+</nav>
+<section id="index">
+  <div class="ind_bg">
+    <div class="container">
+      <div class="main_logo wow zoomIn" data-wow-duration="5s">
+        <img src="../../assets/img/narola.png" class="brand_logo" id="divlogo1" />
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="ab_bg">
+    <div class="container">
+      <div class="about_sec">
+        <h3 class="ab_head wow zoomIn" data-wow-duration="5s">About Us</h3>
+        <p class="wow fadeInUp" data-wow-duration="5s">
+                        <span class="ab_para">
+                            Narola a bright company started in 1989 with small unit of manufacturing
+                        </span>
+          <span class="ab_para">
+                            in Surat (INDIA) having only one passion in mind to produce finest
+                        </span>
+          <span class="ab_para">
+                            quality of diamonds and supply to the World.
+                        </span>
+        </p>
+        <button class="btn_arr"><i class="fa fa-angle-right know_btn"></i>Know More</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="craft">
+  <div class="crf_bg">
+    <div class="craft_sec">
+      <h3 class="craft_head wow zoomIn" data-wow-duration="5s">CRAFTMENSHIP</h3>
+      <p class="wow fadeInUp" data-wow-duration="5s">
+                    <span class="crf_para">
+                        Narola a bright company started in 1989 with small unit of manu
+                    </span>
+        <span class="crf_para">
+                        in Surat (INDIA) having only one passion in mind to produce finest
+                    </span>
+        <span class="crf_para">
+                        quality of diamonds and supply to the World.
+                    </span>
+      </p>
+      <button class="btn_arr"><i class="fa fa-angle-right know_btn"></i>Know More</button>
+    </div>
+  </div>
+</section>
+
+<div class="modal right fade" id="myModal2" role="dialog">
+  <div class="modal-dialog md_log" role="document">
+    <div class="modal-content mdb_con">
+
+      <div class="modal-header mod_head">
+        <h4 class="modal-title" id="myModalLabel2">Login</h4>
+        <button type="button" class="close cls_mod" data-dismiss="modal">
+          <i class="icon-close ncr_icon"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+
+          <div style="color: red;margin-left: 23%" *ngIf="invalidCred">Invalid Username or Password</div>
+          <div class="container conr">
+            <div class="user_login">
+              <h6 class="use_head">Username</h6>
+              <div class="input-group us_grp">
+                <input type="text" placeholder="Username" class="inp_us" formControlName="username">
+                <span class="input-group-addon"><i class="icon-user ncr_icon"></i></span>
+              </div>
+              <div style="color: red;margin-left: 23%" *ngIf="submitted && username.errors && username.errors.required">Username is required.</div>
+            </div>
+
+            <div class="pswd_login">
+              <h6 class="use_head">Password</h6>
+              <div class="input-group us_grp">
+                <input type="password" placeholder="Password" class="inp_us" formControlName="password">
+                <span class="input-group-addon"><i class="icon-key ncr_icon"></i></span>
+              </div>
+              <div style="color: red;margin-left: 23%;" *ngIf="submitted && password.errors && password.errors.required">Password is required.</div>
+            </div>
+
+            <p class="frg">Forgot password?</p>
+            <div class="log_btn">
+              <button type="submit" class="btn btn_login">Login</button>
+              <h5 class="cret">Create Account</h5>
+            </div>
+          </div>
+          <div class="container-fluid evnt">
+            <div class="event_head">
+              <img src="../../assets/img/login_event.png" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div>
+<a id="button">
+  <img src="../../assets/img/scroll_btn.png" class="scrl_btn" />
+</a>
