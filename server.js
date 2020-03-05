@@ -14,7 +14,6 @@ const cors = require('cors');
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// vikesh git testtttttttttttttt
 
 
 app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/front/authService/login','/front/authService/signup']}));
