@@ -7,7 +7,7 @@ const expressJwt = require('express-jwt');
 
 const front = require('./server/front');
 const admin = require('./server/admin');
-const api = require('./api');
+
 
 const app = express();
 const cors = require('cors');
@@ -30,7 +30,6 @@ app.use(function (err, req, res, next) {
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(cors());
-app.use('/api', api);
 app.use('/front', front);
 app.use('/admin', admin);
 
