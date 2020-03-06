@@ -13,19 +13,19 @@ const app = express();
 
 const cors = require('cors');
 
-
+//test
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/front/authService/login','/front/authService/signup']}));
+app.use(expressJwt({ secret: 'todo-app-super-shared-secret' }).unless({ path: ['/front/authService/login', '/front/authService/signup'] }));
 
-app.use(function (err, req, res, next) {
-  //jwt middlware for error handling
-  res.header("Access-Control-Allow-Origin", "*");
-  if (err.name === 'UnauthorizedError') {
-    res.json({"success":false,"message":"unauthorized_access"})
-  }
+app.use(function(err, req, res, next) {
+    //jwt middlware for error handling
+    res.header("Access-Control-Allow-Origin", "*");
+    if (err.name === 'UnauthorizedError') {
+        res.json({ "success": false, "message": "unauthorized_access" })
+    }
 });
 
 
