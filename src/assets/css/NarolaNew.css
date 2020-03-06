@@ -1,16 +1,13 @@
 @font-face {
   font-family: "NarolaNew";
   src: url("../fonts/NarolaNew.eot?eyvura");
-  src: url("../fonts/NarolaNew.eot?eyvura#iefix") format("embedded-opentype"),
-    url("../fonts/NarolaNew.ttf?eyvura") format("truetype"), url("../fonts/NarolaNew.woff?eyvura") format("woff"),
-    url("../fonts/NarolaNew.svg?eyvura#NarolaNew") format("svg");
+  src: url("../fonts/NarolaNew.eot?eyvura#iefix") format("embedded-opentype"), url("../fonts/NarolaNew.ttf?eyvura") format("truetype"), url("../fonts/NarolaNew.woff?eyvura") format("woff"), url("../fonts/NarolaNew.svg?eyvura#NarolaNew") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "NarolaNew" !important;
   speak: none;
@@ -24,10 +21,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-9:before {
+  content: "\54";
+  color: #000;
+}
+
+.icon-10:before {
+  content: "\53";
+  color: #000;
+}
+
 .icon-mail:before {
   content: "\52";
-  color: #70879d;
+  color: #000;
 }
+
 .icon-plus:before {
   content: "\51";
 }
