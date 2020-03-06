@@ -70,11 +70,7 @@ route.post('/newstones', (req, res) => {
         request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
         request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
         request.execute('UFN_GetCount_UserPanel').then(function (recordsets, returnValue, affected) {
-
-            console.log('user id',req.body.UserId);
-            console.log('new stones res');
-            console.log(recordsets);
-
+            //console.log('user id',req.body.UserId);
 
             if(recordsets && recordsets.output && recordsets.output['']){
                 res.json({success: true, data: recordsets.output['']})
@@ -103,9 +99,6 @@ route.post('/get_page_count', (req, res) => {
     request.execute('WB_GET_PAGE_COUNT').then(function (recordsets, returnValue, affected) {
 
       console.log('user id',req.body.UserId);
-      console.log('get_page_count res');
-      console.log(recordsets);
-
 
       if(recordsets && recordsets.recordset && recordsets.recordset[0]){
         res.json({success: true, data: recordsets.recordset[0]})
@@ -124,8 +117,6 @@ route.post('/get_page_count', (req, res) => {
 
 
 route.post('/simpleRequestWithoutPoolExample', (req, res) => {
-  console.log(req.user);
-  console.log(req.body);
 
   //sql.close();
   sql.connect(config, function(conn) {
