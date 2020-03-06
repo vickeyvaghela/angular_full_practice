@@ -59,17 +59,56 @@ route.post('/savedsearch', (req, res) => {
 
 });
 
+
 route.post('/newstones', (req, res) => {
+
+    const conn = new sql.ConnectionPool(config)
+    conn.connect().then(function () {
+        var request = new sql.Request(conn);
+        request.input('UserId', sql.VarChar(30), req.body.UserId);
+        //request.input('PAGENAME', sql.VarChar(30), req.body.PAGENAME);
+        request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
+        request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
+        request.execute('UFN_GetCount_UserPanel').then(function (recordsets, returnValue, affected) {
+
+            console.log('user id',req.body.UserId);
+            console.log('new stones res');
+            console.log(recordsets);
+
+
+            if(recordsets && recordsets.output && recordsets.output['']){
+                res.json({success: true, data: recordsets.output['']})
+            }else{
+                res.json({success: true, data: null})
+            }
+            conn.close();
+        }).catch(function (err) {
+            console.log(err);
+            conn.close();
+        });
+    }).catch(function (err) {
+        console.log(err);
+    });
+});
+
+route.post('/get_page_count', (req, res) => {
 
   const conn = new sql.ConnectionPool(config)
   conn.connect().then(function () {
     var request = new sql.Request(conn);
     request.input('UserId', sql.VarChar(30), req.body.UserId);
-    request.input('PAGENAME', sql.VarChar(30), req.body.PAGENAME);
-    request.execute('UFN_GetCount_UserPanel').then(function (recordsets, returnValue, affected) {
+    //request.input('PAGENAME', sql.VarChar(30), req.body.PAGENAME);
+    // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
+    // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
+    request.execute('WB_GET_PAGE_COUNT').then(function (recordsets, returnValue, affected) {
 
-      if(recordsets && recordsets.output && recordsets.output['']){
-        res.json({success: true, data: recordsets.output['']})
+      console.log('user id',req.body.UserId);
+      console.log('get_page_count res');
+      console.log(recordsets);
+
+
+      if(recordsets && recordsets.recordset && recordsets.recordset[0]){
+        res.json({success: true, data: recordsets.recordset[0]})
       }else{
         res.json({success: true, data: null})
       }
@@ -110,3 +149,8 @@ route.post('/simpleRequestWithoutPoolExample', (req, res) => {
 });
 
 module.exports = route;
+
+
+setTimeout(() =>
+        this.seconds = () => this.timerComponent.seconds,
+    0);

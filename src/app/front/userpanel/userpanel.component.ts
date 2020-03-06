@@ -15,6 +15,9 @@ export class UserpanelComponent implements OnInit {
   public newStones: number;
   public myOrders = [];
   public savedsearches = [];
+  //public pageCounts: any = {};
+  public pageCounts: any = {};
+
 
   constructor(private userPanelServ: UserpanelService) { }
 
@@ -70,6 +73,23 @@ export class UserpanelComponent implements OnInit {
       error => {
         console.log(error);
       }
+    );
+
+    UserId = 'nik';
+    this.userPanelServ.get_page_count({UserId:UserId}).subscribe(
+        savedsearch => {
+          if(savedsearch && savedsearch.success && savedsearch.data){
+            console.log('ng page count res');
+            console.log(savedsearch.data);
+            this.pageCounts = savedsearch.data;
+            console.log('this.pageCounts ',this.pageCounts);
+          }else{
+            this.newStones = 0;
+          }
+        },
+        error => {
+          console.log(error);
+        }
     );
 
   }

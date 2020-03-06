@@ -17,6 +17,10 @@ export class UserpanelService {
     return this.http.post<any>(this.apiBaseUrl+'/front/UserPanel/newstones',userData);
   }
 
+  get_page_count(userData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/UserPanel/get_page_count',userData);
+  }
+
   myOrders(userData): Observable<any> {
     return this.http.post<any>(this.apiBaseUrl+'/front/UserPanel/myOrders',userData);
   }
