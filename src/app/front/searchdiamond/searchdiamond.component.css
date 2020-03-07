@@ -112,6 +112,43 @@ input:focus, a:focus {
   color: #fff;
 }
 
+.mat-chip-selected {
+  background: #267491!important;
+  border: 1px solid #e8ecef!important;
+  color: #fff!important;
+}
+
+.head_lst .mat-chip {
+  font-family: Montserrat;
+  font-size: 14px;
+  text-align: center;
+  color: #303030;
+  background: #fffefe;
+  margin: 0px;
+  font-weight: normal;
+  border: 1px solid #e8ecef;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.allshp_inline .mat-chip {
+  padding: 26px 20px;
+}
+
+.head_lst .mat-chip:hover, .head_lst .mat-chip:active {
+  background: #267491;
+  border: 1px solid #e8ecef;
+  color: #fff;
+}
+
+.head_lst .mat-chip:hover .hd_diam {
+  color: #fff;
+}
+
+.head_lst .mat-chip:hover .hd_shp {
+  color: #fff;
+}
+
 .mat-chip.mat-standard-chip::after {
   background: #fff;
 }
@@ -272,6 +309,20 @@ input:focus, a:focus {
   color: #267491;
   padding: 10px 20px;
   border-radius: 0px 6px 6px 0px;
+}
+
+.hd_diam {
+  font-size: 30px;
+  margin-right: 10px;
+  color: #1b1918;
+}
+
+.hd_shp {
+  font-family: Rubik;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  color: #267491;
 }
 
 /* Responsive */
@@ -482,6 +533,9 @@ input:focus, a:focus {
   .sch_lst .mat-chip {
     margin-bottom: 5px;
   }
+  .head_lst .mat-chip {
+    margin-bottom: 5px;
+  }
   .color_inline .mat-chip {
     padding: 10px 16px;
   }
@@ -669,6 +723,9 @@ input:focus, a:focus {
     width: 15.3%;
   }
   .clarity_inline .mat-chip {
+    width: 23.7%;
+  }
+  .allshp_inline .mat-chip {
     width: 23.7%;
   }
   .sp_vg {
