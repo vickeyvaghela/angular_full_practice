@@ -127,6 +127,9 @@
 }
 
 @media screen and (max-width: 414px) {
+  .sch .mat-form-field-infix {
+    width: 115px;
+  }
   .meas_sch .mat-form-field-infix {
     width: 140px;
   }

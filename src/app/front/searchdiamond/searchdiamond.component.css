@@ -541,7 +541,7 @@ input:focus, a:focus {
 @media screen and (max-width: 1024px) {
   .allshp_inline .mat-chip {
     padding: 26px 13px;
-}
+  }
   .sch_master {
     margin-bottom: 8px;
     font-size: 13px;
@@ -549,7 +549,6 @@ input:focus, a:focus {
   .sch_lst .mat-chip {
     margin-bottom: 5px;
   }
- 
   .color_inline .mat-chip {
     padding: 10px 16px;
   }
@@ -635,10 +634,10 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .allshp_inline .mat-chip{
+  .allshp_inline .mat-chip {
     padding: 26px 5px;
     width: 16.5%;
-}
+  }
   .clarity_inline .mat-chip {
     padding: 10px 17px;
   }
@@ -737,7 +736,8 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
-  .hd_diam{
+ 
+  .hd_diam {
     font-size: 25px;
     margin-right: 6px;
   }

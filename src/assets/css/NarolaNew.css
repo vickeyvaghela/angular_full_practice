@@ -1,7 +1,10 @@
 @font-face {
-  font-family: "NarolaNew";
-  src: url("../fonts/NarolaNew.eot?eyvura");
-  src: url("../fonts/NarolaNew.eot?eyvura#iefix") format("embedded-opentype"), url("../fonts/NarolaNew.ttf?eyvura") format("truetype"), url("../fonts/NarolaNew.woff?eyvura") format("woff"), url("../fonts/NarolaNew.svg?eyvura#NarolaNew") format("svg");
+  font-family: 'NarolaNew';
+  src:  url('../fonts/NarolaNew.eot?seg49s');
+  src:  url('../fonts/NarolaNew.eot?seg49s#iefix') format('embedded-opentype'),
+    url('../fonts/NarolaNew.ttf?seg49s') format('truetype'),
+    url('../fonts/NarolaNew.woff?seg49s') format('woff'),
+    url('../fonts/NarolaNew.svg?seg49s#NarolaNew') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -9,116 +12,114 @@
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "NarolaNew" !important;
+  font-family: 'NarolaNew' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-Emerald:before {
-  content: "\67";
-}
-.icon-all_shape:before {
-  content: "\64";
-}
-.icon-Cushion-Brilliant:before {
+.icon-plus:before {
   content: "\66";
 }
-.icon-Cushion-Plasma:before {
+.icon-close:before {
   content: "\65";
 }
-.icon-Heart:before {
-  content: "\63";
-}
-.icon-icon-SqEmerald:before {
-  content: "\62";
-}
-.icon-icon-Square-Radiant:before {
-  content: "\61";
-}
-.icon-LgRadiant:before {
-  content: "\4d";
-}
-.icon-Marquise:before {
-  content: "\49";
-}
-.icon-Oval:before {
-  content: "\5a";
-}
-.icon-Pear:before {
-  content: "\59";
-}
-.icon-Princess:before {
-  content: "\58";
-}
-.icon-Round:before {
-  content: "\57";
-}
-.icon-SqEmerald:before {
-  content: "\56";
-}
-.icon-SqRadiant:before {
-  content: "\55";
-}
-.icon-Square-Emerald:before {
-  content: "\54";
-}
-.icon-Square-Radiant:before {
-  content: "\53";
-}
-.icon-mail:before {
-  content: "\52";
-  color: #70879d;
-}
-.icon-plus:before {
-  content: "\51";
-}
-.icon-up_arrow:before {
-  content: "\50";
-}
-.icon-down-arrow:before {
-  content: "\4f";
-}
-.icon-download:before {
-  content: "\4e";
-  color: #70879d;
-}
-.icon-basket:before {
-  content: "\4c";
-}
-.icon-dashboard:before {
-  content: "\4b";
-}
-.icon-favrouite:before {
-  content: "\4a";
-}
-.icon-hold:before {
-  content: "\48";
-}
-.icon-nda:before {
-  content: "\47";
-}
-.icon-order:before {
-  content: "\46";
-}
-.icon-refresh:before {
-  content: "\45";
-}
-.icon-search:before {
-  content: "\44";
-}
-.icon-close:before {
-  content: "\43";
-}
 .icon-key:before {
-  content: "\42";
+  content: "\64";
 }
 .icon-user:before {
+  content: "\63";
+}
+.icon-basket:before {
+  content: "\62";
+}
+.icon-dashboard:before {
+  content: "\61";
+}
+.icon-down-arrow:before {
+  content: "\5a";
+}
+.icon-download:before {
+  content: "\59";
+  color: #70879d;
+}
+.icon-favrouite:before {
+  content: "\58";
+}
+.icon-hold:before {
+  content: "\57";
+}
+.icon-mail:before {
+  content: "\56";
+  color: #70879d;
+}
+.icon-nda:before {
+  content: "\55";
+}
+.icon-order:before {
+  content: "\54";
+}
+.icon-refresh:before {
+  content: "\53";
+}
+.icon-search:before {
+  content: "\52";
+}
+.icon-up_arrow:before {
+  content: "\51";
+}
+.icon-round:before {
+  content: "\50";
+}
+.icon-Single_2:before {
+  content: "\4f";
+}
+.icon-Single_3:before {
+  content: "\4e";
+}
+.icon-Single_4:before {
+  content: "\4d";
+}
+.icon-Single_5:before {
+  content: "\4c";
+}
+.icon-Single_6:before {
+  content: "\4b";
+}
+.icon-Single_7:before {
+  content: "\4a";
+}
+.icon-Single_8:before {
+  content: "\49";
+}
+.icon-Single_9:before {
+  content: "\48";
+}
+.icon-Single_10:before {
+  content: "\47";
+}
+.icon-Single_11:before {
+  content: "\46";
+}
+.icon-Single_12:before {
+  content: "\45";
+}
+.icon-Single_13:before {
+  content: "\44";
+}
+.icon-Single_14:before {
+  content: "\43";
+}
+.icon-Single_15:before {
+  content: "\42";
+}
+.icon-Single_17:before {
   content: "\41";
 }
