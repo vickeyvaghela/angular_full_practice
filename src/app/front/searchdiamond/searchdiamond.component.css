@@ -132,7 +132,7 @@ input:focus, a:focus {
 }
 
 .allshp_inline .mat-chip {
-  padding: 26px 20px;
+  padding: 26px 24.5px;
 }
 
 .head_lst .mat-chip:hover, .head_lst .mat-chip:active {
@@ -328,6 +328,9 @@ input:focus, a:focus {
 /* Responsive */
 
 @media screen and (max-width: 1600px) {
+  .allshp_inline .mat-chip {
+    padding: 26px 12.5px;
+  }
   .color_inline .mat-chip {
     padding: 10px 17px;
   }
@@ -397,6 +400,9 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 1440px) {
+  .allshp_inline .mat-chip {
+    padding: 26px 6.2px;
+  }
   .color_inline .mat-chip {
     padding: 10px 14px;
   }
@@ -454,6 +460,13 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 1366px) {
+  .hd_diam {
+    font-size: 28px;
+    margin-right: 8px;
+  }
+  .allshp_inline .mat-chip {
+    padding: 26px 5.5px;
+  }
   .color_inline .mat-chip {
     padding: 10px 13px;
   }
@@ -526,6 +539,9 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 1024px) {
+  .allshp_inline .mat-chip {
+    padding: 26px 13px;
+}
   .sch_master {
     margin-bottom: 8px;
     font-size: 13px;
@@ -533,9 +549,7 @@ input:focus, a:focus {
   .sch_lst .mat-chip {
     margin-bottom: 5px;
   }
-  .head_lst .mat-chip {
-    margin-bottom: 5px;
-  }
+ 
   .color_inline .mat-chip {
     padding: 10px 16px;
   }
@@ -621,6 +635,10 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 768px) {
+  .allshp_inline .mat-chip{
+    padding: 26px 5px;
+    width: 16.5%;
+}
   .clarity_inline .mat-chip {
     padding: 10px 17px;
   }
@@ -719,6 +737,10 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
+  .hd_diam{
+    font-size: 25px;
+    margin-right: 6px;
+  }
   .color_inline .mat-chip {
     width: 15.3%;
   }
@@ -726,7 +748,8 @@ input:focus, a:focus {
     width: 23.7%;
   }
   .allshp_inline .mat-chip {
-    width: 23.7%;
+    width: 33%;
+    padding: 26px 3px;
   }
   .sp_vg {
     padding: 10px 20px !important;
