@@ -736,7 +736,6 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
- 
   .hd_diam {
     font-size: 25px;
     margin-right: 6px;
@@ -752,9 +751,37 @@ input:focus, a:focus {
     padding: 26px 3px;
   }
   .sp_vg {
-    padding: 10px 20px !important;
+    padding: 10px 12px !important;
   }
   #content-wrapper {
     padding-left: 15px;
+  }
+  .fluorsm {
+    display: block;
+  }
+  .fluor_inline .mat-chip {
+    padding: 10px 17px;
+  }
+  .eye_inline .mat-chip {
+    padding: 10px 34px;
+  }
+  .lab_inline .mat-chip {
+    padding: 10px 18px;
+  }
+  .lust_inline .mat-chip {
+    padding: 10px 41px;
+  }
+  .ha_inline .mat-chip {
+    padding: 10px 22px;
+  }
+  .org_select {
+    width: 200px;
+  }
+  .flrdn_inline .mat-chip {
+    padding: 10px 26px;
+  }
+  .inc_inline .mat-chip {
+    padding: 10px 4px;
+    margin-bottom: 20px;
   }
 }
