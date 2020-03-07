@@ -22,6 +22,7 @@ export class UserpanelComponent implements OnInit {
   constructor(private userPanelServ: UserpanelService) { }
 
   ngOnInit(): void {
+    this.loadScript();
     // $('body').removeClass('modal-open');
     // $('.modal-backdrop').remove();
     this.initialize();
@@ -45,6 +46,7 @@ export class UserpanelComponent implements OnInit {
       }
     );
 
+ 
 
     UserId = 'nik';
     this.userPanelServ.savedsearch({UserId:UserId}).subscribe(
@@ -93,5 +95,14 @@ export class UserpanelComponent implements OnInit {
     );
 
   }
+  public loadScript() {
+    let body = <HTMLDivElement> document.body;
+    let script = document.createElement('script');
 
+    script.innerHTML = '';
+    script.src = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js';
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
+  }
 }
