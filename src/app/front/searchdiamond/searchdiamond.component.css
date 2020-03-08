@@ -49,6 +49,18 @@
   border-radius: 4px;
 }
 
+.sch_tp{
+  padding: 6px;
+    font-size: 16px;
+    border: 1px solid #267491;
+    margin-right: 10px;
+    border-radius: 4px;
+    vertical-align: middle;
+    background-color: #267491;
+    color: #fff;
+    cursor: pointer;
+}
+
 .hid {
   color: #84878a;
   margin-left: 10px;

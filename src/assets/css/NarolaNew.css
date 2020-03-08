@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-print:before {
+  content: "\67";
+}
 .icon-plus:before {
   content: "\66";
 }
@@ -48,7 +51,6 @@
 }
 .icon-download:before {
   content: "\59";
-  color: #70879d;
 }
 .icon-favrouite:before {
   content: "\58";
@@ -58,7 +60,6 @@
 }
 .icon-mail:before {
   content: "\56";
-  color: #70879d;
 }
 .icon-nda:before {
   content: "\55";
