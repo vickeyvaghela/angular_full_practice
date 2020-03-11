@@ -264,14 +264,6 @@ input:focus, a:focus {
   padding: 10px 23px;
 }
 
-.inc_inline .mat-chip {
-  padding: 10px 30px;
-}
-
-.flrdn_inline .mat-chip {
-  padding: 10px 30.8px;
-}
-
 #content-wrapper {
   padding: 15px;
   top: 100px;
@@ -403,9 +395,7 @@ input:focus, a:focus {
     width: 27%;
     margin-top: 8px;
   }
-  .flrdn_inline .mat-chip {
-    padding: 10px 22.3px;
-  }
+  
   .inc_sm {
     width: 16%;
   }
@@ -463,9 +453,7 @@ input:focus, a:focus {
   .frmgia_sm {
     width: 30%;
   }
-  .flrdn_inline .mat-chip {
-    padding: 10px 18px;
-  }
+ 
   .inc_sm {
     width: 17%;
   }
@@ -544,12 +532,6 @@ input:focus, a:focus {
   }
   .tois_sm1 {
     width: 30%;
-  }
-  .flrdn_inline .mat-chip {
-    padding: 10px 17px;
-  }
-  .inc_inline .mat-chip {
-    padding: 10px 26px;
   }
 }
 
@@ -639,15 +621,9 @@ input:focus, a:focus {
   .dt_sche {
     margin-top: 10px;
   }
-  .flrdn_inline .mat-chip {
-    padding: 10px 26px;
-  }
+ 
   .inc_sm {
     width: 26%;
-    margin-top: 10px;
-  }
-  .inc_inline .mat-chip {
-    padding: 10px 34px;
     margin-top: 10px;
   }
 }
@@ -746,9 +722,7 @@ input:focus, a:focus {
   .dt_sche1 {
     margin-top: 10px;
   }
-  .flrdn_inline .mat-chip {
-    padding: 10px 19px;
-  }
+ 
   .inc_sm {
     width: 18%;
   }
@@ -795,12 +769,5 @@ input:focus, a:focus {
   }
   .org_select {
     width: 200px;
-  }
-  .flrdn_inline .mat-chip {
-    padding: 10px 26px;
-  }
-  .inc_inline .mat-chip {
-    padding: 10px 4px;
-    margin-bottom: 20px;
   }
 }
