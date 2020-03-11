@@ -25,6 +25,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-Excel-Upload:before {
+  content: "\70";
+}
+.icon-Confirm-Stone-new:before {
+  content: "\6f";
+}
+.icon-Confirm-Stone:before {
+  content: "\6b";
+}
+.icon-hold-stone:before {
+  content: "\69";
+}
+.icon-add-basket:before {
+  content: "\6e";
+}
+.icon-add-wishlist:before {
+  content: "\6d";
+}
+.icon-cart-with-user:before {
+  content: "\6c";
+}
+.icon-excel:before {
+  content: "\6a";
+}
+.icon-my-wishlist:before {
+  content: "\68";
+}
 .icon-print:before {
   content: "\67";
 }
