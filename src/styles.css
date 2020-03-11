@@ -97,13 +97,13 @@
 
 @media screen and (max-width: 1600px) {
   .meas_sch .mat-form-field-infix {
-    width: 155px;
+    width: 151px;
   }
 }
 
 @media screen and (max-width: 1440px) {
   .meas_sch .mat-form-field-infix {
-    width: 135px;
+    width: 131px;
   }
 }
 
