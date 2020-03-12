@@ -17,6 +17,7 @@ import { CommonComponent } from './front/common/common/common.component';
 import { SearchdiamondComponent } from './front/searchdiamond/searchdiamond.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { StonedetailComponent } from './front/stonedetail/stonedetail.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -28,7 +29,8 @@ export function tokenGetter() {
     HomeComponent,
     UserpanelComponent,
     CommonComponent,
-    SearchdiamondComponent
+    SearchdiamondComponent,
+    StonedetailComponent
   ],
   imports: [
     BrowserModule,

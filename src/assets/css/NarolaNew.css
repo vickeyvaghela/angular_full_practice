@@ -25,7 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+.icon-certificate:before {
+  content: "\6b";
+}
+.icon-dollar:before {
+  content: "\6a";
+}
 .icon-Excel-Upload:before {
   content: "\69";
 }

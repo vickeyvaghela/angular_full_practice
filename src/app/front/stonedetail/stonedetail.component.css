@@ -1,0 +1,166 @@
+#sidebar-wrapper {
+    display: none;
+}
+
+#content-wrapper {
+    padding-top: 100px;
+}
+
+.mark_shp {
+    margin-right: 10px;
+    display: inline-block;
+    font-size: 28px;
+    width: 8%;
+    color: #134361;
+}
+
+.txt_shp {
+    display: inline-block;
+    width: 86%;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.996px;
+    text-transform: uppercase;
+    color: #253646;
+}
+
+.bg_whl {
+    background: #E0E4E8;
+    border-radius: 4px;
+    padding: 20px 20px 15px;
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.icntxt_detail .mat-chip {
+    background: #FFFFFF;
+    border: 1px solid #E8ECEF;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px 16px;
+}
+
+.res_icon {
+    color: #253646;
+    margin-right: 10px;
+}
+
+.mat-standard-chip:hover::after {
+    opacity: 0!important;
+}
+
+/* Table */
+
+.plpr {
+    padding-left: 0px;
+    padding-right: 0px;
+    border: 1px solid #E0E4E8;
+    border-radius: 4px;
+}
+
+.tbcell1 {
+    width: 12%;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.996px;
+    text-transform: uppercase;
+    color: #253646;
+}
+
+.tbcell2 {
+    width: 13%;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #267491;
+    font-weight: 600;
+}
+
+.tbcell3 {
+    width: 12%;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.996px;
+    text-transform: uppercase;
+    color: #253646;
+}
+
+.tbcell4 {
+    width: 38%;
+    font-family: Rubik;
+    font-style: normal;
+    font-size: 14px;
+    color: #267491;
+    font-weight: 600;
+}
+
+div.blueTable {
+    background-color: #fff;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+    padding: 8px;
+}
+
+.blueTable .tableFootStyle .links {
+    text-align: right;
+}
+
+.blueTable .tableFootStyle .links a {
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.blueTable.outerTableFooter {
+    border-top: none;
+}
+
+.blueTable.outerTableFooter .tableFootStyle {
+    padding: 3px 5px;
+}
+
+/* DivTable.com */
+
+.divTable {
+    display: table;
+}
+
+.divTableRow {
+    display: table-row;
+}
+
+.divTableHeading {
+    display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+    display: table-cell;
+}
+
+.divTableHeading {
+    display: table-header-group;
+}
+
+.divTableFoot {
+    display: table-footer-group;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
