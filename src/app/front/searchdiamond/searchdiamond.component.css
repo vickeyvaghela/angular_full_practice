@@ -352,6 +352,28 @@ input:focus, a:focus {
   color: #267491;
 }
 
+.pcs_inline .mat-chip {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.996px;
+  text-transform: uppercase;
+  color: #253646;
+  background-color: #fff;
+  border: 1px solid #E8ECEF;
+  border-radius: 4px;
+  width: 8%;
+}
+
+.pcs_ans {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  color: #303030;
+  margin-left: 10px;
+}
+
 /* Responsive */
 
 @media screen and (max-width: 1600px) {
@@ -752,7 +774,7 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
-  .sch_tp{
+  .sch_tp {
     padding: 4px;
     font-size: 14px;
   }
