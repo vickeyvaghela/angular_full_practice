@@ -191,7 +191,7 @@
 }
 
 .grp-search {
-    width: 260px;
+    width: 310px;
     background: #FFFEFE;
     border: 1px solid #E8ECEF;
     border-radius: 10px;
@@ -242,7 +242,7 @@
     text-align: center;
 }
 
-.pil_act{
+.pil_act {
     padding: 0px 170px;
 }
 
@@ -258,7 +258,7 @@
     background-color: #267491;
 }
 
-.pil_act .active .pil_hed:focus{
+.pil_act .active .pil_hed:focus {
     background-color: #267491;
 }
 
@@ -325,9 +325,60 @@ div.blueTable {
 
 /* responsive */
 
+@media screen and (max-width:1600px) {
+    .pil_act {
+        padding: 0px 120px;
+    }
+    .grp-search {
+        width: 260px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .pil_act {
+        padding: 0px 90px;
+    }
+    .grp-search {
+        width: 230px;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .pil_act {
+        padding: 0px 75px;
+    }
+    .grp-search {
+        width: 210px;
+    }
+}
+
 @media screen and (max-width:1280px) {
     .mst-scrl {
         overflow-x: scroll;
+    }
+    .pil_act {
+        padding: 0px 60px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .pil_act {
+        padding: 0px 24px;
+    }
+    .grp-search {
+        width: 170px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .pil_act {
+        padding: 0px 220px;
+    }
+    .grp-search {
+        width: 425px;
+    }
+    .icntxt_detail .mat-chip {
+        margin-top: 10px;
     }
 }
 
@@ -343,5 +394,16 @@ div.blueTable {
     }
     .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
         border-color: #267491;
+    }
+    .pil_act {
+        padding: 0px 20px;
+    }
+    .grp-search {
+        width: 240px;
+    }
+    .icn_rght {
+        margin-top: 10px;
+        text-align: right;
+        margin-bottom: 20px;
     }
 }
