@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector: 'app-stonedetail',
   templateUrl: './stonedetail.component.html',
-  styleUrls: ['/node_modules/bootstrap3/dist/css/bootstrap.min.css','./stonedetail.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['/node_modules/bootstrap3/dist/css/bootstrap.min.css','./stonedetail.component.css']
 })
 export class StonedetailComponent implements OnInit {
 
@@ -15,7 +13,7 @@ export class StonedetailComponent implements OnInit {
     this.loadScript();
   }
   public loadScript() {
-    let body = <HTMLDivElement> document.body;
+    let body = <HTMLDivElement>document.body;
     let script = document.createElement('script');
 
     script.innerHTML = '';

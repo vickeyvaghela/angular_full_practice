@@ -1,22 +1,43 @@
-#sidebar-wrapper {
-    display: none;
+#content-wrapper {
+    padding: 15px;
+    top: 100px;
+    padding-top: 100px;
 }
 
-#content-wrapper {
-    padding-top: 100px;
+#navbar-wrapper .navbar {
+    border-width: 0 0 0 0;
+    background-color: #f8f8f8;
+    font-size: 24px;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 10px;
+}
+
+.dash {
+    font-family: Rubik;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #267491 !important;
+}
+
+.nv_brnd {
+    padding: 0px;
+    margin-right: 10px;
 }
 
 .mark_shp {
     margin-right: 10px;
     display: inline-block;
     font-size: 28px;
-    width: 8%;
+    width: 12%;
     color: #134361;
 }
 
 .txt_shp {
     display: inline-block;
-    width: 86%;
+    width: 82%;
     font-family: Rubik;
     font-style: normal;
     font-weight: bold;
@@ -50,8 +71,20 @@
     margin-right: 10px;
 }
 
+.res_txt {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #267491;
+}
+
 .mat-standard-chip:hover::after {
     opacity: 0!important;
+}
+
+#sidebar-wrapper {
+    display: none;
 }
 
 /* Table */
@@ -72,20 +105,24 @@
     letter-spacing: 0.996px;
     text-transform: uppercase;
     color: #253646;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .tbcell2 {
-    width: 13%;
+    width: 38%;
     font-family: Rubik;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     color: #267491;
     font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .tbcell3 {
-    width: 12%;
+    width: 14%;
     font-family: Rubik;
     font-style: normal;
     font-weight: bold;
@@ -93,15 +130,136 @@
     letter-spacing: 0.996px;
     text-transform: uppercase;
     color: #253646;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .tbcell4 {
-    width: 38%;
+    width: 19%;
     font-family: Rubik;
     font-style: normal;
+    font-weight: normal;
     font-size: 14px;
     color: #267491;
     font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.stn_img {
+    text-align: center;
+    width: 350px;
+    height: 350px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto 10px;
+    margin-top: 20px;
+}
+
+.det_img {
+    max-width: 100%;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.stn_vdeo {
+    text-align: center;
+    width: 350px;
+    height: 350px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto 10px;
+    margin-top: 20px;
+}
+
+.det_vdeo {
+    max-width: 100%;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    height: 350px;
+    width: 340px;
+}
+
+.grp-search {
+    width: 260px;
+    background: #FFFEFE;
+    border: 1px solid #E8ECEF;
+    border-radius: 10px;
+}
+
+.frm_ipn {
+    border: 0;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #134361;
+    box-shadow: none;
+}
+
+.frm_ipn:focus {
+    box-shadow: none;
+}
+
+.grp_add {
+    background: #fff;
+    border: 0;
+}
+
+.icn_rght {
+    margin-top: 10px;
+}
+
+.viwdown {
+    border: 1px solid #e8ecef;
+    padding: 8px 10px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+
+.detl_icon {
+    color: #267491;
+    font-size: 20px;
+}
+
+.pil_hed {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #267491;
+    text-align: center;
+}
+
+.pil_act{
+    padding: 0px 170px;
+}
+
+.pil_act .active .pil_hed {
+    background-color: #267491;
+}
+
+.pil_act .active .pil_hed:hover {
+    background-color: #267491;
+}
+
+.pil_act .active .pil_hed:active {
+    background-color: #267491;
+}
+
+.pil_act .active .pil_hed:focus{
+    background-color: #267491;
 }
 
 div.blueTable {
@@ -163,4 +321,27 @@ div.blueTable {
 
 .divTableBody {
     display: table-row-group;
+}
+
+/* responsive */
+
+@media screen and (max-width:1280px) {
+    .mst-scrl {
+        overflow-x: scroll;
+    }
+}
+
+@media screen and (max-width:414px) {
+    .navbar-inverse .navbar-toggle {
+        border-color: #267491;
+    }
+    .navbar-toggle {
+        background-color: #267491;
+    }
+    .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+        background-color: #267491;
+    }
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: #267491;
+    }
 }

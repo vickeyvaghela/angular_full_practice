@@ -7,6 +7,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs';
 
 const MaterialComponents =[
   MatFormFieldModule,
@@ -17,7 +18,8 @@ const MaterialComponents =[
   MatSelectModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatRippleModule
+  MatRippleModule,
+  MatTabsModule
 ]
 @NgModule({
   imports: [
