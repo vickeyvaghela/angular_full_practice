@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './front/services/auth.guard';
 import { AuthService } from './front/services/auth.service'
 import { TokenInterceptor } from './front/services/token-interceptor'
+
+import { DatePipe } from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,9 +17,10 @@ import { HomeComponent } from './front/home/home.component';
 import { UserpanelComponent } from './front/userpanel/userpanel.component';
 import { CommonComponent } from './front/common/common/common.component';
 import { SearchdiamondComponent } from './front/searchdiamond/searchdiamond.component';
+import { StonedetailComponent } from './front/stonedetail/stonedetail.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { StonedetailComponent } from './front/stonedetail/stonedetail.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -36,6 +39,7 @@ export function tokenGetter() {
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -48,7 +52,7 @@ export function tokenGetter() {
     }),
     BrowserAnimationsModule
   ],
-  providers: [AuthGuard,AuthService,{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [DatePipe,AuthGuard,AuthService,{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
