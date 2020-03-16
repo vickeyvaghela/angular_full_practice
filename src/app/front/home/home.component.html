@@ -43,15 +43,15 @@
             <div class="about_sec">
                 <h3 class="ab_head wow zoomIn" data-wow-duration="5s">About Us</h3>
                 <p class="wow fadeInUp" data-wow-duration="5s">
-                        <span class="ab_para">
-                            Narola a bright company started in 1989 with small unit of manufacturing
-                        </span>
                     <span class="ab_para">
-                            in Surat (INDIA) having only one passion in mind to produce finest
-                        </span>
+                        Narola a bright company started in 1989 with small unit of manufacturing
+                    </span>
                     <span class="ab_para">
-                            quality of diamonds and supply to the World.
-                        </span>
+                        in Surat (INDIA) having only one passion in mind to produce finest
+                    </span>
+                    <span class="ab_para">
+                        quality of diamonds and supply to the World.
+                    </span>
                 </p>
                 <button class="btn_arr"><i class="fa fa-angle-right know_btn"></i>Know More</button>
             </div>
@@ -63,15 +63,15 @@
         <div class="craft_sec">
             <h3 class="craft_head wow zoomIn" data-wow-duration="5s">CRAFTMENSHIP</h3>
             <p class="wow fadeInUp" data-wow-duration="5s">
-                    <span class="crf_para">
-                        Narola a bright company started in 1989 with small unit of manu
-                    </span>
                 <span class="crf_para">
-                        in Surat (INDIA) having only one passion in mind to produce finest
-                    </span>
+                    Narola a bright company started in 1989 with small unit of manu
+                </span>
                 <span class="crf_para">
-                        quality of diamonds and supply to the World.
-                    </span>
+                    in Surat (INDIA) having only one passion in mind to produce finest
+                </span>
+                <span class="crf_para">
+                    quality of diamonds and supply to the World.
+                </span>
             </p>
             <button class="btn_arr"><i class="fa fa-angle-right know_btn"></i>Know More</button>
         </div>
@@ -100,7 +100,9 @@
                                 <input type="text" placeholder="Username" class="inp_us" formControlName="username">
                                 <span class="input-group-addon"><i class="icon-user ncr_icon"></i></span>
                             </div>
-                            <div style="color: red;margin-left: 23%" *ngIf="submitted && username.errors && username.errors.required">Username is required.</div>
+                            <div style="color: red;margin-left: 23%"
+                                *ngIf="submitted && username.errors && username.errors.required">Username is required.
+                            </div>
                         </div>
 
                         <div class="pswd_login">
@@ -109,13 +111,15 @@
                                 <input type="password" placeholder="Password" class="inp_us" formControlName="password">
                                 <span class="input-group-addon"><i class="icon-key ncr_icon"></i></span>
                             </div>
-                            <div style="color: red;margin-left: 23%;" *ngIf="submitted && password.errors && password.errors.required">Password is required.</div>
+                            <div style="color: red;margin-left: 23%;"
+                                *ngIf="submitted && password.errors && password.errors.required">Password is required.
+                            </div>
                         </div>
 
                         <p class="frg">Forgot password?</p>
                         <div class="log_btn">
                             <button type="submit" class="btn btn_login">Login</button>
-                            <h5 class="cret">Create Account</h5>
+                            <h5 class="cret" data-toggle="modal" data-target="#myModal3">Create Account</h5>
                         </div>
                     </div>
                     <div class="container-fluid evnt">
@@ -127,6 +131,90 @@
             </div>
         </div><!-- modal-content -->
     </div><!-- modal-dialog -->
+</div>
+
+<div class="modal right fade" id="myModal3" role="dialog">
+    <div class="modal-dialog md_log register_mod" role="document">
+        <div class="modal-content mdb_con">
+
+            <div class="modal-header mod_head">
+                <h4 class="modal-title" id="myModalLabel2">Register</h4>
+                <button type="button" class="close cls_mod" data-dismiss="modal">
+                    <i class="icon-close ncr_icon"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <h4 class="reg_main">Account Details</h4>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Username</label>
+                                <input type="text" class="form-control frm_plc" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Password</label>
+                                <input type="password" class="form-control frm_plc" placeholder="Set Password">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Confirm Password</label>
+                                <input type="password" class="form-control frm_plc" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-16"></div>
+                        <div class="col-md-12 col-sm-12">
+                            <h4 class="reg_main">Personal Details</h4>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Firstname</label>
+                                <input type="text" class="form-control frm_plc" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Lastname</label>
+                                <input type="text" class="form-control frm_plc" placeholder="Lastname">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Company Name</label>
+                                <input type="text" class="form-control frm_plc" placeholder="Your Company Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Designation</label>
+                                <input type="text" class="form-control frm_plc" placeholder="Your Designation">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Primary Email Id</label>
+                                <input type="email" class="form-control frm_plc" placeholder="Your Email">
+                                <p class="frm_txt">Main mode of communication</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label class="frm_use">Secondary Email Id</label>
+                                <input type="email" class="form-control frm_plc" placeholder="Your Email">
+                                <p class="frm_txt">(You will get email on this ID only when diamonds are confirmed)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div>
 </div>
 <a id="button">
     <img src="../../assets/img/scroll_btn.png" class="scrl_btn" />

@@ -21,6 +21,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-prince_dark:before {
+  content: "\70";
+}
 .icon-logout:before {
   content: "\6f";
 }

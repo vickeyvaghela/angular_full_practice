@@ -48,17 +48,17 @@ export class SearchdiamondComponent implements OnInit {
       selectAll:false,
       items:[
         // {name:"All Shape",code:1,selected:false,className:"icon-all_shape"},
-        {name:"Round",code:"R",selected:false,className:"icon-Round"},
-        {name:"Emerald",code:"E",selected:false,className:"icon-Emerald"},
-        {name:"Cushion",code:"CU",selected:false,className:"icon-Cushion-Brilliant"},
-        {name:"Princess",code:"P",selected:false,className:"icon-Princess"},
-        {name:"Marquise",code:"M",selected:false,className:"icon-Marquise"},
-        {name:"Pear",code:"PE",selected:false,className:"icon-Pear"},
-        {name:"Heart",code:"H",selected:false,className:"icon-Heart"},
-        {name:"Oval",code:"O",selected:false,className:"icon-Oval"},
-        {name:"SqEmerald",code:"SE",selected:false,className:"icon-SqEmerald"},
-        {name:"Radient",code:"RA",selected:false,className:"icon-LgRadiant"},
-        {name:"Other Shapes",code:"OT",selected:false,className:"icon-all_shape"}
+        {name:"Round",code:"R",selected:false,className:"icon-round"},
+        {name:"Emerald",code:"E",selected:false,className:"icon-Single_9"},
+        {name:"Cushion",code:"CU",selected:false,className:"icon-Single_17"},
+        {name:"Princess",code:"P",selected:false,className:"icon-prince_dark"},
+        {name:"Marquise",code:"M",selected:false,className:"icon-Single_7"},
+        {name:"Pear",code:"PE",selected:false,className:"icon-Single_5"},
+        {name:"Heart",code:"H",selected:false,className:"icon-Single_8"},
+        {name:"Oval",code:"O",selected:false,className:"icon-Single_6"},
+        {name:"SqEmerald",code:"SE",selected:false,className:"icon-Single_3"},
+        {name:"Radient",code:"RA",selected:false,className:"icon-Single_2"},
+        {name:"Other Shapes",code:"OT",selected:false,className:"icon-Single_14"}
       ],
       selectCount:0
     },

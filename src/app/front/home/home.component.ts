@@ -10,7 +10,7 @@ import { ViewEncapsulation } from '@angular/core'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css','/node_modules/bootstrap/dist/css/bootstrap.min.css'],
+  styleUrls: ['/node_modules/bootstrap/dist/css/bootstrap.min.css','./home.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {

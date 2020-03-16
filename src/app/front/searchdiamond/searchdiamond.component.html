@@ -1,6 +1,6 @@
 <form [formGroup]="searchDiamondForm" (ngSubmit)="onSubmit()">
 
-    <app-common (globalSearchEmitter)="getGlobalDataFrmChild($event)">></app-common>
+    <app-common (globalSearchEmitter)="getGlobalDataFrmChild($event)"></app-common>
 
     <section id="content-wrapper">
         <div class="container-fluid">
@@ -38,7 +38,7 @@
                                     <mat-chip-list class=" head_lst allshp_inline" multiple="true">
                                         <mat-chip [selected]="initObj.shape.selectAll"
                                             (click)="checkAll(!initObj.shape.selectAll,'shape');initObj.shape.selectAll=!initObj.shape.selectAll">
-                                            <i class="icon-all_shape hd_diam"></i><span class="hd_shp">All Shape</span>
+                                            <i class="icon-Single_14 hd_diam"></i><span class="hd_shp">All Shape</span>
                                         </mat-chip>
                                         <mat-chip *ngFor="let shape of initObj.shape.items" [selected]="shape.selected"
                                             (click)="shape.selected=!shape.selected;initObj.shape.selectCount=initObj.shape.selectCount+1;">
