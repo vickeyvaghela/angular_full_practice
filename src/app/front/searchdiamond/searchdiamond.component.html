@@ -11,7 +11,7 @@
                         <p style="text-align:left;" class="sch_head">
                             SEARCH VIEW
                             <span style="float:right;">
-                                <span class="stn_found">2208 Stones Found</span>
+                                <button class="stn_found">2208 Stones Found</button>
 
                                 <button class="sch_tp" type="submit">
                                     <i class="icon-search"></i>Search
@@ -407,7 +407,7 @@
                                         </div>
                                         <div class="flr_sm1 sel_mat org_mat">
                                             <mat-form-field floatLabel="never">
-                                                <mat-select formControlName="originControl" multiple>
+                                                <mat-select formControlName="originControl" multiple disableOptionCentering class="myPanelClass">
                                                     <mat-select-trigger
                                                         *ngIf="searchDiamondForm.value.originControl.length>=originList.length">
                                                         <span class="example-additional-selection">
@@ -430,7 +430,7 @@
                                         </div>
                                         <div class="flr_sm1 sel_mat org_mat">
                                             <mat-form-field floatPlaceholder="never">
-                                                <mat-select formControlName="shadeControl" multiple>
+                                                <mat-select formControlName="shadeControl" multiple disableOptionCentering class="myPanelClass">
                                                     <mat-select-trigger
                                                         *ngIf="searchDiamondForm.value.shadeControl.length>=shadeList.length">
                                                         <span class="example-additional-selection">
@@ -453,7 +453,7 @@
                                         </div>
                                         <div class="flr_sm1 sel_mat org_mat">
                                             <mat-form-field floatLabel="never">
-                                                <mat-select formControlName="locationControl" multiple>
+                                                <mat-select formControlName="locationControl" multiple disableOptionCentering class="myPanelClass">
                                                     <mat-select-trigger
                                                         *ngIf="searchDiamondForm.value.locationControl.length>=locationList.length">
                                                         <span class="example-additional-selection">

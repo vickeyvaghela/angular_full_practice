@@ -1,5 +1,4 @@
-a:hover,
-a:focus {
+a:hover, a:focus {
   text-decoration: none;
 }
 
@@ -46,8 +45,7 @@ a:focus {
   list-style: none;
 }
 
-
-.sidebar-nav > li a {
+.sidebar-nav>li a {
   display: block;
   text-decoration: none;
   color: #757575;
@@ -57,14 +55,13 @@ a:focus {
   text-align: center;
 }
 
-.sidebar-nav > li > a:hover,
-.sidebar-nav > li.active > a {
+.sidebar-nav>li>a:hover, .sidebar-nav>li.active>a {
   text-decoration: none;
   color: #fff;
   background: #253646;
 }
 
-.sidebar-nav > li > a i.fa {
+.sidebar-nav>li>a i.fa {
   font-size: 24px;
   width: 60px;
 }
@@ -83,9 +80,6 @@ a:focus {
   border-radius: 0;
   padding: 10px;
 }
-
-
-
 
 .dash {
   font-family: Rubik;
@@ -165,31 +159,41 @@ a:focus {
   width: 54px;
 }
 
-.nv_brnd{
+.nv_brnd {
   padding: 0px;
   margin-right: 10px;
 }
 
-@media screen and (max-width:768px){
-  .col_box{
+.log_hed {
+  font-size: 16px;
+  background-color: #267491;
+  border: 1px solid #e8ecef;
+  padding: 6px 15px;
+  margin-top: 8px;
+  color: #fff;
+  border-radius: 6px;
+}
+
+@media screen and (max-width:768px) {
+  .col_box {
     margin-bottom: 10px;
   }
 }
-@media screen and (max-width:414px){
+
+@media screen and (max-width:414px) {
   #sidebar-wrapper {
     display: none;
   }
-
-  .navbar-inverse .navbar-toggle{
+  .navbar-inverse .navbar-toggle {
     border-color: #267491;
   }
-  .navbar-toggle{
-    background-color:#267491 ;
+  .navbar-toggle {
+    background-color: #267491;
   }
-  .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
-    background-color:#267491 ;
+  .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #267491;
   }
-  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     border-color: #267491;
   }
 }
