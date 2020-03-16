@@ -374,6 +374,15 @@ export class SearchdiamondComponent implements OnInit {
         }
       })
     }
+
+
+    if(!bool){
+      this.gdofr = false;
+      this.ex3 = false;
+      this.vg3 = false;
+    }
+
+
   }
 
   selectSingleChipOption(valueObj,Target){
@@ -402,6 +411,7 @@ export class SearchdiamondComponent implements OnInit {
   }
 
   createGroup(tarGet){
+
     if(this.initObj[tarGet].selectCount == 2){
       let changeSelectionFromNow = 0;
       for(let i=0;i<this.initObj[tarGet].items.length;i++){
@@ -412,6 +422,29 @@ export class SearchdiamondComponent implements OnInit {
             this.initObj[tarGet].items[i].selected = true;
           }
         }
+      }
+    }
+  }
+
+  removeSame(bool,ItemName,TarGet){
+    if(!bool){
+
+      if(TarGet=='cut'){
+        this.initObj.cut.selectAll = false;
+      }else if(TarGet=='pol'){
+        this.initObj.pol.selectAll = false;
+      }else if(TarGet=='symm'){
+        this.initObj.symm.selectAll = false;
+      }
+
+      if(ItemName.toUpperCase()=='GD'){
+        this.gdofr = false;
+      }else if(ItemName.toUpperCase()=='EX'){
+        this.ex3 = false;
+      }else if(ItemName.toUpperCase()=='VG'){
+        this.vg3 = false;
+      }else if(ItemName.toUpperCase()=='FR'){
+        this.gdofr = false;
       }
     }
   }
@@ -574,7 +607,7 @@ export class SearchdiamondComponent implements OnInit {
   }
 
 
-  exx = false;
+  ex3 = false;
   vg3 = false;
   noex = false;
   novg = false;
@@ -583,25 +616,39 @@ export class SearchdiamondComponent implements OnInit {
 
   selectSame(Common){
     if(Common=='3ex'){
-      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:true}:item)
-      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:true}:item)
-      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:true}:item)
+
+      this.ex3 = !this.ex3;
+      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
+      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
+      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
+
     }else if(Common=='3vg'){
-      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:true}:item)
-      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:true}:item)
-      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:true}:item)
+
+      this.vg3 = !this.vg3;
+      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
+      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
+      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
+
     }else if(Common=='noex'){
+
+      this.ex3 = false;
+
       this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
       this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
       this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
+
     }else if(Common=='novg'){
+      this.vg3 = false;
       this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
       this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
       this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
     }else if(Common=='gdofr'){
-      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:true}:item)
-      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:true}:item)
-      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:true}:item)
+      this.gdofr = !this.gdofr;
+
+      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
+      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
+      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
+
     }
 
   }

@@ -216,11 +216,11 @@
                             <div class="col-lg-1 col-md-2 col-sm-12"></div>
                             <div class="col-lg-3 col-md-5 col-sm-12">
                             <span class="sch_whfc">
-                                <a (click)="selectSame('3ex')" href="javascript:void(0)" [ngClass]="{'active': exx}" class="wh_col sp_vg">3 EX</a>
-                                <a (click)="selectSame('3vg')" href="javascript:void(0)" [ngClass]="{'active': vg3}" class="fc_col sp_vg">3 VG</a>
-                                <a (click)="selectSame('noex')" href="javascript:void(0)" [ngClass]="{'active': noex}" class="fc_col sp_vg">NO EX</a>
-                                <a (click)="selectSame('novg')" href="javascript:void(0)" [ngClass]="{'active': novg}" class="fc_col sp_vg">NO VG</a>
-                                <a (click)="selectSame('gdofr')" href="javascript:void(0)" [ngClass]="{'active': gdofr}" class="fc_col sp_vg">GD or FR</a>
+                                <a (click)="selectSame('3ex')" href="javascript:void(0)" [ngClass]="{'active': ex3,'': !ex3}" class="wh_col sp_vg">3 EX</a>
+                                <a (click)="selectSame('3vg')" href="javascript:void(0)" [ngClass]="{'active': vg3,'': !vg3}" class="fc_col sp_vg">3 VG</a>
+                                <a (click)="selectSame('noex')" href="javascript:void(0)" [ngClass]="{'active': noex,'': !noex}" class="fc_col sp_vg">NO EX</a>
+                                <a (click)="selectSame('novg')" href="javascript:void(0)" [ngClass]="{'active': novg,'': !novg}" class="fc_col sp_vg">NO VG</a>
+                                <a (click)="selectSame('gdofr')" href="javascript:void(0)" [ngClass]="{'active': gdofr,'': !gdofr}" class="fc_col sp_vg">GD-FR</a>
                             </span>
                             </div>
                         </div>
@@ -229,40 +229,26 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-20">
                     <div class="sch_carat">
                         <div class="row">
-                            <div class="col-lg-1 col-md-2 col-sm-2">
-                                <h5 class="sch_master">Cut</h5>
-                            </div>
+                            <div class="col-lg-1 col-md-2 col-sm-2"><h5 class="sch_master">Cut</h5></div>
                             <div class="col-lg-2 col-md-3 col-sm-10">
                                 <mat-chip-list class="sch_lst cut_inline" multiple="true">
-                                    <mat-chip
-                                            [selected]="initObj.cut.selectAll"
-                                            (click)="checkAll(!initObj.cut.selectAll,'cut');initObj.cut.selectAll=!initObj.cut.selectAll"
-                                    >All</mat-chip>
-                                    <mat-chip
-                                            *ngFor="let cut of initObj.cut.items"
-                                            [selected]="cut.selected"
-                                            (click)="cut.selected=!cut.selected;initObj.cut.selectCount=initObj.cut.selectCount+1;createGroup('cut');"
-                                    >{{cut.name}}</mat-chip>
+                                    <mat-chip [selected]="initObj.cut.selectAll" (click)="checkAll(!initObj.cut.selectAll,'cut');initObj.cut.selectAll=!initObj.cut.selectAll">All</mat-chip>
+                                    <mat-chip *ngFor="let cut of initObj.cut.items" [selected]="cut.selected" (click)="cut.selected=!cut.selected;initObj.cut.selectCount=initObj.cut.selectCount+1;removeSame(cut.selected,cut.name,'cut')">
+                                        {{cut.name}}
+                                    </mat-chip>
                                 </mat-chip-list>
                             </div>
 
                             <div class="col-lg-6 col-md-7 col-sm-12">
                                 <div class="col-lg-12 col-md-12 col-sm-12 plpad">
                                     <div class="fluorsm">
-                                        <div class="flr_sm">
-                                            <span class="sch_master">Fluor</span>
-                                        </div>
+                                        <div class="flr_sm"><span class="sch_master">Fluor</span></div>
                                         <div class="flr_sm1">
                                             <mat-chip-list class="sch_lst fluor_inline" multiple="true">
-                                                <mat-chip
-                                                        [selected]="initObj.fluorescence.selectAll"
-                                                        (click)="checkAll(!initObj.fluorescence.selectAll,'fluorescence');initObj.fluorescence.selectAll=!initObj.fluorescence.selectAll"
-                                                >All</mat-chip>
-                                                <mat-chip
-                                                        *ngFor="let fluorescence of initObj.fluorescence.items"
-                                                        [selected]="fluorescence.selected"
-                                                        (click)="fluorescence.selected=!fluorescence.selected;initObj.fluorescence.selectCount=initObj.fluorescence.selectCount+1;"
-                                                >{{fluorescence.name}}</mat-chip>
+                                                <mat-chip [selected]="initObj.fluorescence.selectAll" (click)="checkAll(!initObj.fluorescence.selectAll,'fluorescence');initObj.fluorescence.selectAll=!initObj.fluorescence.selectAll">All</mat-chip>
+                                                <mat-chip *ngFor="let fluorescence of initObj.fluorescence.items" [selected]="fluorescence.selected" (click)="fluorescence.selected=!fluorescence.selected;initObj.fluorescence.selectCount=initObj.fluorescence.selectCount+1;">
+                                                    {{fluorescence.name}}
+                                                </mat-chip>
                                             </mat-chip-list>
                                         </div>
                                     </div>
@@ -270,16 +256,12 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="fluorsm">
-                                    <div class="eye_sm">
-                                        <span class="sch_master">Eye Clean</span>
-                                    </div>
+                                    <div class="eye_sm"><span class="sch_master">Eye Clean</span></div>
                                     <div class="flr_sm1">
                                         <mat-chip-list class="sch_lst eye_inline" multiple="true">
-                                            <mat-chip
-                                                    *ngFor="let eyeClean of initObj.eyeClean.items"
-                                                    [selected]="eyeClean.selected"
-                                                    (click)="eyeClean.selected=!eyeClean.selected;initObj.eyeClean.selectCount=initObj.eyeClean.selectCount+1;"
-                                            >{{eyeClean.name}}</mat-chip>
+                                            <mat-chip *ngFor="let eyeClean of initObj.eyeClean.items" [selected]="eyeClean.selected" (click)="eyeClean.selected=!eyeClean.selected;initObj.eyeClean.selectCount=initObj.eyeClean.selectCount+1;">
+                                                {{eyeClean.name}}
+                                            </mat-chip>
                                         </mat-chip-list>
                                     </div>
                                 </div>
@@ -290,20 +272,13 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="sch_carat">
                         <div class="row">
-                            <div class="col-lg-1 col-md-2 col-sm-2">
-                                <h5 class="sch_master">Pol</h5>
-                            </div>
+                            <div class="col-lg-1 col-md-2 col-sm-2"><h5 class="sch_master">Pol</h5></div>
                             <div class="col-lg-2 col-md-3 col-sm-10">
                                 <mat-chip-list class="sch_lst pol_inline" multiple="true">
-                                    <mat-chip
-                                            [selected]="initObj.pol.selectAll"
-                                            (click)="checkAll(!initObj.pol.selectAll,'pol');initObj.pol.selectAll=!initObj.pol.selectAll"
-                                    >All</mat-chip>
-                                    <mat-chip
-                                            *ngFor="let pol of initObj.pol.items"
-                                            [selected]="pol.selected"
-                                            (click)="pol.selected=!pol.selected;initObj.pol.selectCount=initObj.pol.selectCount+1;createGroup('pol');"
-                                    >{{pol.name}}</mat-chip>
+                                    <mat-chip [selected]="initObj.pol.selectAll"(click)="checkAll(!initObj.pol.selectAll,'pol');initObj.pol.selectAll=!initObj.pol.selectAll" >All</mat-chip>
+                                    <mat-chip *ngFor="let pol of initObj.pol.items" [selected]="pol.selected" (click)="pol.selected=!pol.selected;initObj.pol.selectCount=initObj.pol.selectCount+1;removeSame(pol.selected,pol.name,'pol')">
+                                        {{pol.name}}
+                                    </mat-chip>
                                 </mat-chip-list>
                             </div>
                             <div class="col-lg-6 col-md-7 col-sm-12">
@@ -376,20 +351,13 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="sch_carat">
                         <div class="row">
-                            <div class="col-lg-1 col-md-2 col-sm-2">
-                                <h5 class="sch_master">Symm</h5>
-                            </div>
+                            <div class="col-lg-1 col-md-2 col-sm-2"><h5 class="sch_master">Symm</h5></div>
                             <div class="col-lg-2 col-md-3 col-sm-10">
                                 <mat-chip-list class="sch_lst sym_inline" multiple="true">
-                                    <mat-chip
-                                            [selected]="initObj.symm.selectAll"
-                                            (click)="checkAll(!initObj.symm.selectAll,'symm');initObj.symm.selectAll=!initObj.symm.selectAll"
-                                    >All</mat-chip>
-                                    <mat-chip
-                                            *ngFor="let symm of initObj.symm.items"
-                                            [selected]="symm.selected"
-                                            (click)="symm.selected=!symm.selected;initObj.symm.selectCount=initObj.symm.selectCount+1;createGroup('symm');"
-                                    >{{symm.name}}</mat-chip>
+                                    <mat-chip [selected]="initObj.symm.selectAll" (click)="checkAll(!initObj.symm.selectAll,'symm');initObj.symm.selectAll=!initObj.symm.selectAll;">All</mat-chip>
+                                    <mat-chip *ngFor="let symm of initObj.symm.items" [selected]="symm.selected" (click)="symm.selected=!symm.selected;initObj.symm.selectCount=initObj.symm.selectCount+1;removeSame(symm.selected,symm.name,'symm')" >
+                                        {{symm.name}}
+                                    </mat-chip>
                                 </mat-chip-list>
                             </div>
                             <div class="col-lg-6 col-md-7 col-sm-12 plres plpad">
