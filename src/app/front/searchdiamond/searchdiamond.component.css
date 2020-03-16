@@ -18,8 +18,8 @@
   margin-top: 20px;
 }
 
-.mt-40 {
-  margin-top: 40px;
+.mt-30 {
+  margin-top: 30px;
 }
 
 .list-inline {
@@ -36,12 +36,51 @@
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 0.996px;
-  text-transform: uppercase;
   color: #253646;
   background-color: #c1c1c1;
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 10px 30px;
+}
+
+.sch_head1 {
+  font-family: Rubik;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.996px;
+  color: #253646;
+  background-color: #c1c1c1;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 30px;
+}
+
+.sch_tp {
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #253646;
+  margin-right: 10px;
+  border-radius: 4px;
+  vertical-align: middle;
+  background-color: #253646;
+  color: #fff;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.stn_found {
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #253646;
+  margin-right: 10px;
+  border-radius: 4px;
+  vertical-align: middle;
+  color: #253646;
+  font-weight: bold;
+}
+
+.sch_tp i {
+  margin-right: 5px;
 }
 
 .main_sch {
@@ -118,6 +157,14 @@ input:focus, a:focus {
   color: #fff!important;
 }
 
+.mat-chip-selected .hd_shp {
+  color: #fff;
+}
+
+.mat-chip-selected .hd_diam {
+  color: #fff;
+}
+
 .head_lst .mat-chip {
   font-family: Montserrat;
   font-size: 14px;
@@ -146,6 +193,14 @@ input:focus, a:focus {
 }
 
 .head_lst .mat-chip:hover .hd_shp {
+  color: #fff;
+}
+
+.head_lst .mat-chip:active .hd_diam {
+  color: #fff;
+}
+
+.head_lst .mat-chip:active .hd_shp {
   color: #fff;
 }
 
@@ -311,7 +366,7 @@ input:focus, a:focus {
   border-radius: 0px 6px 6px 0px;
 }
 
-.sch_whfc .active{
+.sch_whfc .active {
   background: #267491;
   color: #fff;
 }
@@ -554,7 +609,6 @@ input:focus, a:focus {
   .sch_lst .mat-chip {
     margin-bottom: 5px;
   }
-
   .color_inline .mat-chip {
     padding: 10px 16px;
   }
@@ -640,7 +694,18 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .allshp_inline .mat-chip{
+  .sch_head {
+    padding: 10px 5px;
+  }
+  .sch_tp {
+    padding: 6px 3px;
+    font-size: 13px;
+  }
+  .stn_found {
+    padding: 6px 3px;
+    font-size: 13px;
+  }
+  .allshp_inline .mat-chip {
     padding: 26px 5px;
     width: 16.5%;
   }
@@ -742,7 +807,22 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
-  .hd_diam{
+  .fluorsm{
+    display: inline;
+  }
+  .sch_head {
+    padding: 6px 10px;
+    height: 115px;
+  }
+  .sch_tp {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .stn_found {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .hd_diam {
     font-size: 25px;
     margin-right: 6px;
   }
@@ -757,7 +837,7 @@ input:focus, a:focus {
     padding: 26px 3px;
   }
   .sp_vg {
-    padding: 10px 20px !important;
+    padding: 10px 13px ;
   }
   #content-wrapper {
     padding-left: 15px;

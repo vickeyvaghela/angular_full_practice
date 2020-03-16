@@ -21,158 +21,126 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-logout:before {
+  content: "\6f";
+}
+.icon-save:before {
+  content: "\6e";
+}
 .icon-view:before {
   content: "\6d";
 }
-
 .icon-mail_send:before {
   content: "\6c";
 }
-
 .icon-certificate:before {
   content: "\6b";
 }
-
 .icon-dollar:before {
   content: "\6a";
 }
-
 .icon-Excel-Upload:before {
   content: "\69";
 }
-
 .icon-Confirm-Stone-new:before {
   content: "\68";
 }
-
 .icon-Confirm-Stone:before {
   content: "\67";
 }
-
 .icon-add-basket:before {
   content: "\66";
 }
-
 .icon-add-wishlist:before {
   content: "\65";
 }
-
 .icon-cart-with-user:before {
   content: "\64";
 }
-
 .icon-excel:before {
   content: "\63";
 }
-
 .icon-my-wishlist:before {
   content: "\62";
 }
-
 .icon-print:before {
   content: "\61";
 }
-
 .icon-plus:before {
   content: "\5a";
 }
-
 .icon-close:before {
   content: "\59";
 }
-
 .icon-key:before {
   content: "\58";
 }
-
 .icon-user:before {
   content: "\57";
 }
-
 .icon-basket:before {
   content: "\56";
 }
-
 .icon-dashboard:before {
   content: "\55";
 }
-
 .icon-down-arrow:before {
   content: "\54";
 }
-
 .icon-download:before {
   content: "\53";
 }
-
 .icon-favrouite:before {
   content: "\52";
 }
-
 .icon-hold:before {
   content: "\51";
 }
-
 .icon-mail:before {
   content: "\50";
 }
-
 .icon-nda:before {
   content: "\4f";
 }
-
 .icon-order:before {
   content: "\4e";
 }
-
 .icon-refresh:before {
   content: "\4d";
 }
-
 .icon-search:before {
   content: "\4c";
 }
-
 .icon-up_arrow:before {
   content: "\4b";
 }
-
 .icon-round:before {
   content: "\4a";
 }
-
 .icon-Single_2:before {
   content: "\49";
 }
-
 .icon-Single_3:before {
   content: "\48";
 }
-
 .icon-Single_5:before {
   content: "\47";
 }
-
 .icon-Single_6:before {
   content: "\46";
 }
-
 .icon-Single_7:before {
   content: "\45";
 }
-
 .icon-Single_8:before {
   content: "\44";
 }
-
 .icon-Single_9:before {
   content: "\43";
 }
-
 .icon-Single_14:before {
   content: "\42";
 }
-
 .icon-Single_17:before {
   content: "\41";
 }

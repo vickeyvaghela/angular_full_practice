@@ -94,11 +94,28 @@
   padding-bottom: 0px;
 }
 
+.org_mat .mat-select-arrow {
+  margin-top: -15px;
+}
 
+.org_mat .mat-form-field-appearance-legacy .mat-form-field-underline {
+  bottom: 10px;
+  border: 1px solid #e8ecef;
+  height: 35px;
+  border-radius: 6px;
+  background-color: transparent;
+}
+
+.org_mat .mat-focused {
+  border-color: transparent;
+}
 
 @media screen and (max-width: 1600px) {
   .meas_sch .mat-form-field-infix {
     width: 151px;
+  }
+  .org_mat .mat-form-field-infix {
+    width: 146px;
   }
 }
 
@@ -106,11 +123,17 @@
   .meas_sch .mat-form-field-infix {
     width: 131px;
   }
+  .org_mat .mat-form-field-infix {
+    width: 126px;
+  }
 }
 
 @media screen and (max-width: 1366px) {
   .meas_sch .mat-form-field-infix {
     width: 126px;
+  }
+  .org_mat .mat-form-field-infix {
+    width: 102px;
   }
 }
 
@@ -124,6 +147,10 @@
 @media screen and (max-width: 768px) {
   .date_sch .mat-form-field-infix {
     width: 170px;
+  }
+  .org_mat .mat-form-field-infix {
+    width: 180px;
+    margin-top: 10px;
   }
 }
 
