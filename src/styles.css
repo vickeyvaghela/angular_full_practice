@@ -110,6 +110,11 @@
   border-color: transparent;
 }
 
+.org_mat .mat-form-field-infix{
+  border-top: 0px;
+  padding: 10px;
+}
+
 @media screen and (max-width: 1600px) {
   .meas_sch .mat-form-field-infix {
     width: 151px;

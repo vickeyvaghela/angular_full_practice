@@ -238,13 +238,18 @@
                         <div class="row">
                             <div class="col-lg-1 col-md-2 col-sm-12"></div>
                             <div class="col-lg-3 col-md-5 col-sm-12">
-                            <span class="sch_whfc">
-                                <a (click)="selectSame('3ex')" href="javascript:void(0)" [ngClass]="{'active': ex3,'': !ex3}" class="wh_col sp_vg">3 EX</a>
-                                <a (click)="selectSame('3vg')" href="javascript:void(0)" [ngClass]="{'active': vg3,'': !vg3}" class="fc_col sp_vg">3 VG</a>
-                                <a (click)="selectSame('noex')" href="javascript:void(0)" [ngClass]="{'active': noex,'': !noex}" class="fc_col sp_vg">NO EX</a>
-                                <a (click)="selectSame('novg')" href="javascript:void(0)" [ngClass]="{'active': novg,'': !novg}" class="fc_col sp_vg">NO VG</a>
-                                <a (click)="selectSame('gdofr')" href="javascript:void(0)" [ngClass]="{'active': gdofr,'': !gdofr}" class="fc_col sp_vg">GD-FR</a>
-                            </span>
+                                <span class="sch_whfc">
+                                    <a (click)="selectSame('3ex')" href="javascript:void(0)"
+                                        [ngClass]="{'active': ex3,'': !ex3}" class="wh_col sp_vg">3 EX</a>
+                                    <a (click)="selectSame('3vg')" href="javascript:void(0)"
+                                        [ngClass]="{'active': vg3,'': !vg3}" class="fc_col sp_vg">3 VG</a>
+                                    <a (click)="selectSame('noex')" href="javascript:void(0)"
+                                        [ngClass]="{'active': noex,'': !noex}" class="fc_col sp_vg">NO EX</a>
+                                    <a (click)="selectSame('novg')" href="javascript:void(0)"
+                                        [ngClass]="{'active': novg,'': !novg}" class="fc_col sp_vg">NO VG</a>
+                                    <a (click)="selectSame('gdofr')" href="javascript:void(0)"
+                                        [ngClass]="{'active': gdofr,'': !gdofr}" class="fc_col sp_vg">GD-FR</a>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -252,11 +257,16 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-20">
                     <div class="sch_carat">
                         <div class="row">
-                            <div class="col-lg-1 col-md-2 col-sm-2"><h5 class="sch_master">Cut</h5></div>
+                            <div class="col-lg-1 col-md-2 col-sm-2">
+                                <h5 class="sch_master">Cut</h5>
+                            </div>
                             <div class="col-lg-2 col-md-3 col-sm-10">
                                 <mat-chip-list class="sch_lst cut_inline" multiple="true">
-                                    <mat-chip [selected]="initObj.cut.selectAll" (click)="checkAll(!initObj.cut.selectAll,'cut');initObj.cut.selectAll=!initObj.cut.selectAll">All</mat-chip>
-                                    <mat-chip *ngFor="let cut of initObj.cut.items" [selected]="cut.selected" (click)="cut.selected=!cut.selected;initObj.cut.selectCount=initObj.cut.selectCount+1;removeSame(cut.selected,cut.name,'cut')">
+                                    <mat-chip [selected]="initObj.cut.selectAll"
+                                        (click)="checkAll(!initObj.cut.selectAll,'cut');initObj.cut.selectAll=!initObj.cut.selectAll">
+                                        All</mat-chip>
+                                    <mat-chip *ngFor="let cut of initObj.cut.items" [selected]="cut.selected"
+                                        (click)="cut.selected=!cut.selected;initObj.cut.selectCount=initObj.cut.selectCount+1;removeSame(cut.selected,cut.name,'cut')">
                                         {{cut.name}}
                                     </mat-chip>
                                 </mat-chip-list>
@@ -268,8 +278,12 @@
                                         <div class="flr_sm"><span class="sch_master">Fluor</span></div>
                                         <div class="flr_sm1">
                                             <mat-chip-list class="sch_lst fluor_inline" multiple="true">
-                                                <mat-chip [selected]="initObj.fluorescence.selectAll" (click)="checkAll(!initObj.fluorescence.selectAll,'fluorescence');initObj.fluorescence.selectAll=!initObj.fluorescence.selectAll">All</mat-chip>
-                                                <mat-chip *ngFor="let fluorescence of initObj.fluorescence.items" [selected]="fluorescence.selected" (click)="fluorescence.selected=!fluorescence.selected;initObj.fluorescence.selectCount=initObj.fluorescence.selectCount+1;">
+                                                <mat-chip [selected]="initObj.fluorescence.selectAll"
+                                                    (click)="checkAll(!initObj.fluorescence.selectAll,'fluorescence');initObj.fluorescence.selectAll=!initObj.fluorescence.selectAll">
+                                                    All</mat-chip>
+                                                <mat-chip *ngFor="let fluorescence of initObj.fluorescence.items"
+                                                    [selected]="fluorescence.selected"
+                                                    (click)="fluorescence.selected=!fluorescence.selected;initObj.fluorescence.selectCount=initObj.fluorescence.selectCount+1;">
                                                     {{fluorescence.name}}
                                                 </mat-chip>
                                             </mat-chip-list>
@@ -282,7 +296,9 @@
                                     <div class="eye_sm"><span class="sch_master">Eye Clean</span></div>
                                     <div class="flr_sm1">
                                         <mat-chip-list class="sch_lst eye_inline" multiple="true">
-                                            <mat-chip *ngFor="let eyeClean of initObj.eyeClean.items" [selected]="eyeClean.selected" (click)="eyeClean.selected=!eyeClean.selected;initObj.eyeClean.selectCount=initObj.eyeClean.selectCount+1;">
+                                            <mat-chip *ngFor="let eyeClean of initObj.eyeClean.items"
+                                                [selected]="eyeClean.selected"
+                                                (click)="eyeClean.selected=!eyeClean.selected;initObj.eyeClean.selectCount=initObj.eyeClean.selectCount+1;">
                                                 {{eyeClean.name}}
                                             </mat-chip>
                                         </mat-chip-list>
@@ -295,11 +311,16 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="sch_carat">
                         <div class="row">
-                            <div class="col-lg-1 col-md-2 col-sm-2"><h5 class="sch_master">Pol</h5></div>
+                            <div class="col-lg-1 col-md-2 col-sm-2">
+                                <h5 class="sch_master">Pol</h5>
+                            </div>
                             <div class="col-lg-2 col-md-3 col-sm-10">
                                 <mat-chip-list class="sch_lst pol_inline" multiple="true">
-                                    <mat-chip [selected]="initObj.pol.selectAll"(click)="checkAll(!initObj.pol.selectAll,'pol');initObj.pol.selectAll=!initObj.pol.selectAll" >All</mat-chip>
-                                    <mat-chip *ngFor="let pol of initObj.pol.items" [selected]="pol.selected" (click)="pol.selected=!pol.selected;initObj.pol.selectCount=initObj.pol.selectCount+1;removeSame(pol.selected,pol.name,'pol')">
+                                    <mat-chip [selected]="initObj.pol.selectAll"
+                                        (click)="checkAll(!initObj.pol.selectAll,'pol');initObj.pol.selectAll=!initObj.pol.selectAll">
+                                        All</mat-chip>
+                                    <mat-chip *ngFor="let pol of initObj.pol.items" [selected]="pol.selected"
+                                        (click)="pol.selected=!pol.selected;initObj.pol.selectCount=initObj.pol.selectCount+1;removeSame(pol.selected,pol.name,'pol')">
                                         {{pol.name}}
                                     </mat-chip>
                                 </mat-chip-list>
@@ -364,11 +385,16 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="sch_carat">
                         <div class="row">
-                            <div class="col-lg-1 col-md-2 col-sm-2"><h5 class="sch_master">Symm</h5></div>
+                            <div class="col-lg-1 col-md-2 col-sm-2">
+                                <h5 class="sch_master">Symm</h5>
+                            </div>
                             <div class="col-lg-2 col-md-3 col-sm-10">
                                 <mat-chip-list class="sch_lst sym_inline" multiple="true">
-                                    <mat-chip [selected]="initObj.symm.selectAll" (click)="checkAll(!initObj.symm.selectAll,'symm');initObj.symm.selectAll=!initObj.symm.selectAll;">All</mat-chip>
-                                    <mat-chip *ngFor="let symm of initObj.symm.items" [selected]="symm.selected" (click)="symm.selected=!symm.selected;initObj.symm.selectCount=initObj.symm.selectCount+1;removeSame(symm.selected,symm.name,'symm')" >
+                                    <mat-chip [selected]="initObj.symm.selectAll"
+                                        (click)="checkAll(!initObj.symm.selectAll,'symm');initObj.symm.selectAll=!initObj.symm.selectAll;">
+                                        All</mat-chip>
+                                    <mat-chip *ngFor="let symm of initObj.symm.items" [selected]="symm.selected"
+                                        (click)="symm.selected=!symm.selected;initObj.symm.selectCount=initObj.symm.selectCount+1;removeSame(symm.selected,symm.name,'symm')">
                                         {{symm.name}}
                                     </mat-chip>
                                 </mat-chip-list>
@@ -767,6 +793,82 @@
                                 </mat-form-field>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="main_sch">
+                        <p style="text-align:left;" class="sch_head">
+                            Search Result - <span class="sch_res">(123 Stones Founds)</span>
+                            <span style="float:right;">
+                                <i class="icon-mail sch_tp"></i>
+                                <i class="icon-print sch_tp"></i>
+                                <i class="icon-download sch_tp"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="sch_result">
+                        <mat-chip-list class=" res_lst result_inline">
+                            <mat-chip>
+                                <i class="icon-search res_icon"></i><span class="res_txt">Diamond Search</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-add-basket res_icon"></i><span class="res_txt">Add to Basket</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-cart-with-user res_icon"></i><span class="res_txt">My Basket</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-hold res_icon"></i><span class="res_txt">Hold</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Confirm-Stone res_icon"></i><span class="res_txt">Confirm Stone</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Confirm-Stone res_icon"></i><span class="res_txt">My Order</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Excel-Upload res_icon"></i><span class="res_txt">Export To Excel</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-add-wishlist res_icon"></i><span class="res_txt">Add To Wishlist</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-my-wishlist res_icon"></i><span class="res_txt">My Wishlist</span>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="sch_pcs">
+                        <mat-chip-list class=" res_lst pcs_inline">
+                            <mat-chip>
+                                Tot.Pcs. <span class="pcs_ans">0</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Tot.Cts. <span class="pcs_ans">0.00</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Avg.Rap. <span class="pcs_ans">$0.00</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Avg.Disc. <span class="pcs_ans">0.00%</span>
+                            </mat-chip>
+                            <mat-chip>
+                                CT.Rate. <span class="pcs_ans">$0.00</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Tot.Amt. <span class="pcs_ans">$0.00</span>
+                            </mat-chip>
+                            <mat-chip>
+                                F.Ct.Rate. <span class="pcs_ans">$0.00</span>
+                            </mat-chip>
+                            <mat-chip>
+                                F.Tot.Amt. <span class="pcs_ans">$0.00</span>
+                            </mat-chip>
+                        </mat-chip-list>
                     </div>
                 </div>
             </div>
