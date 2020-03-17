@@ -366,8 +366,14 @@ button:focus {
 }
 
 .register_mod {
-    width: 550px!important;
-    max-width: 550px!important;
+    width: 620px!important;
+    max-width: 620px!important;
+}
+
+@media screen and (max-width:414px) {
+    .register_mod {
+        width: 370px!important;
+    }
 }
 
 .modal.right .modal-content {
@@ -528,6 +534,7 @@ button:focus {
     padding-left: 40px;
     padding-right: 40px;
 }
+
 
 @media screen and (max-width:1366px) {
     .pswd_login {

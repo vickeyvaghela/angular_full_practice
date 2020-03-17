@@ -21,7 +21,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private authServObj: AuthService,private router: Router) { }
 
-
+  public resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
   ngOnInit(): void {
     this.loadScript();
     this.myform = new FormGroup({
