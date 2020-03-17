@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Searchdiamond } from '../services/searchdiamond.service'
 import {L} from "@angular/cdk/keycodes";
@@ -10,12 +10,16 @@ import { DatePipe } from '@angular/common';
   templateUrl: './searchdiamond.component.html',
   styleUrls: ['./searchdiamond.component.css']
 })
+//encapsulation: ViewEncapsulation.None
+
 export class SearchdiamondComponent implements OnInit {
-
-
 
   searchDiamondForm: FormGroup;
 
+
+
+  searchResultAry: any[] = [];
+  whiteColor = true;
 
   fancyintensityList: any[] = [];
   fancyovertoneList: any[] = [];
@@ -28,20 +32,9 @@ export class SearchdiamondComponent implements OnInit {
   hnaList: any[] = [];
   caretRange: any[] = [];
 
-
-  allfancyintensitySelected = false;
-  allfancyovertoneSelected = false;
-  allfancycolorSelected = false;
-
-  alllocationSelected = false;
-  alloriginSelected = false;
-  allshadeSelected = false;
-
   allLustSelected = false;
   allHNASelected = false;
 
-
-  whiteColor = true;
 
   initObj = {
     shape:{
@@ -333,7 +326,7 @@ export class SearchdiamondComponent implements OnInit {
 
       if(hnaa && hnaa.success && hnaa.data){
         if(hnaa.data[0]){
-          this.hnaList = hnaa.data.map((Loc)=>{ return {name:Loc.HA_Name,code:parseInt(Loc.HA_Code)}})
+          this.hnaList = hnaa.data.map((Loc)=>{ return {name:Loc.HA_Disp,code:parseInt(Loc.HA_Code)}})
         }
       }
     },error => {
@@ -374,15 +367,11 @@ export class SearchdiamondComponent implements OnInit {
         }
       })
     }
-
-
     if(!bool){
       this.gdofr = false;
       this.ex3 = false;
       this.vg3 = false;
     }
-
-
   }
 
   selectSingleChipOption(valueObj,Target){
@@ -426,6 +415,49 @@ export class SearchdiamondComponent implements OnInit {
     }
   }
 
+  ex3 = false;
+  vg3 = false;
+  noex = false;
+  novg = false;
+  gdofr = false;
+  selectSame(Common){
+    if(Common=='3ex'){
+
+      this.ex3 = !this.ex3;
+      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
+      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
+      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
+
+    }else if(Common=='3vg'){
+
+      this.vg3 = !this.vg3;
+      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
+      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
+      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
+
+    }else if(Common=='noex'){
+
+      this.ex3 = false;
+
+      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
+      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
+      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
+
+    }else if(Common=='novg'){
+      this.vg3 = false;
+      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
+      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
+      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
+    }else if(Common=='gdofr'){
+      this.gdofr = !this.gdofr;
+
+      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
+      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
+      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
+
+    }
+
+  }
   removeSame(bool,ItemName,TarGet){
     if(!bool){
 
@@ -449,11 +481,11 @@ export class SearchdiamondComponent implements OnInit {
     }
   }
 
+
   onSubmit(){
 
     let finalPostData = {},FinalLocationPost,FinalOriginPost,FinalShadePost;
     let finalColorPost = '';
-
 
     let commaJoiner = (TargeT) => { return this.initObj[TargeT].items.filter(item => item.selected).map((item)=>item.code).join(',')}
     let [finalcolorPost,finalclarityPost,finalfluorescencePost,finalcutPost,finaleyeCleanPost,finallabPost,finalsymmPost,finalpolPost,finalShapePost] =
@@ -494,13 +526,10 @@ export class SearchdiamondComponent implements OnInit {
 
 
 
-    //console.log(this.searchDiamondForm.value);
-
     finalPostData['UserId'] = 'nik';
-
     finalPostData['S_Code'] = finalShapePost;
-
     finalPostData['whiteColor'] = this.whiteColor;
+
     if(this.whiteColor){
       finalPostData['Col_Code'] = finalcolorPost;
     }else{
@@ -508,7 +537,6 @@ export class SearchdiamondComponent implements OnInit {
       finalPostData['Overtone'] = this.searchDiamondForm.value.fancyovertoneControl.map(item=>item.name).join(',');
       finalPostData['Fancycolor'] = this.searchDiamondForm.value.fancycolorControl.map(item=>item.name).join(',');
     }
-
 
     finalPostData['Clarity_Code'] = finalclarityPost;
     finalPostData['Cut_Code'] = finalcutPost;
@@ -531,7 +559,6 @@ export class SearchdiamondComponent implements OnInit {
       finalPostData['CARATRANGE'] = this.caretRange.join(',');
       finalPostData['CARATRANGE'] = this.caretRange.map(item=>item.start+'-'+item.end).join(',');
     }
-
 
 
     finalPostData['FLowerHalf'] = this.searchDiamondForm.value.FLowerHalf;
@@ -590,13 +617,12 @@ export class SearchdiamondComponent implements OnInit {
 
 
 
-
-
-
-
     this.searchDiamondServ.searchDiamond(finalPostData).subscribe(searchDiam => {
       console.log('api res');
       console.log(searchDiam);
+      if(searchDiam.success){
+        this.searchResultAry = searchDiam.data;
+      }
     },error => {console.log(error);});
 
   }
@@ -604,53 +630,6 @@ export class SearchdiamondComponent implements OnInit {
   getGlobalDataFrmChild(evtt){
     console.log(' in searchd');
     console.log(evtt);
-  }
-
-
-  ex3 = false;
-  vg3 = false;
-  noex = false;
-  novg = false;
-  gdofr = false;
-
-
-  selectSame(Common){
-    if(Common=='3ex'){
-
-      this.ex3 = !this.ex3;
-      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
-      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
-      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:this.ex3}:item)
-
-    }else if(Common=='3vg'){
-
-      this.vg3 = !this.vg3;
-      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
-      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
-      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:this.vg3}:item)
-
-    }else if(Common=='noex'){
-
-      this.ex3 = false;
-
-      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
-      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
-      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='EX'?{name:item.name,code:item.code,selected:false}:item)
-
-    }else if(Common=='novg'){
-      this.vg3 = false;
-      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
-      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
-      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='VG'?{name:item.name,code:item.code,selected:false}:item)
-    }else if(Common=='gdofr'){
-      this.gdofr = !this.gdofr;
-
-      this.initObj.cut.items = this.initObj.cut.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
-      this.initObj.pol.items = this.initObj.pol.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
-      this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
-
-    }
-
   }
 
 }
