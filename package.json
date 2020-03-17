@@ -38,6 +38,7 @@
     "jsonwebtoken": "^8.5.1",
     "mssql": "^4.2.1",
     "mysql": "^2.18.1",
+    "ng-recaptcha": "^5.0.0",
     "nodemon": "^2.0.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

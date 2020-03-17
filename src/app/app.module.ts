@@ -21,6 +21,7 @@ import { StonedetailComponent } from './front/stonedetail/stonedetail.component'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -37,6 +38,7 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    RecaptchaModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
