@@ -35,7 +35,6 @@ export class SearchdiamondComponent implements OnInit {
   allLustSelected = false;
   allHNASelected = false;
 
-
   initObj = {
     shape:{
       selectAll:false,
