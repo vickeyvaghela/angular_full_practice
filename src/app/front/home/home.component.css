@@ -6,6 +6,7 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #267491;
+    margin-top: 20px;
 }
 
 .frm_use {
@@ -16,6 +17,9 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #253646;
+}
+.recpth{
+    margin-bottom: 20px;
 }
 
 .frm_plc {
@@ -128,5 +132,5 @@
 
 #reg_scrl::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    background-color: #555;
+    background-color: #C2C7D9;
 }
