@@ -189,7 +189,7 @@ input:focus, a:focus {
 }
 
 .allshp_inline .mat-chip {
-  padding: 26px 24.5px;
+  padding: 26px 24px;
 }
 
 .head_lst .mat-chip:hover, .head_lst .mat-chip:active {

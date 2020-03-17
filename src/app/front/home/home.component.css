@@ -26,10 +26,48 @@
     color: #7C87A9;
 }
 
+.frm_plc:focus {
+    color: #7C87A9;
+    background-color: #fff;
+    border-color: #ced4da;
+    outline: 0;
+    box-shadow: none;
+}
+
 .frm_txt {
     font-family: Rubik;
     font-style: italic;
     font-weight: normal;
     font-size: 12px;
     color: #7C87A9;
+}
+
+/* File Upload */
+
+.uploadfilecontainer {
+    background-image: url("../../../assets/img/cloud.svg");
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: center;
+    height: 65px;
+    padding: 10px;
+    border: 1px dashed #B4B4BB;
+    border-radius: 6px;
+}
+
+.uploadfilecontainer:hover {
+    cursor: pointer;
+    background-color: #9ecbec !important;
+    opacity: 0.8;
+}
+
+.frm_drag {
+    font-family: Rubik;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 10px;
+    text-align: center;
+    color: #7C87A9;
+    display: block;
+    margin-top: 36px;
 }
