@@ -10,9 +10,14 @@ import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 
+import {
+    MatTableModule
+} from '@angular/material/table';
+
 
 
 const MaterialComponents =[
+    MatTableModule,
   MatFormFieldModule,
   MatButtonModule,
   MatInputModule,
