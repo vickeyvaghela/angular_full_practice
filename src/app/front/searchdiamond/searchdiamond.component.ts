@@ -343,6 +343,7 @@ export class SearchdiamondComponent implements OnInit {
       console.log(error);
     });
 
+
   }
 
 
