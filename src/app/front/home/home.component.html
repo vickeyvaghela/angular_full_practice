@@ -144,7 +144,7 @@
                 </button>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body" id="reg_scrl">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
@@ -331,12 +331,11 @@
                             <re-captcha (resolved)="resolved($event)"
                                 siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
                         </div>
-                        <div class="col-md-12 col-sm-12">
-                            <label class="frm_use">Terms and Conditions</label>
-                            <br>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" value="" class="frm_txt2"><span class="frm_txt1">I have read and agree to the Terms & Conditions.</span>
-                            </label>
+                        <div class="col-md-12 col-sm-12 chk_term">
+                            <label class="frm_use">Terms and Conditions</label><br>
+                            <mat-checkbox>
+                                <span class="frm_txt">I have read and agree to the terms and conditions</span>
+                            </mat-checkbox>
                         </div>
                     </div>
                 </div>
