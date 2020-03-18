@@ -873,8 +873,8 @@
                 </div>
 
 
-                <div class="col-md-12" *ngIf="searchResultAry.length>0">
-                    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+                <div class="col-md-12 tbl_responsive" *ngIf="searchResultAry.length>0">
+                    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 tbl_res">
                         <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
                             <!--<th mat-header-cell *matHeaderCellDef> {{column}} <input type="checkbox"></th>-->
                             <th mat-header-cell *matHeaderCellDef> {{showDisplayName(column)}}</th>
