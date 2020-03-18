@@ -14,6 +14,7 @@ import {Router} from "@angular/router"
 export class CommonComponent implements OnInit {
   constructor(private router: Router) { }
   ngOnInit(): void {
+    this.loadScript();
   }
 
   @Output() globalSearchEmitter = new EventEmitter<any>();
@@ -28,5 +29,15 @@ export class CommonComponent implements OnInit {
   logout(){
     localStorage.removeItem("access_token");
     window.location.href = window.location.origin;
+  }
+  public loadScript() {
+    let body = <HTMLDivElement>document.body;
+    let script = document.createElement('script');
+
+    script.innerHTML = '';
+    script.src = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js';
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
   }
 }

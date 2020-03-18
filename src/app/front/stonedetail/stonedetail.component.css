@@ -177,6 +177,15 @@
     margin-top: 20px;
 }
 
+.stn_vdeo1 {
+    text-align: center;
+    width: 400px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto 10px;
+    display: flex;
+}
+
 .det_vdeo {
     max-width: 100%;
     padding: 4px;
@@ -191,10 +200,11 @@
 }
 
 .grp-search {
-    width: 310px;
+    width: 290px;
     background: #FFFEFE;
     border: 1px solid #E8ECEF;
     border-radius: 10px;
+    margin-right: 5px;
 }
 
 .frm_ipn {
@@ -329,17 +339,11 @@ div.blueTable {
     .pil_act {
         padding: 0px 120px;
     }
-    .grp-search {
-        width: 260px;
-    }
 }
 
 @media screen and (max-width: 1440px) {
     .pil_act {
         padding: 0px 90px;
-    }
-    .grp-search {
-        width: 230px;
     }
 }
 
@@ -347,15 +351,12 @@ div.blueTable {
     .pil_act {
         padding: 0px 75px;
     }
-    .grp-search {
-        width: 210px;
+    .mst-scrl {
+        overflow-x: scroll;
     }
 }
 
 @media screen and (max-width:1280px) {
-    .mst-scrl {
-        overflow-x: scroll;
-    }
     .pil_act {
         padding: 0px 60px;
     }
@@ -365,8 +366,8 @@ div.blueTable {
     .pil_act {
         padding: 0px 24px;
     }
-    .grp-search {
-        width: 170px;
+    .stn_img {
+        height: 280px;
     }
 }
 
@@ -374,11 +375,11 @@ div.blueTable {
     .pil_act {
         padding: 0px 220px;
     }
-    .grp-search {
-        width: 425px;
-    }
     .icntxt_detail .mat-chip {
         margin-top: 10px;
+    }
+    .stn_img {
+        height: 350px;
     }
 }
 
@@ -398,12 +399,19 @@ div.blueTable {
     .pil_act {
         padding: 0px 20px;
     }
-    .grp-search {
-        width: 240px;
-    }
     .icn_rght {
         margin-top: 10px;
         text-align: right;
         margin-bottom: 20px;
+    }
+    .sm_logo{
+        width: 46px;
+    }
+    #content-wrapper{
+        padding: 0px;
+        margin-top: 100px;
+    }
+    .stn_img {
+        height: 300px;
     }
 }

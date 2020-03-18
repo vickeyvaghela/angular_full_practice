@@ -10,7 +10,7 @@
                     <div class="main_sch">
                         <p style="text-align:left;" class="sch_head">
                             SEARCH VIEW
-                            <span style="float:right;">
+                            <span style="float:right;" class="shw_hde">
                                 <button class="stn_found">{{searchResultAry.length}} Stones Found</button>
 
                                 <button class="sch_tp" type="submit">
@@ -127,7 +127,7 @@
                                             </div>
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
-                                                    <mat-select formControlName="fancyintensityControl" multiple>
+                                                    <mat-select formControlName="fancyintensityControl" multiple disableOptionCentering class="myPanelClass">
                                                         <mat-select-trigger
                                                             *ngIf="searchDiamondForm.value.fancyintensityControl.length>=fancyintensityList.length">
                                                             <span class="example-additional-selection">
@@ -152,7 +152,7 @@
                                             </div>
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
-                                                    <mat-select formControlName="fancyovertoneControl" multiple>
+                                                    <mat-select formControlName="fancyovertoneControl" multiple disableOptionCentering class="myPanelClass">
                                                         <mat-select-trigger
                                                             *ngIf="searchDiamondForm.value.fancyovertoneControl.length>=fancyovertoneList.length">
                                                             <span class="example-additional-selection">
@@ -176,7 +176,7 @@
                                             </div>
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
-                                                    <mat-select formControlName="fancycolorControl" multiple>
+                                                    <mat-select formControlName="fancycolorControl" multiple disableOptionCentering class="myPanelClass">
                                                         <mat-select-trigger
                                                             *ngIf="searchDiamondForm.value.fancycolorControl.length>=fancycolorList.length">
                                                             <span class="example-additional-selection">
@@ -490,7 +490,7 @@
                     <div class="sch_carat">
                         <div class="row">
                             <div class="col-lg-1 col-md-2 col-sm-2 pr-0">
-                                <h5 class="sch_master frm">From Issue</h5>
+                                <h5 class="sch_master frm iss_search">From Issue</h5>
                             </div>
                             <div class="col-lg-2 col-md-3 col-sm-10 date_sch">
                                 <mat-form-field floatLabel="never">
@@ -504,7 +504,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12 plres">
                                     <div class="fluorsm">
                                         <div class="tois_sm1">
-                                            <span class="sch_master">To Issue</span>
+                                            <span class="sch_master iss_search1">To Issue</span>
                                         </div>
                                         <div class="date_sch dt_sche1">
                                             <mat-form-field floatLabel="never">
@@ -520,7 +520,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12 plres">
                                     <div class="fluorsm">
                                         <div class="frmgia_sm">
-                                            <span class="sch_master">From GIA</span>
+                                            <span class="sch_master iss_search1">From GIA</span>
                                         </div>
                                         <div class="date_sch dt_sche1">
                                             <mat-form-field floatLabel="never">
@@ -537,7 +537,7 @@
                             <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="fluorsm">
                                     <div class="togia_sm">
-                                        <span class="sch_master">To GIA</span>
+                                        <span class="sch_master iss_search1">To GIA</span>
                                     </div>
                                     <div class="date_sch dt_sche">
                                         <mat-form-field floatLabel="never">
@@ -797,9 +797,9 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="main_sch">
-                        <p style="text-align:left;" class="sch_head">
+                        <p style="text-align:left;" class="sch_head2">
                             Search Result - <span class="sch_res">({{searchResultAry.length}} Stones Founds)</span>
-                            <span style="float:right;">
+                            <span style="float:right;" class="shw_hde">
                                 <i class="icon-mail sch_tp"></i>
                                 <i class="icon-print sch_tp"></i>
                                 <i class="icon-download sch_tp"></i>
