@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation, HostListener  } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Searchdiamond } from '../services/searchdiamond.service'
@@ -30,6 +30,7 @@ export class SearchdiamondComponent implements OnInit {
 
 
 
+  TotalStoneFound = 0;
   searchResultAry: any[] = [];
   whiteColor = true;
 
@@ -642,16 +643,32 @@ export class SearchdiamondComponent implements OnInit {
         this.searchResultAry = [];
       }
 
-
       this.dataSource = this.searchResultAry;
+      this.TotalStoneFound = this.searchResultAry.length;
 
     },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
 
   }
 
-  ngAfterViewChecked(){
-    console.log('changed');
-  }
+
+    @HostListener('document:mouseup', ['$event'])
+    @HostListener('document:keydown', ['$event'])
+    documentClick(event) {
+
+      setTimeout(()=>{
+          this.searchDiamondServ.getResultCount(this.createPostData()).subscribe(searchDiam => {
+              if(searchDiam.success && searchDiam.data && searchDiam.data[0] && searchDiam.data[0]['TotalStone']){
+                  this.TotalStoneFound = parseInt(searchDiam.data[0]['TotalStone']);
+              }else{
+                  this.TotalStoneFound = 0;
+              }
+
+
+
+          },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
+      },100);
+    }
+
 
 
   getGlobalDataFrmChild(evtt){
@@ -852,6 +869,12 @@ export class SearchdiamondComponent implements OnInit {
     console.log('yeyyy');
     //this.expandedElement = null;
   }
+
+
+
+
+
+
 
 }
 
