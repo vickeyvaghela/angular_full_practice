@@ -659,7 +659,10 @@ export class SearchdiamondComponent implements OnInit {
 
 
   //columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
-    columnsToDisplay = ['LrHalf','PId','CertNo','S_Name','S_FullName','Carat','GQ_Name','GC_Name','GRate','Total','GCT_Name','GPO_Name','GSY_Name','Meas1','Meas2','Meas3','Meas','TotDepth','Table1','CAngle','PAngle','GFL_Name','CR_Name','Disc','TBIN_Name','BRN_Name','BS_SortName','BS_Name','SIN_Name','TIN_Name','SBIN_Name','SOIN_Name','EF_Name','EC_Name','BSHD_Name','GRap','IsPhoto','Ratio','SpecialDisc','GI_Date','GI_DateDay','IsFancy','ColorName','SZ_CODE','Loc_Name','FGRate','AMOUNT_NEW','GRATE_NEW','DISC_NEW','TSBIN_Name','KeyToSym','EVENTPKTNO','IsBPD','IsMovie','ISEXHIBITION','EXHIBITION_KEY','EXHIBITION_BY','NGS','origin','JanCat','OnlineDiscount','ExportBenefit','TotalBenefit'];
+    //columnsToDisplay = ['LrHalf','PId','CertNo','S_Name','S_FullName','Carat','GQ_Name','GC_Name','GRate','Total','GCT_Name','GPO_Name','GSY_Name','Meas1','Meas2','Meas3','Meas','TotDepth','Table1','CAngle','PAngle','GFL_Name','CR_Name','Disc','TBIN_Name','BRN_Name','BS_SortName','BS_Name','SIN_Name','TIN_Name','SBIN_Name','SOIN_Name','EF_Name','EC_Name','BSHD_Name','GRap','IsPhoto','Ratio','SpecialDisc','GI_Date','GI_DateDay','IsFancy','ColorName','SZ_CODE','Loc_Name','FGRate','AMOUNT_NEW','GRATE_NEW','DISC_NEW','TSBIN_Name','KeyToSym','EVENTPKTNO','IsBPD','IsMovie','ISEXHIBITION','EXHIBITION_KEY','EXHIBITION_BY','NGS','origin','JanCat','OnlineDiscount','ExportBenefit','TotalBenefit'];
+    columnsToDisplay = ['PId','IsBPD','S_Name','Carat','GC_Name','GQ_Name','GCT_Name','GPO_Name','GSY_Name','GFL_Name','GRap','Disc','GRate','total','ftotal','CR_Name','NGS','EC_Name','BSHD_Name','Meas','TotDepth','Table1','Ratio','origin','Loc_Name','CertNo'];
+
+
   // dataSource = [
   //   {
   //     position: 1,
@@ -745,6 +748,7 @@ export class SearchdiamondComponent implements OnInit {
   dataSource = [];
 
   showDisplayName(param){
+
 
       switch (param) {
 
