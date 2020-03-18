@@ -440,6 +440,12 @@ input:focus, a:focus {
   margin-left: 10px;
 }
 
+/*table-result*/
+th.mat-header-cell{
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
 /*vikesh starts*/
   table {
     width: 100%;

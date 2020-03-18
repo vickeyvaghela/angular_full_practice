@@ -12,6 +12,5 @@ models.use('/SearchDiamond', search_diamond);
 models.post('/', (req, res) => {
     res.send('default route for front');
 });
-//web test
 
 module.exports = models;
