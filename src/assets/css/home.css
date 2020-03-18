@@ -273,9 +273,6 @@ button:focus {
     .about_sec {
         padding-top: 200px;
     }
-    .event_head img {
-        height: 400px;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -357,7 +354,7 @@ button:focus {
 .modal.right .modal-dialog {
     position: fixed;
     margin: auto;
-    width: 430px;
+    width: 400px;
     height: 100%;
     -webkit-transform: translate3d(0%, 0, 0);
     -ms-transform: translate3d(0%, 0, 0);
@@ -462,17 +459,24 @@ button:focus {
 }
 
 .btn_login {
-    background: #253646;
-    box-sizing: border-box;
-    border-radius: 10px;
-    color: #fff;
-    font-family: 'Rubik';
-    padding: 8px 20px;
+    background: #253646!important;
+    border: 1px solid #E8ECEF!important;
+    border-radius: 10px!important;
+    color: #fff!important;
+    padding: 10px 30px!important;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal!important;
+    font-size: 14px!important;
+}
+
+.btn_login:focus {
+    box-shadow: none!important;
 }
 
 .log_btn {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .btn_login:hover, .btn_login:active {
@@ -485,7 +489,7 @@ button:focus {
 }
 
 .cret {
-    margin-top: 30px;
+    margin-top: 40px;
     font-family: 'Rubik';
     font-size: 14px;
     text-transform: uppercase;
@@ -503,17 +507,12 @@ button:focus {
 
 .event_head {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .event_head img {
-    width: 100%;
-    height: 400px;
-}
-
-.evnt {
-    padding-left: 0px;
-    padding-right: 0px;
+    width: 372px;
+    height: 334px;
 }
 
 .mod_head {
@@ -535,8 +534,10 @@ button:focus {
     padding-right: 40px;
 }
 
-
 @media screen and (max-width:1366px) {
+    .inp_us {
+        width: 250px;
+    }
     .pswd_login {
         margin-top: 35px;
     }
@@ -553,13 +554,22 @@ button:focus {
         margin-top: 20px;
     }
     .event_head {
-        margin-top: 10px;
+        margin-top: 20px;
     }
     .modal.right .modal-body {
         padding: 10px 15px;
     }
-    .event_head img {
-        height: 350px;
+}
+
+@media screen and (max-width:1280PX) {
+    .cret {
+        margin-top: 30px;
+    }
+    .user_login {
+        margin-top: 40px;
+    }
+    .pswd_login {
+        margin-top: 40px;
     }
 }
 
@@ -568,15 +578,12 @@ button:focus {
         width: 370px;
     }
     .inp_us {
-        width: 258px;
+        width: 240px;
     }
     .conr {
         padding-left: 16px;
         padding-right: 16px;
     }
-}
-
-@media screen and (max-width:414px) {
     .modal.right .modal-dialog {
         width: 360px
     }
@@ -584,25 +591,28 @@ button:focus {
         padding-left: 10px;
         padding-right: 10px;
     }
-}
-
-@media screen and (max-width:1600px) {
-    .user_login {
-        margin-top: 40px;
-    }
-    .pswd_login {
-        margin-top: 40px;
-    }
     .event_head img {
-        height: 380px;
+        width: 326px;
+        height: 288PX;
     }
-    .inp_us {
-        width: 245px;
+    .event_head {
+        margin-top: 40px;
     }
-}
-
-@media screen and (max-width:1366px) {
-    .inp_us {
-        width: 250px;
+    /* scroll-login */
+    #myModal2 .modal-body {
+        overflow-y: scroll;
+        scrollbar-width: thin;
+    }
+    #reg_scrl::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #F5F5F5;
+    }
+    #reg_scrl::-webkit-scrollbar {
+        width: 5px;
+        background-color: #F5F5F5;
+    }
+    #reg_scrl::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: #C2C7D9;
     }
 }
