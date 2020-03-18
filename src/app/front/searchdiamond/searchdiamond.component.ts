@@ -496,8 +496,7 @@ export class SearchdiamondComponent implements OnInit {
   }
 
 
-  onSubmit(){
-
+  createPostData(){
     let finalPostData = {},FinalLocationPost,FinalOriginPost,FinalShadePost;
     let finalColorPost = '';
 
@@ -628,10 +627,13 @@ export class SearchdiamondComponent implements OnInit {
     finalPostData['TMeasLength'] = this.searchDiamondForm.value.TMeasLength;
     finalPostData['FMeasWidth'] = this.searchDiamondForm.value.FMeasWidth;
     finalPostData['TMeasWidth'] = this.searchDiamondForm.value.TMeasWidth;
+    return finalPostData;
+  }
+
+  onSubmit(){
 
 
-
-    this.searchDiamondServ.searchDiamond(finalPostData).subscribe(searchDiam => {
+    this.searchDiamondServ.searchDiamond(this.createPostData()).subscribe(searchDiam => {
       console.log('api res');
       console.log(searchDiam.data);
       if(searchDiam.success && searchDiam.data){
@@ -647,13 +649,15 @@ export class SearchdiamondComponent implements OnInit {
 
   }
 
+  ngAfterViewChecked(){
+    console.log('changed');
+  }
+
+
   getGlobalDataFrmChild(evtt){
     console.log(' in searchd');
     console.log(evtt);
   }
-
-
-
 
 
 
