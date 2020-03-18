@@ -54,6 +54,18 @@
   margin-bottom: 0px;
   padding: 10px 30px;
 }
+.sch_head2 {
+  font-family: Rubik;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.996px;
+  color: #253646;
+  background-color: #c1c1c1;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 30px;
+}
+
 
 .sch_tp {
   padding: 6px 10px;
@@ -72,8 +84,17 @@
 .myPanelClass {
   border: 1px solid #e8ecef;
   border-radius: 6px;
-  padding: 10px;
+  padding: 7px 10px 10px 10px;
   margin-top: -10px;
+}
+
+.iss_search{
+  margin-top: 16px;
+}
+
+.iss_search1{
+  display: block;
+  margin-top: 6px;
 }
 
 .stn_found {
@@ -306,15 +327,15 @@ input:focus, a:focus {
 }
 
 .eye_inline .mat-chip {
-  padding: 10px 36px;
+  padding: 10px 39px;
 }
 
 .fluor_inline .mat-chip {
-  padding: 10px 34px;
+  padding: 10px 35px;
 }
 
 .ha_inline .mat-chip {
-  padding: 10px 20px;
+  padding: 10px 20.4px;
 }
 
 .inc_inline .mat-chip {
@@ -518,7 +539,7 @@ input:focus, a:focus {
 
 @media screen and (max-width: 1600px) {
   .allshp_inline .mat-chip {
-    padding: 26px 12.5px;
+    padding: 26px 11.7px;
   }
   .color_inline .mat-chip {
     padding: 10px 17px;
@@ -590,7 +611,7 @@ input:focus, a:focus {
 
 @media screen and (max-width: 1440px) {
   .allshp_inline .mat-chip {
-    padding: 26px 6.2px;
+    padding: 26px 5.6px;
   }
   .color_inline .mat-chip {
     padding: 10px 14px;
@@ -651,7 +672,7 @@ input:focus, a:focus {
 @media screen and (max-width: 1366px) {
   .hd_diam {
     font-size: 28px;
-    margin-right: 8px;
+    margin-right: 6px;
   }
   .allshp_inline .mat-chip {
     padding: 26px 5.5px;
@@ -729,7 +750,8 @@ input:focus, a:focus {
 
 @media screen and (max-width: 1024px) {
   .allshp_inline .mat-chip {
-    padding: 26px 13px;
+    padding: 26px 6px;
+    width: 16.6%;
   }
   .sch_master {
     margin-bottom: 8px;
@@ -826,6 +848,7 @@ input:focus, a:focus {
   .sch_head {
     padding: 10px 5px;
   }
+
   .sch_tp {
     padding: 6px 3px;
     font-size: 13px;
@@ -936,6 +959,9 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
+  .shw_hde{
+    margin-top: 10px;
+  }
   .fluorsm {
     display: inline;
   }
@@ -943,13 +969,19 @@ input:focus, a:focus {
     padding: 6px 10px;
     height: 115px;
   }
+  .sch_head2 {
+    padding: 10px 20px;
+    height: 70px;
+  }
   .sch_tp {
     display: inline-block;
     margin-bottom: 10px;
+    padding: 8px 12px;
   }
   .stn_found {
     display: inline-block;
     margin-bottom: 10px;
+    padding: 8px 12px;
   }
   .hd_diam {
     font-size: 25px;
@@ -970,5 +1002,12 @@ input:focus, a:focus {
   }
   #content-wrapper {
     padding-left: 15px;
+  }
+  .pcs_inline .mat-chip {
+    width: 46%;
+  }
+  .result_inline .mat-chip {
+    width: 46%;
+    padding: 10px 15px;
   }
 }
