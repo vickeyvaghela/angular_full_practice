@@ -335,6 +335,8 @@ export class SearchdiamondComponent implements OnInit {
 
     this.searchDiamondServ.getHNAMst({}).subscribe(hnaa => {
 
+      console.log('hnaa ')
+      console.log(hnaa)
       if(hnaa && hnaa.success && hnaa.data){
         if(hnaa.data[0]){
           this.hnaList = hnaa.data.map((Loc)=>{ return {name:Loc.HA_Disp,code:parseInt(Loc.HA_Code)}})
