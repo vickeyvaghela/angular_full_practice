@@ -34,6 +34,10 @@ export class SearchdiamondComponent implements OnInit {
   searchResultAry: any[] = [];
   whiteColor = true;
 
+  alllocationSelected = false;
+  allshadeSelected = false;
+  alloriginSelected = false;
+
   fancyintensityList: any[] = [];
   fancyovertoneList: any[] = [];
   fancycolorList: any[] = [];
@@ -240,6 +244,9 @@ export class SearchdiamondComponent implements OnInit {
     this.initialize();
   }
 
+  compareObjects(o1: any, o2: any): boolean {
+    return o1.name === o2.name && o1._id === o2._id;
+  }
   initialize(){
 
     this.searchDiamondServ.fancyintensity({}).subscribe(fancyintensity => {
@@ -336,8 +343,6 @@ export class SearchdiamondComponent implements OnInit {
 
     this.searchDiamondServ.getHNAMst({}).subscribe(hnaa => {
 
-      console.log('hnaa ')
-      console.log(hnaa)
       if(hnaa && hnaa.success && hnaa.data){
         if(hnaa.data[0]){
           this.hnaList = hnaa.data.map((Loc)=>{ return {name:Loc.HA_Disp,code:parseInt(Loc.HA_Code)}})
@@ -389,7 +394,56 @@ export class SearchdiamondComponent implements OnInit {
     }
   }
 
+  unCheckAll(tarGet,TargetVal){
+
+    if(tarGet=='origin'){
+
+      let AllFilter = this[tarGet+'List'].filter(item=>item!='All')
+      let selectedFilter = this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item!='All')
+
+      if(AllFilter.length == selectedFilter.length){
+        this.searchDiamondForm.patchValue({ [tarGet+'Control']:['All',...this.searchDiamondForm.value[tarGet+'Control']] });
+      }else if(AllFilter.length > selectedFilter.length){
+        this.searchDiamondForm.patchValue({ locationControl:this.searchDiamondForm.value.locationControl.filter(item=>item!='All')});
+        this.searchDiamondForm.patchValue({ [tarGet+'Control']:this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item!='All')});
+      }
+
+    }else if(tarGet=='location' || tarGet=='shade' || tarGet=='fancyintensity' || tarGet=='fancycolor' || tarGet=='fancyovertone'){
+
+
+
+
+
+      let AllFilter = this[tarGet+'List'].filter(item=>item.code!=0)
+      let selectedFilter = this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item.code!=0)
+
+      if(AllFilter.length == selectedFilter.length){
+
+        this.searchDiamondForm.patchValue({ [tarGet+'Control']:[{name:"All",code:0},...this.searchDiamondForm.value[tarGet+'Control']] });
+
+        this['all'+tarGet+'Selected'] = !this['all'+tarGet+'Selected'];
+
+      }else if(AllFilter.length > selectedFilter.length){
+
+        this.searchDiamondForm.patchValue({ locationControl:this.searchDiamondForm.value.locationControl.filter(item=>item.code!=0)});
+        this.searchDiamondForm.patchValue({ [tarGet+'Control']:this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item.code!=0)});
+      }
+
+    }else if(tarGet=='lust'){
+      this.allLustSelected = !this.lustList.some((item)=>!item.selected);
+    }else if(tarGet=='hna'){
+      this.allHNASelected = !this.hnaList.some((item)=>!item.selected);
+    }else{
+      //check if atlest one item is not selected
+      this.initObj[tarGet].selectAll = !this.initObj[tarGet].items.some((item)=>!item.selected)
+    }
+  }
+
+
   selectSingleChipOption(valueObj,Target){
+
+    console.log(Target);
+
 
     if(valueObj=='All' || valueObj.code==0){
 
@@ -471,6 +525,11 @@ export class SearchdiamondComponent implements OnInit {
       this.initObj.symm.items = this.initObj.symm.items.map(item=>item.name=='GD'||item.name=='FR'?{name:item.name,code:item.code,selected:this.gdofr}:item)
 
     }
+
+
+    this.initObj['cut'].selectAll = !this.initObj['cut'].items.some((item)=>!item.selected)
+    this.initObj['symm'].selectAll = !this.initObj['symm'].items.some((item)=>!item.selected)
+    this.initObj['pol'].selectAll = !this.initObj['pol'].items.some((item)=>!item.selected)
 
   }
   removeSame(bool,ItemName,TarGet){
