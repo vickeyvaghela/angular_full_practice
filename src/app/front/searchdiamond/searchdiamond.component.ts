@@ -396,47 +396,53 @@ export class SearchdiamondComponent implements OnInit {
 
   unCheckAll(tarGet,TargetVal){
 
-    if(tarGet=='origin'){
 
-      let AllFilter = this[tarGet+'List'].filter(item=>item!='All')
-      let selectedFilter = this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item!='All')
 
-      if(AllFilter.length == selectedFilter.length){
-        this.searchDiamondForm.patchValue({ [tarGet+'Control']:['All',...this.searchDiamondForm.value[tarGet+'Control']] });
-      }else if(AllFilter.length > selectedFilter.length){
-        this.searchDiamondForm.patchValue({ locationControl:this.searchDiamondForm.value.locationControl.filter(item=>item!='All')});
-        this.searchDiamondForm.patchValue({ [tarGet+'Control']:this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item!='All')});
+    if(TargetVal!='All' && TargetVal.code!=0){
+      if(tarGet=='origin'){
+
+        let AllFilter = this[tarGet+'List'].filter(item=>item!='All')
+        let selectedFilter = this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item!='All')
+
+        if(AllFilter.length == selectedFilter.length){
+          this.searchDiamondForm.patchValue({ [tarGet+'Control']:['All',...this.searchDiamondForm.value[tarGet+'Control']] });
+        }else if(AllFilter.length > selectedFilter.length){
+          this.searchDiamondForm.patchValue({ locationControl:this.searchDiamondForm.value.locationControl.filter(item=>item!='All')});
+          this.searchDiamondForm.patchValue({ [tarGet+'Control']:this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item!='All')});
+        }
+
+      }else if(tarGet=='location' || tarGet=='shade' || tarGet=='fancyintensity' || tarGet=='fancycolor' || tarGet=='fancyovertone'){
+
+
+
+
+
+        let AllFilter = this[tarGet+'List'].filter(item=>item.code!=0)
+        let selectedFilter = this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item.code!=0)
+
+        if(AllFilter.length == selectedFilter.length){
+
+          this.searchDiamondForm.patchValue({ [tarGet+'Control']:[{name:"All",code:0},...this.searchDiamondForm.value[tarGet+'Control']] });
+
+          this['all'+tarGet+'Selected'] = !this['all'+tarGet+'Selected'];
+
+        }else if(AllFilter.length > selectedFilter.length){
+
+          this.searchDiamondForm.patchValue({ locationControl:this.searchDiamondForm.value.locationControl.filter(item=>item.code!=0)});
+          this.searchDiamondForm.patchValue({ [tarGet+'Control']:this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item.code!=0)});
+        }
+
+      }else if(tarGet=='lust'){
+        this.allLustSelected = !this.lustList.some((item)=>!item.selected);
+      }else if(tarGet=='hna'){
+        this.allHNASelected = !this.hnaList.some((item)=>!item.selected);
+      }else{
+        //check if atlest one item is not selected
+        this.initObj[tarGet].selectAll = !this.initObj[tarGet].items.some((item)=>!item.selected)
       }
-
-    }else if(tarGet=='location' || tarGet=='shade' || tarGet=='fancyintensity' || tarGet=='fancycolor' || tarGet=='fancyovertone'){
-
-
-
-
-
-      let AllFilter = this[tarGet+'List'].filter(item=>item.code!=0)
-      let selectedFilter = this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item.code!=0)
-
-      if(AllFilter.length == selectedFilter.length){
-
-        this.searchDiamondForm.patchValue({ [tarGet+'Control']:[{name:"All",code:0},...this.searchDiamondForm.value[tarGet+'Control']] });
-
-        this['all'+tarGet+'Selected'] = !this['all'+tarGet+'Selected'];
-
-      }else if(AllFilter.length > selectedFilter.length){
-
-        this.searchDiamondForm.patchValue({ locationControl:this.searchDiamondForm.value.locationControl.filter(item=>item.code!=0)});
-        this.searchDiamondForm.patchValue({ [tarGet+'Control']:this.searchDiamondForm.value[tarGet+'Control'].filter(item=>item.code!=0)});
-      }
-
-    }else if(tarGet=='lust'){
-      this.allLustSelected = !this.lustList.some((item)=>!item.selected);
-    }else if(tarGet=='hna'){
-      this.allHNASelected = !this.hnaList.some((item)=>!item.selected);
-    }else{
-      //check if atlest one item is not selected
-      this.initObj[tarGet].selectAll = !this.initObj[tarGet].items.some((item)=>!item.selected)
     }
+
+
   }
 
 
