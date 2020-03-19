@@ -21,7 +21,7 @@
 }
 
 .sch .mat-form-field {
-  line-height: normal;
+  margin-left: -4px;
 }
 
 .sch .mat-form-field-wrapper {

@@ -112,7 +112,9 @@
 .mt-20 {
     margin-top: 20px;
 }
-
+.mb_regs{
+    margin-bottom:20px;
+}
 /* scroll-css */
 
 #myModal3 .modal-body {
