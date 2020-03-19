@@ -4,13 +4,13 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle dash_tog" data-toggle="collapse"
-                        data-target="#narolanav">
+                            data-target="#narolanav">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand nv_brnd" href="#">
-                        <img src="../../assets/img/sm_logo.svg" class="sm_logo" />
+                        <img src="../../assets/img/sm_logo.svg" class="sm_logo"/>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="narolanav">
@@ -27,36 +27,34 @@
 <section id="content-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 dtl_tab">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-lg-push-8 dtl_tab">
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
+                    <div class="tab-content">
+                        <div id="Image" class="tab-pane fade in active">
+                            <div class="stn_img">
+                                <img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/5756-85.JPG"
+                                     class="det_img">
+                            </div>
+                        </div>
+                        <div id="Video" class="tab-pane fade">
+                            <div class="stn_vdeo">
+                                <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=5756-85&btn=0&sv=0&z=0"
+                                        class="det_vdeo" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                        <div id="certi" class="tab-pane fade">
+                            <div class="stn_vdeo">
+                                <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf"
+                                        class="det_vdeo" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
                     <ul class="nav nav-pills pil_act justify-content-center">
                         <li class="active"><a data-toggle="pill" href="#Image" class="pil_hed">Image</a></li>
                         <li><a data-toggle="pill" href="#Video" class="pil_hed">Video</a></li>
                         <li><a data-toggle="pill" href="#certi" class="pil_hed">Certificate</a></li>
                     </ul>
-
-                    <div class="tab-content">
-                        <div id="Image" class="tab-pane fade in active">
-                            <div class="stn_img">
-                                <img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/238-36.JPG"
-                                    class="det_img">
-                            </div>
-                        </div>
-                        <div id="Video" class="tab-pane fade">
-                            <div class="stn_vdeo">
-                                <iframe
-                                    src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=238-36&btn=0&sv=0&z=0"
-                                    class="det_vdeo"></iframe>
-                            </div>
-                        </div>
-                        <div id="certi" class="tab-pane fade">
-                            <div class="stn_vdeo">
-                                <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/5202959093.Pdf"
-                                    class="det_vdeo"></iframe>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="stn_vdeo1">
@@ -73,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-lg-pull-4 main_plpr">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <mat-chip-list class="icntxt_detail">
                         <mat-chip>
@@ -86,177 +84,212 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 bg_whl">
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <i class="icon-round mark_shp"></i>
-                        <p class="txt_shp">
-                            <span>1.25 CRT</span>
+                        <div class="col-md-2 col-sm-2 col-xs-2 plpr_head">
+                            <i class="icon-Single_6 mark_shp"></i>
                             <br>
-                            <span>ROUND</span>
-                        </p>
+                            <span class="stn_round">Oval</span>
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-10">
+                            <p class="txt_shp">
+                                <span>5756-85</span><br>
+                                <span>1.01 CT</span><br>
+                                <span>L,I1</span>
+                            </p>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <i class="icon-dollar mark_shp"></i>
-                        <p class="txt_shp">
-                            <span>491.53</span>
-                            <br>
-                            <span>48.00</span>
-                        </p>
+                        <div class="col-md-2 col-sm-2 col-xs-2 plpr_head">
+                            <i class="icon-dollar mark_shp"></i>
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-10">
+                            <p class="txt_shp">
+                                <span>491.53 $/Ct</span>
+                                <br>
+                                <span>48.00 %</span>
+                            </p>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <i class="icon-certificate mark_shp"></i>
-                        <p class="txt_shp">
-                            <span>Narola Certified</span>
-                            <br>
-                            <span>6342802241</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20">
-                    <div class="mst-scrl">
-                        <div class="divTable blueTable">
-                            <div class="divTableBody">
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Stone ID</div>
-                                    <div class="divTableCell tbcell4">5756-85</div>
-                                    <div class="divTableCell tbcell3">Shape</div>
-                                    <div class="divTableCell tbcell4">Oval</div>
-                                    <div class="divTableCell tbcell3">Carat</div>
-                                    <div class="divTableCell tbcell4">1.01 ct.</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Color</div>
-                                    <div class="divTableCell tbcell4">L</div>
-                                    <div class="divTableCell tbcell3">Purity</div>
-                                    <div class="divTableCell tbcell4">I1</div>
-                                    <div class="divTableCell tbcell3">Lab</div>
-                                    <div class="divTableCell tbcell4">GIA</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Cut</div>
-                                    <div class="divTableCell tbcell4"></div>
-                                    <div class="divTableCell tbcell3">Polish</div>
-                                    <div class="divTableCell tbcell4">EX</div>
-                                    <div class="divTableCell tbcell3">Symmetry</div>
-                                    <div class="divTableCell tbcell4">VG</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Fluorescence</div>
-                                    <div class="divTableCell tbcell4">FNT</div>
-                                    <div class="divTableCell tbcell3">Certificate No.</div>
-                                    <div class="divTableCell tbcell4">2346957796</div>
-                                    <div class="divTableCell tbcell3">Origin</div>
-                                    <div class="divTableCell tbcell4">NONE</div>
-                                </div>
-                            </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2 plpr_head">
+                            <i class="icon-certificate mark_shp"></i>
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-10">
+                            <p class="txt_shp">
+                                <span>Narola Certified</span>
+                                <br>
+                                <span>2346957796</span>
+                            </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20">
-                    <div class="mst-scrl">
-                        <div class="divTable blueTable">
-                            <div class="divTableBody">
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Measurement</div>
-                                    <div class="divTableCell tbcell4">5.66 - 4.87 X 3.37</div>
-                                    <div class="divTableCell tbcell3">Table(%)</div>
-                                    <div class="divTableCell tbcell4">54.00</div>
-                                    <div class="divTableCell tbcell3">Depth(%)</div>
-                                    <div class="divTableCell tbcell4">59.50</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Ratio</div>
-                                    <div class="divTableCell tbcell4">0.86</div>
-                                    <div class="divTableCell tbcell3">Gridle(%)</div>
-                                    <div class="divTableCell tbcell4">4.00 ( STK to THK )</div>
-                                    <div class="divTableCell tbcell3">Table Inclusion</div>
-                                    <div class="divTableCell tbcell4">WHITE GROUP OF PINPO</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Table Side Inclusion</div>
-                                    <div class="divTableCell tbcell4">NONE</div>
-                                    <div class="divTableCell tbcell3">Side Inclusion</div>
-                                    <div class="divTableCell tbcell4">FEATHER</div>
-                                    <div class="divTableCell tbcell3">Table Black</div>
-                                    <div class="divTableCell tbcell4">NONE</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Side Black</div>
-                                    <div class="divTableCell tbcell4">NONE</div>
-                                    <div class="divTableCell tbcell3">Table Side Black</div>
-                                    <div class="divTableCell tbcell4">NONE</div>
-                                    <div class="divTableCell tbcell3">Table Open</div>
-                                    <div class="divTableCell tbcell4">NONE-OPEN</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Side Open</div>
-                                    <div class="divTableCell tbcell4">SMALL-OPEN</div>
-                                    <div class="divTableCell tbcell3">Cr.Angle</div>
-                                    <div class="divTableCell tbcell4">0.00</div>
-                                    <div class="divTableCell tbcell3">Cr.Height</div>
-                                    <div class="divTableCell tbcell4">0.00</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Pv.Angle</div>
-                                    <div class="divTableCell tbcell4">0.00</div>
-                                    <div class="divTableCell tbcell3">Pv.Height</div>
-                                    <div class="divTableCell tbcell4">0.00</div>
-                                    <div class="divTableCell tbcell3">Location</div>
-                                    <div class="divTableCell tbcell4">INDIA</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Eye Clean(%)</div>
-                                    <div class="divTableCell tbcell4">100%EYECLEAN</div>
-                                    <div class="divTableCell tbcell3">H&A</div>
-                                    <div class="divTableCell tbcell4">NO H&A</div>
-                                    <div class="divTableCell tbcell3">Extra Facet</div>
-                                    <div class="divTableCell tbcell4">NONE</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Luster</div>
-                                    <div class="divTableCell tbcell4">EXCELLENT</div>
-                                    <div class="divTableCell tbcell3">Culet</div>
-                                    <div class="divTableCell tbcell4">NON</div>
-                                    <div class="divTableCell tbcell3">Natural</div>
-                                    <div class="divTableCell tbcell4"></div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Fancy Color</div>
-                                    <div class="divTableCell tbcell4"></div>
-                                    <div class="divTableCell tbcell3">NG Grader Comm.</div>
-                                    <div class="divTableCell tbcell4"></div>
-                                    <div class="divTableCell tbcell3">Star Length</div>
-                                    <div class="divTableCell tbcell4"></div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell3">Lower Half</div>
-                                    <div class="divTableCell tbcell4"></div>
-                                    <div class="divTableCell tbcell3">Type 2A</div>
-                                    <div class="divTableCell tbcell4"></div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20 prcut">
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Cut</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Polish</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">EX</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Symmetry</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">VG</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Fluorescence</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">FNT</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Certificate No.</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">2346957796</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Origin</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
                     </div>
                 </div>
 
-                <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20">
-                    <div class="mst-scrl">
-                        <div class="divTable blueTable">
-                            <div class="divTableBody">
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell1">NGS Comments</div>
-                                    <div class="divTableCell tbcell2">EXCLUSIVE CLARITY</div>
-                                    <div class="divTableCell tbcell1">Shade</div>
-                                    <div class="divTableCell tbcell2">NO BROWN , NO GREEN , NO MILKY</div>
-                                </div>
-                                <div class="divTableRow">
-                                    <div class="divTableCell tbcell1">Key to Symbols</div>
-                                    <div class="divTableCell tbcell2">Feather, Crystal, Cloud, Needle</div>
-                                    <div class="divTableCell tbcell1">Report Comm.</div>
-                                    <div class="divTableCell tbcell2">Additional clouds are not shown. Pinpoints are not
-                                        shown.
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20 prcut">
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Measurement</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">5.66 - 4.87 X 3.37</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Table(%)</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">54.00</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Depth(%)</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">59.50</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Ratio</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">0.86</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Gridle(%)</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">4.00 ( STK to THK )</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Table Inc</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">WHITE GROUP OF PINPO</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Table Side Inc</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Side Inc</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">FEATHER</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Table Black</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Side Black</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Table Side Black</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Table Open</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NONE-OPEN</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Side Open</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">SMALL-OPEN</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Cr.Angle</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">0.00</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Cr.Height</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">0.00</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Pv.Angle</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">0.00</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Pv.Height</div>
+                        <div class="col-md-7 col-sm-6 tb_txt">0.00</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Location</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">INDIA</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Eye Clean(%)</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">100%EYECLEAN</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">H&A</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NO H&A</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Extra Facet</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Luster</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">EXCELLENT</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Culet</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">NON</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Natural</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Fancy Color</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">NG Grader Comm.</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Star Length</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Lower Half</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed">Type 2A</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
+                        <div class="col-md-5 col-sm-4 tb_hed"></div>
+                        <div class="col-md-7 col-sm-8 tb_txt"></div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20 prcut">
+                    <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
+                        <div class="col-md-3 col-sm-4 tb_hed">NGS Comments</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">EXCLUSIVE CLARITY</div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
+                        <div class="col-md-3 col-sm-4 tb_hed">Shade</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">NO BROWN , NO GREEN , NO MILKY</div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
+                        <div class="col-md-3 col-sm-4 tb_hed">Key to Symbols</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">Feather, Crystal, Cloud, Needle</div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
+                        <div class="col-md-3 col-sm-4 tb_hed">Report Comm.</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">Additional clouds are not shown. Pinpoints are not
+                            shown.
                         </div>
                     </div>
                 </div>

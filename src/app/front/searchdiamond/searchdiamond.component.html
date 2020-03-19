@@ -11,7 +11,7 @@
                     <div class="main_sch">
                         <p style="text-align:left;" class="sch_head">
                             SEARCH VIEW
-                            <span style="float:right;">
+                            <span style="float:right;" class="viw_mt">
                                 <button class="stn_found">{{TotalStoneFound}} Stones Found</button>
 
                                 <button class="sch_tp" type="submit">
@@ -128,7 +128,9 @@
                                             </div>
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
-                                                    <mat-select formControlName="fancyintensityControl" multiple [compareWith]="compareObjects">
+
+                                                    <mat-select formControlName="fancyintensityControl" multiple [compareWith]="compareObjects" class="myPanelClass">
+
                                                         <mat-select-trigger
                                                                 *ngIf="searchDiamondForm.value.fancyintensityControl.length>=fancyintensityList.length">
                                                             <span class="example-additional-selection">
@@ -153,7 +155,11 @@
                                             </div>
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
-                                                    <mat-select formControlName="fancyovertoneControl" multiple [compareWith]="compareObjects">
+
+                                                    
+
+                                                    <mat-select formControlName="fancyovertoneControl" multiple disableOptionCentering class="myPanelClass" [compareWith]="compareObjects">
+
                                                         <mat-select-trigger
                                                                 *ngIf="searchDiamondForm.value.fancyovertoneControl.length>=fancyovertoneList.length">
                                                             <span class="example-additional-selection">
@@ -177,7 +183,11 @@
                                             </div>
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
-                                                    <mat-select formControlName="fancycolorControl" multiple [compareWith]="compareObjects">
+
+                                                    <mat-select formControlName="fancycolorControl" multiple [compareWith]="compareObjects" class="myPanelClass">
+
+                                                    
+
                                                         <mat-select-trigger
                                                                 *ngIf="searchDiamondForm.value.fancycolorControl.length>=fancycolorList.length">
                                                             <span class="example-additional-selection">
@@ -802,9 +812,11 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="main_sch">
+
                         <p style="text-align:left;" class="sch_head">
                             Search Result - <span class="sch_res">({{TotalStoneFound}} Stones Founds)</span>
                             <span style="float:right;">
+
                                 <i class="icon-mail sch_tp"></i>
                                 <i class="icon-print sch_tp"></i>
                                 <i class="icon-download sch_tp"></i>

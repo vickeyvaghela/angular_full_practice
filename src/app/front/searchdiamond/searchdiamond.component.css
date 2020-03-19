@@ -379,6 +379,7 @@ input:focus, a:focus {
   border-radius: 6px;
   font-family: Rubik;
   font-size: 12px;
+  margin-left:-4px;
 }
 
 .wh_col {
@@ -959,6 +960,9 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
+  .viw_mt{
+    margin-top:10px;
+  }
   .shw_hde{
     margin-top: 10px;
   }
