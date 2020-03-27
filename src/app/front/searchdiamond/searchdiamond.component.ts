@@ -112,7 +112,7 @@ export class SearchdiamondComponent implements OnInit {
         {name:"SI1",code:6,selected:false},
         {name:"SI2",code:7,selected:false},
         {name:"I1",code:9,selected:false},
-        {name:"I2",code:10,selected:false},
+        {name:"I2",code:10,selected:true},
         {name:"I3",code:11,selected:false}
       ],
       selectCount:0
@@ -448,9 +448,6 @@ export class SearchdiamondComponent implements OnInit {
 
   selectSingleChipOption(valueObj,Target){
 
-    console.log(Target);
-
-
     if(valueObj=='All' || valueObj.code==0){
 
       if(this['all'+Target+'Selected']){
@@ -612,9 +609,9 @@ export class SearchdiamondComponent implements OnInit {
     if(this.whiteColor){
       finalPostData['Col_Code'] = finalcolorPost;
     }else{
-      finalPostData['IntenSity'] = this.searchDiamondForm.value.fancyintensityControl.map(item=>item.name).join(',');
-      finalPostData['Overtone'] = this.searchDiamondForm.value.fancyovertoneControl.map(item=>item.name).join(',');
-      finalPostData['Fancycolor'] = this.searchDiamondForm.value.fancycolorControl.map(item=>item.name).join(',');
+      finalPostData['IntenSity'] = this.searchDiamondForm.value.fancyintensityControl.map(item=>item.name).filter(item=>item.toUpperCase()!='ALL').join(',');
+      finalPostData['Overtone'] = this.searchDiamondForm.value.fancyovertoneControl.map(item=>item.name).filter(item=>item.toUpperCase()!='ALL').join(',');
+      finalPostData['Fancycolor'] = this.searchDiamondForm.value.fancycolorControl.map(item=>item.name).filter(item=>item.toUpperCase()!='ALL').join(',');
     }
 
     finalPostData['Clarity_Code'] = finalclarityPost;
@@ -648,6 +645,8 @@ export class SearchdiamondComponent implements OnInit {
 
     finalPostData['FStarLength'] = this.searchDiamondForm.value.FStarLength;
     finalPostData['TStarLength'] = this.searchDiamondForm.value.TStarLength;
+
+
 
     finalPostData['FCAngle'] = this.searchDiamondForm.value.FCAngle;
     finalPostData['TCAngle'] = this.searchDiamondForm.value.TCAngle;
@@ -700,8 +699,6 @@ export class SearchdiamondComponent implements OnInit {
 
 
     this.searchDiamondServ.searchDiamond(this.createPostData()).subscribe(searchDiam => {
-      console.log('api res');
-      console.log(searchDiam.data);
       if(searchDiam.success && searchDiam.data){
         this.searchResultAry = searchDiam.data;
       }else{
@@ -709,6 +706,13 @@ export class SearchdiamondComponent implements OnInit {
       }
 
       this.dataSource = this.searchResultAry;
+
+
+      // this.dataSource = this.searchResultAry.map((item) => {
+      //   item.selected = true;
+      //   return item;
+      // });
+      console.log('this.dataSource ',this.dataSource);
       this.TotalStoneFound = this.searchResultAry.length;
 
     },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
@@ -742,11 +746,9 @@ export class SearchdiamondComponent implements OnInit {
   }
 
 
-
-
   //columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
     //columnsToDisplay = ['LrHalf','PId','CertNo','S_Name','S_FullName','Carat','GQ_Name','GC_Name','GRate','Total','GCT_Name','GPO_Name','GSY_Name','Meas1','Meas2','Meas3','Meas','TotDepth','Table1','CAngle','PAngle','GFL_Name','CR_Name','Disc','TBIN_Name','BRN_Name','BS_SortName','BS_Name','SIN_Name','TIN_Name','SBIN_Name','SOIN_Name','EF_Name','EC_Name','BSHD_Name','GRap','IsPhoto','Ratio','SpecialDisc','GI_Date','GI_DateDay','IsFancy','ColorName','SZ_CODE','Loc_Name','FGRate','AMOUNT_NEW','GRATE_NEW','DISC_NEW','TSBIN_Name','KeyToSym','EVENTPKTNO','IsBPD','IsMovie','ISEXHIBITION','EXHIBITION_KEY','EXHIBITION_BY','NGS','origin','JanCat','OnlineDiscount','ExportBenefit','TotalBenefit'];
-    columnsToDisplay = ['PId','IsBPD','S_Name','Carat','GC_Name','GQ_Name','GCT_Name','GPO_Name','GSY_Name','GFL_Name','GRap','Disc','GRate','total','ftotal','CR_Name','NGS','EC_Name','BSHD_Name','Meas','TotDepth','Table1','Ratio','origin','Loc_Name','CertNo'];
+    columnsToDisplay = ['hash','checkbox','PId','IsBPD','S_Name','Carat','GC_Name','GQ_Name','GCT_Name','GPO_Name','GSY_Name','GFL_Name','GRap','Disc','GRate','Total','ftotal','CR_Name','NGS','EC_Name','BSHD_Name','Meas','TotDepth','Table1','Ratio','origin','Loc_Name','CertNo'];
 
 
   // dataSource = [
@@ -838,6 +840,12 @@ export class SearchdiamondComponent implements OnInit {
 
       switch (param) {
 
+        case "checkbox":
+          return "";
+          break;
+        case "hash":
+          return "#";
+          break;
           case "PId":
               return "Stone ID";
               break;
@@ -923,22 +931,73 @@ export class SearchdiamondComponent implements OnInit {
 
   }
 
-
-  //console.log(dataSource);
-
-
   expandedElement: any;
 
-
-  testVikesh(){
-    console.log('yeyyy');
-    //this.expandedElement = null;
+  upOrDown(element,expandedElementttt){
+    if(JSON.stringify(expandedElementttt)==JSON.stringify(element)){
+      return 'icon-down-arrow';
+    }else{
+      return 'icon-up_arrow';
+    }
   }
 
+  clickTD(targetClass,element){
+    if(targetClass=='hash'){
+      if(JSON.stringify(this.expandedElement)==JSON.stringify(element)){
+        this.expandedElement = null;
+      }else{
+        this.expandedElement = element;
+      }
+    }
+  }
+
+  selectedStones = [];
+  selectStone(element){
+    element.selected = !element.selected;
+    this.selectedStones = this.dataSource.filter(item => item.selected);
+    this.allStoneSelected = this.selectedStones.length==this.dataSource.length;
+    this.doCalculation();
+  }
+
+  allStoneSelected = false;
+  selectAllStone(){
+    this.allStoneSelected = !this.allStoneSelected;
+    this.dataSource = this.dataSource.map((item) => {
+      item.selected = this.allStoneSelected;
+      return item;
+    })
+    this.selectedStones = this.dataSource.filter(item => item.selected);
+    this.doCalculation();
+  }
+
+  totalCts = 0;  avgRap:any = 0.00;  avgDisc:any = 0;  ctRate:any = 0;  totAmount = 0;  fCtRate = 0;  fTotAmount = 0;
+  doCalculation(){
+    // this.totalCts =
+    this.totalCts = this.selectedStones.reduce((acc, val) => {
+      return acc + parseFloat(val.Carat);
+    },0);
+
+    this.avgRap = this.selectedStones.reduce((acc, val) => {
+      return acc + (parseFloat(val.Carat)*parseFloat(val.GRap));
+    },0);
+    this.avgRap/=this.totalCts;
+    this.avgRap = this.avgRap.toFixed(2);
 
 
+    this.totAmount = this.selectedStones.reduce((acc, val) => {
+      return acc + parseFloat(val.Total);
+    },0);
 
+    this.ctRate = this.selectedStones.reduce((acc, val) => {
+      return acc + (parseFloat(val.Carat)*parseFloat(val.GRate));
+    },0);
+    this.ctRate/=this.totalCts;
+    this.ctRate = this.ctRate.toFixed(2);
 
+    this.avgDisc = 100-(this.ctRate/this.avgRap*100);
+    this.avgDisc = this.avgDisc.toFixed(2);
+
+  }
 
 
 }

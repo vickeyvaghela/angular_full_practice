@@ -726,11 +726,11 @@
                             </div>
                             <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
                                 <mat-form-field floatLabel="never">
-                                    <input type="text" matInput>
+                                    <input type="text" matInput formControlName="FCAngle">
                                 </mat-form-field>
                                 <span class="mes_to">To</span>
                                 <mat-form-field floatLabel="never">
-                                    <input type="text" matInput>
+                                    <input type="text" matInput formControlName="TCAngle">
                                 </mat-form-field>
                             </div>
                             <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
@@ -821,6 +821,7 @@
                                 <i class="icon-print sch_tp"></i>
                                 <i class="icon-download sch_tp"></i>
                             </span>
+                            <button type="submit">TEst</button>
                         </p>
                     </div>
                 </div>
@@ -861,29 +862,29 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="sch_pcs">
                         <mat-chip-list class=" res_lst pcs_inline">
-                            <mat-chip>
-                                Tot.Pcs. <span class="pcs_ans">0</span>
+                            <mat-chip style="width: 11%">
+                                Tot.Pcs. <span class="pcs_ans">{{selectedStones.length}}</span>
                             </mat-chip>
-                            <mat-chip>
-                                Tot.Cts. <span class="pcs_ans">0.00</span>
+                            <mat-chip style="width: 11%">
+                                Tot.Cts. <span class="pcs_ans">{{totalCts}}</span>
                             </mat-chip>
-                            <mat-chip>
-                                Avg.Rap. <span class="pcs_ans">$0.00</span>
+                            <mat-chip style="width: 11%">
+                                Avg.Rap. <span class="pcs_ans">{{avgRap}}</span>
                             </mat-chip>
-                            <mat-chip>
-                                Avg.Disc. <span class="pcs_ans">0.00%</span>
+                            <mat-chip style="width: 11%">
+                                Avg.Disc. <span class="pcs_ans">{{avgDisc}}%</span>
                             </mat-chip>
-                            <mat-chip>
-                                CT.Rate. <span class="pcs_ans">$0.00</span>
+                            <mat-chip style="width: 11%">
+                                CT.Rate. <span class="pcs_ans">{{ctRate}}</span>
                             </mat-chip>
-                            <mat-chip>
-                                Tot.Amt. <span class="pcs_ans">$0.00</span>
+                            <mat-chip style="width: 11%">
+                                Tot.Amt. <span class="pcs_ans">{{totAmount}}</span>
                             </mat-chip>
-                            <mat-chip>
-                                F.Ct.Rate. <span class="pcs_ans">$0.00</span>
+                            <mat-chip style="width: 11%">
+                                F.Ct.Rate. <span class="pcs_ans">{{fCtRate}}</span>
                             </mat-chip>
-                            <mat-chip>
-                                F.Tot.Amt. <span class="pcs_ans">$0.00</span>
+                            <mat-chip style="width: 11%">
+                                F.Tot.Amt. <span class="pcs_ans">{{fTotAmount}}</span>
                             </mat-chip>
                         </mat-chip-list>
                     </div>
@@ -894,8 +895,15 @@
                     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 tbl_res">
                         <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
                             <!--<th mat-header-cell *matHeaderCellDef> {{column}} <input type="checkbox"></th>-->
-                            <th mat-header-cell *matHeaderCellDef> {{showDisplayName(column)}}</th>
-                            <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                            <th mat-header-cell *matHeaderCellDef> <b style="font-weight: 1000;">{{showDisplayName(column)}}<span *ngIf="column=='checkbox'"><input [checked]="allStoneSelected" (click)="selectAllStone()" type="checkbox"></span></b></th>
+                            <!--<td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element"> <span *ngIf="column=='hash'"><i class="icon-up_arroww hid icon-down-arrow"></i></span>{{element[column]}} </td>-->
+                            <td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element">
+                                <span *ngIf="column=='hash'"><i class="{{upOrDown(element,expandedElement)}} hid"></i></span>
+                                <span *ngIf="column=='checkbox'"><input (click)="selectStone(element)" [checked]="element.selected" type="checkbox"></span>
+
+                                {{element[column]}}
+                                <!--<pre>{{element | json}}</pre>-->
+                            </td>
                         </ng-container>
 
                         <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
@@ -903,6 +911,8 @@
                             <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
                                 <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
 
+
+                                    <!--<pre>{{expandedElement | json}}</pre>-->
 
                                     <table cellpadding="0" cellspacing="3px" border="1px">
                                         <tbody>
@@ -1029,16 +1039,28 @@
                         </ng-container>
 
                         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+
+
+
+
                         <!--<tr mat-row *matRowDef="let element; columns: columnsToDisplay;"-->
-                        <!--class="example-element-row"-->
-                        <!--[class.example-expanded-row]="expandedElement === element"-->
+                            <!--class="example-element-row"-->
+                            <!--[class.example-expanded-row]="expandedElement === element"-->
+                            <!--(click)="expandedElement = element"-->
                         <!--&gt;-->
                         <!--</tr>-->
+                        <!--(click)="expandedElement=expandShrinkelem(expandedElement, element)"-->
+
                         <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
                             class="example-element-row"
                             [class.example-expanded-row]="expandedElement === element"
-                            (click)="expandedElement = element">
+                        >
+
                         </tr>
+
+
+
+
                         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
                     </table>
                 </div>
