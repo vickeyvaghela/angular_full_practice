@@ -121,6 +121,17 @@
 
  */
 
+
+/*table-css- in result grid*/
+.res_ttbl tr.mat-row, tr.mat-footer-row{
+  height: 40px;
+}
+
+
+
+
+
+
 @media screen and (max-width: 1600px) {
   .meas_sch .mat-form-field-infix {
     width: 151px;
