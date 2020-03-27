@@ -532,8 +532,27 @@ input:focus, a:focus {
   }
 /*vikesh ends*/
 
+.stn_img{
+  width: 180px;
+  padding: 10px;
+}
 
+.tbltr{
+  width: 180px;
+}
 
+.tdfrst{
+  padding: 4px;
+  color: #253646;
+  font-size: 14px;
+}
+
+.tdsnd {
+  padding: 4px;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
 
 
 /* Responsive */
