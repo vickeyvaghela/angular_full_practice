@@ -1,4 +1,3 @@
-
 <form [formGroup]="searchDiamondForm" (ngSubmit)="onSubmit()">
 
     <app-common (globalSearchEmitter)="getGlobalDataFrmChild($event)"></app-common>
@@ -113,10 +112,12 @@
                                 <mat-chip-list *ngIf="whiteColor" class=" sch_lst color_inline" multiple="true">
                                     <mat-chip [selected]="initObj.color.selectAll"
                                               (click)="checkAll(!initObj.color.selectAll,'color');initObj.color.selectAll=!initObj.color.selectAll">
-                                        All</mat-chip>
+                                        All
+                                    </mat-chip>
                                     <mat-chip *ngFor="let color of initObj.color.items" [selected]="color.selected"
                                               (click)="color.selected=!color.selected;initObj.color.selectCount=initObj.color.selectCount+1;createGroup('color');unCheckAll('color',color);">
-                                        {{color.name}}</mat-chip>
+                                        {{color.name}}
+                                    </mat-chip>
                                 </mat-chip-list>
 
 
@@ -129,7 +130,8 @@
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
 
-                                                    <mat-select formControlName="fancyintensityControl" multiple [compareWith]="compareObjects" class="myPanelClass">
+                                                    <mat-select formControlName="fancyintensityControl" multiple
+                                                                [compareWith]="compareObjects" class="myPanelClass">
 
                                                         <mat-select-trigger
                                                                 *ngIf="searchDiamondForm.value.fancyintensityControl.length>=fancyintensityList.length">
@@ -156,9 +158,10 @@
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
 
-                                                    
 
-                                                    <mat-select formControlName="fancyovertoneControl" multiple disableOptionCentering class="myPanelClass" [compareWith]="compareObjects">
+                                                    <mat-select formControlName="fancyovertoneControl" multiple
+                                                                disableOptionCentering class="myPanelClass"
+                                                                [compareWith]="compareObjects">
 
                                                         <mat-select-trigger
                                                                 *ngIf="searchDiamondForm.value.fancyovertoneControl.length>=fancyovertoneList.length">
@@ -170,7 +173,8 @@
                                                         <mat-option
                                                                 (click)="selectSingleChipOption(fancyovertone,'fancyovertone');unCheckAll('fancyovertone',fancyovertone);"
                                                                 *ngFor="let fancyovertone of fancyovertoneList"
-                                                                [value]="fancyovertone">{{fancyovertone.name}}</mat-option>
+                                                                [value]="fancyovertone">{{fancyovertone.name}}
+                                                        </mat-option>
                                                     </mat-select>
                                                 </mat-form-field>
                                             </div>
@@ -184,9 +188,9 @@
                                             <div class="flr_sm1 sel_mat org_mat">
                                                 <mat-form-field>
 
-                                                    <mat-select formControlName="fancycolorControl" multiple [compareWith]="compareObjects" class="myPanelClass">
+                                                    <mat-select formControlName="fancycolorControl" multiple
+                                                                [compareWith]="compareObjects" class="myPanelClass">
 
-                                                    
 
                                                         <mat-select-trigger
                                                                 *ngIf="searchDiamondForm.value.fancycolorControl.length>=fancycolorList.length">
@@ -198,7 +202,8 @@
                                                         <mat-option
                                                                 (click)="selectSingleChipOption(fancycolor,'fancycolor');unCheckAll('fancycolor',fancycolor);"
                                                                 *ngFor="let fancycolor of fancycolorList"
-                                                                [value]="fancycolor">{{fancycolor.name}}</mat-option>
+                                                                [value]="fancycolor">{{fancycolor.name}}
+                                                        </mat-option>
                                                     </mat-select>
                                                 </mat-form-field>
                                             </div>
@@ -221,11 +226,13 @@
 
                                     <mat-chip [selected]="initObj.clarity.selectAll"
                                               (click)="checkAll(!initObj.clarity.selectAll,'clarity');initObj.clarity.selectAll=!initObj.clarity.selectAll">
-                                        All</mat-chip>
+                                        All
+                                    </mat-chip>
                                     <mat-chip *ngFor="let clarity of initObj.clarity.items"
                                               [selected]="clarity.selected"
                                               (click)="clarity.selected=!clarity.selected;initObj.clarity.selectCount=initObj.clarity.selectCount+1;createGroup('clarity');unCheckAll('clarity',clarity);">
-                                        {{clarity.name}}</mat-chip>
+                                        {{clarity.name}}
+                                    </mat-chip>
 
                                     <!--<mat-chip>All</mat-chip>
                                     <mat-chip>FL</mat-chip>
@@ -275,7 +282,8 @@
                                 <mat-chip-list class="sch_lst cut_inline" multiple="true">
                                     <mat-chip [selected]="initObj.cut.selectAll"
                                               (click)="checkAll(!initObj.cut.selectAll,'cut');initObj.cut.selectAll=!initObj.cut.selectAll">
-                                        All</mat-chip>
+                                        All
+                                    </mat-chip>
                                     <mat-chip *ngFor="let cut of initObj.cut.items" [selected]="cut.selected"
                                               (click)="cut.selected=!cut.selected;initObj.cut.selectCount=initObj.cut.selectCount+1;removeSame(cut.selected,cut.name,'cut');unCheckAll('cut',cut);">
                                         {{cut.name}}
@@ -291,7 +299,8 @@
                                             <mat-chip-list class="sch_lst fluor_inline" multiple="true">
                                                 <mat-chip [selected]="initObj.fluorescence.selectAll"
                                                           (click)="checkAll(!initObj.fluorescence.selectAll,'fluorescence');initObj.fluorescence.selectAll=!initObj.fluorescence.selectAll">
-                                                    All</mat-chip>
+                                                    All
+                                                </mat-chip>
                                                 <mat-chip *ngFor="let fluorescence of initObj.fluorescence.items"
                                                           [selected]="fluorescence.selected"
                                                           (click)="fluorescence.selected=!fluorescence.selected;initObj.fluorescence.selectCount=initObj.fluorescence.selectCount+1;unCheckAll('fluorescence',fluorescence);">
@@ -329,7 +338,8 @@
                                 <mat-chip-list class="sch_lst pol_inline" multiple="true">
                                     <mat-chip [selected]="initObj.pol.selectAll"
                                               (click)="checkAll(!initObj.pol.selectAll,'pol');initObj.pol.selectAll=!initObj.pol.selectAll">
-                                        All</mat-chip>
+                                        All
+                                    </mat-chip>
                                     <mat-chip *ngFor="let pol of initObj.pol.items" [selected]="pol.selected"
                                               (click)="pol.selected=!pol.selected;initObj.pol.selectCount=initObj.pol.selectCount+1;removeSame(pol.selected,pol.name,'pol');unCheckAll('pol',pol);">
                                         {{pol.name}}
@@ -346,11 +356,13 @@
                                             <mat-chip-list class="sch_lst lab_inline" multiple="true">
                                                 <mat-chip [selected]="initObj.lab.selectAll"
                                                           (click)="checkAll(!initObj.lab.selectAll,'lab');initObj.lab.selectAll=!initObj.lab.selectAll">
-                                                    All</mat-chip>
+                                                    All
+                                                </mat-chip>
                                                 <mat-chip *ngFor="let lab of initObj.lab.items"
                                                           [selected]="lab.selected"
                                                           (click)="lab.selected=!lab.selected;initObj.lab.selectCount=initObj.lab.selectCount+1;unCheckAll('lab',lab);">
-                                                    {{lab.name}}</mat-chip>
+                                                    {{lab.name}}
+                                                </mat-chip>
                                             </mat-chip-list>
                                         </div>
                                     </div>
@@ -365,9 +377,12 @@
                                             <mat-chip-list class="sch_lst lust_inline" multiple="true">
                                                 <mat-chip [selected]="allLustSelected"
                                                           (click)="checkAll(!allLustSelected,'luster');allLustSelected=!allLustSelected">
-                                                    All</mat-chip>
+                                                    All
+                                                </mat-chip>
                                                 <mat-chip *ngFor="let lust of lustList" [selected]="lust.selected"
-                                                          (click)="lust.selected=!lust.selected;unCheckAll('lust',lust);">{{lust.name}}</mat-chip>
+                                                          (click)="lust.selected=!lust.selected;unCheckAll('lust',lust);">
+                                                    {{lust.name}}
+                                                </mat-chip>
                                             </mat-chip-list>
                                         </div>
                                     </div>
@@ -383,9 +398,12 @@
                                         <mat-chip-list class="sch_lst ha_inline" multiple="true">
                                             <mat-chip [selected]="allHNASelected"
                                                       (click)="checkAll(!allHNASelected,'hna');allHNASelected=!allHNASelected;">
-                                                All</mat-chip>
+                                                All
+                                            </mat-chip>
                                             <mat-chip *ngFor="let hna of hnaList" [selected]="hna.selected"
-                                                      (click)="hna.selected=!hna.selected;unCheckAll('hna',hna);">{{hna.name}}</mat-chip>
+                                                      (click)="hna.selected=!hna.selected;unCheckAll('hna',hna);">
+                                                {{hna.name}}
+                                            </mat-chip>
                                         </mat-chip-list>
                                     </div>
                                 </div>
@@ -403,7 +421,8 @@
                                 <mat-chip-list class="sch_lst sym_inline" multiple="true">
                                     <mat-chip [selected]="initObj.symm.selectAll"
                                               (click)="checkAll(!initObj.symm.selectAll,'symm');initObj.symm.selectAll=!initObj.symm.selectAll;">
-                                        All</mat-chip>
+                                        All
+                                    </mat-chip>
                                     <mat-chip *ngFor="let symm of initObj.symm.items" [selected]="symm.selected"
                                               (click)="symm.selected=!symm.selected;initObj.symm.selectCount=initObj.symm.selectCount+1;removeSame(symm.selected,symm.name,'symm');unCheckAll('symm',symm);">
                                         {{symm.name}}
@@ -418,7 +437,8 @@
                                         </div>
                                         <div class="flr_sm1 sel_mat org_mat">
                                             <mat-form-field floatLabel="never">
-                                                <mat-select formControlName="originControl" multiple disableOptionCentering class="myPanelClass">
+                                                <mat-select formControlName="originControl" multiple
+                                                            disableOptionCentering class="myPanelClass">
                                                     <mat-select-trigger
                                                             *ngIf="searchDiamondForm.value.originControl.length>=originList.length">
                                                         <span class="example-additional-selection">
@@ -426,8 +446,9 @@
                                                         </span>
                                                     </mat-select-trigger>
                                                     <!--<mat-option (click)="originSelected(orig)" *ngFor="let orig of originList" [value]="orig">{{orig}}</mat-option>-->
-                                                    <mat-option (click)="selectSingleChipOption(orig,'origin');unCheckAll('origin',orig);"
-                                                                *ngFor="let orig of originList" [value]="orig">{{orig}}
+                                                    <mat-option
+                                                            (click)="selectSingleChipOption(orig,'origin');unCheckAll('origin',orig);"
+                                                            *ngFor="let orig of originList" [value]="orig">{{orig}}
                                                     </mat-option>
                                                 </mat-select>
                                             </mat-form-field>
@@ -441,7 +462,9 @@
                                         </div>
                                         <div class="flr_sm1 sel_mat org_mat">
                                             <mat-form-field floatPlaceholder="never">
-                                                <mat-select formControlName="shadeControl" multiple disableOptionCentering class="myPanelClass" [compareWith]="compareObjects">
+                                                <mat-select formControlName="shadeControl" multiple
+                                                            disableOptionCentering class="myPanelClass"
+                                                            [compareWith]="compareObjects">
                                                     <mat-select-trigger
                                                             *ngIf="searchDiamondForm.value.shadeControl.length>=shadeList.length">
                                                         <span class="example-additional-selection">
@@ -449,8 +472,9 @@
                                                         </span>
                                                     </mat-select-trigger>
                                                     <!--<mat-option (click)="shadeSelected(shad)" *ngFor="let shad of shadeList" [value]="shad">{{shad.name}}</mat-option>-->
-                                                    <mat-option (click)="selectSingleChipOption(shad,'shade');unCheckAll('shade',shad);"
-                                                                *ngFor="let shad of shadeList" [value]="shad">{{shad.name}}
+                                                    <mat-option
+                                                            (click)="selectSingleChipOption(shad,'shade');unCheckAll('shade',shad);"
+                                                            *ngFor="let shad of shadeList" [value]="shad">{{shad.name}}
                                                     </mat-option>
                                                 </mat-select>
                                             </mat-form-field>
@@ -464,7 +488,9 @@
                                         </div>
                                         <div class="flr_sm1 sel_mat org_mat">
                                             <mat-form-field floatLabel="never">
-                                                <mat-select [compareWith]="compareObjects" formControlName="locationControl" multiple disableOptionCentering class="myPanelClass">
+                                                <mat-select [compareWith]="compareObjects"
+                                                            formControlName="locationControl" multiple
+                                                            disableOptionCentering class="myPanelClass">
                                                     <mat-select-trigger
                                                             *ngIf="searchDiamondForm.value.locationControl.length>=locationList.length">
                                                         <span class="example-additional-selection">
@@ -472,13 +498,13 @@
                                                         </span>
                                                     </mat-select-trigger>
                                                     <!--<mat-option (click)="locationSelected(Loc)" *ngFor="let Loc of locationList" [value]="Loc">{{Loc.name}}</mat-option>-->
-                                                    <mat-option (click)="selectSingleChipOption(Loc,'location');unCheckAll('location',Loc);"
+                                                    <mat-option
+                                                            (click)="selectSingleChipOption(Loc,'location');unCheckAll('location',Loc);"
 
-                                                                *ngFor="let Loc of locationList" [value]="Loc">{{Loc.name}}
+                                                            *ngFor="let Loc of locationList" [value]="Loc">{{Loc.name}}
                                                     </mat-option>
                                                 </mat-select>
                                             </mat-form-field>
-
 
 
                                         </div>
@@ -909,7 +935,8 @@
                         <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
                         <ng-container matColumnDef="expandedDetail">
                             <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
-                                <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                <div class="example-element-detail"
+                                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
 
 
                                     <!--<pre>{{expandedElement | json}}</pre>-->
@@ -927,7 +954,7 @@
                                             <td>-----</td>
                                             <td><span>Measurement</span></td>
                                             <td>{{element.Meas}}</td>
-                                            <td><span>Pv.Angle</span> </td>
+                                            <td><span>Pv.Angle</span></td>
                                             <td>---</td>
                                         </tr>
                                         <tr>
