@@ -41,6 +41,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 10px 30px;
+    cursor: pointer;
 }
 
 .sch_head1 {
@@ -53,6 +54,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 10px 30px;
+    cursor: pointer;
 }
 .sch_head2 {
   font-family: Rubik;
@@ -64,6 +66,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 10px 30px;
+    cursor: pointer;
 }
 
 
@@ -554,7 +557,14 @@ input:focus, a:focus {
   font-weight: bold;
 }
 
-
+.spnclr{
+    color: #ffff;
+    background: #267491;
+    margin-right: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    display: inline-block;
+}
 /* Responsive */
 
 @media screen and (max-width: 1600px) {
