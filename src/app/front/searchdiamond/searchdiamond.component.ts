@@ -29,6 +29,9 @@ export class SearchdiamondComponent implements OnInit {
   searchDiamondForm: FormGroup;
 
 
+  hideSearchForm = false;
+  hideSearchFormMeasure = false;
+
 
   TotalStoneFound = 0;
   searchResultAry: any[] = [];
@@ -707,6 +710,13 @@ export class SearchdiamondComponent implements OnInit {
 
       this.dataSource = this.searchResultAry;
 
+      if(this.searchResultAry.length>0){
+          this.hideSearchForm = true;
+          this.hideSearchFormMeasure = true;
+      }else{
+          this.hideSearchForm = false;
+          this.hideSearchFormMeasure = false;
+      }
 
       // this.dataSource = this.searchResultAry.map((item) => {
       //   item.selected = true;
