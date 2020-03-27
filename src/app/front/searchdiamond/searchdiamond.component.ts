@@ -700,32 +700,39 @@ export class SearchdiamondComponent implements OnInit {
 
   onSubmit(){
 
+    if(this.TotalStoneFound<=500){
+      this.searchDiamondServ.searchDiamond(this.createPostData()).subscribe(searchDiam => {
 
-    this.searchDiamondServ.searchDiamond(this.createPostData()).subscribe(searchDiam => {
-      if(searchDiam.success && searchDiam.data){
-        this.searchResultAry = searchDiam.data;
-      }else{
-        this.searchResultAry = [];
-      }
 
-      this.dataSource = this.searchResultAry;
+        if(searchDiam.success && searchDiam.data){
+          this.searchResultAry = searchDiam.data;
+        }else{
+          this.searchResultAry = [];
+        }
 
-      if(this.searchResultAry.length>0){
+        this.dataSource = this.searchResultAry;
+
+        if(this.searchResultAry.length>0){
           this.hideSearchForm = true;
           this.hideSearchFormMeasure = true;
-      }else{
+        }else{
           this.hideSearchForm = false;
           this.hideSearchFormMeasure = false;
-      }
+        }
 
-      // this.dataSource = this.searchResultAry.map((item) => {
-      //   item.selected = true;
-      //   return item;
-      // });
-      console.log('this.dataSource ',this.dataSource);
-      this.TotalStoneFound = this.searchResultAry.length;
+        // this.dataSource = this.searchResultAry.map((item) => {
+        //   item.selected = true;
+        //   return item;
+        // });
+        console.log('this.dataSource ',this.dataSource);
+        this.TotalStoneFound = this.searchResultAry.length;
 
-    },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
+
+      },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
+    }else{
+      alert('More then 500 stones found, Please narrow down your search.')
+    }
+
 
   }
 
