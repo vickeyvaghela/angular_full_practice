@@ -29,6 +29,9 @@ export class SearchdiamondComponent implements OnInit {
   searchDiamondForm: FormGroup;
 
 
+  hideSearchForm = false;
+  hideSearchFormMeasure = false;
+
 
   TotalStoneFound = 0;
   searchResultAry: any[] = [];
@@ -707,6 +710,13 @@ export class SearchdiamondComponent implements OnInit {
 
       this.dataSource = this.searchResultAry;
 
+      if(this.searchResultAry.length>0){
+          this.hideSearchForm = true;
+          this.hideSearchFormMeasure = true;
+      }else{
+          this.hideSearchForm = false;
+          this.hideSearchFormMeasure = false;
+      }
 
       // this.dataSource = this.searchResultAry.map((item) => {
       //   item.selected = true;
@@ -972,30 +982,40 @@ export class SearchdiamondComponent implements OnInit {
 
   totalCts = 0;  avgRap:any = 0.00;  avgDisc:any = 0;  ctRate:any = 0;  totAmount = 0;  fCtRate = 0;  fTotAmount = 0;
   doCalculation(){
-    // this.totalCts =
-    this.totalCts = this.selectedStones.reduce((acc, val) => {
-      return acc + parseFloat(val.Carat);
-    },0);
+    if(this.selectedStones.length==0){
+      this.totalCts = 0;
+      this.avgRap = 0;
+      this.avgDisc = 0;
+      this.ctRate = 0;
+      this.totAmount = 0;
+      this.fCtRate = 0;
+      this.fTotAmount = 0;
+    }else{
+      this.totalCts = this.selectedStones.reduce((acc, val) => {
+        return acc + parseFloat(val.Carat);
+      },0);
 
-    this.avgRap = this.selectedStones.reduce((acc, val) => {
-      return acc + (parseFloat(val.Carat)*parseFloat(val.GRap));
-    },0);
-    this.avgRap/=this.totalCts;
-    this.avgRap = this.avgRap.toFixed(2);
+      this.avgRap = this.selectedStones.reduce((acc, val) => {
+        return acc + (parseFloat(val.Carat)*parseFloat(val.GRap));
+      },0);
+      this.avgRap/=this.totalCts;
+      this.avgRap = this.avgRap.toFixed(2);
 
 
-    this.totAmount = this.selectedStones.reduce((acc, val) => {
-      return acc + parseFloat(val.Total);
-    },0);
+      this.totAmount = this.selectedStones.reduce((acc, val) => {
+        return acc + parseFloat(val.Total);
+      },0);
 
-    this.ctRate = this.selectedStones.reduce((acc, val) => {
-      return acc + (parseFloat(val.Carat)*parseFloat(val.GRate));
-    },0);
-    this.ctRate/=this.totalCts;
-    this.ctRate = this.ctRate.toFixed(2);
+      this.ctRate = this.selectedStones.reduce((acc, val) => {
+        return acc + (parseFloat(val.Carat)*parseFloat(val.GRate));
+      },0);
+      this.ctRate/=this.totalCts;
+      this.ctRate = this.ctRate.toFixed(2);
 
-    this.avgDisc = 100-(this.ctRate/this.avgRap*100);
-    this.avgDisc = this.avgDisc.toFixed(2);
+      this.avgDisc = 100-(this.ctRate/this.avgRap*100);
+      this.avgDisc = this.avgDisc.toFixed(2);
+    }
+    
 
   }
 
