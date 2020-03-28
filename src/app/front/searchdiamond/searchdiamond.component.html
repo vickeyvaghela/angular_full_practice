@@ -250,7 +250,7 @@
                         <div class="sch_carat">
                             <div class="row">
                                 <div class="col-lg-1 col-md-2 col-sm-12"></div>
-                                <div class="col-lg-3 col-md-5 col-sm-12">
+                                <div class="col-lg-4 col-md-6 col-sm-12">
                                 <span class="sch_whfc">
                                     <a (click)="selectSame('3ex')" href="javascript:void(0)"
                                        [ngClass]="{'active': ex3,'': !ex3}" class="wh_col sp_vg">3 EX</a>
@@ -877,28 +877,28 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="sch_pcs">
                         <mat-chip-list class=" res_lst pcs_inline">
-                            <mat-chip style="width: 11%">
+                            <mat-chip>
                                 Tot.Pcs. <span class="pcs_ans">{{selectedStones.length}}</span>
                             </mat-chip>
-                            <mat-chip style="width: 11%">
+                            <mat-chip>
                                 Tot.Cts. <span class="pcs_ans">{{totalCts}}</span>
                             </mat-chip>
-                            <mat-chip style="width: 11%">
+                            <mat-chip>
                                 Avg.Rap. <span class="pcs_ans">{{avgRap}}</span>
                             </mat-chip>
-                            <mat-chip style="width: 11%">
+                            <mat-chip>
                                 Avg.Disc. <span class="pcs_ans">{{avgDisc}}%</span>
                             </mat-chip>
-                            <mat-chip style="width: 11%">
+                            <mat-chip>
                                 CT.Rate. <span class="pcs_ans">{{ctRate}}</span>
                             </mat-chip>
-                            <mat-chip style="width: 11%">
+                            <mat-chip>
                                 Tot.Amt. <span class="pcs_ans">{{totAmount}}</span>
                             </mat-chip>
-                            <mat-chip style="width: 11%">
+                            <mat-chip>
                                 F.Ct.Rate. <span class="pcs_ans">{{fCtRate}}</span>
                             </mat-chip>
-                            <mat-chip style="width: 11%">
+                            <mat-chip>
                                 F.Tot.Amt. <span class="pcs_ans">{{fTotAmount}}</span>
                             </mat-chip>
                         </mat-chip-list>
@@ -906,11 +906,11 @@
                 </div>
 
 
-                <div class="col-md-12 tbl_responsive res_ttbl" *ngIf="searchResultAry.length>0">
+                <div class="col-md-12 tbl_responsive res_ttbl mt-10" *ngIf="searchResultAry.length>0">
                     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 tbl_res">
                         <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
                             <!--<th mat-header-cell *matHeaderCellDef> {{column}} <input type="checkbox"></th>-->
-                            <th mat-header-cell *matHeaderCellDef> <b style="font-weight: 1000;">{{showDisplayName(column)}}<span *ngIf="column=='checkbox'"><input [checked]="allStoneSelected" (click)="selectAllStone()" type="checkbox"></span></b></th>
+                            <th mat-header-cell *matHeaderCellDef class="tbl_hesdr"> <b style="font-weight: 1000;">{{showDisplayName(column)}}<span *ngIf="column=='checkbox'"><input [checked]="allStoneSelected" (click)="selectAllStone()" type="checkbox"></span></b></th>
                             <!--<td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element"> <span *ngIf="column=='hash'"><i class="icon-up_arroww hid icon-down-arrow"></i></span>{{element[column]}} </td>-->
                             <td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element">
                                 <span *ngIf="column=='hash'"><i class="{{upOrDown(element,expandedElement)}} hid"></i></span>

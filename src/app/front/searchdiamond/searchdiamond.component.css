@@ -125,6 +125,7 @@
 .hid {
   color: #84878a;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .sch_master {
@@ -454,7 +455,8 @@ input:focus, a:focus {
   background-color: #fff;
   border: 1px solid #E8ECEF;
   border-radius: 4px;
-  width: 8%;
+  width: 11.7%;
+  padding: 3px;
 }
 
 .pcs_ans {
@@ -470,14 +472,16 @@ input:focus, a:focus {
   white-space: nowrap;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  padding: 0px 20px;
+  padding: 0px 10px;
+  text-align: center;
 }
 
 .tbl_res td.mat-cell{
   white-space: nowrap;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  padding: 0px 20px;
+  padding: 0px 10px;
+  text-align: center;
 }
 
 .tbl_responsive{
@@ -545,13 +549,13 @@ input:focus, a:focus {
 }
 
 .tdfrst{
-  padding: 4px;
+  padding: 2px;
   color: #253646;
   font-size: 14px;
 }
 
 .tdsnd {
-  padding: 4px;
+  padding: 2px;
   color: #000;
   font-size: 14px;
   font-weight: bold;
@@ -701,11 +705,11 @@ input:focus, a:focus {
 
 @media screen and (max-width: 1366px) {
   .hd_diam {
-    font-size: 28px;
+    font-size: 26px;
     margin-right: 6px;
   }
   .allshp_inline .mat-chip {
-    padding: 26px 5.5px;
+    padding: 26px 7px;
   }
   .color_inline .mat-chip {
     padding: 10px 13px;
@@ -777,6 +781,53 @@ input:focus, a:focus {
     padding: 10px 26px;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .result_inline .mat-chip {
+    padding: 10px 12px;
+  }
+  .hd_diam{
+    font-size: 24px;
+    margin-right: 4px;
+  }
+  .color_inline .mat-chip {
+    padding: 10px 12px;
+  }
+  .pol_inline .mat-chip {
+    padding: 10px 7.4px;
+  }
+  .sym_inline .mat-chip {
+    padding: 10px 7.4px;
+  }
+  .cut_inline .mat-chip {
+    padding: 10px 7.4px;
+  }
+  .fluor_inline .mat-chip{
+    padding: 10px 16px;
+  }
+  .eye_inline .mat-chip {
+    padding: 10px 12px;
+  }
+  .lab_inline .mat-chip {
+    padding: 10px 11px;
+  }
+  .lust_inline .mat-chip {
+    padding: 10px 14px;
+  }
+  .ha_inline .mat-chip {
+    padding: 10px 4px;
+  }
+  .bpd_inline .mat-chip {
+    padding: 10px 23px;
+  }
+  .date_sch .mat-form-field {
+    margin-left: 10px;
+  }
+  .pcs_inline .mat-chip{
+    width: 23%;
+  }
+}
+
 
 @media screen and (max-width: 1024px) {
   .allshp_inline .mat-chip {

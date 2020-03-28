@@ -124,11 +124,21 @@
 
 /*table-css- in result grid*/
 .res_ttbl tr.mat-row, tr.mat-footer-row{
-  height: 40px;
+  height: 30px;
 }
 
+.res_ttbl th.mat-header-cell{
+  text-align: center;
+}
 
+.res_ttbl tr.mat-header-row{
+  height: 30px;
+  background-color: #c1c1c1;
+}
 
+.res_ttbl .tbl_hesdr{
+  color: #000;
+}
 
 
 
@@ -156,6 +166,12 @@
   }
   .org_mat .mat-form-field-infix {
     width: 102px;
+  }
+}
+
+@media screen and (max-width: 1280px){
+  .meas_sch .mat-form-field-infix {
+    width: 115px;
   }
 }
 
