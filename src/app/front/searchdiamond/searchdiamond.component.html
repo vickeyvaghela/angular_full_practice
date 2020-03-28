@@ -1,7 +1,5 @@
 <form [formGroup]="searchDiamondForm" (ngSubmit)="onSubmit()">
-
     <app-common (globalSearchEmitter)="getGlobalDataFrmChild($event)"></app-common>
-
     <section id="content-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -12,7 +10,6 @@
                             SEARCH VIEW
                             <span style="float:right;" class="viw_mt">
                                 <button class="stn_found">{{TotalStoneFound}} Stones Found</button>
-
                                 <button class="sch_tp" type="submit">
                                     <i class="icon-search"></i>Search
                                 </button>
@@ -29,7 +26,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div *ngIf="!hideSearchForm">
                     <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                         <div class="sch_carat">
@@ -84,10 +80,7 @@
                                     <a href="javascript:void(0)" (click)="addCaretRange()" class="sch_btn"><i
                                             class="icon-plus"></i></a>
                                     <a href="javascript:void(0)" class="sch_btn"><i class="icon-close"></i></a>
-
-
                                     &nbsp;&nbsp;&nbsp;
-
                                     <div style="display: inline;" *ngFor="let caret of caretRange">
                                         <span class="spnclr">{{caret.start}}-{{caret.end}}</span>
                                         <button type="button" (click)="removeCaret(caret)">X</button>
@@ -109,7 +102,6 @@
                                        [ngClass]="{'active': whiteColor==true }" class="wh_col">White Color</a>
                                     <a href="javascript:void(0)" (click)="whiteColor=!whiteColor"
                                        [ngClass]="{'active': whiteColor==false }" class="fc_col">Fancy Color</a>
-
                                 </span>
                                 </div>
                                 <div class="col-lg-9 col-md-7 col-sm-12 pl-0 mares">
@@ -123,7 +115,6 @@
                                             {{color.name}}
                                         </mat-chip>
                                     </mat-chip-list>
-
 
                                     <div *ngIf="!whiteColor">
                                         <div class="col-lg-4 col-md-4 col-sm-12 plres">
