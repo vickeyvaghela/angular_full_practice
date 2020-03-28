@@ -987,7 +987,7 @@ export class SearchdiamondComponent implements OnInit {
     this.doCalculation();
   }
 
-  totalCts = 0;  avgRap:any = 0.00;  avgDisc:any = 0;  ctRate:any = 0;  totAmount = 0;  fCtRate = 0;  fTotAmount = 0;
+  totalCts = 0;  avgRap:any = 0.00;  avgDisc:any = 0;  ctRate:any = 0;  totAmount:any = 0;  fCtRate = 0;  fTotAmount = 0;
   doCalculation(){
     if(this.selectedStones.length==0){
       this.totalCts = 0;
@@ -1012,6 +1012,8 @@ export class SearchdiamondComponent implements OnInit {
       this.totAmount = this.selectedStones.reduce((acc, val) => {
         return acc + parseFloat(val.Total);
       },0);
+      this.totAmount = this.totAmount.toFixed(2);
+
 
       this.ctRate = this.selectedStones.reduce((acc, val) => {
         return acc + (parseFloat(val.Carat)*parseFloat(val.GRate));
