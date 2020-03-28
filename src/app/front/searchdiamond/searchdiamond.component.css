@@ -569,6 +569,18 @@ input:focus, a:focus {
     margin-top: 5px;
     display: inline-block;
 }
+
+.fromise{
+  margin-top: 16px;
+}
+
+.fromise1{
+  margin-top: 5px;
+  display: block;
+}
+
+
+
 /* Responsive */
 
 @media screen and (max-width: 1600px) {
