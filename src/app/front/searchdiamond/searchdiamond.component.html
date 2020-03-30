@@ -19,8 +19,10 @@
                                 <button class="sch_tp">
                                     <i class="icon-save"></i>Save Search
                                 </button>
-                                <span *ngIf="hideSearchForm" (click)="hideSearchForm=!hideSearchForm">SHOW <i class="icon-down-arrow hid"></i></span>
-                                <span *ngIf="!hideSearchForm" (click)="hideSearchForm=!hideSearchForm">HIDE <i class="icon-up_arrow hid"></i></span>
+                                <span *ngIf="hideSearchForm" (click)="hideSearchForm=!hideSearchForm">SHOW <i
+                                        class="icon-down-arrow hid"></i></span>
+                                <span *ngIf="!hideSearchForm" (click)="hideSearchForm=!hideSearchForm">HIDE <i
+                                        class="icon-up_arrow hid"></i></span>
                                 <!--HIDE <i class="icon-down-arrow hid"></i>-->
                             </span>
                         </p>
@@ -38,9 +40,11 @@
                                         <mat-chip-list class=" head_lst allshp_inline" multiple="true">
                                             <mat-chip [selected]="initObj.shape.selectAll"
                                                       (click)="checkAll(!initObj.shape.selectAll,'shape');initObj.shape.selectAll=!initObj.shape.selectAll">
-                                                <i class="icon-Single_14 hd_diam"></i><span class="hd_shp">All Shape</span>
+                                                <i class="icon-Single_14 hd_diam"></i><span
+                                                    class="hd_shp">All Shape</span>
                                             </mat-chip>
-                                            <mat-chip *ngFor="let shape of initObj.shape.items" [selected]="shape.selected"
+                                            <mat-chip *ngFor="let shape of initObj.shape.items"
+                                                      [selected]="shape.selected"
                                                       (click)="shape.selected=!shape.selected;initObj.shape.selectCount=initObj.shape.selectCount+1;unCheckAll('shape',shape);">
                                                 <i class="{{shape.className}} hd_diam"></i><span
                                                     class="hd_shp">{{shape.name}}</span></mat-chip>
@@ -115,7 +119,6 @@
                                             {{color.name}}
                                         </mat-chip>
                                     </mat-chip-list>
-
                                     <div *ngIf="!whiteColor">
                                         <div class="col-lg-4 col-md-4 col-sm-12 plres">
                                             <div class="fluorsm">
@@ -124,10 +127,8 @@
                                                 </div>
                                                 <div class="flr_sm1 sel_mat org_mat">
                                                     <mat-form-field>
-
                                                         <mat-select formControlName="fancyintensityControl" multiple
                                                                     [compareWith]="compareObjects" class="myPanelClass">
-
                                                             <mat-select-trigger
                                                                     *ngIf="searchDiamondForm.value.fancyintensityControl.length>=fancyintensityList.length">
                                                             <span class="example-additional-selection">
@@ -152,12 +153,9 @@
                                                 </div>
                                                 <div class="flr_sm1 sel_mat org_mat">
                                                     <mat-form-field>
-
-
                                                         <mat-select formControlName="fancyovertoneControl" multiple
                                                                     disableOptionCentering class="myPanelClass"
                                                                     [compareWith]="compareObjects">
-
                                                             <mat-select-trigger
                                                                     *ngIf="searchDiamondForm.value.fancyovertoneControl.length>=fancyovertoneList.length">
                                                             <span class="example-additional-selection">
@@ -182,11 +180,8 @@
                                                 </div>
                                                 <div class="flr_sm1 sel_mat org_mat">
                                                     <mat-form-field>
-
                                                         <mat-select formControlName="fancycolorControl" multiple
                                                                     [compareWith]="compareObjects" class="myPanelClass">
-
-
                                                             <mat-select-trigger
                                                                     *ngIf="searchDiamondForm.value.fancycolorControl.length>=fancycolorList.length">
                                                             <span class="example-additional-selection">
@@ -205,7 +200,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -218,7 +212,6 @@
                                 </div>
                                 <div class="col-lg-11 col-md-10 col-sm-12">
                                     <mat-chip-list class=" sch_lst clarity_inline" multiple="true">
-
                                         <mat-chip [selected]="initObj.clarity.selectAll"
                                                   (click)="checkAll(!initObj.clarity.selectAll,'clarity');initObj.clarity.selectAll=!initObj.clarity.selectAll">
                                             All
@@ -228,7 +221,6 @@
                                                   (click)="clarity.selected=!clarity.selected;initObj.clarity.selectCount=initObj.clarity.selectCount+1;createGroup('clarity');unCheckAll('clarity',clarity);">
                                             {{clarity.name}}
                                         </mat-chip>
-
                                         <!--<mat-chip>All</mat-chip>
                                         <mat-chip>FL</mat-chip>
                                         <mat-chip>IF</mat-chip>
@@ -361,7 +353,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-lg-5 col-md-5 col-sm-12 plres plpad">
                                         <div class="fluorsm">
                                             <div class="lust_sm">
@@ -382,7 +373,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-3 col-md-6 col-sm-12">
                                     <div class="fluorsm">
                                         <div class="ha_sm">
@@ -468,7 +458,8 @@
                                                         <!--<mat-option (click)="shadeSelected(shad)" *ngFor="let shad of shadeList" [value]="shad">{{shad.name}}</mat-option>-->
                                                         <mat-option
                                                                 (click)="selectSingleChipOption(shad,'shade');unCheckAll('shade',shad);"
-                                                                *ngFor="let shad of shadeList" [value]="shad">{{shad.name}}
+                                                                *ngFor="let shad of shadeList" [value]="shad">
+                                                            {{shad.name}}
                                                         </mat-option>
                                                     </mat-select>
                                                 </mat-form-field>
@@ -494,13 +485,11 @@
                                                         <!--<mat-option (click)="locationSelected(Loc)" *ngFor="let Loc of locationList" [value]="Loc">{{Loc.name}}</mat-option>-->
                                                         <mat-option
                                                                 (click)="selectSingleChipOption(Loc,'location');unCheckAll('location',Loc);"
-
-                                                                *ngFor="let Loc of locationList" [value]="Loc">{{Loc.name}}
+                                                                *ngFor="let Loc of locationList" [value]="Loc">
+                                                            {{Loc.name}}
                                                         </mat-option>
                                                     </mat-select>
                                                 </mat-form-field>
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -560,7 +549,8 @@
                                             <div class="date_sch dt_sche1">
                                                 <mat-form-field floatLabel="never">
                                                     <mat-label>Select Date</mat-label>
-                                                    <input matInput [matDatepicker]="picker2" formControlName="Fromdate">
+                                                    <input matInput [matDatepicker]="picker2"
+                                                           formControlName="Fromdate">
                                                     <mat-datepicker-toggle matSuffix [for]="picker2">
                                                     </mat-datepicker-toggle>
                                                     <mat-datepicker #picker2></mat-datepicker>
@@ -578,7 +568,8 @@
                                             <mat-form-field floatLabel="never">
                                                 <mat-label>Select Date</mat-label>
                                                 <input matInput [matDatepicker]="picker3" formControlName="ToDate">
-                                                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                                <mat-datepicker-toggle matSuffix
+                                                                       [for]="picker3"></mat-datepicker-toggle>
                                                 <mat-datepicker #picker3></mat-datepicker>
                                             </mat-form-field>
                                         </div>
@@ -588,16 +579,16 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="main_sch">
                         <p style="text-align:left;" class="sch_head1">
                             MEASUREMENT
-                            <span style="float:right;" *ngIf="hideSearchFormMeasure" (click)="hideSearchFormMeasure=!hideSearchFormMeasure">SHOW <i class="icon-down-arrow hid"></i></span>
-                            <span style="float:right;" *ngIf="!hideSearchFormMeasure" (click)="hideSearchFormMeasure=!hideSearchFormMeasure">HIDE <i class="icon-up_arrow hid"></i></span>
+                            <span style="float:right;" *ngIf="hideSearchFormMeasure"
+                                  (click)="hideSearchFormMeasure=!hideSearchFormMeasure">SHOW <i
+                                    class="icon-down-arrow hid"></i></span>
+                            <span style="float:right;" *ngIf="!hideSearchFormMeasure"
+                                  (click)="hideSearchFormMeasure=!hideSearchFormMeasure">HIDE <i
+                                    class="icon-up_arrow hid"></i></span>
                         </p>
                     </div>
                 </div>
@@ -821,16 +812,11 @@
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="main_sch">
-
                         <p style="text-align:left;" class="sch_head3">
                             Search Result - <span class="sch_res">({{TotalStoneFound}} Stones Founds)</span>
                             <span style="float:right;" class="schrestp">
-
                                 <i class="icon-mail sch_tp"></i>
                                 <i class="icon-print sch_tp"></i>
                                 <i class="icon-download sch_tp"></i>
@@ -839,36 +825,44 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                     <div class="sch_result">
                         <mat-chip-list class=" res_lst result_inline">
                             <mat-chip>
-                                <i class="icon-search res_icon"></i><span class="res_txt">Diamond Search</span>
+                                <i class="icon-search res_icon"></i>
+                                <span class="res_txt">Diamond Search</span>
                             </mat-chip>
                             <mat-chip>
-                                <i class="icon-add-basket res_icon"></i><span class="res_txt">Add to Basket</span>
+                                <i class="icon-add-basket res_icon"></i>
+                                <span class="res_txt">Add to Basket</span>
                             </mat-chip>
                             <mat-chip>
-                                <i class="icon-cart-with-user res_icon"></i><span class="res_txt">My Basket</span>
+                                <i class="icon-cart-with-user res_icon"></i>
+                                <span class="res_txt">My Basket</span>
                             </mat-chip>
                             <mat-chip>
-                                <i class="icon-hold res_icon"></i><span class="res_txt">Hold</span>
+                                <i class="icon-hold res_icon"></i>
+                                <span class="res_txt">Hold</span>
                             </mat-chip>
                             <mat-chip>
-                                <i class="icon-Confirm-Stone res_icon"></i><span class="res_txt">Confirm Stone</span>
+                                <i class="icon-Confirm-Stone res_icon"></i>
+                                <span class="res_txt">Confirm Stone</span>
                             </mat-chip>
                             <mat-chip>
-                                <i class="icon-Confirm-Stone res_icon"></i><span class="res_txt">My Order</span>
+                                <i class="icon-Confirm-Stone res_icon"></i>
+                                <span class="res_txt">My Order</span>
                             </mat-chip>
                             <mat-chip>
-                                <i class="icon-Excel-Upload res_icon"></i><span class="res_txt">Export To Excel</span>
+                                <i class="icon-Excel-Upload res_icon"></i>
+                                <span class="res_txt">Export To Excel</span>
                             </mat-chip>
                             <mat-chip>
-                                <i class="icon-add-wishlist res_icon"></i><span class="res_txt">Add To Wishlist</span>
+                                <i class="icon-add-wishlist res_icon"></i>
+                                <span class="res_txt">Add To Wishlist</span>
                             </mat-chip>
                             <mat-chip>
-                                <i class="icon-my-wishlist res_icon"></i><span class="res_txt">My Wishlist</span>
+                                <i class="icon-my-wishlist res_icon"></i>
+                                <span class="res_txt">My Wishlist</span>
                             </mat-chip>
                         </mat-chip-list>
                     </div>
@@ -903,49 +897,51 @@
                         </mat-chip-list>
                     </div>
                 </div>
-
-
                 <div class="col-md-12 tbl_responsive res_ttbl mt-10" *ngIf="searchResultAry.length>0">
                     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 tbl_res">
                         <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
                             <!--<th mat-header-cell *matHeaderCellDef> {{column}} <input type="checkbox"></th>-->
-                            <th mat-header-cell *matHeaderCellDef class="tbl_hesdr"> <b style="font-weight: 1000;">{{showDisplayName(column)}}<span *ngIf="column=='checkbox'"><input [checked]="allStoneSelected" (click)="selectAllStone()" type="checkbox"></span></b></th>
+                            <th mat-header-cell *matHeaderCellDef class="tbl_hesdr"><b style="font-weight: 1000;">{{showDisplayName(column)}}<span
+                                    *ngIf="column=='checkbox'"><input [checked]="allStoneSelected"
+                                                                      (click)="selectAllStone()" type="checkbox"></span></b>
+                            </th>
                             <!--<td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element"> <span *ngIf="column=='hash'"><i class="icon-up_arroww hid icon-down-arrow"></i></span>{{element[column]}} </td>-->
-                            <td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element">
-                                <span *ngIf="column=='hash'"><i class="{{upOrDown(element,expandedElement)}} hid"></i></span>
-                                <span *ngIf="column=='checkbox'"><input (click)="selectStone(element)" [checked]="element.selected" type="checkbox"></span>
-
+                            <td mat-cell (click)="clickTD(column,element)" *matCellDef="let element">
+                                <span *ngIf="column=='hash'"><i
+                                        class="{{upOrDown(element,expandedElement)}} hid"></i></span>
+                                <span *ngIf="column=='checkbox'"><input (click)="selectStone(element)"
+                                                                        [checked]="element.selected"
+                                                                        type="checkbox"></span>
                                 {{element[column]}}
                                 <!--<pre>{{element | json}}</pre>-->
                             </td>
                         </ng-container>
-
                         <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
                         <ng-container matColumnDef="expandedDetail">
                             <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
                                 <div class="example-element-detail"
                                      [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-
-
                                     <!--<pre>{{expandedElement | json}}</pre>-->
-
                                     <table cellpadding="0" cellspacing="3px" border="1px">
                                         <tbody>
                                         <tr>
                                             <td rowspan="11" class="tbltr">
-                                                <img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/5756-85.JPG" class="stn_img">
+                                                <img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/5756-85.JPG"
+                                                     class="stn_img">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td rowspan="11" class="tbltr">
                                                 <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=5756-85&btn=0&sv=0&z=0"
-                                                        class="stn_img" scrolling="no" frameborder="0" allowfullscreen></iframe>
+                                                        class="stn_img" scrolling="no" frameborder="0"
+                                                        allowfullscreen></iframe>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td rowspan="11" class="tbltr">
                                                 <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf"
-                                                        class="stn_img" scrolling="no" frameborder="0" allowfullscreen></iframe>
+                                                        class="stn_img" scrolling="no" frameborder="0"
+                                                        allowfullscreen></iframe>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1075,36 +1071,22 @@
                                 </div>
                             </td>
                         </ng-container>
-
                         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-
-
-
-
                         <!--<tr mat-row *matRowDef="let element; columns: columnsToDisplay;"-->
-                            <!--class="example-element-row"-->
-                            <!--[class.example-expanded-row]="expandedElement === element"-->
-                            <!--(click)="expandedElement = element"-->
+                        <!--class="example-element-row"-->
+                        <!--[class.example-expanded-row]="expandedElement === element"-->
+                        <!--(click)="expandedElement = element"-->
                         <!--&gt;-->
                         <!--</tr>-->
                         <!--(click)="expandedElement=expandShrinkelem(expandedElement, element)"-->
-
                         <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
                             class="example-element-row"
-                            [class.example-expanded-row]="expandedElement === element"
-                        >
-
+                            [class.example-expanded-row]="expandedElement === element">
                         </tr>
-
-
-
-
                         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
                     </table>
                 </div>
-
             </div>
         </div>
     </section>
-
 </form>
