@@ -43,6 +43,16 @@
     color: #253646;
 }
 
+.txt_shp1{
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.996px;
+    text-transform: uppercase;
+    color: #253646;
+    }
+
 .stn_round {
     font-family: Rubik;
     font-style: normal;
@@ -517,7 +527,7 @@ div.blueTable {
     }
     .bg_whl {
         padding: 20px 20px 20px;
-        height: 180px;
+        height: 230px;
     }
 
     .navbar-inverse .navbar-toggle {

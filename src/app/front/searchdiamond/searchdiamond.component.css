@@ -484,7 +484,7 @@ input:focus, a:focus {
   white-space: nowrap;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  padding: 0px 10px;
+  padding: 0px 6px;
   text-align: center;
 }
 
@@ -492,7 +492,7 @@ input:focus, a:focus {
   white-space: nowrap;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  padding: 0px 10px;
+  padding: 0px 6px;
   text-align: center;
 }
 
@@ -553,7 +553,7 @@ input:focus, a:focus {
 
 .stn_img{
   width: 180px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .tbltr{
@@ -561,16 +561,17 @@ input:focus, a:focus {
 }
 
 .tdfrst{
-  padding: 2px;
   color: #253646;
   font-size: 14px;
+  background-color: #efefef;
+  border-color: #bbb;
 }
 
 .tdsnd {
-  padding: 2px;
   color: #000;
   font-size: 14px;
   font-weight: bold;
+  border-color: #bbb;
 }
 
 .spnclr{
@@ -1122,6 +1123,14 @@ input:focus, a:focus {
   }
   .sp_vg {
     padding: 10px 13px;
+  }
+
+  .tdfrst{
+    font-size: 13px;
+  }
+
+  .tdsnd {
+    font-size: 13px;
   }
   #content-wrapper {
     padding-left: 15px;

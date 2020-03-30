@@ -2,13 +2,41 @@
     <aside id="sidebar-wrapper">
 
         <ul class="sidebar-nav">
-            <li class="active"><a href="#" title="DASHBOARD"><i class="icon-dashboard"></i></a></li>
-            <li><a href="#" title="SEARCH"><i class="icon-search"></i></a></li>
-            <li><a href="#" title="HOLD"><i class="icon-hold"></i></a></li>
-            <li><a href="#" title="NDA"><i class="icon-nda"></i></a></li>
-            <li><a href="#" title="MY BASKET"><i class="icon-basket"></i></a></li>
-            <li><a href="#" title="MY ORDERS"><i class="icon-order"></i></a></li>
-            <li><a href="#" title="MY FAV"><i class="icon-favrouite"></i></a></li>
+            <li class="active">
+                <a href="#" title="DASHBOARD">
+                    <i class="icon-dashboard"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="SEARCH">
+                    <i class="icon-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="HOLD">
+                    <i class="icon-hold"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="NDA">
+                    <i class="icon-nda"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="MY BASKET">
+                    <i class="icon-basket"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="MY ORDERS">
+                    <i class="icon-order"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="MY FAV">
+                    <i class="icon-favrouite"></i>
+                </a>
+            </li>
             <!--<li>--><!--<a href="#" title="MY FAV" (click)="logout()">Logout</a>--><!--</li>-->
         </ul>
     </aside>
@@ -16,13 +44,17 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle dash_tog" data-toggle="collapse" data-target="#narolanav">
+                    <button type="button" class="navbar-toggle dash_tog" data-toggle="collapse"
+                            data-target="#narolanav">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand nv_brnd" href="#">
-                        <img src="../../assets/img/sm_logo.svg" class="sm_logo" />
+                        <img src="../../assets/img/sm_logo.svg" class="sm_logo"/>
+                    </a>
+                    <a class="" id="menu-toggle">
+                        <i class="fa fa-bars" style="color: black" id="toggleIcon"></i>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="narolanav">
@@ -33,11 +65,15 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="input-group grp-search">
-                            <input type="text" class="form-control frm_ipn" placeholder="Search Diamond" [(ngModel)]="globalSearchBox">
-                            <span (click)="searchByStoneId()" class="input-group-addon grp_add"><i class="icon-search ncr_icon"></i></span>
+                            <input type="text" class="form-control frm_ipn" placeholder="Search Diamond"
+                                   [(ngModel)]="globalSearchBox">
+                            <span (click)="searchByStoneId()" class="input-group-addon grp_add"><i
+                                    class="icon-search ncr_icon"></i></span>
                         </li>
                         <li>
-                            <button (click)="logout()" title="Logout" class="log_hed"><i class="icon-logout" aria-hidden="true"></i></button>
+                            <button (click)="logout()" title="Logout" class="log_hed"><i class="icon-logout"
+                                                                                         aria-hidden="true"></i>
+                            </button>
                         </li>
                     </ul>
                 </div>
