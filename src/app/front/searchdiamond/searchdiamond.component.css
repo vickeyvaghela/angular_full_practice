@@ -44,6 +44,19 @@
     cursor: pointer;
 }
 
+.sch_head3{
+  font-family: Rubik;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.996px;
+  color: #253646;
+  background-color: #c1c1c1;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
 .sch_head1 {
   font-family: Rubik;
   font-weight: bold;
@@ -68,7 +81,6 @@
   padding: 10px 30px;
     cursor: pointer;
 }
-
 
 .sch_tp {
   padding: 6px 10px;
@@ -942,6 +954,10 @@ input:focus, a:focus {
     padding: 10px 5px;
   }
 
+  .sch_head3{
+    padding: 10px 5px;
+  }
+
   .sch_tp {
     padding: 6px 3px;
     font-size: 13px;
@@ -1052,6 +1068,9 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
+  .ha_inline .mat-chip{
+    width: 19%;
+  }
   .lab_inline .mat-chip {
     padding: 10px 18px;
   }
@@ -1068,7 +1087,10 @@ input:focus, a:focus {
     padding: 6px 10px;
     height: 115px;
   }
-  .sch_head2 {
+.schrestp{
+  margin-top: 10px;
+}
+  .sch_head3{
     padding: 10px 20px;
     height: 70px;
   }
@@ -1087,10 +1109,12 @@ input:focus, a:focus {
     margin-right: 6px;
   }
   .color_inline .mat-chip {
-    width: 15.3%;
+    width: 12%;
+    padding: 10px 13px;
   }
   .clarity_inline .mat-chip {
-    width: 23.7%;
+    width: 16%;
+    padding: 10px 10px;
   }
   .allshp_inline .mat-chip {
     width: 33%;
@@ -1105,6 +1129,16 @@ input:focus, a:focus {
   .pcs_inline .mat-chip {
     width: 46%;
   }
+  .tois_sm1 {
+    width: 100%;
+  }
+  .frmgia_sm {
+    width: 100%;
+  }
+  .togia_sm {
+    width: 100%;
+  }
+
   .result_inline .mat-chip {
     width: 46%;
     padding: 10px 15px;
