@@ -695,6 +695,10 @@ input:focus, a:focus {
     font-size: 28px;
     margin-right: 5px;
   }
+
+  .hd_shp{
+    font-size: 11px;
+  }
   .color_inline .mat-chip {
     padding: 10px 14px;
   }
@@ -1068,9 +1072,6 @@ input:focus, a:focus {
   }
   .sym_inline .mat-chip {
     padding: 10px 22px;
-  }
-  .plres {
-    padding-left: 15px;
   }
   .org_sm1 {
     width: 17%;

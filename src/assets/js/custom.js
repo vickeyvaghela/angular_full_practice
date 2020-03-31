@@ -64,12 +64,13 @@ $(document).on('click', '#button', function(e){
 
 function openSideNav() {
     document.getElementById("sidebar-wrapper").style.width = "80px";
-    document.getElementById("content-wrapper").style.padding = "100px 0px 0px 80px";
+    document.getElementById("sidebar-wrapper").style.transition = "2s";
+    document.getElementById("content-wrapper").style.padding = "80px 15px 0px 80px";
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
     document.getElementById("sidebar-wrapper").style.width = "0";
-    document.getElementById("content-wrapper").style.padding = "100px 0px 0px 0px";
+    document.getElementById("content-wrapper").style.padding = "80px 15px 0px 15px";
     document.getElementById("content-wrapper").style.transition = "2s";
 }
