@@ -63,7 +63,7 @@ export class SearchdiamondComponent implements OnInit {
         {name:"Round",code:"R",selected:false,className:"icon-round"},
         {name:"Emerald",code:"E",selected:false,className:"icon-Single_9"},
         {name:"Cushion",code:"CU",selected:false,className:"icon-Single_17"},
-        {name:"Princess",code:"P",selected:false,className:"icon-prince_dark"},
+        {name:"Princess",code:"P",selected:false,className:"icon-Princess"},
         {name:"Marquise",code:"M",selected:false,className:"icon-Single_7"},
         {name:"Pear",code:"PE",selected:false,className:"icon-Single_5"},
         {name:"Heart",code:"H",selected:false,className:"icon-Single_8"},

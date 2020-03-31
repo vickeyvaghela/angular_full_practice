@@ -61,3 +61,15 @@ $(document).on('click', '#button', function(e){
   e.preventDefault();
   $('html, body').animate({ scrollTop: 0 }, '300');
 });
+
+function openSideNav() {
+    document.getElementById("sidebar-wrapper").style.width = "80px";
+    document.getElementById("content-wrapper").style.padding = "100px 0px 0px 80px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("sidebar-wrapper").style.width = "0";
+    document.getElementById("content-wrapper").style.padding = "100px 0px 0px 0px";
+    document.getElementById("content-wrapper").style.transition = "2s";
+}

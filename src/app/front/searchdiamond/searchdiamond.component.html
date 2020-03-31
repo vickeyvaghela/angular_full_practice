@@ -19,10 +19,8 @@
                                 <button class="sch_tp">
                                     <i class="icon-save"></i>Save Search
                                 </button>
-                                <span *ngIf="hideSearchForm" (click)="hideSearchForm=!hideSearchForm">SHOW <i
-                                        class="icon-down-arrow hid"></i></span>
-                                <span *ngIf="!hideSearchForm" (click)="hideSearchForm=!hideSearchForm">HIDE <i
-                                        class="icon-up_arrow hid"></i></span>
+                                <span *ngIf="hideSearchForm" (click)="hideSearchForm=!hideSearchForm">SHOW <i class="icon-down-arrow hid"></i></span>
+                                <span *ngIf="!hideSearchForm" (click)="hideSearchForm=!hideSearchForm">HIDE <i class="icon-up_arrow hid"></i></span>
                                 <!--HIDE <i class="icon-down-arrow hid"></i>-->
                             </span>
                         </p>
@@ -265,7 +263,7 @@
                                 <div class="col-lg-1 col-md-2 col-sm-2">
                                     <h5 class="sch_master">Cut</h5>
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-10">
+                                <div class="col-lg-2 col-md-3 col-sm-10 flrpr">
                                     <mat-chip-list class="sch_lst cut_inline" multiple="true">
                                         <mat-chip [selected]="initObj.cut.selectAll"
                                                   (click)="checkAll(!initObj.cut.selectAll,'cut');initObj.cut.selectAll=!initObj.cut.selectAll">
@@ -278,7 +276,7 @@
                                     </mat-chip-list>
                                 </div>
                                 <div class="col-lg-6 col-md-7 col-sm-12">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 plpad">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 flrcut">
                                         <div class="fluorsm">
                                             <div class="flr_sm"><span class="sch_master">Fluor</span></div>
                                             <div class="flr_sm1">
@@ -320,7 +318,7 @@
                                 <div class="col-lg-1 col-md-2 col-sm-2">
                                     <h5 class="sch_master">Pol</h5>
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-10">
+                                <div class="col-lg-2 col-md-3 col-sm-10 flrpr">
                                     <mat-chip-list class="sch_lst pol_inline" multiple="true">
                                         <mat-chip [selected]="initObj.pol.selectAll"
                                                   (click)="checkAll(!initObj.pol.selectAll,'pol');initObj.pol.selectAll=!initObj.pol.selectAll">
@@ -333,7 +331,7 @@
                                     </mat-chip-list>
                                 </div>
                                 <div class="col-lg-6 col-md-7 col-sm-12">
-                                    <div class="col-lg-7 col-md-7 col-sm-12 plpad">
+                                    <div class="col-lg-7 col-md-7 col-sm-12 flrcut">
                                         <div class="fluorsm">
                                             <div class="lab_sm">
                                                 <span class="sch_master">Lab</span>
@@ -401,7 +399,7 @@
                                 <div class="col-lg-1 col-md-2 col-sm-2">
                                     <h5 class="sch_master">Symm</h5>
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-10">
+                                <div class="col-lg-2 col-md-3 col-sm-10 flrpr">
                                     <mat-chip-list class="sch_lst sym_inline" multiple="true">
                                         <mat-chip [selected]="initObj.symm.selectAll"
                                                   (click)="checkAll(!initObj.symm.selectAll,'symm');initObj.symm.selectAll=!initObj.symm.selectAll;">
@@ -413,7 +411,7 @@
                                         </mat-chip>
                                     </mat-chip-list>
                                 </div>
-                                <div class="col-lg-6 col-md-7 col-sm-12 plres plpad">
+                                <div class="col-lg-6 col-md-7 col-sm-12 plres flrcut">
                                     <div class="col-lg-4 col-md-4 col-sm-12 plres">
                                         <div class="fluorsm">
                                             <div class="org_sm1">
@@ -496,7 +494,7 @@
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-sm-12">
                                     <div class="fluorsm">
-                                        <div class="eye_sm">
+                                        <div class="eye_sm1">
                                             <span class="sch_master"></span>
                                         </div>
                                         <div class="flr_sm1">

@@ -102,7 +102,7 @@ a:hover, a:focus {
 }
 
 .grp-search {
-  width: 348px;
+  width: 340px;
   display: table !important;
   padding: 5px;
 }
@@ -154,7 +154,12 @@ a:hover, a:focus {
   font-size: 14px;
   color: #253646 !important;
 }
-
+.menuopn{
+  color: #293d49;
+  vertical-align: middle;
+  margin-top: 10px;
+  cursor: pointer;
+}
 .sm_logo {
   width: 54px;
 }
