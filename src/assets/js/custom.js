@@ -63,9 +63,17 @@ $(document).on('click', '#button', function(e){
 });
 
 function openSideNav() {
-    document.getElementById("sidebar-wrapper").style.width = "80px";
-    document.getElementById("sidebar-wrapper").style.transition = "2s";
-    document.getElementById("content-wrapper").style.padding = "80px 15px 0px 80px";
+    if (document.getElementById("sidebar-wrapper").style.width == '80px')
+    {
+        document.getElementById("sidebar-wrapper").style.width = "0";
+        document.getElementById("content-wrapper").style.padding = "80px 15px 0px 15px";
+        document.getElementById("content-wrapper").style.transition = "2s";
+    }
+    else
+    {
+        document.getElementById("sidebar-wrapper").style.width = "80px";
+        document.getElementById("sidebar-wrapper").style.transition = "2s";
+    }
 }
 
 /* Set the width of the side navigation to 0 */
