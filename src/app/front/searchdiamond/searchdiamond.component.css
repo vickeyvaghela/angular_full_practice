@@ -926,19 +926,18 @@ input:focus, a:focus {
     padding: 10px 16px;
   }
   .cut_inline .mat-chip {
-    padding: 10px 11px;
+    padding: 10px 12px;
   }
   .flr_sm {
     width: 15%;
   }
   .fluor_inline .mat-chip {
-    padding: 10px 12px;
+    padding: 10px 14px;
   }
   .eye_sm {
-    width: 36%;
+    width: 22%;
     margin-top: 10px;
   }
-
   .eye_sm1{
     width: 0%;
     margin-top: 10px;
@@ -948,13 +947,13 @@ input:focus, a:focus {
     margin-top: 10px;
   }
   .pol_inline .mat-chip {
-    padding: 10px 11px;
+    padding: 10px 12px;
   }
   .sym_inline .mat-chip {
-    padding: 10px 11px;
+    padding: 10px 12px;
   }
   .lab_inline .mat-chip {
-    padding: 10px 9px;
+    padding: 10px 10px;
   }
   .plres {
     padding-left: 0px;
@@ -963,10 +962,11 @@ input:focus, a:focus {
     padding: 10px 14px;
   }
   .ha_sm {
+      width: 22%;
     margin-top: 10px;
   }
   .ha_inline .mat-chip {
-    padding: 10px 10px;
+    padding: 10px 18px;
     margin-top: 10px;
   }
   .org_select {
@@ -989,6 +989,9 @@ input:focus, a:focus {
     width: 36%;
     margin-top: 10px;
   }
+    .clarity_inline .mat-chip {
+        padding: 10px 21px;
+    }
   .dt_sche {
     margin-top: 10px;
   }
@@ -1059,16 +1062,16 @@ input:focus, a:focus {
     margin-top: 10px;
   }
   .cut_inline .mat-chip {
-    padding: 10px 20px;
+    padding: 10px 44px;
   }
   .eye_inline .mat-chip {
-    padding: 10px 32px;
+    padding: 10px 44px;
   }
   .pol_inline .mat-chip {
-    padding: 10px 20px;
+    padding: 10px 44px;
   }
   .lab_inline .mat-chip {
-    padding: 10px 20px;
+    padding: 10px 40px;
     margin-top: 10px;
   }
   .lust_sm {
@@ -1084,7 +1087,7 @@ input:focus, a:focus {
     margin-top: 10px;
   }
   .sym_inline .mat-chip {
-    padding: 10px 22px;
+    padding: 10px 44px;
   }
   .org_sm1 {
     width: 17%;
@@ -1202,7 +1205,6 @@ input:focus, a:focus {
   .togia_sm {
     width: 100%;
   }
-
   .result_inline .mat-chip {
     width: 46%;
     padding: 10px 15px;
