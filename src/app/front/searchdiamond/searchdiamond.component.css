@@ -713,7 +713,7 @@ input:focus, a:focus {
     font-size: 11px;
   }
   .color_inline .mat-chip {
-    padding: 10px 14px;
+    padding: 10px 14.6px;
   }
   .wh_col {
     padding: 10px 12px;
@@ -1047,7 +1047,7 @@ input:focus, a:focus {
     margin-top: 10px;
   }
   .fluor_inline .mat-chip {
-    padding: 10px 18px;
+    padding: 10px 20px;
     margin-top: 10px;
   }
   .eye_sm {
@@ -1073,6 +1073,9 @@ input:focus, a:focus {
   .lab_inline .mat-chip {
     padding: 10px 40px;
     margin-top: 10px;
+  }
+  .flrcut{
+    padding-right: 0px;
   }
   .lust_sm {
     width: 18%;
