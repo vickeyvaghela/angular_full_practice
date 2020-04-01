@@ -186,14 +186,14 @@ a:hover, a:focus {
     .col_box {
         margin-bottom: 10px;
     }
+
+    #menu-toggle{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 414px) {
     #sidebar-wrapper {
-        display: none;
-    }
-
-    #menu-toggle{
         display: none;
     }
 

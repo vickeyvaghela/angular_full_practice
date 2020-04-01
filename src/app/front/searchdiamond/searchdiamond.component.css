@@ -212,6 +212,10 @@ input:focus, a:focus {
   color: #fff;
 }
 
+.mat-chip-selected .hd_diam:before{
+  color: #fff;
+}
+
 .head_lst .mat-chip {
   font-family: Montserrat;
   font-size: 14px;
@@ -244,7 +248,12 @@ input:focus, a:focus {
   color: #fff;
 }
 
+
 .head_lst .mat-chip:hover .hd_diam {
+  color: #fff;
+}
+
+.head_lst .mat-chip:hover .hd_diam:before{
   color: #fff;
 }
 
@@ -256,12 +265,16 @@ input:focus, a:focus {
   color: #fff;
 }
 
+.head_lst .mat-chip:active .hd_diam:before{
+  color:#fff;
+}
+
 .head_lst .mat-chip:active .hd_shp {
   color: #fff;
 }
 
 .mat-chip.mat-standard-chip::after {
-  background: #fff;
+  color: #fff;
 }
 
 .color_inline .mat-chip {
@@ -1109,6 +1122,9 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
+  .flrctres{
+    padding-left: 15px;
+  }
   .ha_inline .mat-chip{
     width: 19%;
   }
@@ -1174,6 +1190,7 @@ input:focus, a:focus {
   }
   #content-wrapper {
     padding-left: 15px;
+    padding-top: 80px!important;
   }
   .pcs_inline .mat-chip {
     width: 46%;

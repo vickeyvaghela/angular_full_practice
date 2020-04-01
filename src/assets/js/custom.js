@@ -73,6 +73,7 @@ function openSideNav() {
     {
         document.getElementById("sidebar-wrapper").style.width = "80px";
         document.getElementById("sidebar-wrapper").style.transition = "2s";
+        document.getElementById("content-wrapper").style.padding = "80px 15px 0px 80px";
     }
 }
 
