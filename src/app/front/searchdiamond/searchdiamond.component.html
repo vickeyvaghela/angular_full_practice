@@ -358,12 +358,10 @@
                                             </div>
                                             <div class="flr_sm1">
                                                 <mat-chip-list class="sch_lst lust_inline" multiple="true">
-                                                    <mat-chip [selected]="allLustSelected"
-                                                              (click)="checkAll(!allLustSelected,'luster');allLustSelected=!allLustSelected">
+                                                    <mat-chip [selected]="allLustSelected" (click)="checkAll(!allLustSelected,'luster');allLustSelected=!allLustSelected">
                                                         All
                                                     </mat-chip>
-                                                    <mat-chip *ngFor="let lust of lustList" [selected]="lust.selected"
-                                                              (click)="lust.selected=!lust.selected;unCheckAll('lust',lust);">
+                                                    <mat-chip *ngFor="let lust of lustList" [selected]="lust.selected" (click)="lust.selected=!lust.selected;unCheckAll('lust',lust);">
                                                         {{lust.name}}
                                                     </mat-chip>
                                                 </mat-chip-list>
