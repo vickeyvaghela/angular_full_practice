@@ -91,25 +91,27 @@
 
             <div class="modal-body">
                 <form [formGroup]="myform" (ngSubmit)="onSubmit()">
-
                     <div style="color: red;margin-left: 23%" *ngIf="invalidCred">Invalid Username or Password</div>
                     <div class="container conr">
                         <div class="user_login">
                             <h6 class="use_head">Username</h6>
                             <div class="input-group us_grp">
                                 <input type="text" placeholder="Username" class="inp_us" formControlName="username">
-                                <span class="input-group-addon"><i class="icon-user ncr_icon"></i></span>
+                                <span class="input-group-addon">
+                                    <i class="icon-user ncr_icon"></i>
+                                </span>
                             </div>
                             <div style="color: red;margin-left: 23%"
                                 *ngIf="submitted && username.errors && username.errors.required">Username is required.
                             </div>
                         </div>
-
                         <div class="pswd_login">
                             <h6 class="use_head">Password</h6>
                             <div class="input-group us_grp">
                                 <input type="password" placeholder="Password" class="inp_us" formControlName="password">
-                                <span class="input-group-addon"><i class="icon-key ncr_icon"></i></span>
+                                <span class="input-group-addon">
+                                    <i class="icon-key ncr_icon"></i>
+                                </span>
                             </div>
                             <div style="color: red;margin-left: 23%;"
                                 *ngIf="submitted && password.errors && password.errors.required">Password is required.
