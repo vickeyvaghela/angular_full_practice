@@ -841,9 +841,9 @@
                             Search Result - <span class="sch_res">({{TotalStoneFound}} Stones Founds)</span>
                             <span style="float:right;">
 
-                                <i class="icon-mail sch_tp"></i>
-                                <i class="icon-print sch_tp"></i>
-                                <i class="icon-download sch_tp"></i>
+                                <span (click)="mailXLS()"><i class="icon-mail sch_tp"></i></span>
+                                <span (click)="printDoc()"><i class="icon-print sch_tp"></i></span>
+                                <span (click)="printXLS()"><i class="icon-download sch_tp"></i></span>
                             </span>
                             <button type="submit">TEst</button>
                         </p>

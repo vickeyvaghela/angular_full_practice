@@ -29,8 +29,8 @@ export class SearchdiamondComponent implements OnInit {
   searchDiamondForm: FormGroup;
 
 
-  hideSearchForm = false;
-  hideSearchFormMeasure = false;
+  hideSearchForm = true;
+  hideSearchFormMeasure = true;
 
 
   TotalStoneFound = 0;
@@ -733,8 +733,9 @@ export class SearchdiamondComponent implements OnInit {
       alert('More then 500 stones found, Please narrow down your search.')
     }
 
-
   }
+
+
 
 
     @HostListener('document:mouseup', ['$event'])
@@ -1028,6 +1029,83 @@ export class SearchdiamondComponent implements OnInit {
 
   }
 
+  printDoc(){
+    //http://localhost:3000/front/SearchDiamond/pdf
+    var mapForm = document.createElement("form");
+    //mapForm.target = "_blank";
+    mapForm.method = "POST"; // or "post" if appropriate
+    mapForm.action = 'http://localhost:3000/front/SearchDiamond/downloadPDF';
+
+    // let obj = {
+    //   ssssss:'111111111111111111111111111',
+    //   aaaaaa:'rvnn'
+    // }
+    let obj = this.createPostData();
+    //console.log('obj ',obj);
+
+    Object.keys(obj).forEach(function(param){
+      if(obj[param]){
+        var mapInput = document.createElement("input");
+        mapInput.type = "hidden";
+        mapInput.name = param;
+        mapInput.setAttribute("value", obj[param]);
+        mapForm.appendChild(mapInput);
+      }
+    });
+    document.body.appendChild(mapForm);
+    mapForm.submit();
+
+  }
+
+  printXLS(){
+    //http://localhost:3000/front/SearchDiamond/pdf
+    var mapForm = document.createElement("form");
+    //mapForm.target = "_blank";
+    mapForm.method = "POST"; // or "post" if appropriate
+    mapForm.action = 'http://localhost:3000/front/SearchDiamond/downloadXLS';
+
+    // let obj = {
+    //   ssssss:'111111111111111111111111111',
+    //   aaaaaa:'rvnn'
+    // }
+    let obj = this.createPostData();
+    //console.log('obj ',obj);
+
+    Object.keys(obj).forEach(function(param){
+      if(obj[param]){
+        var mapInput = document.createElement("input");
+        mapInput.type = "hidden";
+        mapInput.name = param;
+        mapInput.setAttribute("value", obj[param]);
+        mapForm.appendChild(mapInput);
+      }
+    });
+    document.body.appendChild(mapForm);
+    mapForm.submit();
+
+  }
+
+  mailXLS(){
+    if(this.TotalStoneFound<=500){
+      console.log('ifffff');
+      this.searchDiamondServ.mailXLS(this.createPostData()).subscribe(searchDiam => {
+
+        console.log('after server result');
+
+        if(searchDiam.success){
+          alert('Mail sent')
+        }else{
+          alert('some error occured')
+        }
+
+
+
+
+      },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
+    }else{
+      alert('More then 500 stones found, Please narrow down your search.')
+    }
+  }
 
 }
 
