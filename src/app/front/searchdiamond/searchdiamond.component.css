@@ -390,9 +390,8 @@ input:focus, a:focus {
 
 #content-wrapper {
   padding: 15px;
-  top: 100px;
   padding-left: 80px;
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 .org_select {
