@@ -63,23 +63,31 @@ $(document).on('click', '#button', function(e){
 });
 
 function openSideNav() {
-    if (document.getElementById("sidebar-wrapper").style.width == '80px')
-    {
-        document.getElementById("sidebar-wrapper").style.width = "0";
+
+    if(!document.getElementById("sidebar-wrapper").style.width){
+        document.getElementById("sidebar-wrapper").style.width = "0px";
         document.getElementById("content-wrapper").style.padding = "80px 15px 0px 15px";
-        document.getElementById("content-wrapper").style.transition = "2s";
+        document.getElementById("content-wrapper").style.transition = "1s";
+    }else{
+        if (document.getElementById("sidebar-wrapper").style.width == '80px')
+        {
+            document.getElementById("sidebar-wrapper").style.width = "0px";
+            document.getElementById("content-wrapper").style.padding = "80px 15px 0px 15px";
+            document.getElementById("content-wrapper").style.transition = "1s";
+        }
+        else
+        {
+            document.getElementById("sidebar-wrapper").style.width = "80px";
+            document.getElementById("sidebar-wrapper").style.transition = "1s";
+            document.getElementById("content-wrapper").style.padding = "80px 15px 0px 80px";
+        }
     }
-    else
-    {
-        document.getElementById("sidebar-wrapper").style.width = "80px";
-        document.getElementById("sidebar-wrapper").style.transition = "2s";
-        document.getElementById("content-wrapper").style.padding = "80px 15px 0px 80px";
-    }
+
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
-    document.getElementById("sidebar-wrapper").style.width = "0";
-    document.getElementById("content-wrapper").style.padding = "80px 15px 0px 15px";
-    document.getElementById("content-wrapper").style.transition = "2s";
+    // document.getElementById("sidebar-wrapper").style.width = "0";
+    // document.getElementById("content-wrapper").style.padding = "80px 15px 0px 15px";
+    // document.getElementById("content-wrapper").style.transition = "2s";
 }
