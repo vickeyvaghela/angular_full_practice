@@ -44,6 +44,19 @@
     cursor: pointer;
 }
 
+.sch_head3{
+  font-family: Rubik;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.996px;
+  color: #253646;
+  background-color: #c1c1c1;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
 .sch_head1 {
   font-family: Rubik;
   font-weight: bold;
@@ -68,7 +81,6 @@
   padding: 10px 30px;
     cursor: pointer;
 }
-
 
 .sch_tp {
   padding: 6px 10px;
@@ -125,6 +137,7 @@
 .hid {
   color: #84878a;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .sch_master {
@@ -199,6 +212,10 @@ input:focus, a:focus {
   color: #fff;
 }
 
+.mat-chip-selected .hd_diam:before{
+  color: #fff;
+}
+
 .head_lst .mat-chip {
   font-family: Montserrat;
   font-size: 14px;
@@ -212,8 +229,17 @@ input:focus, a:focus {
   cursor: pointer;
 }
 
+.flrcut{
+  padding-left:0px;
+}
+
+.flrpr{
+  padding-right:0px;
+}
+
 .allshp_inline .mat-chip {
-  padding: 26px 24px;
+  padding: 26px 12px;
+  width:8.3%;
 }
 
 .head_lst .mat-chip:hover, .head_lst .mat-chip:active {
@@ -222,7 +248,12 @@ input:focus, a:focus {
   color: #fff;
 }
 
+
 .head_lst .mat-chip:hover .hd_diam {
+  color: #fff;
+}
+
+.head_lst .mat-chip:hover .hd_diam:before{
   color: #fff;
 }
 
@@ -234,12 +265,16 @@ input:focus, a:focus {
   color: #fff;
 }
 
+.head_lst .mat-chip:active .hd_diam:before{
+  color:#fff;
+}
+
 .head_lst .mat-chip:active .hd_shp {
   color: #fff;
 }
 
 .mat-chip.mat-standard-chip::after {
-  background: #fff;
+  color: #fff;
 }
 
 .color_inline .mat-chip {
@@ -255,15 +290,15 @@ input:focus, a:focus {
 }
 
 .cut_inline .mat-chip {
-  padding: 10px 18px;
+  padding: 10px 19px;
 }
 
 .pol_inline .mat-chip {
-  padding: 10px 18px;
+  padding: 10px 19px;
 }
 
 .sym_inline .mat-chip {
-  padding: 10px 18px;
+  padding: 10px 19px;
 }
 
 .lab_inline .mat-chip {
@@ -279,6 +314,10 @@ input:focus, a:focus {
 }
 
 .eye_sm {
+  width: 22%;
+}
+
+.eye_sm1{
   width: 22%;
 }
 
@@ -454,7 +493,8 @@ input:focus, a:focus {
   background-color: #fff;
   border: 1px solid #E8ECEF;
   border-radius: 4px;
-  width: 8%;
+  width: 11.7%;
+  padding: 3px;
 }
 
 .pcs_ans {
@@ -470,14 +510,16 @@ input:focus, a:focus {
   white-space: nowrap;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  padding: 0px 20px;
+  padding: 0px 6px;
+  text-align: center;
 }
 
 .tbl_res td.mat-cell{
   white-space: nowrap;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  padding: 0px 20px;
+  padding: 0px 6px;
+  text-align: center;
 }
 
 .tbl_responsive{
@@ -537,7 +579,7 @@ input:focus, a:focus {
 
 .stn_img{
   width: 180px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .tbltr{
@@ -545,16 +587,17 @@ input:focus, a:focus {
 }
 
 .tdfrst{
-  padding: 4px;
   color: #253646;
   font-size: 14px;
+  background-color: #efefef;
+  border-color: #bbb;
 }
 
 .tdsnd {
-  padding: 4px;
   color: #000;
   font-size: 14px;
   font-weight: bold;
+  border-color: #bbb;
 }
 
 .spnclr{
@@ -565,11 +608,24 @@ input:focus, a:focus {
     margin-top: 5px;
     display: inline-block;
 }
+
+.fromise{
+  margin-top: 16px;
+}
+
+.fromise1{
+  margin-top: 5px;
+  display: block;
+}
+
+
+
 /* Responsive */
 
 @media screen and (max-width: 1600px) {
   .allshp_inline .mat-chip {
-    padding: 26px 11.7px;
+    width: 8.3%;
+    padding: 26px 6px;
   }
   .color_inline .mat-chip {
     padding: 10px 17px;
@@ -581,16 +637,16 @@ input:focus, a:focus {
     padding: 10px 15px;
   }
   .cut_inline .mat-chip {
-    padding: 10px 12.7px;
+    padding: 10px 14.1px;
   }
   .pol_inline .mat-chip {
-    padding: 10px 12.7px;
+    padding: 10px 14.1px;
   }
   .sym_inline .mat-chip {
-    padding: 10px 12.7px;
+    padding: 10px 14.1px;
   }
   .fluor_inline .mat-chip {
-    padding: 10px 25px;
+    padding: 10px 26.9px;
   }
   .lab_inline .mat-chip {
     padding: 10px 20.59px;
@@ -614,6 +670,10 @@ input:focus, a:focus {
     width: 125px;
   }
   .eye_sm {
+    width: 28%;
+  }
+
+  .eye_sm1{
     width: 28%;
   }
   .eye_inline .mat-chip {
@@ -641,10 +701,19 @@ input:focus, a:focus {
 
 @media screen and (max-width: 1440px) {
    .allshp_inline .mat-chip {
-    padding: 26px 5.6px;
+    width: 8.3%;
+     padding: 26px 4px;
+  }
+  .hd_diam {
+    font-size: 28px;
+    margin-right: 5px;
+  }
+
+  .hd_shp{
+    font-size: 11px;
   }
   .color_inline .mat-chip {
-    padding: 10px 14px;
+    padding: 10px 14.6px;
   }
   .wh_col {
     padding: 10px 12px;
@@ -653,21 +722,24 @@ input:focus, a:focus {
     padding: 10px 12px;
   }
   .cut_inline .mat-chip {
-    padding: 10px 10px;
+    padding: 10px 11.4px;
   }
   .pol_inline .mat-chip {
-    padding: 10px 10px;
+    padding: 10px 11.4px;
   }
   .sym_inline .mat-chip {
-    padding: 10px 10px;
+    padding: 10px 11.4px;
   }
   .fluor_inline .mat-chip {
-    padding: 10px 20.59px;
+    padding: 10px 22.4px;
   }
   .lab_inline .mat-chip {
-    padding: 10px 12px;
+    padding: 10px 17.8px;
   }
   .eye_sm {
+    width: 30%;
+  }
+  .eye_sm1{
     width: 30%;
   }
   .eye_inline .mat-chip {
@@ -701,11 +773,11 @@ input:focus, a:focus {
 
 @media screen and (max-width: 1366px) {
   .hd_diam {
-    font-size: 28px;
-    margin-right: 6px;
+    font-size: 25px;
+    margin-right: 4px;
   }
   .allshp_inline .mat-chip {
-    padding: 26px 5.5px;
+    padding: 26px 2px;
   }
   .color_inline .mat-chip {
     padding: 10px 13px;
@@ -720,18 +792,22 @@ input:focus, a:focus {
     padding: 10px 10px;
   }
   .lab_inline .mat-chip {
-    padding: 10px 13px;
+    padding: 10px 14.1px;
   }
   .cut_inline .mat-chip {
-    padding: 10px 8.8px;
+    padding: 10px 10.2px;
   }
   .fluor_inline .mat-chip {
-    padding: 10px 17px;
+    padding: 10px 19.2px;
   }
   .flr_sm {
     width: 13%;
   }
   .eye_sm {
+    width: 36%;
+  }
+
+  .eye_sm1{
     width: 36%;
   }
   .eye_inline .mat-chip {
@@ -741,10 +817,10 @@ input:focus, a:focus {
     width: 23%;
   }
   .pol_inline .mat-chip {
-    padding: 10px 8.8px;
+    padding: 10px 10.2px;
   }
   .sym_inline .mat-chip {
-    padding: 10px 8.8px;
+    padding: 10px 10.2px;
   }
   .lust_inline .mat-chip {
     padding: 10px 16px;
@@ -778,9 +854,56 @@ input:focus, a:focus {
   }
 }
 
+@media screen and (max-width: 1280px) {
+  .result_inline .mat-chip {
+    padding: 10px 12px;
+  }
+  .hd_diam{
+    font-size: 24px;
+    margin-right: 4px;
+  }
+  .color_inline .mat-chip {
+    padding: 10px 12px;
+  }
+  .pol_inline .mat-chip {
+    padding: 10px 7.4px;
+  }
+  .sym_inline .mat-chip {
+    padding: 10px 7.4px;
+  }
+  .cut_inline .mat-chip {
+    padding: 10px 7.4px;
+  }
+  .fluor_inline .mat-chip{
+    padding: 10px 16px;
+  }
+  .eye_inline .mat-chip {
+    padding: 10px 12px;
+  }
+  .lab_inline .mat-chip {
+    padding: 10px 11px;
+  }
+  .lust_inline .mat-chip {
+    padding: 10px 14px;
+  }
+  .ha_inline .mat-chip {
+    padding: 10px 4px;
+  }
+  .bpd_inline .mat-chip {
+    padding: 10px 23px;
+  }
+  .date_sch .mat-form-field {
+    margin-left: 10px;
+  }
+  .pcs_inline .mat-chip{
+    width: 23%;
+  }
+}
+
+
 @media screen and (max-width: 1024px) {
   .allshp_inline .mat-chip {
-    padding: 26px 6px;
+    padding: 26px 8px;
     width: 16.6%;
   }
   .sch_master {
@@ -789,6 +912,9 @@ input:focus, a:focus {
   }
   .sch_lst .mat-chip {
     margin-bottom: 5px;
+  }
+  #content-wrapper{
+    padding-top: 120px!important;
   }
   .color_inline .mat-chip {
     padding: 10px 16px;
@@ -800,16 +926,20 @@ input:focus, a:focus {
     padding: 10px 16px;
   }
   .cut_inline .mat-chip {
-    padding: 10px 11px;
+    padding: 10px 12px;
   }
   .flr_sm {
     width: 15%;
   }
   .fluor_inline .mat-chip {
-    padding: 10px 12px;
+    padding: 10px 14px;
   }
   .eye_sm {
-    width: 36%;
+    width: 22%;
+    margin-top: 10px;
+  }
+  .eye_sm1{
+    width: 0%;
     margin-top: 10px;
   }
   .eye_inline .mat-chip {
@@ -817,13 +947,13 @@ input:focus, a:focus {
     margin-top: 10px;
   }
   .pol_inline .mat-chip {
-    padding: 10px 11px;
+    padding: 10px 12px;
   }
   .sym_inline .mat-chip {
-    padding: 10px 11px;
+    padding: 10px 12px;
   }
   .lab_inline .mat-chip {
-    padding: 10px 9px;
+    padding: 10px 10px;
   }
   .plres {
     padding-left: 0px;
@@ -832,10 +962,11 @@ input:focus, a:focus {
     padding: 10px 14px;
   }
   .ha_sm {
+      width: 22%;
     margin-top: 10px;
   }
   .ha_inline .mat-chip {
-    padding: 10px 10px;
+    padding: 10px 18px;
     margin-top: 10px;
   }
   .org_select {
@@ -858,6 +989,9 @@ input:focus, a:focus {
     width: 36%;
     margin-top: 10px;
   }
+    .clarity_inline .mat-chip {
+        padding: 10px 21px;
+    }
   .dt_sche {
     margin-top: 10px;
   }
@@ -876,6 +1010,10 @@ input:focus, a:focus {
 
 @media screen and (max-width: 768px) {
   .sch_head {
+    padding: 10px 5px;
+  }
+
+  .sch_head3{
     padding: 10px 5px;
   }
 
@@ -904,18 +1042,19 @@ input:focus, a:focus {
   .mares {
     margin-top: 10px;
   }
-  .plpad {
-    padding-left: 0px !important;
-  }
   .flr_sm {
     width: 18%;
     margin-top: 10px;
   }
   .fluor_inline .mat-chip {
-    padding: 10px 18px;
+    padding: 10px 20px;
     margin-top: 10px;
   }
   .eye_sm {
+    width: 17.5%;
+  }
+
+  .eye_sm1{
     width: 17.5%;
   }
   .lab_sm {
@@ -923,17 +1062,20 @@ input:focus, a:focus {
     margin-top: 10px;
   }
   .cut_inline .mat-chip {
-    padding: 10px 20px;
+    padding: 10px 44px;
   }
   .eye_inline .mat-chip {
-    padding: 10px 32px;
+    padding: 10px 44px;
   }
   .pol_inline .mat-chip {
-    padding: 10px 20px;
+    padding: 10px 44px;
   }
   .lab_inline .mat-chip {
-    padding: 10px 20px;
+    padding: 10px 40px;
     margin-top: 10px;
+  }
+  .flrcut{
+    padding-right: 0px;
   }
   .lust_sm {
     width: 18%;
@@ -948,10 +1090,7 @@ input:focus, a:focus {
     margin-top: 10px;
   }
   .sym_inline .mat-chip {
-    padding: 10px 22px;
-  }
-  .plres {
-    padding-left: 15px;
+    padding: 10px 44px;
   }
   .org_sm1 {
     width: 17%;
@@ -989,6 +1128,12 @@ input:focus, a:focus {
 }
 
 @media screen and (max-width: 414px) {
+  .flrctres{
+    padding-left: 15px;
+  }
+  .ha_inline .mat-chip{
+    width: 19%;
+  }
   .lab_inline .mat-chip {
     padding: 10px 18px;
   }
@@ -1005,7 +1150,10 @@ input:focus, a:focus {
     padding: 6px 10px;
     height: 115px;
   }
-  .sch_head2 {
+.schrestp{
+  margin-top: 10px;
+}
+  .sch_head3{
     padding: 10px 20px;
     height: 70px;
   }
@@ -1024,10 +1172,12 @@ input:focus, a:focus {
     margin-right: 6px;
   }
   .color_inline .mat-chip {
-    width: 15.3%;
+    width: 12%;
+    padding: 10px 13px;
   }
   .clarity_inline .mat-chip {
-    width: 23.7%;
+    width: 16%;
+    padding: 10px 10px;
   }
   .allshp_inline .mat-chip {
     width: 33%;
@@ -1036,11 +1186,27 @@ input:focus, a:focus {
   .sp_vg {
     padding: 10px 13px;
   }
+  .tdfrst{
+    font-size: 13px;
+  }
+  .tdsnd {
+    font-size: 13px;
+  }
   #content-wrapper {
     padding-left: 15px;
+    padding-top: 80px!important;
   }
   .pcs_inline .mat-chip {
     width: 46%;
+  }
+  .tois_sm1 {
+    width: 100%;
+  }
+  .frmgia_sm {
+    width: 100%;
+  }
+  .togia_sm {
+    width: 100%;
   }
   .result_inline .mat-chip {
     width: 46%;

@@ -61,3 +61,25 @@ $(document).on('click', '#button', function(e){
   e.preventDefault();
   $('html, body').animate({ scrollTop: 0 }, '300');
 });
+
+function openSideNav() {
+    if (document.getElementById("sidebar-wrapper").style.width == '80px')
+    {
+        document.getElementById("sidebar-wrapper").style.width = "0";
+        document.getElementById("content-wrapper").style.padding = "80px 15px 0px 15px";
+        document.getElementById("content-wrapper").style.transition = "2s";
+    }
+    else
+    {
+        document.getElementById("sidebar-wrapper").style.width = "80px";
+        document.getElementById("sidebar-wrapper").style.transition = "2s";
+        document.getElementById("content-wrapper").style.padding = "80px 15px 0px 80px";
+    }
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("sidebar-wrapper").style.width = "0";
+    document.getElementById("content-wrapper").style.padding = "80px 15px 0px 15px";
+    document.getElementById("content-wrapper").style.transition = "2s";
+}

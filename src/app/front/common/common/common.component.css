@@ -1,205 +1,223 @@
 a:hover, a:focus {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #wrapper {
-  padding-left: 0;
-  transition: all 0.5s ease;
-  position: relative;
+    padding-left: 0;
+    transition: all 0.5s ease;
+    position: relative;
 }
 
 #sidebar-wrapper {
-  /* z-index: 1000; */
-  position: fixed;
-  left: 0px;
-  width: 80px;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: #f8f8f8;
-  box-shadow: 5px 0 5px -5px #a9a9a9;
-  transition: all 0.5s ease;
+    /* z-index: 1000; */
+    position: fixed;
+    left: 0px;
+    width: 80px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #f8f8f8;
+    box-shadow: 5px 0 5px -5px #a9a9a9;
+    transition: all 0.5s ease;
 }
 
 .sidebar-brand {
-  position: absolute;
-  top: 0;
-  width: 80px;
-  text-align: center;
-  padding: 10px 0;
+    position: absolute;
+    top: 0;
+    width: 80px;
+    text-align: center;
+    padding: 10px 0;
 }
 
 .sidebar-brand h2 {
-  margin: 0;
-  font-weight: 600;
-  font-size: 24px;
-  color: #fff;
+    margin: 0;
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
 }
 
 .sidebar-nav {
-  position: absolute;
-  top: 100px;
-  width: 80px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    position: absolute;
+    top: 100px;
+    width: 80px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.sidebar-nav>li a {
-  display: block;
-  text-decoration: none;
-  color: #757575;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 18px 0px;
-  text-align: center;
+.sidebar-nav > li a {
+    display: block;
+    text-decoration: none;
+    color: #757575;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 18px 0px;
+    text-align: center;
 }
 
-.sidebar-nav>li>a:hover, .sidebar-nav>li.active>a {
-  text-decoration: none;
-  color: #fff;
-  background: #253646;
+.sidebar-nav > li > a:hover, .sidebar-nav > li.active > a {
+    text-decoration: none;
+    color: #fff;
+    background: #253646;
 }
 
-.sidebar-nav>li>a i.fa {
-  font-size: 24px;
-  width: 60px;
+.sidebar-nav > li > a i.fa {
+    font-size: 24px;
+    width: 60px;
 }
 
 #navbar-wrapper {
-  width: 100%;
-  position: absolute;
-  z-index: 2;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
 }
 
 #navbar-wrapper .navbar {
-  border-width: 0 0 0 0;
-  background-color: #f8f8f8;
-  font-size: 24px;
-  margin-bottom: 0;
-  border-radius: 0;
-  padding: 10px;
+    border-width: 0 0 0 0;
+    background-color: #f8f8f8;
+    font-size: 24px;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 10px;
 }
 
 .dash {
-  font-family: Rubik;
-  font-weight: bold;
-  font-size: 24px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #267491 !important;
+    font-family: Rubik;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #267491 !important;
 }
 
 .has-search .form-control-feedback {
-  right: initial;
-  left: 0;
-  color: #ccc;
+    right: initial;
+    left: 0;
+    color: #ccc;
 }
 
 .has-search .form-control {
-  padding-right: 12px;
-  padding-left: 34px;
+    padding-right: 12px;
+    padding-left: 34px;
 }
 
 .grp-search {
-  width: 348px;
-  display: table !important;
-  padding: 5px;
+    width: 340px;
+    display: table !important;
+    padding: 5px;
 }
 
 .frm_ipn {
-  border: 1px solid #E8ECEF;
-  border-right: 1px solid transparent;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: none;
-  transition: none;
-  font-family: Rubik;
-  font-size: 12px;
+    border: 1px solid #E8ECEF;
+    border-right: 1px solid transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: none;
+    transition: none;
+    font-family: Rubik;
+    font-size: 12px;
 }
 
 .frm_ipn:focus {
-  border-color: #E8ECEF;
-  box-shadow: none;
-  border-right-color: transparent;
+    border-color: #E8ECEF;
+    box-shadow: none;
+    border-right-color: transparent;
 }
 
 .grp_add {
-  border: 1px solid #E8ECEF;
-  border-left: 1px solid transparent;
-  background-color: #fff;
-  padding: 8px;
-  border-radius: 10px;
+    border: 1px solid #E8ECEF;
+    border-left: 1px solid transparent;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 10px;
 }
 
 .ncr_icon {
-  color: #243646;
-  font-size: 18px;
-  font-weight: bold;
+    color: #243646;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .ref_icon {
-  background: #FFFEFE;
-  border: 1px solid #E8ECEF;
-  border-radius: 10px;
-  color: #243646;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 8px;
+    background: #FFFEFE;
+    border: 1px solid #E8ECEF;
+    border-radius: 10px;
+    color: #243646;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px;
 }
 
 .ref_txt {
-  font-family: Rubik;
-  font-weight: bold;
-  font-size: 14px;
-  color: #253646 !important;
+    font-family: Rubik;
+    font-weight: bold;
+    font-size: 14px;
+    color: #253646 !important;
+}
+
+.menuopn {
+    color: #293d49;
+    vertical-align: middle;
+    margin-top: 10px;
+    cursor: pointer;
+    display: inline-block;
 }
 
 .sm_logo {
-  width: 54px;
+    width: 54px;
 }
 
 .nv_brnd {
-  padding: 0px;
-  margin-right: 10px;
+    padding: 0px;
+    margin-right: 10px;
 }
 
 .log_hed {
-  font-size: 16px;
-  background-color: #267491;
-  border: 1px solid #e8ecef;
-  padding: 6px 15px;
-  margin-top: 8px;
-  color: #fff;
-  border-radius: 6px;
+    font-size: 16px;
+    background-color: #267491;
+    border: 1px solid #e8ecef;
+    padding: 6px 15px;
+    margin-top: 8px;
+    color: #fff;
+    border-radius: 6px;
 }
 
-@media screen and (max-width:768px) {
-  .col_box {
-    margin-bottom: 10px;
-  }
+@media screen and (max-width: 768px) {
+    .col_box {
+        margin-bottom: 10px;
+    }
+
+    #menu-toggle{
+        display: none;
+    }
 }
 
-@media screen and (max-width:414px) {
-  #sidebar-wrapper {
-    display: none;
-  }
-  .navbar-inverse .navbar-toggle {
-    border-color: #267491;
-  }
-  .navbar-toggle {
-    background-color: #267491;
-  }
-  .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-    background-color: #267491;
-  }
-  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    border-color: #267491;
-  }
-  .sm_logo {
-    width: 46px;
-  }
-  .log_hed{
-    float: right;
-  }
+@media screen and (max-width: 414px) {
+    #sidebar-wrapper {
+        display: none;
+    }
+
+    .navbar-inverse .navbar-toggle {
+        border-color: #267491;
+    }
+
+    .navbar-toggle {
+        background-color: #267491;
+    }
+
+    .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+        background-color: #267491;
+    }
+
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: #267491;
+    }
+
+    .sm_logo {
+        width: 46px;
+    }
+
+    .log_hed {
+        float: right;
+    }
 }

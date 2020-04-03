@@ -1,15 +1,44 @@
-
 <div id="wrapper">
     <aside id="sidebar-wrapper">
-
         <ul class="sidebar-nav">
-            <li class="active"><a href="#" title="DASHBOARD"><i class="icon-dashboard"></i></a></li>
-            <li><a href="#" title="SEARCH"><i class="icon-search"></i></a></li>
-            <li><a href="#" title="HOLD"><i class="icon-hold"></i></a></li>
-            <li><a href="#" title="NDA"><i class="icon-nda"></i></a></li>
-            <li><a href="#" title="MY BASKET"><i class="icon-basket"></i></a></li>
-            <li><a href="#" title="MY ORDERS"><i class="icon-order"></i></a></li>
-            <li><a href="#" title="MY FAV"><i class="icon-favrouite"></i></a></li>
+            <li>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="display: none">&times;</a>
+            </li>
+            <li class="active">
+                <a href="#" title="DASHBOARD">
+                    <i class="icon-dashboard"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="SEARCH">
+                    <i class="icon-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="HOLD">
+                    <i class="icon-hold"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="NDA">
+                    <i class="icon-nda"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="MY BASKET">
+                    <i class="icon-basket"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="MY ORDERS">
+                    <i class="icon-order"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="MY FAV">
+                    <i class="icon-favrouite"></i>
+                </a>
+            </li>
             <!--<li>--><!--<a href="#" title="MY FAV" (click)="logout()">Logout</a>--><!--</li>-->
         </ul>
     </aside>
@@ -23,7 +52,10 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand nv_brnd" href="#">
-                        <img src="../../assets/img/sm_logo.svg" class="sm_logo" />
+                        <img src="../../assets/img/sm_logo.svg" class="sm_logo"/>
+                    </a>
+                    <a class="" id="menu-toggle">
+                        <i class="icon-dot_menu menuopn" id="toggleIcon" onclick="openSideNav()"></i>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="narolanav">

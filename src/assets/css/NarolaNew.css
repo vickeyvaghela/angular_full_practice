@@ -21,7 +21,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-prince_dark:before {
+.icon-Princess:before {
+  content: "\71";
+  color: #979797;
+}
+.icon-dot_menu:before {
   content: "\70";
 }
 .icon-logout:before {

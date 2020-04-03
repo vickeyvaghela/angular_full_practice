@@ -1,5 +1,4 @@
 /*dashboar_content*/
-
 .mb-10 {
   margin-bottom: 10px;
 }
@@ -94,6 +93,7 @@
 .upcome {
   margin-top: -4px;
   width: 100%;
+  height: 370px;
 }
 
 .dash_two {
@@ -401,17 +401,21 @@
   .grp-search {
     width: 320px;
   }
+.upcome{
+  height: 260px;
+}
+.upcome_stone{
+  height: 260px;
+}
+.upcome_stone2{
+  height: 260px;
+}
 }
 
 #content-wrapper {
-  padding: 15px;
   top: 100px;
   padding-left: 80px;
-  padding-top: 100px;
-}
-
-#content-wrapper {
-  top: 0;
+  padding-top: 80px;
 }
 
 @media screen and (max-width: 414px) {

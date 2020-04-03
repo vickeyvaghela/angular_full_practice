@@ -43,6 +43,16 @@
     color: #253646;
 }
 
+.txt_shp1 {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.996px;
+    text-transform: uppercase;
+    color: #253646;
+}
+
 .stn_round {
     font-family: Rubik;
     font-style: normal;
@@ -99,7 +109,6 @@
 }
 
 /* Table */
-
 .plpr {
     padding-left: 0px;
     padding-right: 0px;
@@ -123,7 +132,7 @@
     text-overflow: ellipsis;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right:0px;
+    padding-right: 0px;
     overflow: hidden;
 }
 
@@ -306,7 +315,6 @@ div.blueTable {
 }
 
 /* DivTable.com */
-
 .divTable {
     display: table;
 }
@@ -335,8 +343,7 @@ div.blueTable {
     display: table-row-group;
 }
 
-/* responsive */
-
+/* Responsive */
 @media screen and (max-width: 1600px) {
     .pil_act {
         padding: 0px 120px;
@@ -393,6 +400,7 @@ div.blueTable {
     .prcut {
         margin-top: 10px;
     }
+
     .pil_act {
         padding: 0px 75px;
     }
@@ -454,8 +462,9 @@ div.blueTable {
 
 @media screen and (max-width: 1024px) {
     .tb_hed {
-        padding-right:15px;
+        padding-right: 15px;
     }
+
     .pil_act {
         padding: 0px 24px;
     }
@@ -512,12 +521,13 @@ div.blueTable {
 }
 
 @media screen and (max-width: 414px) {
-    .main_plpr{
-        padding-left:15px;
+    .main_plpr {
+        padding-left: 15px;
     }
+
     .bg_whl {
         padding: 20px 20px 20px;
-        height: 180px;
+        height: 230px;
     }
 
     .navbar-inverse .navbar-toggle {
