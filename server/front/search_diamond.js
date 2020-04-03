@@ -998,13 +998,13 @@ route.post('/downloadXLS', (req, res) => {
                 worksheet.getCell('R1').value = '';
 
                 var imageId2 = workbook.addImage({
-                    buffer: fs.readFileSync(path.join(__dirname, '../../dist/images/narolalogo.png')),
+                    buffer: fs.readFileSync(path.join(__dirname, '../../dist/images/new_logo.jpg')),
                     extension: 'png',
                 });
 
                 worksheet.addImage(imageId2, {
-                    tl: { col: 13, row: 1 },
-                    ext: { width: 100, height: 50 }
+                    tl: { col: 13.4, row: 0.6 },
+                    ext: { width: 60, height: 60 }
                 });
                 //worksheet.addImage(imageId2, 'K1:Q4');
 
@@ -1350,13 +1350,13 @@ route.post('/mailXLS', (req, res) => {
                 worksheet.getCell('R1').value = '';
 
                 var imageId2 = workbook.addImage({
-                    buffer: fs.readFileSync(path.join(__dirname, '../../dist/images/narolalogo.png')),
+                    buffer: fs.readFileSync(path.join(__dirname, '../../dist/images/new_logo.jpg')),
                     extension: 'png',
                 });
 
                 worksheet.addImage(imageId2, {
-                    tl: { col: 13, row: 1 },
-                    ext: { width: 100, height: 50 }
+                    tl: { col: 13.4, row: 0.6 },
+                    ext: { width: 60, height: 60 }
                 });
                 //worksheet.addImage(imageId2, 'K1:Q4');
 

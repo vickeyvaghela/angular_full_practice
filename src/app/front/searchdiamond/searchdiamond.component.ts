@@ -29,7 +29,7 @@ export class SearchdiamondComponent implements OnInit {
   searchDiamondForm: FormGroup;
 
 
-  hideSearchForm = true;
+  hideSearchForm = false;
   hideSearchFormMeasure = true;
 
 
