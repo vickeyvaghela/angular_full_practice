@@ -19,7 +19,7 @@ const routes: Routes = [
   // { path: 'UserPanel', component: UserpanelComponent, canActivate: [AuthGuard] },
   { path: 'UserPanel', component: UserpanelComponent },
   { path: 'searchdiamond', component: SearchdiamondComponent },
-  { path: 'stonedetail', component: StonedetailComponent },
+  { path: 'stonedetail/:pid', component: StonedetailComponent },
 ];
 // const routes: Routes = [
 //   { path: '', component: HomeComponent },

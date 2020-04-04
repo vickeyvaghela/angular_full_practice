@@ -13,54 +13,57 @@ export class Searchdiamond {
   private apiBaseUrl = 'http://127.0.0.1:3000';  // URL to web api
   constructor(private http: HttpClient) { }
 
-  getLocations(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getLocations',userData);
+  getLocations(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getLocations',postData);
   }
 
 
-  fancyintensity(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/fancyintensity',userData);
+  fancyintensity(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/fancyintensity',postData);
   }
 
-  fancyovertone(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/fancyovertone',userData);
+  fancyovertone(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/fancyovertone',postData);
   }
 
-  fancycolor(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/fancycolor',userData);
-  }
-
-
-
-
-  getOrigins(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getOrigins',userData);
-  }
-
-  searchDiamond(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/searchDiamond',userData);
-  }
-
-  mailXLS(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/mailXLS',userData);
-  }
-
-  getResultCount(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getResultCount',userData);
-  }
-
-  getShade(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getShade',userData);
-  }
-
-  getHNAMst(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getHNAMst',userData);
-  }
-  getLUSTMst(userData): Observable<any> {
-    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getLUSTMst',userData);
+  fancycolor(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/fancycolor',postData);
   }
 
 
+
+
+  getOrigins(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getOrigins',postData);
+  }
+
+  searchDiamond(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/searchDiamond',postData);
+  }
+
+  mailXLS(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/mailXLS',postData);
+  }
+
+  getResultCount(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getResultCount',postData);
+  }
+
+  getShade(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getShade',postData);
+  }
+
+  getHNAMst(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getHNAMst',postData);
+  }
+  getLUSTMst(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getLUSTMst',postData);
+  }
+
+
+  getStoneDetail(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getStoneDetail',postData);
+  }
 
 
 }

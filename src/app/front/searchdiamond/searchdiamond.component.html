@@ -902,12 +902,13 @@
                             </th>
                             <!--<td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element"> <span *ngIf="column=='hash'"><i class="icon-up_arroww hid icon-down-arrow"></i></span>{{element[column]}} </td>-->
                             <td mat-cell (click)="clickTD(column,element)" *matCellDef="let element">
-                                <span *ngIf="column=='hash'"><i
-                                        class="{{upOrDown(element,expandedElement)}} hid"></i></span>
-                                <span *ngIf="column=='checkbox'"><input (click)="selectStone(element)"
-                                                                        [checked]="element.selected"
-                                                                        type="checkbox"></span>
-                                {{element[column]}}
+                                <span *ngIf="column=='hash'"><i class="{{upOrDown(element,expandedElement)}} hid"></i></span>
+                                <span *ngIf="column=='checkbox'">
+                                    <input (click)="selectStone(element)" [checked]="element.selected" type="checkbox">
+                                </span>
+                                <span *ngIf="column!='PId'">{{element[column]}}</span>
+                                <span *ngIf="column=='PId'"><a href="/stonedetail/{{element[column]}}">{{element[column]}}</a></span>
+
                                 <!--<pre>{{element | json}}</pre>-->
                             </td>
                         </ng-container>

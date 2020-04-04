@@ -3,8 +3,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle dash_tog" data-toggle="collapse"
-                            data-target="#narolanav">
+                    <button type="button" class="navbar-toggle dash_tog" data-toggle="collapse" data-target="#narolanav">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -94,8 +93,8 @@
                         </div>
                         <div class="col-md-10 col-sm-10 col-xs-10">
                             <p class="txt_shp">
-                                <span>5756-85</span><br>
-                                <span>1.01 CT</span>
+                                <span>{{stoneDetail.PId}}</span><br>
+                                <span>{{stoneDetail.Carat}} CT</span>
                             </p>
                         </div>
                     </div>
@@ -105,9 +104,9 @@
                         </div>
                         <div class="col-md-10 col-sm-10 col-xs-10">
                             <p class="txt_shp1">
-                                <span>L</span>
+                                <span>{{stoneDetail.GC_Name}}</span>
                                 <br>
-                                <span>I1</span>
+                                <span>{{stoneDetail.GQ_Name}}</span>
                             </p>
                         </div>
                     </div>
@@ -117,9 +116,9 @@
                         </div>
                         <div class="col-md-10 col-sm-10 col-xs-10">
                             <p class="txt_shp">
-                                <span>491.53 $/Ct</span>
+                                <span>{{stoneDetail.GRate}} $/Ct</span>
                                 <br>
-                                <span>48.00 %</span>
+                                <span>{{stoneDetail.Disc}} %</span>
                             </p>
                         </div>
                     </div>
@@ -131,7 +130,7 @@
                             <p class="txt_shp">
                                 <span>Narola Certified</span>
                                 <br>
-                                <span>2346957796</span>
+                                <span>{{stoneDetail.CertNo}}</span>
                             </p>
                         </div>
                     </div>
@@ -139,66 +138,69 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20 prcut">
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Cut</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.GCT_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Polish</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">EX</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.GPO_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Symmetry</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">VG</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.GSY_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Fluorescence</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">FNT</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.GFL_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Certificate No.</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">2346957796</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.CertNo}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Origin</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.origin}}</div>
                     </div>
                 </div>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20 prcut">
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Measurement</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">5.66 - 4.87 X 3.37</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.Meas}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table(%)</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">54.00</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.Table1}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Depth(%)</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">59.50</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.TotDepth}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Ratio</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">0.86</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.Ratio}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Gridle(%)</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">4.00 ( STK to THK )</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <!--<div class="col-md-7 col-sm-8 tb_txt">4.00 ( STK to THK )</div>-->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Inc</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">WHITE GROUP OF PINPO</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <!--<div class="col-md-7 col-sm-8 tb_txt">WHITE GROUP OF PINPO</div>-->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Side Inc</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <!--<div class="col-md-7 col-sm-8 tb_txt">NONE</div>-->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Side Inc</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">FEATHER</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Black</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Side Black</div>
@@ -206,79 +208,79 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Side Black</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Open</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NONE-OPEN</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Side Open</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">SMALL-OPEN</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.SOIN_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Cr.Angle</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">0.00</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.CAngle}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Cr.Height</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">0.00</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.CHeight}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Pv.Angle</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">0.00</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.PAngle}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Pv.Height</div>
-                        <div class="col-md-7 col-sm-6 tb_txt">0.00</div>
+                        <div class="col-md-7 col-sm-6 tb_txt">{{stoneDetail.PHeight}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Location</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">INDIA</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.Loc_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Eye Clean(%)</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">100%EYECLEAN</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.EC_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">H&A</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NO H&A</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.HA_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Extra Facet</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.EF_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Luster</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">EXCELLENT</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.LU_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Culet</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NON</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Natural</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.Natural}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Fancy Color</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">NG Grader Comm.</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Star Length</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.StrLn}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Lower Half</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.LrHalf}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Type 2A</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">-</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed"></div>
@@ -290,21 +292,19 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20 prcut">
                     <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
                         <div class="col-md-3 col-sm-4 tb_hed">NGS Comments</div>
-                        <div class="col-md-9 col-sm-8 tb_txt">EXCLUSIVE CLARITY</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
                         <div class="col-md-3 col-sm-4 tb_hed">Shade</div>
-                        <div class="col-md-9 col-sm-8 tb_txt">NO BROWN , NO GREEN , NO MILKY</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">{{stoneDetail.BSHD_Name}}</div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
                         <div class="col-md-3 col-sm-4 tb_hed">Key to Symbols</div>
-                        <div class="col-md-9 col-sm-8 tb_txt">Feather, Crystal, Cloud, Needle</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">{{stoneDetail.KeyToSym}}</div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
                         <div class="col-md-3 col-sm-4 tb_hed">Report Comm.</div>
-                        <div class="col-md-9 col-sm-8 tb_txt">Additional clouds are not shown. Pinpoints are not
-                            shown.
-                        </div>
+                        <div class="col-md-9 col-sm-8 tb_txt">@@@@@@@@</div>
                     </div>
                 </div>
             </div>

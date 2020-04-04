@@ -7,6 +7,13 @@ const config = {
     database: process.env.DB_DATABASE,
     options:{encrypt:false}
 };
+const config1 = {
+    user: process.env.DB_USER1,
+    password: process.env.DB_PASSWORD1,
+    server: process.env.DB_SERVER1,
+    database: process.env.DB_DATABASE1,
+    options:{encrypt:true}
+};
 
 
 route.get('/', (req, res) => {
@@ -1646,6 +1653,35 @@ route.get('/pdf', (req, res) => {
 
     myDoc.font('Times-Roman').fontSize(12).text(`vik success`).end();
 
+
+
+});
+
+route.post('/getStoneDetail', (req, res) => {
+
+
+    console.log(config1);
+    if(req.body.pid){
+    // if(1){
+        const conn = new sql.ConnectionPool(config1)
+        conn.connect().then(function () {
+            var request = new sql.Request(conn);
+            request.input('PID', sql.VarChar(30), req.body.pid);
+            request.execute('WB_StoneDetailView').then(function (recordsets, returnValue, affected) {
+
+                res.json({success: true, data: recordsets.recordset[0]})
+                conn.close();
+            }).catch(function (err) {
+                console.log(err);
+                conn.close();
+            });
+        }).catch(function (err) {
+            console.log(err);
+            res.json({success: false, data: []})
+        });
+    }else{
+        res.json({success: false, data: []})
+    }
 
 
 });
