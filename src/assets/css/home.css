@@ -154,6 +154,15 @@ a:hover, a:focus {
     background-repeat: no-repeat;
 }
 
+.prd_bg {
+    width: 100%;
+    background: url(../img/product.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 940px;
+    background-repeat: no-repeat;
+}
+
 .ab_head {
     font-family: "Marcellus", serif;
     font-size: 80px;
@@ -176,6 +185,46 @@ a:hover, a:focus {
     color: #fff;
     text-align: center;
     padding-top: 600px;
+}
+
+.prod_head {
+    font-family: "Marcellus", serif;
+    font-size: 48px;
+}
+
+.prod_mtxt {
+    padding: 0px 138px 0px 70px;
+    text-align: center;
+    font-weight: bold;
+    color: #5f818d;
+    font-size: 14px;
+}
+
+.prod_mtxt1 {
+    padding: 0px 78px 0px 138px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+
+.product_sec {
+    color: #fff;
+    text-align: center;
+    padding-top: 120px;
+}
+
+.prod_para {
+    font-size: 25px;
+    font-weight: 100;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.product_text {
+    margin-top: 380px;
 }
 
 .ab_para {
@@ -216,12 +265,15 @@ button:focus {
     .ind_bg {
         height: 900px;
     }
+
     .main_logo {
         padding: 378px 0px;
     }
+
     .ab_bg {
         min-height: 900px;
     }
+
     .about_sec {
         padding-top: 500px;
     }
@@ -231,15 +283,39 @@ button:focus {
     .ind_bg {
         height: auto;
     }
+
     .ab_bg {
         min-height: 850px;
     }
+
     .brand_logo {
         width: 400px;
     }
 }
 
 @media screen and (max-width: 1024px) {
+    .prd_bg {
+        min-height: 570px;
+    }
+
+    .product_sec {
+        padding-top: 40px;
+    }
+
+    .product_text {
+        margin-top: 280px;
+    }
+
+    .prod_mtxt {
+        padding: 0px 60px 0px 30px;
+        font-size: 16px;
+    }
+
+    .prod_mtxt1 {
+        padding: 0px 30px 0px 60px;
+        font-size: 16px;
+    }
+
     .ind_bg {
         background: url("../img/index_small.png");
         min-height: 600px;
@@ -247,12 +323,15 @@ button:focus {
         background-size: cover;
         background-position: center;
     }
+
     .main_logo {
         padding: 270px 0px;
     }
+
     .brand_logo {
         width: 300px;
     }
+
     .ab_bg {
         background: url("../img/about_small.png");
         min-height: 480px;
@@ -260,6 +339,7 @@ button:focus {
         background-size: cover;
         background-position: center;
     }
+
     .crf_bg {
         background: url("../img/craft_small.png");
         min-height: 480px;
@@ -267,30 +347,63 @@ button:focus {
         background-size: cover;
         background-position: center;
     }
+
     .craft_sec {
         padding-top: 400px;
     }
+
     .about_sec {
         padding-top: 200px;
     }
 }
 
 @media screen and (max-width: 768px) {
+    .prd_bg {
+        min-height: 570px;
+    }
+
+    .prod_para {
+        font-size: 20px;
+    }
+
+    .product_sec {
+        padding-top: 10px;
+    }
+
+    .product_text {
+        margin-top: 260px;
+    }
+
+    .prod_mtxt {
+        padding: 0px 40px 0px 20px;
+        font-size: 14px;
+    }
+
+    .prod_mtxt1 {
+        padding: 0px 20px 0px 40px;
+        font-size: 14px;
+    }
+
     .brand_logo {
         width: 150px;
     }
+
     .main_logo {
         padding: 150px 0px;
     }
+
     .ind_bg {
         min-height: 340px;
     }
+
     .ab_head {
         font-size: 60px;
     }
+
     .craft_sec {
         padding-top: 220px;
     }
+
     .craft_head {
         font-size: 50px;
     }
@@ -300,34 +413,44 @@ button:focus {
     .border_row {
         display: none;
     }
+
     .main_logo {
         padding: 100px 0px;
     }
+
     .brand_logo {
         width: 200px;
     }
+
     .ab_head {
         font-size: 30px;
     }
+
     .ind_bg, .ab_bg, .crf_bg {
         min-height: 300px;
     }
+
     .nav_nv {
         padding-top: 5px;
     }
+
     .logo_sm {
         width: 150px;
         margin-left: -100px;
     }
+
     .ab_para {
         font-size: 9px;
     }
+
     .craft_head {
         font-size: 30px;
     }
+
     .crf_para {
         font-size: 11px;
     }
+
     .craft_sec {
         padding-top: 200px;
     }
@@ -363,13 +486,13 @@ button:focus {
 }
 
 .register_mod {
-    width: 620px!important;
-    max-width: 620px!important;
+    width: 620px !important;
+    max-width: 620px !important;
 }
 
-@media screen and (max-width:414px) {
+@media screen and (max-width: 414px) {
     .register_mod {
-        width: 370px!important;
+        width: 370px !important;
     }
 }
 
@@ -408,7 +531,7 @@ button:focus {
     border-left: 0;
 }
 
-.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:first-child>.btn-group:not(:first-child)>.btn, .input-group-btn:first-child>.btn:not(:first-child), .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group>.btn, .input-group-btn:last-child>.dropdown-toggle {
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -459,11 +582,11 @@ button:focus {
 }
 
 .btn_login {
-    background: #253646!important;
-    border: 1px solid #E8ECEF!important;
-    border-radius: 10px!important;
-    padding: 10px 30px!important;
-    color: #fff!important;
+    background: #253646 !important;
+    border: 1px solid #E8ECEF !important;
+    border-radius: 10px !important;
+    padding: 10px 30px !important;
+    color: #fff !important;
 }
 
 .log_btn {
@@ -530,63 +653,78 @@ button:focus {
     padding-left: 40px;
     padding-right: 40px;
 }
-@media screen and (max-width:1600px) {
+
+@media screen and (max-width: 1600px) {
     .user_login {
         margin-top: 40px;
     }
+
     .pswd_login {
         margin-top: 40px;
     }
+
     .inp_us {
         width: 245px;
     }
+
     .inp_us {
         width: 250px;
     }
 }
 
-@media screen and (max-width:1366px) {
+@media screen and (max-width: 1366px) {
     .pswd_login {
         margin-top: 35px;
     }
+
     .user_login {
         margin-top: 20px;
     }
+
     .mod_head {
         padding: 1.3rem 1rem;
     }
+
     .log_btn {
         margin-top: 40px;
     }
+
     .cret {
         margin-top: 20px;
     }
+
     .event_head {
         margin-top: 10px;
     }
+
     .modal.right .modal-body {
         padding: 10px 15px;
     }
 }
 
-@media screen and (max-width:414px) {
+@media screen and (max-width: 414px) {
     .modal.right .modal-dialog {
         width: 370px;
     }
+
     .inp_us {
         width: 248px;
     }
+
     .conr {
         padding-left: 16px;
         padding-right: 16px;
     }
+
     .event_head img {
         width: 326px;
         height: 314px;
     }
+
     .modal.right .modal-dialog {
         width: 360px
     }
+
     .conr {
         padding-left: 10px;
         padding-right: 10px;

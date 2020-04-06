@@ -3,14 +3,14 @@
         <li><a data-scroll="index" href="#index" class="bo_menu bo1 active"></a></li>
         <li><a data-scroll="about" href="#about" class="bo_menu bo2"></a></li>
         <li><a data-scroll="craft" href="#craft" class="bo_menu bo3"></a></li>
-        <li><a href="#" class="bo_menu bo4"></a></li>
+        <li><a data-scroll="product" href="#product" class="bo_menu bo4"></a></li>
         <li><a href="#" class="bo_menu bo5"></a></li>
     </ul>
 </div>
 <nav class="navbar navbar-expand-sm fixed-top nav_nv">
     <div class="brand" id="headerlogo">
         <a class="head_lg" style="display: none;" id="head_lg">
-            <img src="../../assets/img/narola_small.png" class="logo_sm" />
+            <img src="../../assets/img/narola_small.png" class="logo_sm"/>
         </a>
     </div>
     <ul class="navbar-nav">
@@ -23,7 +23,7 @@
     <ul class="navbar-nav ml-auto" data-toggle="modal" data-target="#myModal2">
         <li class="nav-item">
             <a href="#" class="nav-link">
-                <img src="../../assets/img/login.png" />
+                <img src="../../assets/img/login.png"/>
             </a>
         </li>
     </ul>
@@ -32,7 +32,7 @@
     <div class="ind_bg">
         <div class="container">
             <div class="main_logo wow zoomIn" data-wow-duration="5s">
-                <img src="../../assets/img/narola.png" class="brand_logo" id="divlogo1" />
+                <img src="../../assets/img/narola.png" class="brand_logo" id="divlogo1"/>
             </div>
         </div>
     </div>
@@ -78,6 +78,39 @@
     </div>
 </section>
 
+<section id="product">
+    <div class="prd_bg">
+        <div class="product_sec">
+            <h3 class="prod_head wow zoomIn" data-wow-duration="5s">Our Products</h3>
+            <p class="prod_para">
+                Narola a bright company started in 1989 with small unit of
+            </p>
+        </div>
+        <div class="product_text">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <p class="prod_mtxt">
+                            Lorem ipsum dolor sit amet,con sectetur adi piscing elit,sed do
+                            eius mod tempor incidid unt ut labore et dolor emagna aliqua.Quis
+                            ipsum suspendisse ultrices gravida. Risus commodo viverra
+                            maecenas accumsan lacus vel facilisis.
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <p class="prod_mtxt1">
+                            Lorem ipsum dolor sit amet,con sectetur adi piscing elit,sed do
+                            eius mod tempor incidid unt ut labore et dolor emagna aliqua.Quis
+                            ipsum suspendisse ultrices gravida. Risus commodo viverra
+                            maecenas accumsan lacus vel facilisis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="modal right fade" id="myModal2" role="dialog">
     <div class="modal-dialog md_log" role="document">
         <div class="modal-content mdb_con">
@@ -102,7 +135,7 @@
                                 </span>
                             </div>
                             <div style="color: red;margin-left: 23%"
-                                *ngIf="submitted && username.errors && username.errors.required">Username is required.
+                                 *ngIf="submitted && username.errors && username.errors.required">Username is required.
                             </div>
                         </div>
                         <div class="pswd_login">
@@ -114,7 +147,7 @@
                                 </span>
                             </div>
                             <div style="color: red;margin-left: 23%;"
-                                *ngIf="submitted && password.errors && password.errors.required">Password is required.
+                                 *ngIf="submitted && password.errors && password.errors.required">Password is required.
                             </div>
                         </div>
 
@@ -124,9 +157,9 @@
                             <h5 class="cret" data-toggle="modal" data-target="#myModal3">Create Account</h5>
                         </div>
                     </div>
-                        <div class="event_head">
-                            <img src="../../assets/img/login_event.png" />
-                        </div>
+                    <div class="event_head">
+                        <img src="../../assets/img/login_event.png"/>
+                    </div>
                 </form>
             </div>
         </div><!-- modal-content -->
@@ -218,7 +251,8 @@
                                 <input hidden type="file">
                                 <label class="frm_drag">Drag and Drop OR Browse File</label>
                             </div>
-                            <p class="frm_txt">[Passport, Driving License, Pan Card, (scan and upload .jpg or .png or .doc or .docx or .pdf files),(Optional)] </p>
+                            <p class="frm_txt">[Passport, Driving License, Pan Card, (scan and upload .jpg or .png or
+                                .doc or .docx or .pdf files),(Optional)] </p>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label class="frm_use">Gender</label>
@@ -324,13 +358,14 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <label class="frm_use"></label>
-                            <p class="frm_txt mb_regs">[Business Card (scan and upload .jpg or .png or .doc or .docx or .pdf
+                            <p class="frm_txt mb_regs">[Business Card (scan and upload .jpg or .png or .doc or .docx or
+                                .pdf
                                 files),(Optional)]</p>
                         </div>
                         <div class="col-md-12 col-sm-12 recpth">
                             <label class="frm_use"></label>
                             <re-captcha (resolved)="resolved($event)"
-                                siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
+                                        siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
                         </div>
                         <div class="col-md-12 col-sm-12 chk_term">
                             <label class="frm_use">Terms and Conditions</label><br>
@@ -345,5 +380,5 @@
     </div>
 </div>
 <a id="button">
-    <img src="../../assets/img/scroll_btn.png" class="scrl_btn" />
+    <img src="../../assets/img/scroll_btn.png" class="scrl_btn"/>
 </a>
