@@ -163,6 +163,28 @@ a:hover, a:focus {
     background-repeat: no-repeat;
 }
 
+.csr_bg {
+    width: 100%;
+    background: url(../img/csr.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 940px;
+    background-repeat: no-repeat;
+}
+
+.csr_img {
+    padding-top: 200px;
+}
+
+.csrpr {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.csr_fig img {
+    width: 100%;
+}
+
 .ab_head {
     font-family: "Marcellus", serif;
     font-size: 80px;
@@ -185,6 +207,17 @@ a:hover, a:focus {
     color: #fff;
     text-align: center;
     padding-top: 600px;
+}
+
+.csr_sec {
+    color: #fff;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.csr_head {
+    font-family: "Marcellus", serif;
+    font-size: 48px;
 }
 
 .prod_head {
@@ -228,7 +261,7 @@ a:hover, a:focus {
 }
 
 .ab_para {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 100;
     color: #677d8a;
     font-family: "Poppins", sans-serif;
@@ -236,6 +269,14 @@ a:hover, a:focus {
 }
 
 .crf_para {
+    font-size: 22px;
+    font-weight: 100;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    display: block;
+}
+
+.csr_para {
     font-size: 16px;
     font-weight: 100;
     color: #fff;
@@ -316,6 +357,14 @@ button:focus {
         font-size: 16px;
     }
 
+    .csr_bg {
+        min-height: 700px;
+    }
+
+    .csr_img {
+        padding-top: 150px;
+    }
+
     .ind_bg {
         background: url("../img/index_small.png");
         min-height: 600px;
@@ -358,6 +407,14 @@ button:focus {
 }
 
 @media screen and (max-width: 768px) {
+    .csr_bg {
+        min-height: 450px;
+    }
+
+    .csr_img {
+        padding-top: 80px;
+    }
+
     .prd_bg {
         min-height: 570px;
     }
@@ -412,6 +469,19 @@ button:focus {
 @media screen and (max-width: 414px) {
     .border_row {
         display: none;
+    }
+
+    .csr_head {
+        font-size: 30px;
+    }
+
+    .csr_para {
+        font-size: 9px;
+    }
+
+    .csrpr {
+        padding-left: 15px !important;
+        padding-right: 15px !important;;
     }
 
     .main_logo {
