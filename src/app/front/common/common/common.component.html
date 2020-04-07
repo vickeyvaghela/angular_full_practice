@@ -4,13 +4,13 @@
             <li>
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="display: none">&times;</a>
             </li>
-            <li class="active">
-                <a href="#" title="DASHBOARD">
+            <li [ngClass]="{'active' : isActive('UserPanel')}">
+                <a href="/UserPanel" title="DASHBOARD">
                     <i class="icon-dashboard"></i>
                 </a>
             </li>
-            <li>
-                <a href="#" title="SEARCH">
+            <li [ngClass]="{'active' : isActive('searchdiamond')}">
+                <a href="/searchdiamond" title="SEARCH">
                     <i class="icon-search"></i>
                 </a>
             </li>

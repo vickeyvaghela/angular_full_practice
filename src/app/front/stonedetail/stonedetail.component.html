@@ -26,48 +26,68 @@
 <section id="content-wrapper">
     <div class="container-fluid">
         <div class="row">
+
             <div class="col-lg-4 col-md-4 col-sm-12 col-lg-push-8 dtl_tab">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="tab-content">
-                        <div id="Image" class="tab-pane fade in active">
+                        <div id="Image" class="tab-pane fade in " [ngClass]="{'active' : disPlay=='image'}" *ngIf="disPlay=='image'">
                             <div class="stn_img">
-                                <img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/5756-85.JPG" class="det_img">
+                                <!--<h1>before {{stoneDetail.PHOTOPATH}}</h1>-->
+                                <!--<h1>image {{transform(stoneDetail.PHOTOPATH)}}</h1>-->
+                                <div *ngIf="stoneDetail.PHOTOPATH">
+                                    <img [src]="transform(stoneDetail.PHOTOPATH)" class="det_img">
+                                </div>
+                                <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=5756-70&btn=0&sv=0&z=0" class="det_vdeo" scrolling="no"></iframe>-->
                             </div>
                         </div>
-                        <div id="Video" class="tab-pane fade">
+                        <div id="Videosss" class="tab-pane fade in " [ngClass]="{'active' : disPlay=='video'}" *ngIf="disPlay=='video'">
                             <div class="stn_vdeo">
-                                <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=5756-70&btn=0&sv=0&z=0" class="det_vdeo" scrolling="no"></iframe>
+                                <div *ngIf="stoneDetail.MoviePath2">
+                                    <iframe [src]="transform(stoneDetail.MoviePath2)" class="det_vdeo" scrolling="no"></iframe>
+                                    <!--<iframe src='https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf' class="det_vdeo" scrolling="no"></iframe>-->
+                                </div>
                             </div>
                         </div>
-                        <div id="certi" class="tab-pane fade">
+                        <div id="certisss" class="tab-pane fade in" [ngClass]="{'active' : disPlay=='certi'}" *ngIf="disPlay=='certi'">
                             <div class="stn_vdeo">
-                                <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf" class="det_vdeo" scrolling="no"></iframe>
+                                <!--<div *ngIf="stoneDetail.CERTIPATH">-->
+                                <div >
+                                    <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf" class="det_vdeo" scrolling="no"></iframe>-->
+                                    <!--<img [src]="transform(stoneDetail.CERTIPATH)" class="det_vdeo">-->
+                                    <iframe [src]="transform(stoneDetail.CERTIPATH)" class="det_vdeo" scrolling="yes"></iframe>
+                                </div>
+                                <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf" class="det_vdeo" scrolling="no"></iframe>-->
                             </div>
                         </div>
                     </div>
+
+
                     <ul class="nav nav-pills pil_act justify-content-center">
                         <li class="active">
-                            <a data-toggle="pill" href="#Image" class="pil_hed">Image</a>
+                            <a (click)="disPlay='image';attachUrl=stoneDetail.PHOTOPATH;" data-toggle="pill" class="pil_hed">Image</a>
+                            <!--<a id="imageLi" data-toggle="pill" href="#Image" class="pil_hed">Image</a>-->
+                        </li>
+                        <li >
+                            <!--<a data-toggle="pill" href="#Video" class="pil_hed">Video</a>-->
+                            <a data-toggle="pill" (click)="disPlay='video';attachUrl=stoneDetail.MoviePath2;" class="pil_hed">Video</a>
                         </li>
                         <li>
-                            <a data-toggle="pill" href="#Video" class="pil_hed">Video</a>
-                        </li>
-                        <li>
-                            <a data-toggle="pill" href="#certi" class="pil_hed">Certificate</a>
+                            <!--<a data-toggle="pill" href="#certi" class="pil_hed">Certificate</a>-->
+                            <a data-toggle="pill" (click)="disPlay='certi';attachUrl=stoneDetail.CERTIPATH;" class="pil_hed">Certificate</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="disPlay!='video'">
                     <div class="stn_vdeo1">
                         <div class="input-group grp-search">
-                            <input type="text" placeholder="Email Details" class="form-control frm_ipn">
-                            <span class="input-group-addon grp_add">
+                            <input type="text" placeholder="Email Details" [(ngModel)]="email" class="form-control frm_ipn">
+                            <span class="input-group-addon grp_add" (click)="sendEmail()">
                                 <i class="icon-mail_send detl_icon"></i>
                             </span>
                         </div>
                         <div class="icn_rght">
-                            <i class="icon-view detl_icon viwdown"></i>
-                            <i class="icon-download detl_icon viwdown"></i>
+                            <a [href]="attachUrl" target="_blank"><i class="icon-view detl_icon viwdown"></i></a>
+                            <i (click)="downloadDetailDoc()" class="icon-download detl_icon viwdown"></i>
                         </div>
                     </div>
                 </div>
@@ -181,38 +201,38 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Gridle(%)</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.Girdle}}</div>
                         <!--<div class="col-md-7 col-sm-8 tb_txt">4.00 ( STK to THK )</div>-->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Inc</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.TIN_Name}}</div>
                         <!--<div class="col-md-7 col-sm-8 tb_txt">WHITE GROUP OF PINPO</div>-->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Side Inc</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.TSIN_Name}}</div>
                         <!--<div class="col-md-7 col-sm-8 tb_txt">NONE</div>-->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Side Inc</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.SIN_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Black</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.TBIN_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Side Black</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">NONE</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.SBIN_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Side Black</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.TSBIN_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Table Open</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.TOIN_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Side Open</div>
@@ -256,7 +276,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Culet</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.CU_Name}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Natural</div>
@@ -264,11 +284,11 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Fancy Color</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.ColorName}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">NG Grader Comm.</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt">{{stoneDetail.Remark}}</div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Star Length</div>
@@ -280,7 +300,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed">Type 2A</div>
-                        <div class="col-md-7 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-7 col-sm-8 tb_txt"></div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 prpl_detail">
                         <div class="col-md-5 col-sm-4 tb_hed"></div>
@@ -292,7 +312,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 plpr mt-20 prcut">
                     <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
                         <div class="col-md-3 col-sm-4 tb_hed">NGS Comments</div>
-                        <div class="col-md-9 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">{{stoneDetail.GrdComment}}</div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
                         <div class="col-md-3 col-sm-4 tb_hed">Shade</div>
@@ -304,10 +324,12 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 prpl_detail">
                         <div class="col-md-3 col-sm-4 tb_hed">Report Comm.</div>
-                        <div class="col-md-9 col-sm-8 tb_txt">@@@@@@@@</div>
+                        <div class="col-md-9 col-sm-8 tb_txt">{{stoneDetail.Comment}}</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!--https://pcknstg.blob.core.windows.net/hdfile/DimImg/5291-9.JPG-->
+<!--https://pcknstg.blob.core.windows.net/hdfile/DimCrt/6331778391.Pdf-->

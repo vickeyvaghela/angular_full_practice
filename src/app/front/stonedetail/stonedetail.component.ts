@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Searchdiamond } from '../services/searchdiamond.service'
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -9,11 +10,23 @@ import { Searchdiamond } from '../services/searchdiamond.service'
   styleUrls: ['/node_modules/bootstrap3/dist/css/bootstrap.min.css','./stonedetail.component.css']
 })
 export class StonedetailComponent implements OnInit {
+
+
+
+
+
   pid: string;
   stoneDetail: any = {};
+  disPlay = 'image';
+  email = 'vickeyvaghela82@gmail.com';
+  attachUrl = '';
 
 
-  constructor(private actRoute: ActivatedRoute,private searchDiamondServ: Searchdiamond) { }
+  constructor(private actRoute: ActivatedRoute,private searchDiamondServ: Searchdiamond,private sanitizer: DomSanitizer) { }
+
+  transform(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
   ngOnInit(): void {
 
@@ -22,11 +35,14 @@ export class StonedetailComponent implements OnInit {
       this.pid = params.get('pid');
       console.log(this.pid);
 
+
       this.searchDiamondServ.getStoneDetail({pid:this.pid}).subscribe(stoneDetaisObj => {
         console.log('stoneDetaisObj ');
         console.log(stoneDetaisObj);
         if(stoneDetaisObj && stoneDetaisObj.data){
           this.stoneDetail = stoneDetaisObj.data;
+          this.attachUrl = this.stoneDetail.PHOTOPATH
+
         }
       },errStoneDetailRes => {console.log('errStoneDetailRes ',errStoneDetailRes);});
 
@@ -45,4 +61,52 @@ export class StonedetailComponent implements OnInit {
     script.defer = true;
     body.appendChild(script);
   }
+
+  sendEmail(){
+    if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)){
+
+
+      var ext = this.attachUrl.substr(this.attachUrl.lastIndexOf('.') + 1);
+
+
+      this.searchDiamondServ.mailStoneDetail({email:this.email,url:this.attachUrl,data:this.stoneDetail,ext:ext}).subscribe(mailApiResp => {
+        console.log('mailApiResp ');
+        console.log(mailApiResp);
+
+      },errStoneDetailRes => {console.log('errStoneDetailRes ',errStoneDetailRes);});
+
+    }else{
+      alert('Please enter valid email id');
+    }
+    console.log('send email with '+this.disPlay);
+    console.log('email val '+this.email);
+  }
+
+  downloadDetailDoc(){
+    //http://localhost:3000/front/SearchDiamond/pdf
+    var mapForm = document.createElement("form");
+    //mapForm.target = "_blank";
+    mapForm.method = "POST"; // or "post" if appropriate
+    mapForm.action = 'http://localhost:3000/front/SearchDiamond/downloadDetailDoc';
+
+    let obj = {
+      url:this.attachUrl,
+      ext:this.attachUrl.substr(this.attachUrl.lastIndexOf('.') + 1).toUpperCase()
+    }
+
+
+    Object.keys(obj).forEach(function(param){
+      if(obj[param]){
+        var mapInput = document.createElement("input");
+        mapInput.type = "hidden";
+        mapInput.name = param;
+        mapInput.setAttribute("value", obj[param]);
+        mapForm.appendChild(mapInput);
+      }
+    });
+    document.body.appendChild(mapForm);
+    mapForm.submit();
+
+  }
+
 }

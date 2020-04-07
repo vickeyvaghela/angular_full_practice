@@ -1,4 +1,7 @@
+
+
 <form [formGroup]="searchDiamondForm" (ngSubmit)="onSubmit()">
+
     <app-common (globalSearchEmitter)="getGlobalDataFrmChild($event)"></app-common>
     <section id="content-wrapper">
         <div class="container-fluid">
@@ -26,6 +29,7 @@
                         </p>
                     </div>
                 </div>
+
                 <div *ngIf="!hideSearchForm">
                     <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
                         <div class="sch_carat">
@@ -926,13 +930,14 @@
                                                      class="stn_img">
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td rowspan="11" class="tbltr">
-                                                <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=5756-85&btn=0&sv=0&z=0"
-                                                        class="stn_img" scrolling="no" frameborder="0"
-                                                        allowfullscreen></iframe>
-                                            </td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td rowspan="11" class="tbltr">-->
+                                                <!--<h1>ssd</h1>-->
+                                                <!--<iframe src="{{element.PHOTOPATH}}"-->
+                                                        <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                                        <!--allowfullscreen></iframe>-->
+                                            <!--</td>-->
+                                        <!--</tr>-->
                                         <tr>
                                             <td rowspan="11" class="tbltr">
                                                 <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf"
