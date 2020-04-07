@@ -193,8 +193,7 @@ a:hover, a:focus {
 
 .craft_head {
     font-family: "Marcellus", serif;
-    font-size: 80px;
-    font-weight: bold;
+    font-size: 48px;
 }
 
 .about_sec {
@@ -206,7 +205,7 @@ a:hover, a:focus {
 .craft_sec {
     color: #fff;
     text-align: center;
-    padding-top: 600px;
+    padding-top: 500px;
 }
 
 .csr_sec {
@@ -335,6 +334,9 @@ button:focus {
 }
 
 @media screen and (max-width: 1024px) {
+    .crf_bg{
+        min-height: 760px;
+    }
     .prd_bg {
         min-height: 570px;
     }
@@ -383,14 +385,6 @@ button:focus {
 
     .ab_bg {
         background: url("../img/about_small.png");
-        min-height: 480px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .crf_bg {
-        background: url("../img/craft_small.png");
         min-height: 480px;
         background-repeat: no-repeat;
         background-size: cover;
@@ -460,10 +454,6 @@ button:focus {
     .craft_sec {
         padding-top: 220px;
     }
-
-    .craft_head {
-        font-size: 50px;
-    }
 }
 
 @media screen and (max-width: 414px) {
@@ -496,7 +486,7 @@ button:focus {
         font-size: 30px;
     }
 
-    .ind_bg, .ab_bg, .crf_bg {
+    .ind_bg, .ab_bg {
         min-height: 300px;
     }
 
