@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Searchdiamond } from '../services/searchdiamond.service'
 import {L} from "@angular/cdk/keycodes";
 import { DatePipe } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 // import {
 //   MatTableModule
@@ -25,6 +27,9 @@ import { DatePipe } from '@angular/common';
 //encapsulation: ViewEncapsulation.None
 
 export class SearchdiamondComponent implements OnInit {
+
+
+
 
   searchDiamondForm: FormGroup;
 
@@ -184,7 +189,10 @@ export class SearchdiamondComponent implements OnInit {
     },
   }
 
-  constructor(public fb: FormBuilder,private searchDiamondServ: Searchdiamond,private datePipe : DatePipe) { }
+  transform(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+  constructor(public fb: FormBuilder,private searchDiamondServ: Searchdiamond,private datePipe : DatePipe,private sanitizer: DomSanitizer) { }
   ngOnInit(): void {
     this.searchDiamondForm = this.fb.group({
       FCarat: [null],

@@ -17,6 +17,14 @@ export class CommonComponent implements OnInit {
     this.loadScript();
   }
 
+  isActive(pageName){
+    if(window.location.href.indexOf(pageName)>=0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   @Output() globalSearchEmitter = new EventEmitter<any>();
 
   globalSearchBox = null;

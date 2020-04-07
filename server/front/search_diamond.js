@@ -23,10 +23,6 @@ route.get('/', (req, res) => {
 
 route.post('/searchDiamond', (req, res) => {
 
-
-    console.log('search function');
-    console.log(JSON.stringify(req.body));
-
     const conn = new sql.ConnectionPool(config)
     conn.connect().then(function () {
         var request = new sql.Request(conn);
@@ -1140,8 +1136,6 @@ route.post('/mailXLS', (req, res) => {
 
             if(recordsets && recordsets.recordset && recordsets.recordset){
 
-                console.log('sitatam');
-                console.log(JSON.stringify(recordsets.recordset));
                 const Excel = require('exceljs');
                 const fs = require('fs');
                 const path = require('path');
@@ -1467,6 +1461,101 @@ route.post('/mailXLS', (req, res) => {
 });
 
 
+route.post('/mailStoneDetail', (req, res) => {
+    res.json({success:true,data:null});
+    // res.json(req.body);
+    // console.log(req.body);
+    // return;
+
+    let NM = require('../helpers/nodemailer');
+    var path = require('path');
+
+    var mailOptions = {
+        from: 'test@gmail.com',
+        to: req.body.email,
+        subject: 'Stone Details',
+        text: 'here is your stone details in attachment',
+        attachments: [
+            // {   // utf-8 string as an attachment
+            //     filename: 'text1.txt',
+            //     content: 'hello world!'
+            // },
+            // {   // binary buffer as an attachment
+            //     filename: 'vikeshxl.xlsx',
+            //     content: buffer
+            // },
+            // {   // file on disk as an attachment
+            //     filename: 'vikesh.pdf',
+            //     path: path.join(__dirname, '../../dist/pdfs/sallu.pdf')
+            // }
+            // {   // filename and content type is derived from path
+            //     path: '/path/to/file.txt'
+            // },
+            // {   // stream as an attachment
+            //     filename: 'text4.txt',
+            //     content: fs.createReadStream('file.txt')
+            // },
+            // {   // define custom content type for the attachment
+            //     filename: 'text.bin',
+            //     content: 'hello world!',
+            //     contentType: 'text/plain'
+            // },
+            {   // use URL as an attachment
+                filename: 'attachment.'+req.body.ext,
+                path: req.body.url
+            },
+            // {   // encoded string as an attachment
+            //     filename: 'text1.txt',
+            //     content: 'aGVsbG8gd29ybGQh',
+            //     encoding: 'base64'
+            // },
+            // {   // data uri as an attachment
+            //     path: 'data:text/plain;base64,aGVsbG8gd29ybGQ='
+            // },
+            // {
+            //     // use pregenerated MIME node
+            //     raw: 'Content-Type: text/plain\r\n' +
+            //     'Content-Disposition: attachment;\r\n' +
+            //     '\r\n' +
+            //     'Hello world!'
+            // }
+        ]
+    };
+    NM.sendAttachment(mailOptions,'url')
+    //res.send('lets see1111');
+
+});
+
+route.post('/downloadDetailDoc', (req, res) => {
+    let https = require('https')
+    // https.get('https://pcknstg.blob.core.windows.net/hdfile/DimCrt/6331778391.Pdf', function(response) {
+    https.get(req.body.url, function(response) {
+
+        data = [];
+        response.on('data', function(chunk) {
+            data.push(chunk);
+        });
+
+        response.on('end', function() {
+            data = Buffer.concat(data); // do something with data
+            res.writeHead(200, {
+                'Content-Length': Buffer.byteLength(data),
+                'Content-Type': 'application/octet-stream',
+                'Content-disposition': 'attachment;filename=stoneDetail.'+req.body.ext}).end(data);
+
+
+        });
+    });
+
+    var data = [];
+
+
+
+
+});
+
+
+
 route.get('/downloadXLS-bkp', async (req, res) => {
 
     const Excel = require('exceljs');
@@ -1659,8 +1748,6 @@ route.get('/pdf', (req, res) => {
 
 route.post('/getStoneDetail', (req, res) => {
 
-
-    console.log(config1);
     if(req.body.pid){
     // if(1){
         const conn = new sql.ConnectionPool(config1)
@@ -1682,8 +1769,6 @@ route.post('/getStoneDetail', (req, res) => {
     }else{
         res.json({success: false, data: []})
     }
-
-
 });
 
 route.post('/simpleRequestWithoutPoolExample', (req, res) => {
@@ -1768,6 +1853,35 @@ route.get('/mail', (req, res) => {
     res.send('lets see1111');
 
 });
+
+route.get('/downloadDetailDoc', (req, res) => {
+    let https = require('https')
+    // https.get('https://pcknstg.blob.core.windows.net/hdfile/DimCrt/6331778391.Pdf', function(response) {
+    https.get('https://pcknstg.blob.core.windows.net/hdfile/DimImg/5291-9.JPG', function(response) {
+
+        data = [];
+        response.on('data', function(chunk) {
+            data.push(chunk);
+        });
+
+        response.on('end', function() {
+            data = Buffer.concat(data); // do something with data
+            res.writeHead(200, {
+                'Content-Length': Buffer.byteLength(data),
+                'Content-Type': 'application/octet-stream',
+                'Content-disposition': 'attachment;filename=stoneDetail.JPG',}).end(data);
+
+
+        });
+    });
+
+    var data = [];
+
+
+
+
+});
+
 
 module.exports = route;
 

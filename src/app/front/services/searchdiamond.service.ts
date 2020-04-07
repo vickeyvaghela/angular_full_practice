@@ -64,6 +64,9 @@ export class Searchdiamond {
   getStoneDetail(postData): Observable<any> {
     return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/getStoneDetail',postData);
   }
+  mailStoneDetail(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/mailStoneDetail',postData);
+  }
 
 
 }
