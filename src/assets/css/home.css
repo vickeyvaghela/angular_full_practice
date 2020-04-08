@@ -457,6 +457,9 @@ button:focus {
 }
 
 @media screen and (max-width: 414px) {
+    .brand{
+        margin: 0px 150px;
+    }
     .border_row {
         display: none;
     }
