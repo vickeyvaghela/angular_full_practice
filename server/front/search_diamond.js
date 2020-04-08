@@ -259,6 +259,8 @@ route.post('/fancyintensity', (req, res) => {
         var request = new sql.Request(conn);
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
         request.execute('WB_Fill_ColIntensity').then(function (recordsets, returnValue, affected) {
+            console.log('fancyintensity vvvv');
+            console.log(JSON.stringify(recordsets));
 
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 res.json({success: true, data: recordsets.recordset})
