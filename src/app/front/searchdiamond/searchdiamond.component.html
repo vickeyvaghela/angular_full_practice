@@ -910,8 +910,8 @@
                                 <span *ngIf="column=='checkbox'">
                                     <input (click)="selectStone(element)" [checked]="element.selected" type="checkbox">
                                 </span>
-                                <span *ngIf="column!='PId'">{{element[column]}}</span>
-                                <span *ngIf="column=='PId'"><a href="/stonedetail/{{element[column]}}">{{element[column]}}</a></span>
+                                <span *ngIf="column!='PId'" class="ngtd_txt">{{element[column]}}</span>
+                                <span *ngIf="column=='PId'"><a href="/stonedetail/{{element[column]}}" class="td_maintxt">{{element[column]}}</a></span>
 
                                 <!--<pre>{{element | json}}</pre>-->
                             </td>
