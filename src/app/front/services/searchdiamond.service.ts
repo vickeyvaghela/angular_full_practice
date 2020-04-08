@@ -69,4 +69,9 @@ export class Searchdiamond {
   }
 
 
+  // testVikesh(postData): Observable<any> {
+  //   return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/testVikesh',postData);
+  // }
+
+
 }
