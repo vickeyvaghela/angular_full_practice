@@ -37,6 +37,7 @@ export class SearchdiamondComponent implements OnInit {
   hideSearchForm = false;
   hideSearchFormMeasure = true;
 
+  searchById = null;
 
   TotalStoneFound = 0;
   searchResultAry: any[] = [];
@@ -253,6 +254,9 @@ export class SearchdiamondComponent implements OnInit {
       TMeasWidth:[null]
     })
     this.initialize();
+
+
+
   }
 
   compareObjects(o1: any, o2: any): boolean {
@@ -299,11 +303,6 @@ export class SearchdiamondComponent implements OnInit {
     },error => {
       console.log(error);
     });
-
-
-
-
-
 
 
     this.searchDiamondServ.getShade({}).subscribe(shades => {
@@ -708,6 +707,7 @@ export class SearchdiamondComponent implements OnInit {
 
   onSubmit(){
 
+    this.searchById = null;
     if(this.TotalStoneFound<=500){
       this.searchDiamondServ.searchDiamond(this.createPostData()).subscribe(searchDiam => {
 
@@ -766,9 +766,44 @@ export class SearchdiamondComponent implements OnInit {
 
 
 
+
   getGlobalDataFrmChild(evtt){
-    console.log(' in searchd');
+    console.log(' in searchdddd KKKKK');
     console.log(evtt);
+    this.searchById = evtt;
+    this.searchDiamondServ.searchDiamond({StoneList:evtt,UserId:'nik'}).subscribe(searchDiam => {
+
+
+      if(searchDiam.success && searchDiam.data){
+        this.searchResultAry = searchDiam.data;
+      }else{
+        this.searchResultAry = [];
+      }
+
+      this.dataSource = this.searchResultAry;
+
+      // if(this.searchResultAry.length>0){
+      //   this.hideSearchForm = true;
+      //   this.hideSearchFormMeasure = true;
+      // }else{
+      //   this.hideSearchForm = false;
+      //   this.hideSearchFormMeasure = false;
+      // }
+
+      this.hideSearchForm = true;
+      this.hideSearchFormMeasure = true;
+
+      // this.dataSource = this.searchResultAry.map((item) => {
+      //   item.selected = true;
+      //   return item;
+      // });
+      console.log('this.dataSource ',this.dataSource);
+      this.TotalStoneFound = this.searchResultAry.length;
+      console.log(' total found nu ',this.searchResultAry.length);
+
+
+    },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
+
   }
 
 
@@ -1048,7 +1083,15 @@ export class SearchdiamondComponent implements OnInit {
     //   ssssss:'111111111111111111111111111',
     //   aaaaaa:'rvnn'
     // }
-    let obj = this.createPostData();
+    let obj;
+    if(this.searchById){
+      obj = {
+        UserId:"nik",
+        StoneList:this.searchById
+      }
+    }else{
+      obj = this.createPostData();
+    }
     //console.log('obj ',obj);
 
     Object.keys(obj).forEach(function(param){
@@ -1076,7 +1119,16 @@ export class SearchdiamondComponent implements OnInit {
     //   ssssss:'111111111111111111111111111',
     //   aaaaaa:'rvnn'
     // }
-    let obj = this.createPostData();
+    let obj;
+    if(this.searchById){
+      obj = {
+        UserId:"nik",
+        StoneList:this.searchById
+      }
+    }else{
+      obj = this.createPostData();
+    }
+
     //console.log('obj ',obj);
 
     Object.keys(obj).forEach(function(param){
@@ -1095,8 +1147,16 @@ export class SearchdiamondComponent implements OnInit {
 
   mailXLS(){
     if(this.TotalStoneFound<=500){
-      console.log('ifffff');
-      this.searchDiamondServ.mailXLS(this.createPostData()).subscribe(searchDiam => {
+      let obj;
+      if(this.searchById){
+        obj = {
+          UserId:"nik",
+          StoneList:this.searchById
+        }
+      }else{
+        obj = this.createPostData();
+      }
+      this.searchDiamondServ.mailXLS(obj).subscribe(searchDiam => {
 
         console.log('after server result');
 
