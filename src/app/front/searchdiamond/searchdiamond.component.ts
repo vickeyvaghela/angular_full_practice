@@ -635,8 +635,8 @@ export class SearchdiamondComponent implements OnInit {
     finalPostData['Origin'] = FinalOriginPost;
     finalPostData['shade'] = FinalShadePost;
 
-    finalPostData['Lust_Code'] = this.lustList.filter(item=>item.selected).map(item=>item.name).join(',');
-    finalPostData['HA_Code'] = this.hnaList.filter(item=>item.selected).map(item=>item.name).join(',');
+    finalPostData['Lust_Code'] = this.lustList.filter(item=>item.selected).map(item=>item.code).join(',');
+    finalPostData['HA_Code'] = this.hnaList.filter(item=>item.selected).map(item=>item.code).join(',');
 
     if(this.searchDiamondForm.value.FCarat && this.searchDiamondForm.value.TCarat){
       finalPostData['FCarat'] = this.searchDiamondForm.value.FCarat;

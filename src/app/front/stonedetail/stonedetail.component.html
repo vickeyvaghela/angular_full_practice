@@ -32,29 +32,29 @@
                     <div class="tab-content">
                         <div id="Image" class="tab-pane fade in " [ngClass]="{'active' : disPlay=='image'}" *ngIf="disPlay=='image'">
                             <div class="stn_img">
-                                <!--<h1>before {{stoneDetail.PHOTOPATH}}</h1>-->
-                                <!--<h1>image {{transform(stoneDetail.PHOTOPATH)}}</h1>-->
-                                <div *ngIf="stoneDetail.PHOTOPATH">
-                                    <img [src]="transform(stoneDetail.PHOTOPATH)" class="det_img">
+                                <!--<h1>before {{stoneDetail.PhotoPath}}</h1>-->
+                                <!--<h1>image {{transform(stoneDetail.PhotoPath)}}</h1>-->
+                                <div *ngIf="stoneDetail.PhotoPath">
+                                    <img [src]="transform(stoneDetail.PhotoPath)" class="det_img">
                                 </div>
                                 <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=5756-70&btn=0&sv=0&z=0" class="det_vdeo" scrolling="no"></iframe>-->
                             </div>
                         </div>
                         <div id="Videosss" class="tab-pane fade in " [ngClass]="{'active' : disPlay=='video'}" *ngIf="disPlay=='video'">
                             <div class="stn_vdeo">
-                                <div *ngIf="stoneDetail.MoviePath2">
-                                    <iframe [src]="transform(stoneDetail.MoviePath2)" class="det_vdeo" scrolling="no"></iframe>
+                                <div *ngIf="stoneDetail.VideoPath">
+                                    <iframe [src]="transform(stoneDetail.VideoPath)" class="det_vdeo" scrolling="no"></iframe>
                                     <!--<iframe src='https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf' class="det_vdeo" scrolling="no"></iframe>-->
                                 </div>
                             </div>
                         </div>
                         <div id="certisss" class="tab-pane fade in" [ngClass]="{'active' : disPlay=='certi'}" *ngIf="disPlay=='certi'">
                             <div class="stn_vdeo">
-                                <!--<div *ngIf="stoneDetail.CERTIPATH">-->
+                                <!--<div *ngIf="stoneDetail.CertiPath">-->
                                 <div >
                                     <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf" class="det_vdeo" scrolling="no"></iframe>-->
-                                    <!--<img [src]="transform(stoneDetail.CERTIPATH)" class="det_vdeo">-->
-                                    <iframe [src]="transform(stoneDetail.CERTIPATH)" class="det_vdeo" scrolling="yes"></iframe>
+                                    <!--<img [src]="transform(stoneDetail.CertiPath)" class="det_vdeo">-->
+                                    <iframe [src]="transform(stoneDetail.CertiPath)" class="det_vdeo" scrolling="yes"></iframe>
                                 </div>
                                 <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf" class="det_vdeo" scrolling="no"></iframe>-->
                             </div>
@@ -64,16 +64,16 @@
 
                     <ul class="nav nav-pills pil_act justify-content-center">
                         <li class="active">
-                            <a (click)="disPlay='image';attachUrl=stoneDetail.PHOTOPATH;" data-toggle="pill" class="pil_hed">Image</a>
+                            <a (click)="disPlay='image';attachUrl=stoneDetail.PhotoPath;" data-toggle="pill" class="pil_hed">Image</a>
                             <!--<a id="imageLi" data-toggle="pill" href="#Image" class="pil_hed">Image</a>-->
                         </li>
                         <li >
                             <!--<a data-toggle="pill" href="#Video" class="pil_hed">Video</a>-->
-                            <a data-toggle="pill" (click)="disPlay='video';attachUrl=stoneDetail.MoviePath2;" class="pil_hed">Video</a>
+                            <a data-toggle="pill" (click)="disPlay='video';attachUrl=stoneDetail.VideoPath;" class="pil_hed">Video</a>
                         </li>
                         <li>
                             <!--<a data-toggle="pill" href="#certi" class="pil_hed">Certificate</a>-->
-                            <a data-toggle="pill" (click)="disPlay='certi';attachUrl=stoneDetail.CERTIPATH;" class="pil_hed">Certificate</a>
+                            <a data-toggle="pill" (click)="disPlay='certi';attachUrl=stoneDetail.CertiPath;" class="pil_hed">Certificate</a>
                         </li>
                     </ul>
                 </div>
