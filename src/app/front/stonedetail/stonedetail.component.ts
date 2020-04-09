@@ -41,7 +41,7 @@ export class StonedetailComponent implements OnInit {
         console.log(stoneDetaisObj);
         if(stoneDetaisObj && stoneDetaisObj.data){
           this.stoneDetail = stoneDetaisObj.data;
-          this.attachUrl = this.stoneDetail.PHOTOPATH
+          this.attachUrl = this.stoneDetail.PhotoPath
 
         }
       },errStoneDetailRes => {console.log('errStoneDetailRes ',errStoneDetailRes);});

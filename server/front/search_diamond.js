@@ -5,14 +5,8 @@ const config = {
     password: process.env.DB_PASSWORD,
     server: process.env.DB_SERVER,
     database: process.env.DB_DATABASE,
-    options:{encrypt:false}
-};
-const config1 = {
-    user: process.env.DB_USER1,
-    password: process.env.DB_PASSWORD1,
-    server: process.env.DB_SERVER1,
-    database: process.env.DB_DATABASE1,
-    options:{encrypt:true}
+    options:{encrypt:false},
+    port:parseInt(process.env.DB_PORT)
 };
 
 
@@ -20,33 +14,7 @@ route.get('/', (req, res) => {
     res.send('default route for userpanel FRONT');
 });
 
-/*
-route.post('/testVikesh', (req, res) => {
 
-    // res.json({visha:'kha patt'})
-
-    const conn = new sql.ConnectionPool(config)
-    conn.connect().then(function () {
-        var request = new sql.Request(conn);
-        request.input('StoneList', sql.VarChar(30), '5291-9');
-        request.execute('WB_DiamondResult_Kendo_NEW_Event_BY_ID_New').then(function (recordsets, returnValue, affected) {
-
-            if(recordsets && recordsets.recordset && recordsets.recordset[0]){
-                res.json({success: true, data: recordsets.recordset})
-            }else{
-                res.json({success: true, data: null})
-            }
-            conn.close();
-        }).catch(function (err) {
-            console.log(err);
-            conn.close();
-        });
-    }).catch(function (err) {
-        console.log(err);
-    });
-
-});
-*/
 route.post('/searchDiamond', (req, res) => {
 
     const conn = new sql.ConnectionPool(config)
@@ -57,6 +25,15 @@ route.post('/searchDiamond', (req, res) => {
         if(req.body.StoneList){
             request.input('StoneList', sql.VarChar(30), req.body.StoneList);
         }else{
+
+
+            if(req.body.whiteColor){
+                request.input('IsFancy', sql.Int, 0);
+            }else{
+                request.input('IsFancy', sql.Int, 1);
+            }
+
+
             request.input('S_Code', sql.VarChar(30), req.body.S_Code);
 
             if(req.body.Col_Code){
@@ -116,25 +93,28 @@ route.post('/searchDiamond', (req, res) => {
             if(req.body.TMeasLength){ request.input('TMeasLength', sql.Int, parseInt(req.body.TMeasLength)); }
             if(req.body.FMeasWidth){ request.input('FMeasWidth', sql.Int, parseInt(req.body.FMeasWidth)); }
             if(req.body.TMeasWidth){ request.input('TMeasWidth', sql.Int, parseInt(req.body.TMeasWidth)); }
+
+
         }
 
 
 
 
 
-        let spName;
-        if(req.body.StoneList){
-            spName = 'WB_DiamondResult_Kendo_NEW_Event_BY_ID_New';
-        }else{
-            if(req.body.whiteColor){
-                spName = 'WB_DiamondResult_Kendo_NEW_Event';
-            }else{
-                spName = 'WB_DiamondResult_Fancy_Kendo_NEW';
-            }
-        }
+        // let spName;
+        // if(req.body.StoneList){
+        //     spName = 'WB_DiamondResult_Kendo_NEW_Event_BY_ID_New';
+        // }else{
+        //     if(req.body.whiteColor){
+        //         spName = 'WB_DiamondResult_Kendo_NEW_Event';
+        //     }else{
+        //         spName = 'WB_DiamondResult_Fancy_Kendo_NEW';
+        //     }
+        // }
 
 
-        request.execute(spName).then(function (recordsets, returnValue, affected) {
+
+        request.execute('WB_DiamondResultFill').then(function (recordsets, returnValue, affected) {
 
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 res.json({success: true, data: recordsets.recordset})
@@ -151,7 +131,6 @@ route.post('/searchDiamond', (req, res) => {
     });
 });
 route.post('/getResultCount', (req, res) => {
-
 
     const conn = new sql.ConnectionPool(config)
     conn.connect().then(function () {
@@ -223,14 +202,17 @@ route.post('/getResultCount', (req, res) => {
         if(req.body.FMeasWidth){ request.input('FMeasWidth', sql.Int, parseInt(req.body.FMeasWidth)); }
         if(req.body.TMeasWidth){ request.input('TMeasWidth', sql.Int, parseInt(req.body.TMeasWidth)); }
 
-        let spName;
+
         if(req.body.whiteColor){
-            spName = 'WB_DiamondResult_Kendo_NEW_Event';
+            request.input('IsFancy', sql.Int, 0);
         }else{
-            spName = 'WB_DiamondResult_Fancy_Kendo_NEW';
+            request.input('IsFancy', sql.Int, 1);
         }
 
-        request.execute('WB_DiamondResult_Count').then(function (recordsets, returnValue, affected) {
+
+
+        // request.execute('WB_DiamondResult_Count').then(function (recordsets, returnValue, affected) {
+        request.execute('WB_DiamondResultCount').then(function (recordsets, returnValue, affected) {
 
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 //console.log('this his search res');
@@ -258,9 +240,10 @@ route.post('/fancyintensity', (req, res) => {
     conn.connect().then(function () {
         var request = new sql.Request(conn);
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.execute('WB_Fill_ColIntensity').then(function (recordsets, returnValue, affected) {
-            console.log('fancyintensity vvvv');
-            console.log(JSON.stringify(recordsets));
+        // request.execute('WB_Fill_ColIntensity').then(function (recordsets, returnValue, affected) {
+        request.execute('SP_FancyColIntensityDisp').then(function (recordsets, returnValue, affected) {
+            // console.log('fancyintensity ');
+            // console.log(JSON.stringify(recordsets));
 
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 res.json({success: true, data: recordsets.recordset})
@@ -282,7 +265,10 @@ route.post('/fancyovertone', (req, res) => {
     conn.connect().then(function () {
         var request = new sql.Request(conn);
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.execute('WB_Fill_ColOvertone').then(function (recordsets, returnValue, affected) {
+        // request.execute('WB_Fill_ColOvertone').then(function (recordsets, returnValue, affected) {
+        request.execute('SP_FancyColOvertoneDisp').then(function (recordsets, returnValue, affected) {
+            // console.log('fancyovertone  ');
+            // console.log(JSON.stringify(recordsets));
 
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 res.json({success: true, data: recordsets.recordset})
@@ -304,8 +290,11 @@ route.post('/fancycolor', (req, res) => {
     conn.connect().then(function () {
         var request = new sql.Request(conn);
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.execute('WB_Fill_FancyColor').then(function (recordsets, returnValue, affected) {
+        //request.execute('WB_Fill_FancyColor').then(function (recordsets, returnValue, affected) {
+        request.execute('SP_FancyColColorDisp').then(function (recordsets, returnValue, affected) {
 
+            // console.log('fancycolor ');
+            // console.log(JSON.stringify(recordsets));
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 res.json({success: true, data: recordsets.recordset})
             }else{
@@ -320,7 +309,6 @@ route.post('/fancycolor', (req, res) => {
         console.log(err);
     });
 });
-
 
 
 route.post('/getLocations', (req, res) => {
@@ -329,7 +317,10 @@ route.post('/getLocations', (req, res) => {
     conn.connect().then(function () {
         var request = new sql.Request(conn);
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.execute('WB_Fill_LocationMast').then(function (recordsets, returnValue, affected) {
+        // request.execute('WB_Fill_LocationMast').then(function (recordsets, returnValue, affected) {
+        request.execute('SP_MastLocMastFill').then(function (recordsets, returnValue, affected) {
+            // console.log('getLocations ');
+            // console.log(JSON.stringify(recordsets));
 
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 res.json({success: true, data: recordsets.recordset})
@@ -345,14 +336,16 @@ route.post('/getLocations', (req, res) => {
         console.log(err);
     });
 });
-
 route.post('/getOrigins', (req, res) => {
 
     const conn = new sql.ConnectionPool(config)
     conn.connect().then(function () {
         var request = new sql.Request(conn);
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.execute('WB_Fill_OriginMast').then(function (recordsets, returnValue, affected) {
+        // request.execute('WB_Fill_OriginMast').then(function (recordsets, returnValue, affected) {
+        request.execute('SP_FrmOriginSearch').then(function (recordsets, returnValue, affected) {
+            // console.log('getOrigins ');
+            // console.log(JSON.stringify(recordsets));
 
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 res.json({success: true, data: recordsets.recordset})
@@ -375,7 +368,60 @@ route.post('/getShade', (req, res) => {
     conn.connect().then(function () {
         var request = new sql.Request(conn);
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.execute('WB_Fill_BSHDMAST').then(function (recordsets, returnValue, affected) {
+        // request.execute('WB_Fill_BSHDMAST').then(function (recordsets, returnValue, affected) {
+        request.execute('SP_MastBrnShdMastFill').then(function (recordsets, returnValue, affected) {
+            // console.log('getShade ');
+            // console.log(JSON.stringify(recordsets));
+
+            if(recordsets && recordsets.recordset && recordsets.recordset[0]){
+                res.json({success: true, data: recordsets.recordset})
+            }else{
+                res.json({success: true, data: null})
+            }
+            conn.close();
+        }).catch(function (err) {
+            console.log(err);
+            conn.close();
+        });
+    }).catch(function (err) {
+        console.log(err);
+    });
+});
+
+route.post('/getHNAMst', (req, res) => {
+
+    const conn = new sql.ConnectionPool(config)
+    conn.connect().then(function () {
+        var request = new sql.Request(conn);
+        // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
+        request.execute('SP_MastHAMastFill').then(function (recordsets, returnValue, affected) {
+            // console.log('getHNAMst ');
+            // console.log(JSON.stringify(recordsets.recordset));
+
+            if(recordsets && recordsets.recordset && recordsets.recordset[0]){
+                res.json({success: true, data: recordsets.recordset})
+            }else{
+                res.json({success: true, data: null})
+            }
+            conn.close();
+        }).catch(function (err) {
+            console.log(err);
+            conn.close();
+        });
+    }).catch(function (err) {
+        console.log(err);
+    });
+});
+
+route.post('/getLUSTMst', (req, res) => {
+
+    const conn = new sql.ConnectionPool(config)
+    conn.connect().then(function () {
+        var request = new sql.Request(conn);
+        // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
+        request.execute('SP_MastLustMastFill').then(function (recordsets, returnValue, affected) {
+            // console.log('getLUSTMst ');
+            // console.log(JSON.stringify(recordsets.recordset));
 
             if(recordsets && recordsets.recordset && recordsets.recordset[0]){
                 res.json({success: true, data: recordsets.recordset})
@@ -393,70 +439,12 @@ route.post('/getShade', (req, res) => {
 });
 
 
-route.post('/getHNAMst', (req, res) => {
-
-    const conn = new sql.ConnectionPool(config)
-    conn.connect().then(function () {
-        var request = new sql.Request(conn);
-
-        request.query('select * from HAMast', function(errQuerygetHNAMst, recordsets) {
-            if(errQuerygetHNAMst){ console.log(errQuerygetHNAMst); }
-            conn.close();
-
-
-            if(recordsets && recordsets.recordset && recordsets.recordset[0]){
-                res.json({success: true, data: recordsets.recordset})
-            }else{
-                res.json({success: true, data: null})
-            }
-
-        });
-
-
-
-    }).catch(function (err) {
-        console.log(err);
-    });
-});
-
-route.post('/getLUSTMst', (req, res) => {
-
-    const conn = new sql.ConnectionPool(config)
-    conn.connect().then(function () {
-        var request = new sql.Request(conn);
-
-        request.query('select * from LustMast', function(errQuerygetHNAMst, recordsets) {
-            if(errQuerygetHNAMst){ console.log(errQuerygetHNAMst); }
-            conn.close();
-
-
-            if(recordsets && recordsets.recordset && recordsets.recordset[0]){
-                res.json({success: true, data: recordsets.recordset})
-            }else{
-                res.json({success: true, data: null})
-            }
-
-        });
-
-
-
-    }).catch(function (err) {
-        console.log(err);
-    });
-});
-
-
 route.post('/downloadPDF', (req, res) => {
 
-    // console.log('downloadPDF Func post data');
-    // console.log(req.body);
+    //console.log('req.body start downloadPDF FUNCTION');
+    //console.log(JSON.stringify(req.body));
+    //console.log('req.body end ');
 
-    console.log('req.body start downloadPDF FUNCTION');
-    console.log(JSON.stringify(req.body));
-    console.log('req.body end ');
-
-
-    //call search diamond sp starts
     const conn = new sql.ConnectionPool(config)
     conn.connect().then(function () {
         var request = new sql.Request(conn);
@@ -465,6 +453,13 @@ route.post('/downloadPDF', (req, res) => {
         if(req.body.StoneList){
             request.input('StoneList', sql.VarChar(30), req.body.StoneList);
         }else{
+
+            if(req.body.whiteColor && req.body.whiteColor=="true"){
+                request.input('IsFancy', sql.Int, 0);
+            }else{
+                request.input('IsFancy', sql.Int, 1);
+            }
+
             request.input('S_Code', sql.VarChar(30), req.body.S_Code?req.body.S_Code:"");
 
             if(req.body.Col_Code){
@@ -527,34 +522,15 @@ route.post('/downloadPDF', (req, res) => {
         }
 
 
-
-
-
-        let spName;
-        if(req.body.StoneList){
-            spName = 'WB_DiamondResult_Kendo_NEW_Event_BY_ID_New';
-        }else{
-            if(req.body.whiteColor && req.body.whiteColor=="true"){
-                spName = 'WB_DiamondResult_Kendo_NEW_Event';
-            }else{
-                spName = 'WB_DiamondResult_Fancy_Kendo_NEW';
-            }
-        }
-
-        request.execute(spName).then(function (recordsets, returnValue, affected) {
+        request.execute('WB_DiamondResultFill').then(function (recordsets, returnValue, affected) {
 
             if(recordsets && recordsets.recordset && recordsets.recordset){
-                console.log('print this data to pdf');
-                console.log();
-                console.log(JSON.stringify(recordsets.recordset));
-                console.log();
+
+                //console.log('print this data to pdf');
+                //console.log();
+                //console.log(JSON.stringify(recordsets.recordset));
+                //console.log();
                 //res.json({success: true, data: recordsets.recordset})
-
-
-
-
-
-
 
                 var path = require('path');
                 var PdfPrinter = require('../libs/pdfkit/src/printer');
@@ -764,10 +740,18 @@ route.post('/downloadXLS', (req, res) => {
     conn.connect().then(function () {
         var request = new sql.Request(conn);
 
+
+
         request.input('UserId', sql.VarChar(30), req.body.UserId?req.body.UserId:"");
         if(req.body.StoneList){
             request.input('StoneList', sql.VarChar(30), req.body.StoneList);
         }else{
+
+            if(req.body.whiteColor && req.body.whiteColor=="true"){
+                request.input('IsFancy', sql.Int, 0);
+            }else{
+                request.input('IsFancy', sql.Int, 1);
+            }
 
             request.input('S_Code', sql.VarChar(30), req.body.S_Code?req.body.S_Code:"");
 
@@ -832,18 +816,9 @@ route.post('/downloadXLS', (req, res) => {
 
 
 
-        let spName;
-        if(req.body.StoneList){
-            spName = 'WB_DiamondResult_Kendo_NEW_Event_BY_ID_New';
-        }else{
-            if(req.body.whiteColor && req.body.whiteColor=="true"){
-                spName = 'WB_DiamondResult_Kendo_NEW_Event';
-            }else{
-                spName = 'WB_DiamondResult_Fancy_Kendo_NEW';
-            }
-        }
 
-        request.execute(spName).then(function (recordsets, returnValue, affected) {
+
+        request.execute('WB_DiamondResultFill').then(function (recordsets, returnValue, affected) {
 
             if(recordsets && recordsets.recordset && recordsets.recordset){
 
@@ -957,10 +932,7 @@ route.post('/downloadXLS', (req, res) => {
                 avgDisc = 100-(ctRate/avgRap*100);
                 avgDisc = avgDisc.toFixed(2);
 
-                worksheet.getCell('D3').value = recordsets.recordset.length;
-                worksheet.getCell('D3').font = {color: { argb: '800080' }, bold: true};
-                worksheet.getCell('D4').value = recordsets.recordset.length;
-                worksheet.getCell('D4').font = {color: { argb: '008000' }, bold: true};
+
 
                 worksheet.getCell('F3').value = totalCts;
                 worksheet.getCell('F3').font = {color: { argb: '800080' }, bold: true};
@@ -1095,6 +1067,13 @@ route.post('/downloadXLS', (req, res) => {
                         worksheet.getCell('M'+(i+5)).font = {color: { argb: '008000' }}
                     }
                 }
+
+
+                worksheet.getCell('D3').value = recordsets.recordset.length;
+                worksheet.getCell('D3').font = {color: { argb: '800080' }, bold: true};
+                worksheet.getCell('D4').value = recordsets.recordset.length;
+                worksheet.getCell('D4').font = {color: { argb: '008000' }, bold: true};
+
 
                  workbook.xlsx.writeBuffer().then(function(buffer) {
                      let xlsData = Buffer.concat([buffer]);
@@ -1130,6 +1109,13 @@ route.post('/mailXLS', (req, res) => {
         if(req.body.StoneList){
             request.input('StoneList', sql.VarChar(30), req.body.StoneList);
         }else{
+
+            if(req.body.whiteColor){
+                request.input('IsFancy', sql.Int, 0);
+            }else{
+                request.input('IsFancy', sql.Int, 1);
+            }
+
             request.input('S_Code', sql.VarChar(30), req.body.S_Code?req.body.S_Code:"");
 
             if(req.body.Col_Code){
@@ -1193,19 +1179,8 @@ route.post('/mailXLS', (req, res) => {
 
 
 
-        let spName;
-        if(req.body.StoneList){
-            spName = 'WB_DiamondResult_Kendo_NEW_Event_BY_ID_New';
-        }else{
-            if(req.body.whiteColor){
-                spName = 'WB_DiamondResult_Kendo_NEW_Event';
-            }else{
-                spName = 'WB_DiamondResult_Fancy_Kendo_NEW';
-            }
-        }
 
-
-        request.execute(spName).then(function (recordsets, returnValue, affected) {
+        request.execute('WB_DiamondResultFill').then(function (recordsets, returnValue, affected) {
 
 
             if(recordsets && recordsets.recordset && recordsets.recordset){
@@ -1320,10 +1295,7 @@ route.post('/mailXLS', (req, res) => {
                 avgDisc = 100-(ctRate/avgRap*100);
                 avgDisc = avgDisc.toFixed(2);
 
-                worksheet.getCell('D3').value = recordsets.recordset.length;
-                worksheet.getCell('D3').font = {color: { argb: '800080' }, bold: true};
-                worksheet.getCell('D4').value = recordsets.recordset.length;
-                worksheet.getCell('D4').font = {color: { argb: '008000' }, bold: true};
+
 
                 worksheet.getCell('F3').value = totalCts;
                 worksheet.getCell('F3').font = {color: { argb: '800080' }, bold: true};
@@ -1458,6 +1430,11 @@ route.post('/mailXLS', (req, res) => {
                         worksheet.getCell('M'+(i+5)).font = {color: { argb: '008000' }}
                     }
                 }
+
+                worksheet.getCell('D3').value = recordsets.recordset.length;
+                worksheet.getCell('D3').font = {color: { argb: '800080' }, bold: true};
+                worksheet.getCell('D4').value = recordsets.recordset.length;
+                worksheet.getCell('D4').font = {color: { argb: '008000' }, bold: true};
 
                 workbook.xlsx.writeBuffer().then(function(buffer) {
 
@@ -1627,6 +1604,32 @@ route.post('/downloadDetailDoc', (req, res) => {
 
 
 });
+
+route.post('/getStoneDetail', (req, res) => {
+
+    if(req.body.pid){
+        // if(1){
+        const conn = new sql.ConnectionPool(config)
+        conn.connect().then(function () {
+            var request = new sql.Request(conn);
+            request.input('PID', sql.VarChar(30), req.body.pid);
+            request.execute('WB_StoneDetailView').then(function (recordsets, returnValue, affected) {
+
+                res.json({success: true, data: recordsets.recordset[0]})
+                conn.close();
+            }).catch(function (err) {
+                console.log(err);
+                conn.close();
+            });
+        }).catch(function (err) {
+            console.log(err);
+            res.json({success: false, data: []})
+        });
+    }else{
+        res.json({success: false, data: []})
+    }
+});
+
 
 
 
@@ -1820,30 +1823,7 @@ route.get('/pdf', (req, res) => {
 
 });
 
-route.post('/getStoneDetail', (req, res) => {
 
-    if(req.body.pid){
-    // if(1){
-        const conn = new sql.ConnectionPool(config1)
-        conn.connect().then(function () {
-            var request = new sql.Request(conn);
-            request.input('PID', sql.VarChar(30), req.body.pid);
-            request.execute('WB_StoneDetailView').then(function (recordsets, returnValue, affected) {
-
-                res.json({success: true, data: recordsets.recordset[0]})
-                conn.close();
-            }).catch(function (err) {
-                console.log(err);
-                conn.close();
-            });
-        }).catch(function (err) {
-            console.log(err);
-            res.json({success: false, data: []})
-        });
-    }else{
-        res.json({success: false, data: []})
-    }
-});
 
 route.post('/simpleRequestWithoutPoolExample', (req, res) => {
 

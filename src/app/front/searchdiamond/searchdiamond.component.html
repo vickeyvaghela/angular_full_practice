@@ -911,7 +911,7 @@
                                     <input (click)="selectStone(element)" [checked]="element.selected" type="checkbox">
                                 </span>
                                 <span *ngIf="column!='PId'" class="ngtd_txt">{{element[column]}}</span>
-                                <span *ngIf="column=='PId'"><a href="/stonedetail/{{element[column]}}" class="td_maintxt">{{element[column]}}</a></span>
+                                <span *ngIf="column=='PId'"><a href="/stonedetail/{{element[column]}}" target="_blank" class="td_maintxt">{{element[column]}}</a></span>
 
                                 <!--<pre>{{element | json}}</pre>-->
                             </td>
@@ -926,7 +926,9 @@
                                         <tbody>
                                         <tr>
                                             <td rowspan="11" class="tbltr">
-                                                <img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/5756-85.JPG"
+                                                <!--<img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/5756-85.JPG"-->
+                                                     <!--class="stn_img">-->
+                                                <img src="{{element.PhotoPath}}"
                                                      class="stn_img">
                                             </td>
                                         </tr>
@@ -940,9 +942,15 @@
                                         <!--</tr>-->
                                         <tr>
                                             <td rowspan="11" class="tbltr">
-                                                <iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf"
-                                                        class="stn_img" scrolling="no" frameborder="0"
-                                                        allowfullscreen></iframe>
+
+                                                <img src="{{element.CertiPath}}"
+                                                     class="stn_img">
+                                                <!--<iframe src="{{element.CertiPath}}"-->
+                                                        <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                                        <!--allowfullscreen></iframe>-->
+                                                <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf"-->
+                                                        <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                                        <!--allowfullscreen></iframe>-->
                                             </td>
                                         </tr>
                                         <tr>

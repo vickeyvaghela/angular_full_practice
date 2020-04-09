@@ -1,6 +1,14 @@
 const route = require('express').Router();
 const sql = require("mssql");
-const config = { user: process.env.DB_USER, password: process.env.DB_PASSWORD, server: process.env.DB_SERVER, database: process.env.DB_DATABASE,options:{encrypt:false}};
+const config = {
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_DATABASE,
+    options:{encrypt:false},
+    port:parseInt(process.env.DB_PORT)
+};
+
 
 
 route.get('/', (req, res) => {
@@ -48,7 +56,7 @@ route.post('/myOrders', (req, res) => {
 
         request.input('UserId', sql.VarChar(30), req.body.UserId);
         request.input('StatusType', sql.VarChar(30),req.body.StatusType);
-        request.execute('WB_ConOrdDisp_Kendo_New').then(function (recordsets, returnValue, affected) {
+        request.execute('WB_ConfirmOrderDisplay').then(function (recordsets, returnValue, affected) {
             if (recordsets && recordsets.recordsets && recordsets.recordsets[0]) {
                 res.json({success: true, data: recordsets.recordsets[0]})
             } else {
@@ -70,7 +78,8 @@ route.post('/savedsearch', (req, res) => {
     conn.connect().then(function () {
         var request = new sql.Request(conn);
         request.input('UserId', sql.VarChar(30), req.body.UserId);
-        request.execute('WB_FillSaveSearchDetail_ByUser').then(function(recordsets, returnValue, affected) {
+        request.execute('WB_SaveSearchDisplay').then(function(recordsets, returnValue, affected) {
+            //console.log(JSON.stringify(recordsets));
 
             if(recordsets && recordsets.recordsets && recordsets.recordsets[0]){
                 res.json({success:true,data:recordsets.recordsets[0]})
@@ -100,8 +109,7 @@ route.post('/newstones', (req, res) => {
         request.input('UserId', sql.VarChar(30), req.body.UserId);
         //request.input('PAGENAME', sql.VarChar(30), req.body.PAGENAME);
         request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.execute('UFN_GetCount_UserPanel').then(function (recordsets, returnValue, affected) {
+        request.execute('WB_GetStoneCountUser').then(function (recordsets, returnValue, affected) {
             //console.log('user id',req.body.UserId);
 
             if(recordsets && recordsets.output && recordsets.output['']){
@@ -128,7 +136,7 @@ route.post('/get_page_count', (req, res) => {
         //request.input('PAGENAME', sql.VarChar(30), req.body.PAGENAME);
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
         // request.input('PAGENAME', sql.VarChar(30), 'NewArrivals.aspx');
-        request.execute('WB_GET_PAGE_COUNT').then(function (recordsets, returnValue, affected) {
+        request.execute('WB_GetStoneCount').then(function (recordsets, returnValue, affected) {
 
             console.log('user id',req.body.UserId);
 
@@ -145,30 +153,6 @@ route.post('/get_page_count', (req, res) => {
     }).catch(function (err) {
         console.log(err);
     });
-});
-
-
-route.post('/simpleRequestWithoutPoolExample', (req, res) => {
-
-    //sql.close();
-    sql.connect(config, function(conn) {
-        var request = new sql.Request(conn);
-        request.input('UserId', sql.VarChar(30), 'nik-Peacock');
-        request.input('StatusType', sql.VarChar(30), 'S_India');
-        request.execute('WB_ConOrdDisp_Kendo_New').then(function(recordsets, returnValue, affected) {
-
-            if(recordsets && recordsets.recordsets && recordsets.recordsets[0]){
-                res.json({success:true,data:recordsets.recordsets[0]})
-            }else{
-                res.json({success:true,data:[]})
-            }
-            sql.close();
-        }).catch(function(err) {
-            console.log(err);
-            sql.close();
-        });
-    });
-
 });
 
 module.exports = route;
