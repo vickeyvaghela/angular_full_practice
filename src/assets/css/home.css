@@ -81,6 +81,10 @@ a:hover, a:focus {
     padding: 415px 0px;
 }
 
+.bo_menu {
+    z-index: 9999;
+}
+
 .bo1 {
     position: fixed;
     width: 10px;
@@ -154,15 +158,6 @@ a:hover, a:focus {
     background-repeat: no-repeat;
 }
 
-.prd_bg {
-    width: 100%;
-    background: url(../img/product.png) no-repeat;
-    background-size: cover;
-    background-position: center;
-    min-height: 940px;
-    background-repeat: no-repeat;
-}
-
 .csr_bg {
     width: 100%;
     background: url(../img/csr.png) no-repeat;
@@ -170,6 +165,64 @@ a:hover, a:focus {
     background-position: center;
     min-height: 940px;
     background-repeat: no-repeat;
+}
+
+.pro_plr {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.prbg_plr {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-top: -140px;
+}
+
+.pro_bg {
+    width: 100%;
+    background: url(../img/pro-1.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 940px;
+    background-repeat: no-repeat;
+}
+
+.pro_bg1 {
+    width: 100%;
+    background: url(../img/pro-2.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 940px;
+    background-repeat: no-repeat;
+}
+
+.prod_mtxt {
+    font-size: 14px;
+    font-weight: 100;
+    color: #010306;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-top: 20px;
+}
+
+.prod_mtxt1 {
+    font-size: 14px;
+    font-weight: 100;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-top: 20px;
+}
+
+.certi_img {
+    padding-top: 220px;
+    padding-left: 120px;
+    padding-right: 120px;
+    text-align: center;
+}
+
+.certi_img img {
+    width: 100%;
 }
 
 .csr_img {
@@ -219,44 +272,11 @@ a:hover, a:focus {
     font-size: 48px;
 }
 
-.prod_head {
+.pro_head {
     font-family: "Marcellus", serif;
     font-size: 48px;
-}
-
-.prod_mtxt {
-    padding: 0px 138px 0px 70px;
-    text-align: center;
-    font-weight: bold;
-    color: #5f818d;
-    font-size: 14px;
-}
-
-.prod_mtxt1 {
-    padding: 0px 78px 0px 138px;
-    text-align: center;
-    font-weight: bold;
     color: #fff;
-    font-size: 14px;
-}
-
-.product_sec {
-    color: #fff;
-    text-align: center;
-    padding-top: 120px;
-}
-
-.prod_para {
-    font-size: 25px;
-    font-weight: 100;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.product_text {
-    margin-top: 380px;
+    margin-top: 25px;
 }
 
 .ab_para {
@@ -277,6 +297,20 @@ a:hover, a:focus {
 
 .csr_para {
     font-size: 16px;
+    font-weight: 100;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    display: block;
+}
+
+.procen {
+    background-color: #597a86;
+    z-index: 1;
+}
+
+.pro_para {
+    font-size: 18px;
+    margin-top: 20px;
     font-weight: 100;
     color: #fff;
     font-family: "Poppins", sans-serif;
@@ -334,29 +368,8 @@ button:focus {
 }
 
 @media screen and (max-width: 1024px) {
-    .crf_bg{
+    .crf_bg {
         min-height: 760px;
-    }
-    .prd_bg {
-        min-height: 570px;
-    }
-
-    .product_sec {
-        padding-top: 40px;
-    }
-
-    .product_text {
-        margin-top: 280px;
-    }
-
-    .prod_mtxt {
-        padding: 0px 60px 0px 30px;
-        font-size: 16px;
-    }
-
-    .prod_mtxt1 {
-        padding: 0px 30px 0px 60px;
-        font-size: 16px;
     }
 
     .csr_bg {
@@ -365,6 +378,20 @@ button:focus {
 
     .csr_img {
         padding-top: 150px;
+    }
+
+    .pro_bg {
+        min-height: 700px;
+    }
+
+    .pro_bg1 {
+        min-height: 700px;
+    }
+
+    .certi_img {
+        padding-top: 200px;
+        padding-left: 60px;
+        padding-right: 60px;
     }
 
     .ind_bg {
@@ -409,34 +436,35 @@ button:focus {
         padding-top: 80px;
     }
 
-    .prd_bg {
-        min-height: 570px;
+    .brand {
+        margin: 0px 250px;
     }
 
-    .prod_para {
-        font-size: 20px;
-    }
-
-    .product_sec {
-        padding-top: 10px;
-    }
-
-    .product_text {
-        margin-top: 260px;
-    }
-
-    .prod_mtxt {
-        padding: 0px 40px 0px 20px;
-        font-size: 14px;
-    }
-
-    .prod_mtxt1 {
-        padding: 0px 20px 0px 40px;
-        font-size: 14px;
+    .certi_img {
+        padding-top: 160px;
+        padding-left: 35px;
+        padding-right: 35px;
     }
 
     .brand_logo {
         width: 150px;
+    }
+
+    .pro_bg {
+        min-height: 650px;
+    }
+
+    .pro_para {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .pro_bg1 {
+        min-height: 650px;
+    }
+
+    .pro_head {
+        font-size: 30px;
     }
 
     .main_logo {
@@ -457,9 +485,22 @@ button:focus {
 }
 
 @media screen and (max-width: 414px) {
-    .brand{
+    .res_pro {
+        margin-top: 0px;
+    }
+
+    .cert_res{
+        padding-top: 30px;
+    }
+
+    .pro_bg1{
+        min-height: 520px;
+    }
+
+    .brand {
         margin: 0px 150px;
     }
+
     .border_row {
         display: none;
     }
