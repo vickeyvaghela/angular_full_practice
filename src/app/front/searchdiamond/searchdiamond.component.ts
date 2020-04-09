@@ -5,6 +5,7 @@ import { Searchdiamond } from '../services/searchdiamond.service'
 import {L} from "@angular/cdk/keycodes";
 import { DatePipe } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
+import Swal from 'sweetalert2'
 
 
 // import {
@@ -254,6 +255,7 @@ export class SearchdiamondComponent implements OnInit {
       TMeasWidth:[null]
     })
     this.initialize();
+
 
 
 
@@ -738,7 +740,13 @@ export class SearchdiamondComponent implements OnInit {
 
       },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
     }else{
-      alert('More then 500 stones found, Please narrow down your search.')
+      //alert('More then 500 stones found, Please narrow down your search.')
+      Swal.fire({
+        icon: 'warning',
+        title: 'More then 500 stones found, Please narrow down your search.',
+        showConfirmButton: false,
+        timer: 2500
+      })
     }
 
   }
@@ -1161,9 +1169,22 @@ export class SearchdiamondComponent implements OnInit {
         console.log('after server result');
 
         if(searchDiam.success){
-          alert('Mail sent')
+          //alert('Mail sent')
+          Swal.fire({
+            icon: 'success',
+            title: 'Email has been sent successfully!',
+            showConfirmButton: false,
+            timer: 2500
+          })
+
         }else{
-          alert('some error occured')
+          //alert('some error occured')
+          Swal.fire({
+            icon: 'error',
+            title: 'some error occured',
+            showConfirmButton: false,
+            timer: 2500
+          })
         }
 
 
@@ -1171,7 +1192,14 @@ export class SearchdiamondComponent implements OnInit {
 
       },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
     }else{
-      alert('More then 500 stones found, Please narrow down your search.')
+      //alert('More then 500 stones found, Please narrow down your search.')
+      Swal.fire({
+        icon: 'warning',
+        title: 'More then 500 stones found, Please narrow down your search.',
+        showConfirmButton: false,
+        timer: 2500
+      })
+
     }
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Searchdiamond } from '../services/searchdiamond.service'
 import { DomSanitizer } from '@angular/platform-browser';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -72,11 +73,24 @@ export class StonedetailComponent implements OnInit {
       this.searchDiamondServ.mailStoneDetail({email:this.email,url:this.attachUrl,data:this.stoneDetail,ext:ext}).subscribe(mailApiResp => {
         console.log('mailApiResp ');
         console.log(mailApiResp);
+        Swal.fire({
+          icon: 'success',
+          title: 'Email has been sent successfully!',
+          showConfirmButton: false,
+          timer: 2500
+        })
 
       },errStoneDetailRes => {console.log('errStoneDetailRes ',errStoneDetailRes);});
 
     }else{
-      alert('Please enter valid email id');
+      //alert('Please enter valid email id');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Please enter a valid email id',
+        showConfirmButton: false,
+        timer: 2500
+      })
+
     }
     console.log('send email with '+this.disPlay);
     console.log('email val '+this.email);
