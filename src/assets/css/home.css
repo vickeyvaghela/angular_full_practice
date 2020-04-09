@@ -135,6 +135,16 @@ a:hover, a:focus {
     cursor: pointer;
 }
 
+.bo6 {
+    position: fixed;
+    width: 10px;
+    height: 0px;
+    right: 40px;
+    top: 478px;
+    border: 2px solid rgba(44, 60, 74, 0.9);
+    cursor: pointer;
+}
+
 .border_row .nav a.active {
     width: 24px;
     border: 2px solid rgba(255, 255, 255, 0.75);
@@ -194,6 +204,30 @@ a:hover, a:focus {
     background-position: center;
     min-height: 940px;
     background-repeat: no-repeat;
+}
+
+.cont_bg {
+    width: 100%;
+    background: url(../img/cont1.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 940px;
+    background-repeat: no-repeat;
+}
+
+.cont_bg1 {
+    width: 100%;
+    background: url(../img/cont2.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 940px;
+    background-repeat: no-repeat;
+}
+
+.contact_map {
+    width: 100%;
+    height: 940px;
+    border: 0;
 }
 
 .prod_mtxt {
@@ -277,6 +311,49 @@ a:hover, a:focus {
     font-size: 48px;
     color: #fff;
     margin-top: 25px;
+}
+
+.office {
+    padding: 160px 44px 20px;
+}
+
+.off_head {
+    font-family: "Marcellus", serif;
+    font-size: 42px;
+    color: #fff;
+}
+
+.off_txt {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 30px 0px;
+    color: #889fad;
+}
+
+.off_add {
+    font-family: Poppins;
+    font-weight: lighter;
+    font-size: 16px;
+    color: #d9e0e5;
+}
+
+.off_mail {
+    font-family: Poppins;
+    font-weight: lighter;
+    font-size: 16px;
+    color: #d9e0e5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.off_mail:hover, .off_mail:active {
+    font-family: Poppins;
+    font-weight: lighter;
+    font-size: 15px;
+    color: #889fad;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .ab_para {
@@ -368,6 +445,18 @@ button:focus {
 }
 
 @media screen and (max-width: 1024px) {
+    .cont_bg {
+        min-height: 800px;
+    }
+
+    .cont_bg1 {
+        min-height: 800px;
+    }
+
+    .contact_map {
+        height: 800px;
+    }
+
     .crf_bg {
         min-height: 760px;
     }
@@ -428,6 +517,22 @@ button:focus {
 }
 
 @media screen and (max-width: 768px) {
+    .office {
+        padding: 100px 44px 20px;
+    }
+
+    .cont_bg {
+        min-height: 700px;
+    }
+
+    .cont_bg1 {
+        min-height: 700px;
+    }
+
+    .contact_map {
+        height: 700px;
+    }
+
     .csr_bg {
         min-height: 450px;
     }
@@ -485,15 +590,27 @@ button:focus {
 }
 
 @media screen and (max-width: 414px) {
+    .office {
+        padding: 100px 25px 20px;
+    }
+
+    .off_mail {
+        font-size: 14px;
+    }
+
+    .off_add {
+        font-size: 14px;
+    }
+
     .res_pro {
         margin-top: 0px;
     }
 
-    .cert_res{
+    .cert_res {
         padding-top: 30px;
     }
 
-    .pro_bg1{
+    .pro_bg1 {
         min-height: 520px;
     }
 
