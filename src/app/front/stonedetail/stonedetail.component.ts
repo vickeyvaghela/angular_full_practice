@@ -83,7 +83,7 @@ export class StonedetailComponent implements OnInit {
       },errStoneDetailRes => {console.log('errStoneDetailRes ',errStoneDetailRes);});
 
     }else{
-      //alert('Please enter valid email id');
+      //alert('Please enter valid email id ');
       Swal.fire({
         icon: 'warning',
         title: 'Please enter a valid email id',
