@@ -82,7 +82,7 @@ a:hover, a:focus {
 }
 
 .bo_menu {
-    z-index: 9999;
+    z-index: 1;
 }
 
 .bo1 {
