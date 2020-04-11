@@ -740,7 +740,6 @@ export class SearchdiamondComponent implements OnInit {
         //   item.selected = true;
         //   return item;
         // });
-        console.log('this.dataSource ',this.dataSource);
         this.TotalStoneFound = this.searchResultAry.length;
 
 
@@ -759,7 +758,6 @@ export class SearchdiamondComponent implements OnInit {
 
   saveSearch(evt){
 
-    console.log(this.createPostData());
 
      let tmpobj = {};
      let tmpobj1 = this.createPostData();
@@ -817,19 +815,7 @@ export class SearchdiamondComponent implements OnInit {
      if(tmpobj1['Fancycolor']){ tmpobj['Fancycolor'] = tmpobj1['Fancycolor']; }
      if(tmpobj1['shade']){ tmpobj['Shade_Code'] = tmpobj1['shade']; }else{ tmpobj['Shade_Code'] = ""; }
 
-
-     console.log('save search result');
-     console.log(JSON.stringify(tmpobj));
-
-
      this.searchDiamondServ.saveSearch(tmpobj).subscribe(saveSearch => {
-
-
-
-
-     console.log('save search result');
-     console.log(JSON.stringify(saveSearch));
-
 
      },errSaveSearch => {console.log('errSaveSearch ',errSaveSearch);});
 
@@ -842,31 +828,6 @@ export class SearchdiamondComponent implements OnInit {
     }else{
       return;
     }
-  }
-
-  saveSearchBKP(){
-    console.log('save search');
-    console.log(JSON.stringify(this.createPostData()));
-
-
-
-
-
-
-
-    // Swal.fire({
-    //   html:'' +
-    //   '<div class="row"><div class="col-md-12"><div class="form-group">' +
-    //   '<label for="exampleInputEmail1">Search Name</label>' +
-    //   '<input id="searchname" type="text" class="form-control" [(ngModel)]="searchName" placeholder="Enter Search Name">' +
-    //   '</div></div></div>'
-    //
-    // }).then(() => {
-    //   //console.log(document.getElementById("searchname").value);
-    //
-    //
-    // })
-
   }
 
   resetForm(){
@@ -1067,9 +1028,6 @@ export class SearchdiamondComponent implements OnInit {
     })
   }
 
-
-
-
   @HostListener('document:mouseup', ['$event'])
   @HostListener('document:keydown', ['$event'])
   documentClick(event) {
@@ -1092,7 +1050,7 @@ export class SearchdiamondComponent implements OnInit {
 
 
   getGlobalDataFrmChild(evtt){
-    console.log(' in searchdddd KKKKK');
+    console.log(' search by id value');
     console.log(evtt);
     this.searchById = evtt;
     this.searchDiamondServ.searchDiamond({StoneList:evtt,UserId:'nik'}).subscribe(searchDiam => {
@@ -1121,10 +1079,7 @@ export class SearchdiamondComponent implements OnInit {
       //   item.selected = true;
       //   return item;
       // });
-      console.log('this.dataSource ',this.dataSource);
       this.TotalStoneFound = this.searchResultAry.length;
-      console.log(' total found nu ',this.searchResultAry.length);
-
 
     },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
 
@@ -1482,8 +1437,6 @@ export class SearchdiamondComponent implements OnInit {
       }
       this.searchDiamondServ.mailXLS(obj).subscribe(searchDiam => {
 
-        console.log('after server result');
-
         if(searchDiam.success){
           //alert('Mail sent')
           Swal.fire({
@@ -1502,9 +1455,6 @@ export class SearchdiamondComponent implements OnInit {
             timer: 2500
           })
         }
-
-
-
 
       },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
     }else{

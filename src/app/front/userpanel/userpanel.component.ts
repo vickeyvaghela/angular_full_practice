@@ -80,8 +80,6 @@ export class UserpanelComponent implements OnInit {
     this.userPanelServ.get_page_count({UserId:UserId}).subscribe(
         savedsearch => {
           if(savedsearch && savedsearch.success && savedsearch.data){
-            console.log('ng page count res');
-            console.log(savedsearch.data);
             this.pageCounts = savedsearch.data;
             console.log('this.pageCounts ',this.pageCounts);
           }else{
