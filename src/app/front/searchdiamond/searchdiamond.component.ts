@@ -62,6 +62,12 @@ export class SearchdiamondComponent implements OnInit {
   allLustSelected = false;
   allHNASelected = false;
 
+  ex3 = false;
+  vg3 = false;
+  noex = false;
+  novg = false;
+  gdofr = false;
+
   initObj = {
     shape:{
       selectAll:false,
@@ -244,8 +250,12 @@ export class SearchdiamondComponent implements OnInit {
       TCHieght:[null],
       FPRICE:[null],
       TPRICE:[null],
+
       Fromdate:[null],
       ToDate:[null],
+      FromI_date:[null],
+      ToI_Date:[null],
+
 
       FMeasHeight:[null],
       TMeasHeight:[null],
@@ -311,7 +321,7 @@ export class SearchdiamondComponent implements OnInit {
       if(shades && shades.success && shades.data){
         if(shades.data[0]){
           //this.locationList = shades.data.map((Loc)=>{ return {name:Loc.Loc_Name,code:parseInt(Loc.Loc_Code)}})
-          let tempARy = shades.data.map((Loc)=>{ return {name:Loc.NAME,code:parseInt(Loc.CODE)}})
+          let tempARy = shades.data.map((Loc)=>{ return {name:Loc.BS_NAME,code:parseInt(Loc.BS_CODE)}})
 
           tempARy.unshift({name:"All",code:0});
           this.shadeList = tempARy;
@@ -408,8 +418,6 @@ export class SearchdiamondComponent implements OnInit {
 
   unCheckAll(tarGet,TargetVal){
 
-
-
     if(TargetVal!='All' && TargetVal.code!=0){
       if(tarGet=='origin'){
 
@@ -499,11 +507,7 @@ export class SearchdiamondComponent implements OnInit {
     }
   }
 
-  ex3 = false;
-  vg3 = false;
-  noex = false;
-  novg = false;
-  gdofr = false;
+
   selectSame(Common){
     if(Common=='3ex'){
 
@@ -694,6 +698,8 @@ export class SearchdiamondComponent implements OnInit {
 
     finalPostData['Fromdate'] = this.datePipe.transform(this.searchDiamondForm.value.Fromdate, 'MM-dd-yyyy');
     finalPostData['ToDate'] = this.datePipe.transform(this.searchDiamondForm.value.ToDate, 'MM-dd-yyyy');
+    finalPostData['FromI_date'] = this.datePipe.transform(this.searchDiamondForm.value.FromI_date, 'MM-dd-yyyy');
+    finalPostData['ToI_Date'] = this.datePipe.transform(this.searchDiamondForm.value.ToI_Date, 'MM-dd-yyyy');
     //finalPostData['Fromdate'] = this.searchDiamondForm.value.Fromdate;
     //finalPostData['ToDate'] = this.searchDiamondForm.value.ToDate;
 
@@ -751,26 +757,336 @@ export class SearchdiamondComponent implements OnInit {
 
   }
 
+  saveSearch(evt){
+
+    console.log(this.createPostData());
+
+     let tmpobj = {};
+     let tmpobj1 = this.createPostData();
+
+     tmpobj['UserId'] = 'nik';
+     tmpobj['SearchName'] = evt;
+
+     if(tmpobj1['S_Code']){ tmpobj['S_Code'] = tmpobj1['S_Code']; }
+     if(tmpobj1['whiteColor']){ tmpobj['whiteColor'] = tmpobj1['whiteColor']; }
+     if(tmpobj1['Col_Code']){ tmpobj['Col_Code'] = tmpobj1['Col_Code']; }
+     if(tmpobj1['Clarity_Code']){ tmpobj['Clarity_Code'] = tmpobj1['Clarity_Code']; }
+     if(tmpobj1['Cut_Code']){ tmpobj['Cut_Code'] = tmpobj1['Cut_Code']; }
+     if(tmpobj1['Symmetry_Code']){ tmpobj['Symmetry_Code'] = tmpobj1['Symmetry_Code']; }
+     if(tmpobj1['Fluorescence_Code']){ tmpobj['Fluorescence_Code'] = tmpobj1['Fluorescence_Code']; }
+     if(tmpobj1['Lab_Code']){ tmpobj['Lab_Code'] = tmpobj1['Lab_Code']; }
+     if(tmpobj1['Polish_Code']){ tmpobj['Polish_Code'] = tmpobj1['Polish_Code']; }
+     if(tmpobj1['EyeClean_Code']){ tmpobj['EyeClean_Code'] = tmpobj1['EyeClean_Code']; }
+     if(tmpobj1['LocationCode']){ tmpobj['LocationCode'] = tmpobj1['LocationCode']; }
+     if(tmpobj1['Lust_Code']){ tmpobj['Lust_Code'] = tmpobj1['Lust_Code']; }
+     if(tmpobj1['HA_Code']){ tmpobj['HA_Code'] = tmpobj1['HA_Code']; }
+     if(tmpobj1['FCarat']){ tmpobj['FCarat'] = tmpobj1['FCarat']; }
+     if(tmpobj1['TCarat']){ tmpobj['TCarat'] = tmpobj1['TCarat']; }
+     if(tmpobj1['FLowerHalf']){ tmpobj['FLowerHalf'] = tmpobj1['FLowerHalf']; }
+     if(tmpobj1['TLowerHalf']){ tmpobj['TLowerHalf'] = tmpobj1['TLowerHalf']; }
+     if(tmpobj1['FDepth']){ tmpobj['FDepth'] = tmpobj1['FDepth']; }
+     if(tmpobj1['TDepth']){ tmpobj['TDepth'] = tmpobj1['TDepth']; }
+     if(tmpobj1['FStarLength']){ tmpobj['FStarLength'] = tmpobj1['FStarLength']; }
+     if(tmpobj1['TStarLength']){ tmpobj['TStarLength'] = tmpobj1['TStarLength']; }
+     if(tmpobj1['FCAngle']){ tmpobj['FCAngle'] = tmpobj1['FCAngle']; }
+     if(tmpobj1['TCAngle']){ tmpobj['TCAngle'] = tmpobj1['TCAngle']; }
+     if(tmpobj1['FPAngle']){ tmpobj['FPAngle'] = tmpobj1['FPAngle']; }
+     if(tmpobj1['TPAngle']){ tmpobj['TPAngle'] = tmpobj1['TPAngle']; }
+     if(tmpobj1['FDiscount']){ tmpobj['FDiscount'] = tmpobj1['FDiscount']; }
+     if(tmpobj1['TDiscount']){ tmpobj['TDiscount'] = tmpobj1['TDiscount']; }
+     if(tmpobj1['FTable']){ tmpobj['FTable'] = tmpobj1['FTable']; }
+     if(tmpobj1['TTable']){ tmpobj['TTable'] = tmpobj1['TTable']; }
+     if(tmpobj1['FRatio']){ tmpobj['FRatio'] = tmpobj1['FRatio']; }
+     if(tmpobj1['TRatio']){ tmpobj['TRatio'] = tmpobj1['TRatio']; }
+     if(tmpobj1['FDiameter']){ tmpobj['FDiameter'] = tmpobj1['FDiameter']; }
+     if(tmpobj1['TDiameter']){ tmpobj['TDiameter'] = tmpobj1['TDiameter']; }
+     if(tmpobj1['FGirdle']){ tmpobj['FGirdle'] = tmpobj1['FGirdle']; }
+     if(tmpobj1['TGirdle']){ tmpobj['TGirdle'] = tmpobj1['TGirdle']; }
+     if(tmpobj1['FPHeight']){ tmpobj['FPHeight'] = tmpobj1['FPHeight']; }
+     if(tmpobj1['TPHieght']){ tmpobj['TPHieght'] = tmpobj1['TPHieght']; }
+     if(tmpobj1['FCHeight']){ tmpobj['FCHeight'] = tmpobj1['FCHeight']; }
+     if(tmpobj1['TCHieght']){ tmpobj['TCHieght'] = tmpobj1['TCHieght']; }
+     if(tmpobj1['FMeasHeight']){ tmpobj['FMeasHeight'] = tmpobj1['FMeasHeight']; }
+     if(tmpobj1['TMeasHeight']){ tmpobj['TMeasHeight'] = tmpobj1['TMeasHeight']; }
+     if(tmpobj1['FMeasLength']){ tmpobj['FMeasLength'] = tmpobj1['FMeasLength']; }
+     if(tmpobj1['TMeasLength']){ tmpobj['TMeasLength'] = tmpobj1['TMeasLength']; }
+     if(tmpobj1['FMeasWidth']){ tmpobj['FMeasWidth'] = tmpobj1['FMeasWidth']; }
+     if(tmpobj1['TMeasWidth']){ tmpobj['TMeasWidth'] = tmpobj1['TMeasWidth']; }
+     if(tmpobj1['IntenSity']){ tmpobj['IntenSity'] = tmpobj1['IntenSity']; }
+     if(tmpobj1['Overtone']){ tmpobj['Overtone'] = tmpobj1['Overtone']; }
+     if(tmpobj1['Fancycolor']){ tmpobj['Fancycolor'] = tmpobj1['Fancycolor']; }
+     if(tmpobj1['shade']){ tmpobj['Shade_Code'] = tmpobj1['shade']; }else{ tmpobj['Shade_Code'] = ""; }
+
+
+     console.log('save search result');
+     console.log(JSON.stringify(tmpobj));
+
+
+     this.searchDiamondServ.saveSearch(tmpobj).subscribe(saveSearch => {
 
 
 
-    @HostListener('document:mouseup', ['$event'])
-    @HostListener('document:keydown', ['$event'])
-    documentClick(event) {
 
-      setTimeout(()=>{
-          this.searchDiamondServ.getResultCount(this.createPostData()).subscribe(searchDiam => {
-              if(searchDiam.success && searchDiam.data && searchDiam.data[0] && searchDiam.data[0]['TotalStone']){
-                  this.TotalStoneFound = parseInt(searchDiam.data[0]['TotalStone']);
-              }else{
-                  this.TotalStoneFound = 0;
-              }
+     console.log('save search result');
+     console.log(JSON.stringify(saveSearch));
 
 
+     },errSaveSearch => {console.log('errSaveSearch ',errSaveSearch);});
 
-          },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
-      },100);
+  }
+
+  @ViewChild('deleteSwal') private deleteSwal: any;
+  swalInputValidator(res) {
+    if(res.trim()==''){
+      return "Please Enter Search Name"
+    }else{
+      return;
     }
+  }
+
+  saveSearchBKP(){
+    console.log('save search');
+    console.log(JSON.stringify(this.createPostData()));
+
+
+
+
+
+
+
+    // Swal.fire({
+    //   html:'' +
+    //   '<div class="row"><div class="col-md-12"><div class="form-group">' +
+    //   '<label for="exampleInputEmail1">Search Name</label>' +
+    //   '<input id="searchname" type="text" class="form-control" [(ngModel)]="searchName" placeholder="Enter Search Name">' +
+    //   '</div></div></div>'
+    //
+    // }).then(() => {
+    //   //console.log(document.getElementById("searchname").value);
+    //
+    //
+    // })
+
+  }
+
+  resetForm(){
+
+
+    this.ex3 = false;
+    this.vg3 = false;
+    this.noex = false;
+    this.novg = false;
+    this.gdofr = false;
+
+    this.initObj = {
+      shape:{
+        selectAll:false,
+        items:[
+          // {name:"All Shape",code:1,selected:false,className:"icon-all_shape"},
+          {name:"Round",code:"R",selected:false,className:"icon-round"},
+          {name:"Emerald",code:"E",selected:false,className:"icon-Single_9"},
+          {name:"Cushion",code:"CU",selected:false,className:"icon-Single_17"},
+          {name:"Princess",code:"P",selected:false,className:"icon-Princess"},
+          {name:"Marquise",code:"M",selected:false,className:"icon-Single_7"},
+          {name:"Pear",code:"PE",selected:false,className:"icon-Single_5"},
+          {name:"Heart",code:"H",selected:false,className:"icon-Single_8"},
+          {name:"Oval",code:"O",selected:false,className:"icon-Single_6"},
+          {name:"SqEmerald",code:"SE",selected:false,className:"icon-Single_3"},
+          {name:"Radient",code:"RA",selected:false,className:"icon-Single_2"},
+          {name:"Other Shapes",code:"OT",selected:false,className:"icon-Single_14"}
+        ],
+        selectCount:0
+      },
+      color:{
+        selectAll:false,
+        items:[
+          {name:"D",code:1,selected:false},
+          {name:"E",code:2,selected:false},
+          {name:"F",code:3,selected:false},
+          {name:"G",code:4,selected:false},
+          {name:"H",code:5,selected:false},
+          {name:"I",code:6,selected:false},
+          {name:"J",code:7,selected:false},
+          {name:"K",code:8,selected:false},
+          {name:"L",code:9,selected:false},
+          {name:"M",code:10,selected:false},
+          {name:"N",code:11,selected:false},
+          {name:"O",code:12,selected:false},
+          {name:"P",code:13,selected:false},
+          {name:"Q",code:14,selected:false},
+          {name:"R",code:15,selected:false},
+          {name:"S",code:16,selected:false},
+          {name:"T",code:17,selected:false},
+          {name:"U",code:18,selected:false},
+          {name:"V",code:19,selected:false},
+          {name:"W",code:20,selected:false},
+          {name:"X",code:21,selected:false},
+          {name:"Y",code:22,selected:false},
+          {name:"Z",code:23,selected:false}
+        ],
+        selectCount:0
+      },
+      clarity:{
+        selectAll:false,
+        items:[
+          {name:"FL",code:12,selected:false},
+          {name:"IF",code:1,selected:false},
+          {name:"VVS1",code:2,selected:false},
+          {name:"VVS2",code:3,selected:false},
+          {name:"VS1 ",code:4,selected:false},
+          {name:"VS2",code:5,selected:false},
+          {name:"SI1",code:6,selected:false},
+          {name:"SI2",code:7,selected:false},
+          {name:"I1",code:9,selected:false},
+          {name:"I2",code:10,selected:false},
+          {name:"I3",code:11,selected:false}
+        ],
+        selectCount:0
+      },
+      fluorescence:{
+        selectAll:false,
+        items:[
+          {name:"NON ",code:1,selected:false},
+          {name:"VSL",code:2,selected:false},
+          {name:"SL",code:3,selected:false},
+          {name:"FNT",code:4,selected:false},
+          {name:"MED",code:5,selected:false},
+          {name:"STG",code:6,selected:false},
+          {name:"VST",code:7,selected:false}
+        ],
+        selectCount:0
+      },
+      cut:{
+        selectAll:false,
+        items:[
+          {name:"EX",code:1,selected:false},
+          {name:"VG",code:2,selected:false},
+          {name:"GD",code:3,selected:false},
+          {name:"FR",code:4,selected:false}
+        ],
+        selectCount:0
+      },
+      eyeClean:{
+        selectAll:false,
+        items:[
+          {name:"100%",code:1,selected:false},
+          {name:"75%",code:2,selected:false},
+          {name:"NONE",code:3,selected:false}
+        ],
+        selectCount:0
+      },
+      lab:{
+        selectAll:false,
+        items:[
+          {name:"GIA",code:2,selected:false},
+          {name:"NGS",code:12,selected:false},
+          {name:"HRD",code:3,selected:false},
+          {name:"IGI",code:1,selected:false}
+        ],
+        selectCount:0
+      },
+      symm:{
+        selectAll:false,
+        items:[
+          {name:"EX",code:1,selected:false},
+          {name:"VG",code:2,selected:false},
+          {name:"GD",code:3,selected:false},
+          {name:"FR",code:4,selected:false}
+        ],
+        selectCount:0
+      },
+      pol:{
+        selectAll:false,
+        items:[
+          {name:"EX",code:1,selected:false},
+          {name:"VG",code:2,selected:false},
+          {name:"GD",code:3,selected:false},
+          {name:"FR",code:4,selected:false}
+        ],
+        selectCount:0
+      },
+    }
+
+    this.lustList = this.lustList.map((lust)=>{ return {name:lust.name,code:parseInt(lust.code)}})
+    this.allLustSelected = false;
+
+    this.hnaList = this.hnaList.map((hna)=>{ return {name:hna.name,code:parseInt(hna.code)}})
+    this.allHNASelected = false;
+
+    this.caretRange = [];
+
+    this.searchDiamondForm.patchValue({
+      locationControl:[],
+      originControl:[],
+      shadeControl:[],
+
+      fancyintensityControl:[[]],
+      fancyovertoneControl:[[]],
+      fancycolorControl:[[]],
+
+      FCarat:null,
+      TCarat:null,
+
+      Fromdate:null,
+      ToDate:null,
+      FromI_date:null,
+      ToI_Date:null,
+
+      FLowerHalf:null,
+      TLowerHalf:null,
+      FDiscount:null,
+      TDiscount:null,
+      FTable:null,
+      TTable:null,
+      FDepth:null,
+      TDepth:null,
+      FRatio:null,
+      TRatio:null,
+      FDiameter:null,
+      TDiameter:null,
+      FStarLength:null,
+      TStarLength:null,
+      FGirdle:null,
+      TGirdle:null,
+      FPAngle:null,
+      TPAngle:null,
+      FCAngle:null,
+      TCAngle:null,
+      FPHeight:null,
+      TPHieght:null,
+      FCHeight:null,
+      TCHieght:null,
+      FPRICE:null,
+      TPRICE:null,
+      FMeasHeight:null,
+      TMeasHeight:null,
+      FMeasLength:null,
+      TMeasLength:null,
+      FMeasWidth:null,
+      TMeasWidth:null
+    })
+  }
+
+
+
+
+  @HostListener('document:mouseup', ['$event'])
+  @HostListener('document:keydown', ['$event'])
+  documentClick(event) {
+
+    setTimeout(()=>{
+      this.searchDiamondServ.getResultCount(this.createPostData()).subscribe(searchDiam => {
+        if(searchDiam.success && searchDiam.data && searchDiam.data[0] && searchDiam.data[0]['TotalStone']){
+          this.TotalStoneFound = parseInt(searchDiam.data[0]['TotalStone']);
+        }else{
+          this.TotalStoneFound = 0;
+        }
+
+
+
+      },errorSearchREs => {console.log('errorSearchREs ',errorSearchREs);});
+    },100);
+  }
 
 
 

@@ -41,6 +41,10 @@ export class Searchdiamond {
     return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/searchDiamond',postData);
   }
 
+  saveSearch(postData): Observable<any> {
+    return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/saveSearch',postData);
+  }
+
   mailXLS(postData): Observable<any> {
     return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/mailXLS',postData);
   }

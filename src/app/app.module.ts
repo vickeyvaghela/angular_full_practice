@@ -22,6 +22,7 @@ import { StonedetailComponent } from './front/stonedetail/stonedetail.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -52,7 +53,8 @@ export function tokenGetter() {
         blacklistedRoutes: ['http://localhost:4200/login']
       }
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [DatePipe,AuthGuard,AuthService,{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]

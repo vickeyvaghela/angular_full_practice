@@ -13,15 +13,21 @@
                             SEARCH VIEW
                             <span style="float:right;" class="viw_mt">
                                 <button class="stn_found">{{TotalStoneFound}} Stones Found</button>
-                                <button class="sch_tp" type="submit">
-                                    <i class="icon-search"></i>Search
-                                </button>
-                                <button class="sch_tp">
-                                    <i class="icon-refresh"></i>Reset
-                                </button>
-                                <button class="sch_tp">
-                                    <i class="icon-save"></i>Save Search
-                                </button>
+                                <button class="sch_tp" type="submit"><i class="icon-search"></i>Search</button>
+                                <button class="sch_tp" (click)="resetForm()" type="button"><i class="icon-refresh"></i>Reset</button>
+
+                                <swal
+                                    #modifySwal
+                                    title="Search Name"
+                                    input="text"
+                                    inputPlaceholder="Enter Search Name"
+                                    [showCancelButton]="true"
+                                    [focusCancel]="false"
+                                    [inputValidator]="swalInputValidator"
+                                    (confirm)="saveSearch($event)">
+                                </swal>
+                                <button type="text" class="sch_tp" [swal]="modifySwal"><i class="icon-save"></i>Save Search</button>
+
                                 <span *ngIf="hideSearchForm" (click)="hideSearchForm=!hideSearchForm">SHOW <i class="icon-down-arrow hid"></i></span>
                                 <span *ngIf="!hideSearchForm" (click)="hideSearchForm=!hideSearchForm">HIDE <i class="icon-up_arrow hid"></i></span>
                                 <!--HIDE <i class="icon-down-arrow hid"></i>-->
@@ -85,7 +91,7 @@
                                     </mat-form-field>
                                     <a href="javascript:void(0)" (click)="addCaretRange()" class="sch_btn"><i
                                             class="icon-plus"></i></a>
-                                    <a href="javascript:void(0)" class="sch_btn"><i class="icon-close"></i></a>
+                                    <a href="javascript:void(0)" (click)="caretRange = []" class="sch_btn"><i class="icon-close"></i></a>
                                     &nbsp;&nbsp;&nbsp;
                                     <div style="display: inline;" *ngFor="let caret of caretRange">
                                         <span class="spnclr">{{caret.start}}-{{caret.end}}</span>
@@ -514,7 +520,7 @@
                                 <div class="col-lg-2 col-md-3 col-sm-10 date_sch">
                                     <mat-form-field floatLabel="never">
                                         <mat-label>Select Date</mat-label>
-                                        <input matInput [matDatepicker]="picker" disabled>
+                                        <input matInput formControlName="FromI_date" [matDatepicker]="picker" disabled>
                                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                         <mat-datepicker #picker disabled="false"></mat-datepicker>
                                     </mat-form-field>
@@ -528,7 +534,7 @@
                                             <div class="date_sch dt_sche1">
                                                 <mat-form-field floatLabel="never">
                                                     <mat-label>Select Date</mat-label>
-                                                    <input matInput [matDatepicker]="picker1">
+                                                    <input matInput [matDatepicker]="picker1" formControlName="ToI_Date">
                                                     <mat-datepicker-toggle matSuffix [for]="picker1">
                                                     </mat-datepicker-toggle>
                                                     <mat-datepicker #picker1></mat-datepicker>

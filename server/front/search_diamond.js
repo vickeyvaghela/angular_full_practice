@@ -15,6 +15,113 @@ route.get('/', (req, res) => {
 });
 
 
+route.post('/saveSearch', (req, res) => {
+
+    console.log();console.log();
+    console.log(JSON.stringify(req.body));
+    console.log();console.log();
+
+
+    const conn = new sql.ConnectionPool(config)
+    conn.connect().then(function () {
+        var request = new sql.Request(conn);
+
+        request.input('UserId', sql.VarChar(50), req.body.UserId);
+
+        if(req.body.SearchName){ request.input('SearchName', sql.VarChar(100), parseInt(req.body.SearchName)); }
+
+        if(req.body.StoneList){
+            console.log('ifffff');
+            request.input('StoneList', sql.VarChar(30), req.body.StoneList);
+        }else{
+
+            console.log('elsee');
+
+
+            if(req.body.whiteColor){
+                request.input('IsFancy', sql.Bit, false);
+            }else{
+                request.input('IsFancy', sql.Bit, true);
+            }
+            request.input('S_Code', sql.VarChar(30), req.body.S_Code);
+
+
+            if(req.body.Col_Code){
+                request.input('Col_Code', sql.VarChar(30), req.body.Col_Code);
+            }
+
+
+            request.input('Clarity_Code', sql.VarChar(30), req.body.Clarity_Code);
+            request.input('Cut_Code', sql.VarChar(30), req.body.Cut_Code);
+            request.input('Symmetry_Code', sql.VarChar(30), req.body.Symmetry_Code);
+            request.input('Fluorescence_Code', sql.VarChar(30), req.body.Fluorescence_Code);
+            request.input('Lab_Code', sql.VarChar(30), req.body.Lab_Code);
+            request.input('Polish_Code', sql.VarChar(30), req.body.Polish_Code);
+            request.input('EyeClean_Code', sql.VarChar(30), req.body.EyeClean_Code);
+            request.input('LocationCode', sql.VarChar(30), req.body.LocationCode);
+
+
+            //request.input('Origin', sql.VarChar(30), req.body.Origin);
+            request.input('Lust_Code', sql.VarChar(30), req.body.Lust_Code);
+            request.input('HA_Code', sql.VarChar(400), req.body.HA_Code);
+
+            if(req.body.FCarat){ request.input('FCarat', sql.Int, parseInt(req.body.FCarat)); }else{ request.input('FCarat', sql.Int, 0); }
+            if(req.body.TCarat){ request.input('TCarat', sql.Int, parseInt(req.body.TCarat)); }else{ request.input('TCarat', sql.Int, 0); }
+            if(req.body.FLowerHalf){ request.input('FLowerHalf', sql.Int, parseInt(req.body.FLowerHalf)); }else{ request.input(0); }
+            if(req.body.TLowerHalf){ request.input('TLowerHalf', sql.Int, parseInt(req.body.TLowerHalf)); }else{ request.input(0); }
+            if(req.body.FDepth){ request.input('FDepth', sql.Int, parseInt(req.body.FDepth)); }else{ request.input('FDepth', sql.Int, 0); }
+            if(req.body.TDepth){ request.input('TDepth', sql.Int, parseInt(req.body.TDepth)); }else{ request.input('TDepth', sql.Int, 0); }
+            if(req.body.FStarLength){ request.input('FStarLength', sql.Int, parseInt(req.body.FStarLength)); }else{ request.input(0); }
+            if(req.body.TStarLength){ request.input('TStarLength', sql.Int, parseInt(req.body.TStarLength)); }else{ request.input(0); }
+            if(req.body.FCAngle){ request.input('FCAngle', sql.Int, parseInt(req.body.FCAngle)); }else{ request.input('FCAngle', sql.Int, 0); }
+            if(req.body.TCAngle){ request.input('TCAngle', sql.Int, parseInt(req.body.TCAngle)); }else{ request.input('TCAngle', sql.Int, 0); }
+            if(req.body.FPAngle){ request.input('FPAngle', sql.Int, parseInt(req.body.FPAngle)); }else{ request.input('FPAngle', sql.Int, 0); }
+            if(req.body.TPAngle){ request.input('TPAngle', sql.Int, parseInt(req.body.TPAngle)); }else{ request.input('TPAngle', sql.Int, 0); }
+            if(req.body.FDiscount){ request.input('FDiscount', sql.Int, parseInt(req.body.FDiscount)); }else{ request.input('FDiscount', sql.Int, 0); }
+            if(req.body.TDiscount){ request.input('TDiscount', sql.Int, parseInt(req.body.TDiscount)); }else{ request.input('TDiscount', sql.Int, 0); }
+            if(req.body.FTable){ request.input('FTable', sql.Int, parseInt(req.body.FTable)); }else{ request.input('FTable', sql.Int, 0); }
+            if(req.body.TTable){ request.input('TTable', sql.Int, parseInt(req.body.TTable)); }else{ request.input('TTable', sql.Int, 0); }
+            if(req.body.FRatio){ request.input('FRatio', sql.Int, parseInt(req.body.FRatio)); }else{ request.input('FRatio', sql.Int, 0); }
+            if(req.body.TRatio){ request.input('TRatio', sql.Int, parseInt(req.body.TRatio)); }else{ request.input('TRatio', sql.Int, 0); }
+            if(req.body.FDiameter){ request.input('FDiameter', sql.Int, parseInt(req.body.FDiameter)); }else{ request.input('FDiameter', sql.Int, 0); }
+            if(req.body.TDiameter){ request.input('TDiameter', sql.Int, parseInt(req.body.TDiameter)); }else{ request.input('TDiameter', sql.Int, 0); }
+            if(req.body.FGirdle){ request.input('FGirdle', sql.Int, parseInt(req.body.FGirdle)); }else{ request.input('FGirdle', sql.Int, 0); }
+            if(req.body.TGirdle){ request.input('TGirdle', sql.Int, parseInt(req.body.TGirdle)); }else{ request.input('TGirdle', sql.Int, 0); }
+            if(req.body.FPHeight){ request.input('FPHeight', sql.Int, parseInt(req.body.FPHeight)); }else{ request.input('FPHeight', sql.Int, 0); }
+            if(req.body.TPHieght){ request.input('TPHieght', sql.Int, parseInt(req.body.TPHieght)); }else{ request.input('TPHieght', sql.Int, 0); }
+            if(req.body.FCHeight){ request.input('FCHeight', sql.Int, parseInt(req.body.FCHeight)); }else{ request.input('FCHeight', sql.Int, 0); }
+            if(req.body.TCHieght){ request.input('TCHieght', sql.Int, parseInt(req.body.TCHieght)); }else{ request.input('TCHieght', sql.Int, 0); }
+
+            if(req.body.FMeasHeight){ request.input('FMeasHeight', sql.Int, parseInt(req.body.FMeasHeight)); }else{ request.input('FMeasHeight', sql.Int, 0); }
+            if(req.body.TMeasHeight){ request.input('TMeasHeight', sql.Int, parseInt(req.body.TMeasHeight)); }else{ request.input('TMeasHeight', sql.Int, 0); }
+            if(req.body.FMeasLength){ request.input('FMeasLength', sql.Int, parseInt(req.body.FMeasLength)); }else{ request.input('FMeasLength', sql.Int, 0); }
+            if(req.body.TMeasLength){ request.input('TMeasLength', sql.Int, parseInt(req.body.TMeasLength)); }else{ request.input('TMeasLength', sql.Int, 0); }
+            if(req.body.FMeasWidth){ request.input('FMeasWidth', sql.Int, parseInt(req.body.FMeasWidth)); }else{ request.input('FMeasWidth', sql.Int, 0); }
+            if(req.body.TMeasWidth){ request.input('TMeasWidth', sql.Int, parseInt(req.body.TMeasWidth)); }else{ request.input('TMeasWidth', sql.Int, 0); }
+
+
+        }
+
+
+
+        console.log(JSON.stringify(request.input));
+
+
+
+
+        request.execute('WB_SaveSearch').then(function (recordsets, returnValue, affected) {
+
+            res.json({success: true, data: recordsets})
+            conn.close();
+        }).catch(function (err) {
+            console.log(err);
+            conn.close();
+        });
+    }).catch(function (err) {
+        console.log(err);
+    });
+});
+
 route.post('/searchDiamond', (req, res) => {
 
     const conn = new sql.ConnectionPool(config)
@@ -84,8 +191,8 @@ route.post('/searchDiamond', (req, res) => {
 
             if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), req.body.Fromdate); }
             if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), req.body.ToDate); }
-            // if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), '03/06/2020'); }
-            // if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), '03/07/2020'); }
+            if(req.body.FromI_date){ request.input('FromI_date', sql.VarChar(30), req.body.FromI_date); }
+            if(req.body.ToI_Date){ request.input('ToI_Date', sql.VarChar(30), req.body.ToI_Date); }
 
             if(req.body.FMeasHeight){ request.input('FMeasHeight', sql.Int, parseInt(req.body.FMeasHeight)); }
             if(req.body.TMeasHeight){ request.input('TMeasHeight', sql.Int, parseInt(req.body.TMeasHeight)); }
@@ -131,6 +238,7 @@ route.post('/searchDiamond', (req, res) => {
     });
 });
 route.post('/getResultCount', (req, res) => {
+    //console.log(JSON.stringify(req.body));
 
     const conn = new sql.ConnectionPool(config)
     conn.connect().then(function () {
@@ -192,8 +300,9 @@ route.post('/getResultCount', (req, res) => {
 
         if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), req.body.Fromdate); }
         if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), req.body.ToDate); }
-        // if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), '03/06/2020'); }
-        // if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), '03/07/2020'); }
+        if(req.body.FromI_date){ request.input('FromI_date', sql.VarChar(30), req.body.FromI_date); }
+        if(req.body.ToI_Date){ request.input('ToI_Date', sql.VarChar(30), req.body.ToI_Date); }
+
 
         if(req.body.FMeasHeight){ request.input('FMeasHeight', sql.Int, parseInt(req.body.FMeasHeight)); }
         if(req.body.TMeasHeight){ request.input('TMeasHeight', sql.Int, parseInt(req.body.TMeasHeight)); }
@@ -510,8 +619,8 @@ route.post('/downloadPDF', (req, res) => {
 
             if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), req.body.Fromdate); }
             if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), req.body.ToDate); }
-            // if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), '03/06/2020'); }
-            // if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), '03/07/2020'); }
+            if(req.body.FromI_date){ request.input('FromI_date', sql.VarChar(30), req.body.FromI_date); }
+            if(req.body.ToI_Date){ request.input('ToI_Date', sql.VarChar(30), req.body.ToI_Date); }
 
             if(req.body.FMeasHeight){ request.input('FMeasHeight', sql.Int, parseInt(req.body.FMeasHeight)); }
             if(req.body.TMeasHeight){ request.input('TMeasHeight', sql.Int, parseInt(req.body.TMeasHeight)); }
@@ -803,8 +912,9 @@ route.post('/downloadXLS', (req, res) => {
 
             if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), req.body.Fromdate); }
             if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), req.body.ToDate); }
-            // if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), '03/06/2020'); }
-            // if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), '03/07/2020'); }
+            if(req.body.FromI_date){ request.input('FromI_date', sql.VarChar(30), req.body.FromI_date); }
+            if(req.body.ToI_Date){ request.input('ToI_Date', sql.VarChar(30), req.body.ToI_Date); }
+
 
             if(req.body.FMeasHeight){ request.input('FMeasHeight', sql.Int, parseInt(req.body.FMeasHeight)); }
             if(req.body.TMeasHeight){ request.input('TMeasHeight', sql.Int, parseInt(req.body.TMeasHeight)); }
@@ -1166,8 +1276,9 @@ route.post('/mailXLS', (req, res) => {
 
             if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), req.body.Fromdate); }
             if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), req.body.ToDate); }
-            // if(req.body.Fromdate){ request.input('Fromdate', sql.VarChar(30), '03/06/2020'); }
-            // if(req.body.ToDate){ request.input('ToDate', sql.VarChar(30), '03/07/2020'); }
+            if(req.body.FromI_date){ request.input('FromI_date', sql.VarChar(30), req.body.FromI_date); }
+            if(req.body.ToI_Date){ request.input('ToI_Date', sql.VarChar(30), req.body.ToI_Date); }
+
 
             if(req.body.FMeasHeight){ request.input('FMeasHeight', sql.Int, parseInt(req.body.FMeasHeight)); }
             if(req.body.TMeasHeight){ request.input('TMeasHeight', sql.Int, parseInt(req.body.TMeasHeight)); }
