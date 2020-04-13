@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,8 @@ export class AppComponent {
   onActivate(e){
     console.log('hash');
   }
+  constructor(private wowService: NgwWowService) {
+    this.wowService.init();
+  }
+
 }
