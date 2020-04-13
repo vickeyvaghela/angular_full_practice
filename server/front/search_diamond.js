@@ -39,6 +39,11 @@ route.post('/saveSearch', (req, res) => {
                 request.input('IsFancy', sql.Bit, false);
             }else{
                 request.input('IsFancy', sql.Bit, true);
+
+                if(req.body.IntenSity){ request.input('IntenSity', sql.VarChar(30), req.body.IntenSity); }
+                if(req.body.Overtone){ request.input('Overtone', sql.VarChar(30), req.body.Overtone); }
+                if(req.body.Fancycolor){ request.input('Fancycolor', sql.VarChar(30), req.body.Fancycolor); }
+
             }
 
             if(req.body.SearchName){ request.input('SearchName', sql.VarChar(30), req.body.SearchName); }
