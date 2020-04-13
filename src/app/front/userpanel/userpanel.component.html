@@ -271,6 +271,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-3 col-sm-12 mb-10 plpr-30">
                 <div class="upcome_stone1">
                     <h4 class="upcome_head">My SAVED SEARCH</h4>
@@ -286,10 +287,10 @@
                             </thead>
                             <tbody>
                             <tr *ngFor="let savedsearch of savedsearches;" class="bord_up">
-                                <td class="up_stn nar_up">{{savedsearch.SearchName}}</td>
-                                <td class="up_stn">{{savedsearch.Total_Stone}}</td>
-                                <td class="up_stn">2,300</td>
-                                <td class="up_stn pay_st"><i class="icon-up_arrow srr_user"></i>200</td>
+                                <td class="up_stn nar_up"><a [routerLink]="['/searchdiamond']" [state]="{ defaultSearchData: savedsearch}">{{savedsearch.SearchName}}</a></td>
+                                <td class="up_stn"><a [routerLink]="['/searchdiamond']" [state]="{ defaultSearchData: savedsearch}">{{savedsearch.Total_Stone}}</a></td>
+                                <td class="up_stn"><a [routerLink]="['/searchdiamond']" [state]="{ defaultSearchData: savedsearch}">2,300</a></td>
+                                <td class="up_stn pay_st"><a [routerLink]="['/searchdiamond']" [state]="{ defaultSearchData: savedsearch}"><i class="icon-up_arrow srr_user"></i>200</a></td>
                             </tr>
                             </tbody>
                         </table>
@@ -297,6 +298,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 

@@ -265,10 +265,6 @@ export class SearchdiamondComponent implements OnInit {
       TMeasWidth:[null]
     })
     this.initialize();
-
-
-
-
   }
 
   compareObjects(o1: any, o2: any): boolean {
@@ -384,6 +380,20 @@ export class SearchdiamondComponent implements OnInit {
     },error => {
       console.log(error);
     });
+
+
+    console.log(history.state.defaultSearchData);
+    if(history.state.defaultSearchData && history.state.defaultSearchData.S_Code){
+      this.initObj.shape.items = this.initObj.shape.items.map((item)=>{
+        return { name:item.name, code:item.code,selected:history.state.defaultSearchData.S_Code.split(',').includes(item.code),className:item.className }
+      })
+    }
+    if(history.state.defaultSearchData && history.state.defaultSearchData.Col_Code){
+      this.initObj.color.items = this.initObj.color.items.map((item)=>{
+        return { name:item.name, code:item.code,selected:history.state.defaultSearchData.Col_Code.split(',').includes(item.code) }
+      })
+    }
+
 
 
   }

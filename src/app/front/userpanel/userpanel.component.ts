@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service'
 import { UserpanelService } from '../services/userpanel.service'
 import { Observable, of } from 'rxjs';
+import {Router} from "@angular/router"
+
 
 
 @Component({
@@ -17,9 +19,12 @@ export class UserpanelComponent implements OnInit {
   public savedsearches = [];
   //public pageCounts: any = {};
   public pageCounts: any = {};
+  public passData = {
+      jirum:'padre'
+  };
 
 
-  constructor(private userPanelServ: UserpanelService) { }
+  constructor(private userPanelServ: UserpanelService, private router: Router) { }
 
   ngOnInit(): void {
     // $('body').removeClass('modal-open');
@@ -51,6 +56,8 @@ export class UserpanelComponent implements OnInit {
     this.userPanelServ.savedsearch({UserId:UserId}).subscribe(
       savedsearch => {
         if(savedsearch && savedsearch.success && savedsearch.data){
+            console.log('save DDDDDD');
+            console.log(savedsearch.data);
           this.savedsearches = savedsearch.data;
         }else{
           this.myOrders = [];
