@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { MyListComponent } from './front/my-list/my-list.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -35,7 +36,8 @@ export function tokenGetter() {
     UserpanelComponent,
     CommonComponent,
     SearchdiamondComponent,
-    StonedetailComponent
+    StonedetailComponent,
+    MyListComponent
   ],
   imports: [
     BrowserModule,
