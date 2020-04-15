@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import Swal from 'sweetalert2'
 
 
+
 // import {
 //   MatTableModule
 // } from '@angular/material/table';
@@ -29,11 +30,7 @@ import Swal from 'sweetalert2'
 
 export class SearchdiamondComponent implements OnInit {
 
-
-
-
     searchDiamondForm: FormGroup;
-
 
     hideSearchForm = false;
     hideSearchFormMeasure = true;
@@ -1598,6 +1595,31 @@ export class SearchdiamondComponent implements OnInit {
         }
     }
 
+    addToBasket(){
+        if(this.selectedStones.length>0){
+
+            this.searchDiamondServ.addToBasket({PIdArys:this.selectedStones.map(item => item.PId)}).subscribe(addToBasketRes => {
+                console.log(addToBasketRes);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Added to basket successfully!!',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+            },error => {
+                console.log(error);
+            });
+
+        }else{
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Please select stone',
+                showConfirmButton: false,
+                timer: 2500
+            })
+        }
+    }
 }
 
 

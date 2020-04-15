@@ -15,14 +15,21 @@ export class TokenInterceptor implements HttpInterceptor {
 
     let newHeaders = req.headers;
 
-    newHeaders = newHeaders.append('Content-Type', 'application/json');
+    if(req.url == 'http://api.ipify.org/?format=json'){
+      const authReq = req.clone({headers: newHeaders});
+      return next.handle(authReq);
+    }else{
+      newHeaders = newHeaders.append('Content-Type', 'application/json');
 
-    const AccTkn = localStorage.getItem("access_token") ? "Bearer " + localStorage.getItem("access_token") : "Bearer ";
+      const AccTkn = localStorage.getItem("access_token") ? "Bearer " + localStorage.getItem("access_token") : "Bearer ";
 
-    newHeaders = newHeaders.append('Authorization', AccTkn);
+      newHeaders = newHeaders.append('Authorization', AccTkn);
 
-    const authReq = req.clone({headers: newHeaders});
-    return next.handle(authReq);
+      const authReq = req.clone({headers: newHeaders});
+      return next.handle(authReq);
+    }
+
+
 
   }
 }
