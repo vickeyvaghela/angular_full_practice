@@ -25,7 +25,7 @@ import Swal from 'sweetalert2'
     ]),
   ]
 })
-//encapsulation: ViewEncapsulation.None
+//encapsulation: ViewEncapsulation.None nnn
 
 export class SearchdiamondComponent implements OnInit {
 
