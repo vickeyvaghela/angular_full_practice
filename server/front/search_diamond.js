@@ -1728,6 +1728,83 @@ route.post('/getStoneDetail', (req, res) => {
     }
 });
 
+
+route.post('/confirmStone', (req, res) => {
+
+    res.json({liliput:'guliver',...req.body});
+
+    return;
+
+    /*
+     const http = require('http');
+
+     http.get('http://api.ipify.org/?format=json', (resp) => {
+     let data = '';
+     resp.on('data', (chunk) => { data += chunk; });
+
+     resp.on('end', () => {
+     data = JSON.parse(data);
+     console.log('ip is ',data.ip);
+     });
+
+     }).on("error", (err) => {
+     console.log("Error: " + err.message);
+     });
+     */
+
+
+
+
+
+
+    if(req.body.PId && req.body.ip && req.body.ip.ip){
+        const conn = new sql.ConnectionPool(config)
+        conn.connect().then(function () {
+            var request = new sql.Request(conn);
+
+            let obj = {
+                UserId:'nik',
+                PId:req.body.PId,
+                Ord_Date:req.body.date,
+                Ord_Time:req.body.time,
+                IP:req.body.ip.ip,
+                CompName:'test compname'
+            }
+
+
+            request.input('UserId', sql.VarChar(200), obj.UserId);
+            request.input('PId', sql.VarChar(20), obj.PId);
+            request.input('Ord_Date', sql.DateTime2, new Date());
+            request.input('Ord_Time', sql.DateTime2, new Date());
+            request.input('IP', sql.VarChar(100), obj.IP);
+            request.input('CompName', sql.VarChar(100), obj.CompName);
+
+            console.log('00000');
+            request.execute('WB_OrderDetSave').then(function (recordsets, returnValue, affected) {
+                console.log('11111');
+
+                console.log();
+                console.log('add To basket sp res');
+                console.log(recordsets);
+                console.log();
+                res.json({success: true, data: [1]})
+                conn.close();
+            }).catch(function (err) {
+                console.log('2222222');
+                console.log(err);
+                conn.close();
+                res.json({success: false, data: [2]})
+            });
+        }).catch(function (err) {
+            console.log('33333');
+            console.log(err);
+            res.json({success: false, data: [3]})
+        });
+    }else{
+        console.log('44444');
+        res.json({success: false, data: [4]})
+    }
+});
 route.post('/addToBasket', (req, res) => {
 
 
@@ -1800,6 +1877,41 @@ route.post('/addToBasket', (req, res) => {
         console.log('44444');
         res.json({success: false, data: [4]})
     }
+});
+
+route.post('/myList', (req, res) => {
+
+
+    if(req.body.UserId){
+
+
+        let spName;
+        if(req.body.item && req.body.item=='basket'){
+            spName = 'WB_BasketStoneDisplay'
+        }
+        const conn = new sql.ConnectionPool(config)
+        conn.connect().then(function () {
+            var request = new sql.Request(conn);
+
+            request.input('UserId', sql.VarChar(200), req.body.UserId);
+
+            request.execute(spName).then(function (recordsets, returnValue, affected) {
+                res.json({success: true, data: recordsets.recordsets[0]})
+                conn.close();
+            }).catch(function (myBasket) {
+                console.log('myBasket ',myBasket);
+                conn.close();
+                res.json({success: false, data: []})
+            });
+        }).catch(function (err) {
+            res.json({success: false, data: []})
+        });
+
+    }else{
+        res.json({success: false, data: []})
+    }
+
+
 });
 
 

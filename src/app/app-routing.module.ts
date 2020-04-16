@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'UserPanel', component: UserpanelComponent },
   { path: 'searchdiamond', component: SearchdiamondComponent },
   { path: 'stonedetail/:pid', component: StonedetailComponent },
-  { path: 'my-list/:item', component: MyListComponent },
+  { path: 'mylist/:item', component: MyListComponent },
 ];
 // const routes: Routes = [
 //   { path: '', component: HomeComponent },

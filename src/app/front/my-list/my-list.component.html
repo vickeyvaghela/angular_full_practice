@@ -1,1 +1,301 @@
-<p>my-list works!</p>
+
+
+<form [formGroup]="searchDiamondForm" (ngSubmit)="onSubmit()">
+
+    <app-common (globalSearchEmitter)="getGlobalDataFrmChild($event)"></app-common>
+    <section id="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="main_sch">
+                        <p style="text-align:left;" class="sch_head3">
+                            My Basket - <span class="sch_res">({{dataSource.length}} Stones)</span>
+
+                            <span style="float:right;">
+
+                                <span (click)="mailXLS()"><i class="icon-mail sch_tp"></i></span>
+                                <span (click)="printDoc()"><i class="icon-print sch_tp"></i></span>
+                                <span (click)="printXLS()"><i class="icon-download sch_tp"></i></span>
+
+
+                            </span>
+                            <button type="button" (click)="testFunc()">TEst</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="sch_result">
+                        <mat-chip-list class=" res_lst result_inline">
+                            <mat-chip>
+                                <i class="icon-search res_icon"></i>
+                                <span class="res_txt">Diamond Search</span>
+                            </mat-chip>
+                            <mat-chip (click)="addToBasket()">
+                                <i class="icon-add-basket res_icon"></i>
+                                <span class="res_txt">Add to Basket</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-cart-with-user res_icon"></i>
+                                <span class="res_txt">My Basket</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-hold res_icon"></i>
+                                <span class="res_txt">Hold</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Confirm-Stone res_icon"></i>
+                                <span class="res_txt">Confirm Stone</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Confirm-Stone res_icon"></i>
+                                <span class="res_txt">My Order</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Excel-Upload res_icon"></i>
+                                <span class="res_txt">Export To Excel</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-add-wishlist res_icon"></i>
+                                <span class="res_txt">Add To Wishlist</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-my-wishlist res_icon"></i>
+                                <span class="res_txt">My Wishlist</span>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="sch_pcs">
+                        <mat-chip-list class=" res_lst pcs_inline">
+                            <mat-chip>
+                                Tot.Pcs. <span class="pcs_ans">{{selectedStones.length}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Tot.Cts. <span class="pcs_ans">{{totalCts}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Avg.Rap. <span class="pcs_ans">{{avgRap}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Avg.Disc. <span class="pcs_ans">{{avgDisc}}%</span>
+                            </mat-chip>
+                            <mat-chip>
+                                CT.Rate. <span class="pcs_ans">{{ctRate}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Tot.Amt. <span class="pcs_ans">{{totAmount}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                F.Ct.Rate. <span class="pcs_ans">{{fCtRate}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                F.Tot.Amt. <span class="pcs_ans">{{fTotAmount}}</span>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div class="col-md-12 tbl_responsive res_ttbl mt-10">
+                    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 tbl_res">
+                        <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+                            <!--<th mat-header-cell *matHeaderCellDef> {{column}} <input type="checkbox"></th>-->
+                            <th mat-header-cell *matHeaderCellDef class="tbl_hesdr"><b style="font-weight: 1000;">{{showDisplayName(column)}}<span
+                                    *ngIf="column=='checkbox'"><input [checked]="allStoneSelected"
+                                                                      (click)="selectAllStone()" type="checkbox"></span></b>
+                            </th>
+                            <!--<td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element"> <span *ngIf="column=='hash'"><i class="icon-up_arroww hid icon-down-arrow"></i></span>{{element[column]}} </td>-->
+                            <td mat-cell (click)="clickTD(column,element)" *matCellDef="let element">
+                                <span *ngIf="column=='hash'"><i class="{{upOrDown(element,expandedElement)}} hid"></i></span>
+                                <span *ngIf="column=='checkbox'">
+                                    <input (click)="selectStone(element)" [checked]="element.selected" type="checkbox">
+                                </span>
+                                <span *ngIf="column!='PId'" class="ngtd_txt">{{element[column]}}</span>
+                                <span *ngIf="column=='PId'"><a href="/stonedetail/{{element[column]}}" target="_blank" class="td_maintxt">{{element[column]}}</a></span>
+
+                                <!--<pre>{{element | json}}</pre>-->
+                            </td>
+                        </ng-container>
+                        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+                        <ng-container matColumnDef="expandedDetail">
+                            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                                <div class="example-element-detail"
+                                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                    <!--<pre>{{expandedElement | json}}</pre>-->
+                                    <table cellpadding="0" cellspacing="3px" border="1px">
+                                        <tbody>
+                                        <tr>
+                                            <td rowspan="11" class="tbltr">
+                                                <!--<img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/5756-85.JPG"-->
+                                                <!--class="stn_img">-->
+                                                <img src="{{element.PhotoPath}}"
+                                                     class="stn_img">
+                                            </td>
+                                        </tr>
+                                        <!--<tr>-->
+                                        <!--<td rowspan="11" class="tbltr">-->
+                                        <!--<h1>ssd</h1>-->
+                                        <!--<iframe src="{{element.PHOTOPATH}}"-->
+                                        <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                        <!--allowfullscreen></iframe>-->
+                                        <!--</td>-->
+                                        <!--</tr>-->
+                                        <tr>
+                                            <td rowspan="11" class="tbltr">
+
+                                                <img src="{{element.CertiPath}}"
+                                                     class="stn_img">
+                                                <!--<iframe src="{{element.CertiPath}}"-->
+                                                <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                                <!--allowfullscreen></iframe>-->
+                                                <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf"-->
+                                                <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                                <!--allowfullscreen></iframe>-->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Stone ID</span></td>
+                                            <td class="tdsnd">{{element.PId}}</td>
+                                            <td class="tdfrst"><span>Cut</span></td>
+                                            <td class="tdsnd">{{element.GCT_Name}}</td>
+                                            <td class="tdfrst"><span>Shade</span></td>
+                                            <td class="tdsnd">{{element.BSHD_Name}}</td>
+                                            <td class="tdfrst"><span>Side Inclusion</span></td>
+                                            <td class="tdsnd">-----</td>
+                                            <td class="tdfrst"><span>Measurement</span></td>
+                                            <td class="tdsnd">{{element.Meas}}</td>
+                                            <td class="tdfrst"><span>Pv.Angle</span></td>
+                                            <td class="tdsnd">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Shape</span></td>
+                                            <td class="tdsnd">{{element.S_Name}}</td>
+                                            <td class="tdfrst"><span>Polish</span></td>
+                                            <td class="tdsnd">{{element.GPO_Name}}</td>
+                                            <td class="tdfrst"><span>Eye Clean </span></td>
+                                            <td class="tdsnd">{{element.EC_Name}}</td>
+                                            <td class="tdfrst"><span>Table Open</span></td>
+                                            <td class="tdsnd">NONE-OPEN</td>
+                                            <td class="tdfrst"><span>Table</span></td>
+                                            <td class="tdsnd">{{element.Table1}}</td>
+                                            <td class="tdfrst"><span>Pv.Depth</span></td>
+                                            <td class="tdsnd">----</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Carat</span></td>
+                                            <td class="tdsnd">{{element.Carat}}</td>
+                                            <td class="tdfrst"><span>Symmetry</span></td>
+                                            <td class="tdsnd">{{element.GSY_Name}}</td>
+                                            <td class="tdfrst"><span>Table Black</span></td>
+                                            <td class="tdsnd">----</td>
+                                            <td class="tdfrst"><span>Side Open</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Depth</span></td>
+                                            <td class="tdsnd">{{element.TotDepth}}</td>
+                                            <td class="tdfrst"><span>Star Length</span></td>
+                                            <td class="tdsnd">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Color</span></td>
+                                            <td class="tdsnd">{{element.GC_Name}}</td>
+                                            <td class="tdfrst"><span>Fluorescence</span></td>
+                                            <td class="tdsnd">{{element.GFL_Name}}</td>
+                                            <td class="tdfrst"><span>Side Black</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Extra Facet</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Ratio</span></td>
+                                            <td class="tdsnd">{{element.Ratio}}</td>
+                                            <td class="tdfrst"><span>Lower Half</span></td>
+                                            <td class="tdsnd"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Clarity</span></td>
+                                            <td class="tdsnd">{{element.GQ_Name}}</td>
+                                            <td class="tdfrst"><span>NG Comm.</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Table Side Black</span></td>
+                                            <td class="tdsnd">----</td>
+                                            <td class="tdfrst"><span>Girdle(%)</span></td>
+                                            <td class="tdsnd">----</td>
+                                            <td class="tdfrst"><span>Type 2A</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"></td>
+                                            <td class="tdsnd"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Lab</span></td>
+                                            <td class="tdsnd">{{element.CR_Name}}</td>
+                                            <td class="tdfrst"><span>Origin</span></td>
+                                            <td class="tdsnd">{{element.origin}}</td>
+                                            <td class="tdfrst"><span>Table Inclusion</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Luster</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Cr.Angle</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>H&amp;A</span></td>
+                                            <td class="tdsnd">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Certificate No.</span></td>
+                                            <td class="tdsnd">{{element.CertNo}}</td>
+                                            <td class="tdfrst"><span>Location</span></td>
+                                            <td class="tdsnd">{{element.Loc_Name}}</td>
+                                            <td class="tdfrst"><span>Table Side Inclusion</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Culet</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Cr.Height</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Natural</span></td>
+                                            <td class="tdsnd">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Fancy Color</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Key to Symbols</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Report Comm.</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span></span></td>
+                                            <td class="tdsnd"></td>
+                                            <td class="tdfrst"><span></span></td>
+                                            <td class="tdsnd"></td>
+                                            <td class="tdfrst"><span></span></td>
+                                            <td class="tdsnd"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--<div class="example-element-diagram">-->
+                                    <!--<div class="example-element-position"> {{element.position}} </div>-->
+                                    <!--<div class="example-element-symbol"> {{element.symbol}} </div>-->
+                                    <!--<div class="example-element-name"> {{element.name}} </div>-->
+                                    <!--<div class="example-element-weight"> {{element.weight}} </div>-->
+                                    <!--</div>-->
+                                    <!--<div class="example-element-description">-->
+                                    <!--{{element.description}}-->
+                                    <!--<span class="example-element-description-attribution"> &#45;&#45; Wikipedia </span>-->
+                                    <!--</div>-->
+                                </div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                        <!--<tr mat-row *matRowDef="let element; columns: columnsToDisplay;"-->
+                        <!--class="example-element-row"-->
+                        <!--[class.example-expanded-row]="expandedElement === element"-->
+                        <!--(click)="expandedElement = element"-->
+                        <!--&gt;-->
+                        <!--</tr>-->
+                        <!--(click)="expandedElement=expandShrinkelem(expandedElement, element)"-->
+                        <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+                            class="example-element-row"
+                            [class.example-expanded-row]="expandedElement === element">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

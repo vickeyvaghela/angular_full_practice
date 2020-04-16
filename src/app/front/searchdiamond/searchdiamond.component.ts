@@ -1436,7 +1436,7 @@ export class SearchdiamondComponent implements OnInit {
         this.doCalculation();
     }
 
-    totalCts = 0;  avgRap:any = 0.00;  avgDisc:any = 0;  ctRate:any = 0;  totAmount:any = 0;  fCtRate = 0;  fTotAmount = 0;
+    totalCts:any = 0.00;  avgRap:any = 0.00;  avgDisc:any = 0;  ctRate:any = 0;  totAmount:any = 0;  fCtRate = 0;  fTotAmount = 0;
     doCalculation(){
         if(this.selectedStones.length==0){
             this.totalCts = 0;
@@ -1450,6 +1450,7 @@ export class SearchdiamondComponent implements OnInit {
             this.totalCts = this.selectedStones.reduce((acc, val) => {
                 return acc + parseFloat(val.Carat);
             },0);
+            this.totalCts = this.totalCts.toFixed(2);
 
             this.avgRap = this.selectedStones.reduce((acc, val) => {
                 return acc + (parseFloat(val.Carat)*parseFloat(val.GRap));
@@ -1603,6 +1604,83 @@ export class SearchdiamondComponent implements OnInit {
                 Swal.fire({
                     icon: 'success',
                     title: 'Added to basket successfully!!',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+            },error => {
+                console.log(error);
+            });
+
+        }else{
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Please select stone',
+                showConfirmButton: false,
+                timer: 2500
+            })
+        }
+    }
+
+    myBasket(){
+        this.searchDiamondServ.myList({UserId:'nik',item:'basket'}).subscribe(myListRes => {
+
+
+
+
+
+
+            if(myListRes.success && myListRes.data){
+                this.searchResultAry = myListRes.data;
+            }else{
+                this.searchResultAry = [];
+            }
+
+            this.dataSource = this.searchResultAry;
+
+            if(this.searchResultAry.length>0){
+                this.hideSearchForm = true;
+                this.hideSearchFormMeasure = true;
+            }else{
+                this.hideSearchForm = false;
+                this.hideSearchFormMeasure = false;
+            }
+
+            // this.dataSource = this.searchResultAry.map((item) => {
+            //   item.selected = true;
+            //   return item;
+            // });
+            this.TotalStoneFound = this.searchResultAry.length;
+
+
+
+
+
+
+
+        },error => {
+            console.log(error);
+        });
+    }
+
+    confirmStone(){
+        if(this.selectedStones.length>0){
+
+            this.searchDiamondServ.confirmStone({PIdArys:this.selectedStones.map((item) => {
+                return {
+                    PId:item.PId,
+                    UserId:'nik',
+                    CompName:'test comp',
+                    OffPer:item.Disc,
+                    CompanyLocation:'INDIA',
+                    Confirm_type:'',
+                    IsPrimium:false
+                }
+            })}).subscribe(confirmStoneRes => {
+                console.log('confirmStoneRes ',confirmStoneRes);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Added to confirmation successfully!!',
                     showConfirmButton: false,
                     timer: 2500
                 })
