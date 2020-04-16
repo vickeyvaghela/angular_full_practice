@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'ngnew'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9bb07324fe124345991e8f861875aea2 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1bdb1cbff9e3451bb646b7adfd948c0c }}
         package: .
