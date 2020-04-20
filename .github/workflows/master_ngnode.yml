@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'ngnode'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bc07ed3cf1384f61929acf7d61f99f08 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_11c97f00aec54e6eaba1b8dfc45aef86 }}
         package: .
