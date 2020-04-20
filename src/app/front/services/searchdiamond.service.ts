@@ -73,127 +73,41 @@ export class Searchdiamond {
 
   addToBasket(postData): Observable<any> {
 
-    //return this.http.get("http://api.ipify.org/?format=json");
-    // this.http.get<any>('http://api.ipify.org/?format=json').subscribe(externalUrlRes => {
-    //   console.log('externalUrlRes ',externalUrlRes);
-    //
-    // },errorExternal => {
-    //   console.log('errorExternal ',errorExternal);
-    // });
-    // this.http.get("http://api.ipify.org/?format=json").subscribe(data => {
-    //   console.log('data');
-    //   let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/addToBasket',{PId:item,ip:data}))
-    //   return forkJoin(CallsAry);
-    // })
-    console.log('dateeeeee    ',this.datePipe.transform(new Date(), 'MM-dd-yyyy'));
-    console.log('time    ',this.datePipe.transform(new Date(), 'hh:mm:ss'));
-
-
     return this.http.get("http://api.ipify.org/?format=json")
-        .pipe(mergeMap(ipAdd => {
+      .pipe(mergeMap(ipAdd => {
+        let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/addToBasket',{PId:item,ip:ipAdd,date:this.datePipe.transform(new Date(), 'MM-dd-yyyy'),time:this.datePipe.transform(new Date(), 'hh:mm:ss')}))
+        return forkJoin(CallsAry);
+      }));
+  }
+  RemoveFromBasket(postData): Observable<any> {
 
-
-
-          let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/addToBasket',{PId:item,ip:ipAdd,date:this.datePipe.transform(new Date(), 'MM-dd-yyyy'),time:this.datePipe.transform(new Date(), 'hh:mm:ss')}))
-          return forkJoin(CallsAry);
-        }));
-
-
-
-    // this.http.get("http://api.ipify.org/?format=json").subscribe(ipRes => {
-    //   // console.log('ipres');
-    //   // console.log(ipRes);
-    //
-    //
-    //   let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/addToBasket',{PId:item,ip:ipRes}))
-    //   return forkJoin(CallsAry);
-    //
-    //
-    // },error => {
-    //   console.log(error);
-    //   let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/addToBasket',{PId:item,ip:{}}))
-    //   return forkJoin(CallsAry);
-    //
-    // });
-
-
-    //this.http.get("http://api.ipify.org/?format=json")
-
-
-
-
+    let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/RemoveFromBasket',{PId:item,UserId:'nik'}))
+    return forkJoin(CallsAry);
   }
 
   confirmStone(postData): Observable<any> {
 
-    //return this.http.get("http://api.ipify.org/?format=json");
-    // this.http.get<any>('http://api.ipify.org/?format=json').subscribe(externalUrlRes => {
-    //   console.log('externalUrlRes ',externalUrlRes);
-    //
-    // },errorExternal => {
-    //   console.log('errorExternal ',errorExternal);
-    // });
-    // this.http.get("http://api.ipify.org/?format=json").subscribe(data => {
-    //   console.log('data');
-    //   let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/addToBasket',{PId:item,ip:data}))
-    //   return forkJoin(CallsAry);
-    // })
-    console.log('dateeeeee    ',this.datePipe.transform(new Date(), 'MM-dd-yyyy'));
-    console.log('time    ',this.datePipe.transform(new Date(), 'hh:mm:ss'));
-
-
     return this.http.get("http://api.ipify.org/?format=json")
-        .pipe(mergeMap(ipAdd => {
+      .pipe(mergeMap(ipAdd => {
 
-          let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/confirmStone',{
-            UserId:item.UserId,
-            PId:item.PId,
-            Con_Date:this.datePipe.transform(new Date(), 'MM-dd-yyyy'),
-            Con_Time:this.datePipe.transform(new Date(), 'hh:mm:ss'),
-            IP:ipAdd,
-            CompName:item.CompName,
-            OffPer:item.OffPer,
-            CompanyLocation:item.CompanyLocation,
-            Confirm_type:item.Confirm_type,
-            IsPrimium:item.IsPrimium
-          }))
-          return forkJoin(CallsAry);
-        }));
-
-
-
-    // this.http.get("http://api.ipify.org/?format=json").subscribe(ipRes => {
-    //   // console.log('ipres');
-    //   // console.log(ipRes);
-    //
-    //
-    //   let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/addToBasket',{PId:item,ip:ipRes}))
-    //   return forkJoin(CallsAry);
-    //
-    //
-    // },error => {
-    //   console.log(error);
-    //   let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/addToBasket',{PId:item,ip:{}}))
-    //   return forkJoin(CallsAry);
-    //
-    // });
-
-
-    //this.http.get("http://api.ipify.org/?format=json")
-
-
-
-
+        let CallsAry = postData.PIdArys.map(item => this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/confirmStone',{
+          UserId:item.UserId,
+          PId:item.PId,
+          Con_Date:this.datePipe.transform(new Date(), 'MM-dd-yyyy'),
+          Con_Time:this.datePipe.transform(new Date(), 'hh:mm:ss'),
+          IP:ipAdd,
+          CompName:item.CompName,
+          OffPer:item.OffPer,
+          CompanyLocation:item.CompanyLocation,
+          Confirm_type:item.Confirm_type,
+          IsPrimium:item.IsPrimium
+        }))
+        return forkJoin(CallsAry);
+      }));
   }
 
   myList(postData): Observable<any> {
     return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/myList',postData);
   }
-
-
-  // testVikesh(postData): Observable<any> {
-  //   return this.http.post<any>(this.apiBaseUrl+'/front/SearchDiamond/testVikesh',postData);
-  // }
-
 
 }

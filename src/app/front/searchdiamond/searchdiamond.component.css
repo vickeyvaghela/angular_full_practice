@@ -496,6 +496,14 @@ input:focus, a:focus {
     color: #267491;
 }
 
+.res_txt1 {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
 .pcs_inline .mat-chip {
     font-family: Rubik;
     font-style: normal;

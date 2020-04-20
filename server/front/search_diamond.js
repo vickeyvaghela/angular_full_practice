@@ -1730,78 +1730,39 @@ route.post('/getStoneDetail', (req, res) => {
 
 
 route.post('/confirmStone', (req, res) => {
+    console.log(req.body)
 
-    res.json({liliput:'guliver',...req.body});
-
-    return;
-
-    /*
-     const http = require('http');
-
-     http.get('http://api.ipify.org/?format=json', (resp) => {
-     let data = '';
-     resp.on('data', (chunk) => { data += chunk; });
-
-     resp.on('end', () => {
-     data = JSON.parse(data);
-     console.log('ip is ',data.ip);
-     });
-
-     }).on("error", (err) => {
-     console.log("Error: " + err.message);
-     });
-     */
-
-
-
-
-
-
-    if(req.body.PId && req.body.ip && req.body.ip.ip){
+    if(req.body.UserId && req.body.PId && req.body.Con_Date && req.body.Con_Time && req.body.CompName && req.body.OffPer && req.body.CompanyLocation && req.body.IP && req.body.IP.ip){
         const conn = new sql.ConnectionPool(config)
         conn.connect().then(function () {
             var request = new sql.Request(conn);
 
-            let obj = {
-                UserId:'nik',
-                PId:req.body.PId,
-                Ord_Date:req.body.date,
-                Ord_Time:req.body.time,
-                IP:req.body.ip.ip,
-                CompName:'test compname'
-            }
+            request.input('UserId', sql.VarChar(200), req.body.UserId);
+            request.input('PId', sql.VarChar(20), req.body.PId);
+            request.input('Con_Date', sql.DateTime2, new Date());
+            request.input('Con_Time', sql.DateTime2, new Date());
+            request.input('IP', sql.VarChar(100), req.body.IP.ip);
+            request.input('CompName', sql.VarChar(100), req.body.CompName);
+            request.input('OffPer', sql.Decimal(10, 2), parseFloat(req.body.OffPer));
+            request.input('CompanyLocation', sql.VarChar(50), req.body.CompanyLocation);
+            request.input('Confirm_type', sql.VarChar(2), '');
+            request.input('IsPrimium', sql.Bit, 0);
+            request.input('ConId', sql.Int, 0);
 
+            request.execute('WB_ConfirmOrderSave').then(function (recordsets, returnValue, affected) {
 
-            request.input('UserId', sql.VarChar(200), obj.UserId);
-            request.input('PId', sql.VarChar(20), obj.PId);
-            request.input('Ord_Date', sql.DateTime2, new Date());
-            request.input('Ord_Time', sql.DateTime2, new Date());
-            request.input('IP', sql.VarChar(100), obj.IP);
-            request.input('CompName', sql.VarChar(100), obj.CompName);
-
-            console.log('00000');
-            request.execute('WB_OrderDetSave').then(function (recordsets, returnValue, affected) {
-                console.log('11111');
-
-                console.log();
-                console.log('add To basket sp res');
-                console.log(recordsets);
-                console.log();
-                res.json({success: true, data: [1]})
+                res.json({success: true, data: []})
                 conn.close();
             }).catch(function (err) {
-                console.log('2222222');
                 console.log(err);
                 conn.close();
-                res.json({success: false, data: [2]})
+                res.json({success: false, data: []})
             });
         }).catch(function (err) {
-            console.log('33333');
             console.log(err);
             res.json({success: false, data: [3]})
         });
     }else{
-        console.log('44444');
         res.json({success: false, data: [4]})
     }
 });
@@ -1825,11 +1786,6 @@ route.post('/addToBasket', (req, res) => {
     });
     */
 
-
-
-
-
-
     if(req.body.PId && req.body.ip && req.body.ip.ip){
         const conn = new sql.ConnectionPool(config)
         conn.connect().then(function () {
@@ -1852,30 +1808,48 @@ route.post('/addToBasket', (req, res) => {
             request.input('IP', sql.VarChar(100), obj.IP);
             request.input('CompName', sql.VarChar(100), obj.CompName);
 
-            console.log('00000');
             request.execute('WB_OrderDetSave').then(function (recordsets, returnValue, affected) {
-                console.log('11111');
-
-                console.log();
-                console.log('add To basket sp res');
-                console.log(recordsets);
-                console.log();
-                res.json({success: true, data: [1]})
+                res.json({success: true, data: []})
                 conn.close();
             }).catch(function (err) {
-                console.log('2222222');
                 console.log(err);
                 conn.close();
-                res.json({success: false, data: [2]})
+                res.json({success: false, data: []})
             });
         }).catch(function (err) {
-            console.log('33333');
             console.log(err);
-            res.json({success: false, data: [3]})
+            res.json({success: false, data: []})
         });
     }else{
-        console.log('44444');
-        res.json({success: false, data: [4]})
+        res.json({success: false, data: []})
+    }
+});
+route.post('/RemoveFromBasket', (req, res) => {
+
+
+
+    if(req.body.PId && req.body.UserId){
+        const conn = new sql.ConnectionPool(config)
+        conn.connect().then(function () {
+            var request = new sql.Request(conn);
+
+            request.input('PId', sql.VarChar(20), req.body.PId);
+            request.input('UserId', sql.VarChar(200), req.body.UserId);
+
+            request.execute('WB_OrderDetDelete').then(function (recordsets, returnValue, affected) {
+                res.json({success: true, data: []})
+                conn.close();
+            }).catch(function (err) {
+                console.log(err);
+                conn.close();
+                res.json({success: false, data: []})
+            });
+        }).catch(function (err) {
+            console.log(err);
+            res.json({success: false, data: []})
+        });
+    }else{
+        res.json({success: false, data: []})
     }
 });
 

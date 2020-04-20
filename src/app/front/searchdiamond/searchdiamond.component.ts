@@ -32,6 +32,9 @@ export class SearchdiamondComponent implements OnInit {
 
     searchDiamondForm: FormGroup;
 
+    isBasketTabOpen = false;
+    isSearchTabOpen = true;
+
     hideSearchForm = false;
     hideSearchFormMeasure = true;
 
@@ -840,6 +843,8 @@ export class SearchdiamondComponent implements OnInit {
     }
 
     onSubmit(){
+        this.isBasketTabOpen = false;
+        this.isSearchTabOpen = true;
 
         this.searchById = null;
         if(this.TotalStoneFound<=500){
@@ -1596,6 +1601,8 @@ export class SearchdiamondComponent implements OnInit {
         }
     }
 
+
+
     addToBasket(){
         if(this.selectedStones.length>0){
 
@@ -1622,7 +1629,59 @@ export class SearchdiamondComponent implements OnInit {
         }
     }
 
+    RemoveFromBasket(){
+        if(this.isBasketTabOpen){
+
+            if(this.selectedStones.length>0){
+
+                this.searchDiamondServ.RemoveFromBasket({PIdArys:this.selectedStones.map(item => item.PId)}).subscribe(RemoveFromBasketRes => {
+                    this.myBasket();
+                    this.selectedStones = [];
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Removed from basket successfully!!',
+                        showConfirmButton: false,
+                        timer: 2500
+                    })
+                },error => {
+                    console.log(error);
+                });
+
+            }else{
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Please select stone',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+            }
+            /*
+            this.searchDiamondServ.addToBasket({PIdArys:this.selectedStones.map(item => item.PId)}).subscribe(addToBasketRes => {
+                console.log(addToBasketRes);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Added to basket successfully!!',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+            },error => {
+                console.log(error);
+            });
+            */
+        }else{
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Please select basket tab first.',
+                showConfirmButton: false,
+                timer: 2500
+            })
+        }
+    }
+
     myBasket(){
+        this.isBasketTabOpen = true;
+        this.isSearchTabOpen = false;
         this.searchDiamondServ.myList({UserId:'nik',item:'basket'}).subscribe(myListRes => {
 
 
@@ -1677,7 +1736,6 @@ export class SearchdiamondComponent implements OnInit {
                     IsPrimium:false
                 }
             })}).subscribe(confirmStoneRes => {
-                console.log('confirmStoneRes ',confirmStoneRes);
                 Swal.fire({
                     icon: 'success',
                     title: 'Added to confirmation successfully!!',
