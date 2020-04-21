@@ -18,10 +18,10 @@ import {UserpanelComponent} from './front/userpanel/userpanel.component';
 import {CommonComponent} from './front/common/common/common.component';
 import {SearchdiamondComponent} from './front/searchdiamond/searchdiamond.component';
 import {StonedetailComponent} from './front/stonedetail/stonedetail.component';
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material/material.module';
 import {RecaptchaModule} from 'ng-recaptcha';
+import { MyprofileComponent } from './front/myprofile/myprofile.component';
 
 export function tokenGetter() {
     return localStorage.getItem('access_token');
@@ -34,7 +34,9 @@ export function tokenGetter() {
         UserpanelComponent,
         CommonComponent,
         SearchdiamondComponent,
-        StonedetailComponent
+        StonedetailComponent,
+        MyprofileComponent,
+        MyprofileComponent
     ],
     imports: [
         BrowserModule,

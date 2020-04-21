@@ -7,8 +7,8 @@ import {Router} from "@angular/router"
 @Component({
   selector: 'app-common',
   templateUrl: './common.component.html',
-  // styleUrls: ['/node_modules/bootstrap3/dist/css/bootstrap.min.css','./common.component.css'],
-  styleUrls: ['./common.component.css'],
+   styleUrls: ['/node_modules/bootstrap3/dist/css/bootstrap.min.css','./common.component.css'],
+  //styleUrls: ['./common.component.css'],
   encapsulation: ViewEncapsulation.None
 
 })

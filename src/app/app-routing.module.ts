@@ -11,6 +11,7 @@ import { HomeComponent } from './front/home/home.component';
 import { UserpanelComponent } from './front/userpanel/userpanel.component';
 import { SearchdiamondComponent } from './front/searchdiamond/searchdiamond.component';
 import { StonedetailComponent } from './front/stonedetail/stonedetail.component';
+import {MyprofileComponent} from "./front/myprofile/myprofile.component";
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'UserPanel', component: UserpanelComponent },
   { path: 'searchdiamond', component: SearchdiamondComponent },
   { path: 'stonedetail/:pid', component: StonedetailComponent },
+  {path: 'myprofile', component: MyprofileComponent},
 ];
 // const routes: Routes = [
 //   { path: '', component: HomeComponent },
