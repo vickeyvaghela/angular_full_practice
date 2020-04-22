@@ -21,7 +21,8 @@
             "aot": true,
             "assets": [
               "src/assets",
-              "src/assets/img/favicon.ico"
+              "src/assets/img/favicon.ico",
+              "src/web.config
             ],
             "styles": [],
             "scripts": []
@@ -84,7 +85,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/assets",
-              "src/assets/img/favicon.ico"
+              "src/assets/img/favicon.ico",
+              "src/web.config"
             ],
             "styles": [
               "src/styles.css"
