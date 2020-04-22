@@ -23,17 +23,8 @@
               "src/assets",
               "src/assets/img/favicon.ico"
             ],
-            "styles": [
-              "src/assets/css/home.css",
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css",
-              "src/assets/css/NarolaNew.css",
-              "node_modules/wowjs/css/libs/animate.css"
-            ],
-            "scripts": [
-              "src/assets/js/custom.js",
-              "node_modules/wowjs/dist/wow.js"
-            ]
+            "styles": [],
+            "scripts": []
           },
           "configurations": {
             "production": {
