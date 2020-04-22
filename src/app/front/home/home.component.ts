@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { AuthService } from '../services/auth.service'
 import {Router} from "@angular/router"
 import { ViewEncapsulation } from '@angular/core'
 
@@ -20,7 +19,7 @@ export class HomeComponent implements OnInit {
   submitted = false;
   invalidCred = false;
 
-  constructor(private authServObj: AuthService,private router: Router) { }
+  constructor(private router: Router) { }
 
   public resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response: ${captchaResponse}`);
@@ -39,18 +38,7 @@ export class HomeComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    if(this.myform.valid){
-      this.authServObj.loginService(this.myform.value.username,this.myform.value.password).subscribe(apiResp => {
-        console.log(apiResp);
-        if(apiResp){
-          //this.router.navigate(['/UserPanel'])
-          //window.location.href = 'http://localhost:4200/UserPanel';
-          window.location.href = window.location.origin+'/UserPanel';
-        }else{
-          this.invalidCred = true;
-        }
-      });
-    }
+
   }
 
   public loadScript() {
