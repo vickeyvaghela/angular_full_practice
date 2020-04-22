@@ -20,17 +20,13 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/assets",
-              "src/assets/img/favicon.ico"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "src/assets/css/home.css",
-              "src/styles.css",
-              "src/assets/css/NarolaNew.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/js/custom.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
