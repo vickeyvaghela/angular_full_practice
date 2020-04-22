@@ -1,0 +1,1101 @@
+
+
+<form [formGroup]="searchDiamondForm" (ngSubmit)="onSubmit()">
+
+    <app-common (globalSearchEmitter)="getGlobalDataFrmChild($event)"></app-common>
+    <section id="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <button type="submit">TEst</button> -->
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="main_sch">
+                        <p style="text-align:left;" class="sch_head">
+                            SEARCH VIEW
+                            <span style="float:right;" class="viw_mt">
+                                <button class="stn_found">{{TotalStoneFound}} Stones Found</button>
+                                <button class="sch_tp" type="submit">
+                                    <i class="icon-search"></i>Search
+                                </button>
+                                <button class="sch_tp">
+                                    <i class="icon-refresh"></i>Reset
+                                </button>
+                                <button class="sch_tp">
+                                    <i class="icon-save"></i>Save Search
+                                </button>
+                                <span *ngIf="hideSearchForm" (click)="hideSearchForm=!hideSearchForm">SHOW <i class="icon-down-arrow hid"></i></span>
+                                <span *ngIf="!hideSearchForm" (click)="hideSearchForm=!hideSearchForm">HIDE <i class="icon-up_arrow hid"></i></span>
+                                <!--HIDE <i class="icon-down-arrow hid"></i>-->
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <div *ngIf="!hideSearchForm">
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-12">
+                                    <h5 class="sch_master">SHAPE</h5>
+                                </div>
+                                <div class="col-lg-11 col-md-10 col-sm-12">
+                                    <div class="hd_border">
+                                        <mat-chip-list class=" head_lst allshp_inline" multiple="true">
+                                            <mat-chip [selected]="initObj.shape.selectAll"
+                                                      (click)="checkAll(!initObj.shape.selectAll,'shape');initObj.shape.selectAll=!initObj.shape.selectAll">
+                                                <i class="icon-Single_14 hd_diam"></i><span
+                                                    class="hd_shp">All Shape</span>
+                                            </mat-chip>
+                                            <mat-chip *ngFor="let shape of initObj.shape.items"
+                                                      [selected]="shape.selected"
+                                                      (click)="shape.selected=!shape.selected;initObj.shape.selectCount=initObj.shape.selectCount+1;unCheckAll('shape',shape);">
+                                                <i class="{{shape.className}} hd_diam"></i><span
+                                                    class="hd_shp">{{shape.name}}</span></mat-chip>
+                                        </mat-chip-list>
+                                        <!--<mat-chip-list class=" head_lst allshp_inline" multiple="true">
+                                            <mat-chip><i class="icon-all_shape hd_diam"></i><span class="hd_shp">All Shape</span></mat-chip>
+                                            <mat-chip><i class="icon-Round hd_diam"></i><span class="hd_shp">Round</span></mat-chip>
+                                            <mat-chip><i class="icon-Emerald hd_diam"></i><span class="hd_shp">Emerald</span></mat-chip>
+                                            <mat-chip><i class="icon-Cushion-Brilliant hd_diam"></i><span class="hd_shp">Cushion</span></mat-chip>
+                                            <mat-chip><i class="icon-Princess hd_diam"></i><span class="hd_shp">Princess</span></mat-chip>
+                                            <mat-chip><i class="icon-Marquise hd_diam"></i><span class="hd_shp">Marquise</span></mat-chip>
+                                            <mat-chip><i class="icon-Pear hd_diam"></i><span class="hd_shp">Pear</span></mat-chip>
+                                            <mat-chip><i class="icon-Heart hd_diam"></i><span class="hd_shp">Heart</span></mat-chip>
+                                            <mat-chip><i class="icon-Oval hd_diam"></i><span class="hd_shp">Oval</span></mat-chip>
+                                            <mat-chip><i class="icon-SqEmerald hd_diam"></i><span class="hd_shp">SqEmerald</span></mat-chip>
+                                            <mat-chip><i class="icon-LgRadiant hd_diam"></i><span class="hd_shp">Radient</span></mat-chip>
+                                            <mat-chip><i class="icon-all_shape hd_diam"></i><span class="hd_shp">Other Shapes</span></mat-chip>
+                                        </mat-chip-list>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10 mb-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-12">
+                                    <h5 class="sch_master">CARAT</h5>
+                                </div>
+                                <div class="col-lg-11 col-md-11 col-sm-12 sch">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput placeholder="Min" formControlName="FCarat">
+                                    </mat-form-field>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput placeholder="Max" formControlName="TCarat">
+                                    </mat-form-field>
+                                    <a href="javascript:void(0)" (click)="addCaretRange()" class="sch_btn"><i
+                                            class="icon-plus"></i></a>
+                                    <a href="javascript:void(0)" class="sch_btn"><i class="icon-close"></i></a>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <div style="display: inline;" *ngFor="let caret of caretRange">
+                                        <span class="spnclr">{{caret.start}}-{{caret.end}}</span>
+                                        <button type="button" (click)="removeCaret(caret)">X</button>
+                                        &nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-12">
+                                    <h5 class="sch_master">COLOR</h5>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-12 pr-0">
+                                <span class="sch_whfc">
+                                    <a href="javascript:void(0)" (click)="whiteColor=!whiteColor"
+                                       [ngClass]="{'active': whiteColor==true }" class="wh_col">White Color</a>
+                                    <a href="javascript:void(0)" (click)="whiteColor=!whiteColor"
+                                       [ngClass]="{'active': whiteColor==false }" class="fc_col">Fancy Color</a>
+                                </span>
+                                </div>
+                                <div class="col-lg-9 col-md-7 col-sm-12 pl-0 mares">
+                                    <mat-chip-list *ngIf="whiteColor" class=" sch_lst color_inline" multiple="true">
+                                        <mat-chip [selected]="initObj.color.selectAll"
+                                                  (click)="checkAll(!initObj.color.selectAll,'color');initObj.color.selectAll=!initObj.color.selectAll">
+                                            All
+                                        </mat-chip>
+                                        <mat-chip *ngFor="let color of initObj.color.items" [selected]="color.selected"
+                                                  (click)="color.selected=!color.selected;initObj.color.selectCount=initObj.color.selectCount+1;createGroup('color');unCheckAll('color',color);">
+                                            {{color.name}}
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                    <div *ngIf="!whiteColor">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 plres">
+                                            <div class="fluorsm">
+                                                <div class="org_sm1">
+                                                    <span class="sch_master">Intensity</span>
+                                                </div>
+                                                <div class="flr_sm1 sel_mat org_mat">
+                                                    <mat-form-field>
+                                                        <mat-select formControlName="fancyintensityControl" multiple
+                                                                    [compareWith]="compareObjects" class="myPanelClass">
+                                                            <mat-select-trigger
+                                                                    *ngIf="searchDiamondForm.value.fancyintensityControl.length>=fancyintensityList.length">
+                                                            <span class="example-additional-selection">
+                                                                All
+                                                            </span>
+                                                            </mat-select-trigger>
+                                                            <!--<mat-option (click)="intensSelected(intens)" *ngFor="let intens of fancyintensityList" [value]="intens">{{intens.name}}</mat-option>-->
+                                                            <mat-option
+                                                                    (click)="selectSingleChipOption(fancyintensity,'fancyintensity');unCheckAll('fancyintensity',fancyintensity);"
+                                                                    *ngFor="let fancyintensity of fancyintensityList"
+                                                                    [value]="fancyintensity">{{fancyintensity.name}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
+                                            <div class="fluorsm">
+                                                <div class="org_sm">
+                                                    <span class="sch_master">Overtone</span>
+                                                </div>
+                                                <div class="flr_sm1 sel_mat org_mat">
+                                                    <mat-form-field>
+                                                        <mat-select formControlName="fancyovertoneControl" multiple
+                                                                    disableOptionCentering class="myPanelClass"
+                                                                    [compareWith]="compareObjects">
+                                                            <mat-select-trigger
+                                                                    *ngIf="searchDiamondForm.value.fancyovertoneControl.length>=fancyovertoneList.length">
+                                                            <span class="example-additional-selection">
+                                                                All
+                                                            </span>
+                                                            </mat-select-trigger>
+                                                            <!--<mat-option (click)="toneSelected(fancyovertone)" *ngFor="let fancyovertone of fancyovertoneList" [value]="fancyovertone">{{fancyovertone.name}}</mat-option>-->
+                                                            <mat-option
+                                                                    (click)="selectSingleChipOption(fancyovertone,'fancyovertone');unCheckAll('fancyovertone',fancyovertone);"
+                                                                    *ngFor="let fancyovertone of fancyovertoneList"
+                                                                    [value]="fancyovertone">{{fancyovertone.name}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
+                                            <div class="fluorsm">
+                                                <div class="org_sm">
+                                                    <span class="sch_master">Fancy Color</span>
+                                                </div>
+                                                <div class="flr_sm1 sel_mat org_mat">
+                                                    <mat-form-field>
+                                                        <mat-select formControlName="fancycolorControl" multiple
+                                                                    [compareWith]="compareObjects" class="myPanelClass">
+                                                            <mat-select-trigger
+                                                                    *ngIf="searchDiamondForm.value.fancycolorControl.length>=fancycolorList.length">
+                                                            <span class="example-additional-selection">
+                                                                All
+                                                            </span>
+                                                            </mat-select-trigger>
+                                                            <!--<mat-option (click)="fancyColorSelected(fancyoverColor)" *ngFor="let fancyoverColor of fancycolorList" [value]="fancyoverColor">{{fancyoverColor.name}}</mat-option>-->
+                                                            <mat-option
+                                                                    (click)="selectSingleChipOption(fancycolor,'fancycolor');unCheckAll('fancycolor',fancycolor);"
+                                                                    *ngFor="let fancycolor of fancycolorList"
+                                                                    [value]="fancycolor">{{fancycolor.name}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-12">
+                                    <h5 class="sch_master">CLARITY</h5>
+                                </div>
+                                <div class="col-lg-11 col-md-10 col-sm-12">
+                                    <mat-chip-list class=" sch_lst clarity_inline" multiple="true">
+                                        <mat-chip [selected]="initObj.clarity.selectAll"
+                                                  (click)="checkAll(!initObj.clarity.selectAll,'clarity');initObj.clarity.selectAll=!initObj.clarity.selectAll">
+                                            All
+                                        </mat-chip>
+                                        <mat-chip *ngFor="let clarity of initObj.clarity.items"
+                                                  [selected]="clarity.selected"
+                                                  (click)="clarity.selected=!clarity.selected;initObj.clarity.selectCount=initObj.clarity.selectCount+1;createGroup('clarity');unCheckAll('clarity',clarity);">
+                                            {{clarity.name}}
+                                        </mat-chip>
+                                        <!--<mat-chip>All</mat-chip>
+                                        <mat-chip>FL</mat-chip>
+                                        <mat-chip>IF</mat-chip>
+                                        <mat-chip>VVS1</mat-chip>
+                                        <mat-chip>VVS2</mat-chip>
+                                        <mat-chip>VS1</mat-chip>
+                                        <mat-chip>VS2</mat-chip>
+                                        <mat-chip>SI1</mat-chip>
+                                        <mat-chip>SI2</mat-chip>
+                                        <mat-chip>I1</mat-chip>
+                                        <mat-chip>I2</mat-chip>
+                                        <mat-chip>I3</mat-chip>-->
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-30">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-12"></div>
+                                <div class="col-lg-5 col-md-7 col-sm-12">
+                                <span class="sch_whfc">
+                                    <a (click)="selectSame('3ex')" href="javascript:void(0)"
+                                       [ngClass]="{'active': ex3,'': !ex3}" class="wh_col sp_vg">3 EX</a>
+                                    <a (click)="selectSame('3vg')" href="javascript:void(0)"
+                                       [ngClass]="{'active': vg3,'': !vg3}" class="fc_col sp_vg">3 VG</a>
+                                    <a (click)="selectSame('noex')" href="javascript:void(0)"
+                                       [ngClass]="{'active': noex,'': !noex}" class="fc_col sp_vg">NO EX</a>
+                                    <a (click)="selectSame('novg')" href="javascript:void(0)"
+                                       [ngClass]="{'active': novg,'': !novg}" class="fc_col sp_vg">NO VG</a>
+                                    <a (click)="selectSame('gdofr')" href="javascript:void(0)"
+                                       [ngClass]="{'active': gdofr,'': !gdofr}" class="fc_col sp_vg">GD-FR</a>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-20">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-2">
+                                    <h5 class="sch_master">Cut</h5>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-10 flrpr">
+                                    <mat-chip-list class="sch_lst cut_inline" multiple="true">
+                                        <mat-chip [selected]="initObj.cut.selectAll"
+                                                  (click)="checkAll(!initObj.cut.selectAll,'cut');initObj.cut.selectAll=!initObj.cut.selectAll">
+                                            All
+                                        </mat-chip>
+                                        <mat-chip *ngFor="let cut of initObj.cut.items" [selected]="cut.selected"
+                                                  (click)="cut.selected=!cut.selected;initObj.cut.selectCount=initObj.cut.selectCount+1;removeSame(cut.selected,cut.name,'cut');unCheckAll('cut',cut);">
+                                            {{cut.name}}
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                                <div class="col-lg-6 col-md-7 col-sm-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 flrcut">
+                                        <div class="fluorsm">
+                                            <div class="flr_sm"><span class="sch_master">Fluor</span></div>
+                                            <div class="flr_sm1">
+                                                <mat-chip-list class="sch_lst fluor_inline" multiple="true">
+                                                    <mat-chip [selected]="initObj.fluorescence.selectAll" (click)="checkAll(!initObj.fluorescence.selectAll,'fluorescence');initObj.fluorescence.selectAll=!initObj.fluorescence.selectAll">
+                                                        All
+                                                    </mat-chip>
+                                                    <mat-chip *ngFor="let fluorescence of initObj.fluorescence.items" [selected]="fluorescence.selected" (click)="fluorescence.selected=!fluorescence.selected;initObj.fluorescence.selectCount=initObj.fluorescence.selectCount+1;unCheckAll('fluorescence',fluorescence);">
+                                                        {{fluorescence.name}}
+                                                    </mat-chip>
+                                                </mat-chip-list>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="fluorsm">
+                                        <div class="eye_sm"><span class="sch_master">Eye Clean</span></div>
+                                        <div class="flr_sm1">
+                                            <mat-chip-list class="sch_lst eye_inline" multiple="true">
+                                                <mat-chip *ngFor="let eyeClean of initObj.eyeClean.items"
+                                                          [selected]="eyeClean.selected"
+                                                          (click)="eyeClean.selected=!eyeClean.selected;initObj.eyeClean.selectCount=initObj.eyeClean.selectCount+1;unCheckAll('eyeClean',eyeClean);">
+                                                    {{eyeClean.name}}
+                                                </mat-chip>
+                                            </mat-chip-list>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-2">
+                                    <h5 class="sch_master">Pol</h5>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-10 flrpr">
+                                    <mat-chip-list class="sch_lst pol_inline" multiple="true">
+                                        <mat-chip [selected]="initObj.pol.selectAll" (click)="checkAll(!initObj.pol.selectAll,'pol');initObj.pol.selectAll=!initObj.pol.selectAll">
+                                            All
+                                        </mat-chip>
+                                        <mat-chip *ngFor="let pol of initObj.pol.items" [selected]="pol.selected" (click)="pol.selected=!pol.selected;initObj.pol.selectCount=initObj.pol.selectCount+1;removeSame(pol.selected,pol.name,'pol');unCheckAll('pol',pol);">
+                                            {{pol.name}}
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                                <div class="col-lg-6 col-md-7 col-sm-12">
+                                    <div class="col-lg-7 col-md-7 col-sm-12 flrcut">
+                                        <div class="fluorsm">
+                                            <div class="lab_sm">
+                                                <span class="sch_master">Lab</span>
+                                            </div>
+                                            <div class="flr_sm1">
+                                                <mat-chip-list class="sch_lst lab_inline" multiple="true">
+                                                    <mat-chip [selected]="initObj.lab.selectAll"
+                                                              (click)="checkAll(!initObj.lab.selectAll,'lab');initObj.lab.selectAll=!initObj.lab.selectAll">
+                                                        All
+                                                    </mat-chip>
+                                                    <mat-chip *ngFor="let lab of initObj.lab.items"
+                                                              [selected]="lab.selected"
+                                                              (click)="lab.selected=!lab.selected;initObj.lab.selectCount=initObj.lab.selectCount+1;unCheckAll('lab',lab);">
+                                                        {{lab.name}}
+                                                    </mat-chip>
+                                                </mat-chip-list>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 plres plpad">
+                                        <div class="fluorsm">
+                                            <div class="lust_sm">
+                                                <span class="sch_master">Luster</span>
+                                            </div>
+                                            <div class="flr_sm1">
+                                                <mat-chip-list class="sch_lst lust_inline" multiple="true">
+                                                    <mat-chip [selected]="allLustSelected" (click)="checkAll(!allLustSelected,'luster');allLustSelected=!allLustSelected">
+                                                        All
+                                                    </mat-chip>
+                                                    <mat-chip *ngFor="let lust of lustList" [selected]="lust.selected" (click)="lust.selected=!lust.selected;unCheckAll('lust',lust);">
+                                                        {{lust.name}}
+                                                    </mat-chip>
+                                                </mat-chip-list>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="fluorsm">
+                                        <div class="ha_sm">
+                                            <span class="sch_master">H&A</span>
+                                        </div>
+                                        <div class="flr_sm1">
+                                            <mat-chip-list class="sch_lst ha_inline" multiple="true">
+                                                <mat-chip [selected]="allHNASelected"
+                                                          (click)="checkAll(!allHNASelected,'hna');allHNASelected=!allHNASelected;">
+                                                    All
+                                                </mat-chip>
+                                                <mat-chip *ngFor="let hna of hnaList" [selected]="hna.selected"
+                                                          (click)="hna.selected=!hna.selected;unCheckAll('hna',hna);">
+                                                    {{hna.name}}
+                                                </mat-chip>
+                                            </mat-chip-list>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-2">
+                                    <h5 class="sch_master">Symm</h5>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-10 flrpr">
+                                    <mat-chip-list class="sch_lst sym_inline" multiple="true">
+                                        <mat-chip [selected]="initObj.symm.selectAll"
+                                                  (click)="checkAll(!initObj.symm.selectAll,'symm');initObj.symm.selectAll=!initObj.symm.selectAll;">
+                                            All
+                                        </mat-chip>
+                                        <mat-chip *ngFor="let symm of initObj.symm.items" [selected]="symm.selected"
+                                                  (click)="symm.selected=!symm.selected;initObj.symm.selectCount=initObj.symm.selectCount+1;removeSame(symm.selected,symm.name,'symm');unCheckAll('symm',symm);">
+                                            {{symm.name}}
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                                <div class="col-lg-6 col-md-7 col-sm-12 plres flrcut">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="fluorsm">
+                                            <div class="org_sm1">
+                                                <span class="sch_master">Origin</span>
+                                            </div>
+                                            <div class="flr_sm1 sel_mat org_mat">
+                                                <mat-form-field floatLabel="never">
+                                                    <mat-select formControlName="originControl" multiple
+                                                                disableOptionCentering class="myPanelClass">
+                                                        <mat-select-trigger
+                                                                *ngIf="searchDiamondForm.value.originControl.length>=originList.length">
+                                                        <span class="example-additional-selection">
+                                                            All
+                                                        </span>
+                                                        </mat-select-trigger>
+                                                        <!--<mat-option (click)="originSelected(orig)" *ngFor="let orig of originList" [value]="orig">{{orig}}</mat-option>-->
+                                                        <mat-option
+                                                                (click)="selectSingleChipOption(orig,'origin');unCheckAll('origin',orig);"
+                                                                *ngFor="let orig of originList" [value]="orig">{{orig}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
+                                        <div class="fluorsm">
+                                            <div class="org_sm">
+                                                <span class="sch_master">Shade</span>
+                                            </div>
+                                            <div class="flr_sm1 sel_mat org_mat">
+                                                <mat-form-field floatPlaceholder="never">
+                                                    <mat-select formControlName="shadeControl" multiple
+                                                                disableOptionCentering class="myPanelClass"
+                                                                [compareWith]="compareObjects">
+                                                        <mat-select-trigger
+                                                                *ngIf="searchDiamondForm.value.shadeControl.length>=shadeList.length">
+                                                        <span class="example-additional-selection">
+                                                            All
+                                                        </span>
+                                                        </mat-select-trigger>
+                                                        <!--<mat-option (click)="shadeSelected(shad)" *ngFor="let shad of shadeList" [value]="shad">{{shad.name}}</mat-option>-->
+                                                        <mat-option
+                                                                (click)="selectSingleChipOption(shad,'shade');unCheckAll('shade',shad);"
+                                                                *ngFor="let shad of shadeList" [value]="shad">
+                                                            {{shad.name}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
+                                        <div class="fluorsm">
+                                            <div class="org_sm">
+                                                <span class="sch_master">Location</span>
+                                            </div>
+                                            <div class="flr_sm1 sel_mat org_mat">
+                                                <mat-form-field floatLabel="never">
+                                                    <mat-select [compareWith]="compareObjects"
+                                                                formControlName="locationControl" multiple
+                                                                disableOptionCentering class="myPanelClass">
+                                                        <mat-select-trigger
+                                                                *ngIf="searchDiamondForm.value.locationControl.length>=locationList.length">
+                                                        <span class="example-additional-selection">
+                                                            All
+                                                        </span>
+                                                        </mat-select-trigger>
+                                                        <!--<mat-option (click)="locationSelected(Loc)" *ngFor="let Loc of locationList" [value]="Loc">{{Loc.name}}</mat-option>-->
+                                                        <mat-option
+                                                                (click)="selectSingleChipOption(Loc,'location');unCheckAll('location',Loc);"
+                                                                *ngFor="let Loc of locationList" [value]="Loc">
+                                                            {{Loc.name}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="fluorsm">
+                                        <div class="eye_sm1">
+                                            <span class="sch_master"></span>
+                                        </div>
+                                        <div class="flr_sm1">
+                                            <mat-chip-list class="sch_lst bpd_inline">
+                                                <mat-chip>BPD</mat-chip>
+                                                <mat-chip>NOBPD</mat-chip>
+                                            </mat-chip-list>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mb-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-2 pr-0">
+                                    <h5 class="sch_master frm fromise">From Issue</h5>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-10 date_sch">
+                                    <mat-form-field floatLabel="never">
+                                        <mat-label>Select Date</mat-label>
+                                        <input matInput [matDatepicker]="picker" disabled>
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker disabled="false"></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-6 col-md-7 col-sm-12 plres plpad">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 flrcut flrctres">
+                                        <div class="fluorsm">
+                                            <div class="tois_sm1">
+                                                <span class="sch_master fromise1">To Issue</span>
+                                            </div>
+                                            <div class="date_sch dt_sche1">
+                                                <mat-form-field floatLabel="never">
+                                                    <mat-label>Select Date</mat-label>
+                                                    <input matInput [matDatepicker]="picker1">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker1">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker1></mat-datepicker>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="fluorsm">
+                                            <div class="frmgia_sm">
+                                                <span class="sch_master fromise1">From GIA</span>
+                                            </div>
+                                            <div class="date_sch dt_sche1">
+                                                <mat-form-field floatLabel="never">
+                                                    <mat-label>Select Date</mat-label>
+                                                    <input matInput [matDatepicker]="picker2"
+                                                           formControlName="Fromdate">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker2">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker2></mat-datepicker>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="fluorsm">
+                                        <div class="togia_sm">
+                                            <span class="sch_master fromise1">To GIA</span>
+                                        </div>
+                                        <div class="date_sch dt_sche">
+                                            <mat-form-field floatLabel="never">
+                                                <mat-label>Select Date</mat-label>
+                                                <input matInput [matDatepicker]="picker3" formControlName="ToDate">
+                                                <mat-datepicker-toggle matSuffix
+                                                                       [for]="picker3"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker3></mat-datepicker>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="main_sch">
+                        <p style="text-align:left;" class="sch_head1">
+                            MEASUREMENT
+                            <span style="float:right;" *ngIf="hideSearchFormMeasure"
+                                  (click)="hideSearchFormMeasure=!hideSearchFormMeasure">SHOW <i
+                                    class="icon-down-arrow hid"></i></span>
+                            <span style="float:right;" *ngIf="!hideSearchFormMeasure"
+                                  (click)="hideSearchFormMeasure=!hideSearchFormMeasure">HIDE <i
+                                    class="icon-up_arrow hid"></i></span>
+                        </p>
+                    </div>
+                </div>
+                <div *ngIf="!hideSearchFormMeasure">
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10 mb-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Lower half</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FLowerHalf">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TLowerHalf">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Disc.</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FDiscount">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TDiscount">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Table</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FTable">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TTable">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10 mb-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Depth</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FDepth">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TDepth">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Ratio</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FRatio">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TRatio">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Diameter</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FDiameter">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TDiameter">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10 mb-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Star Length</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FStarLength">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TStarLength">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Girdle(%)</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FGirdle">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TGirdle">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">P.Angle</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FPAngle">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TPAngle">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10 mb-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">C.Angle</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FCAngle">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TCAngle">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">P.Height</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FPHeight">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TPHieght">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">C.Height</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FCHeight">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TCHieght">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Price</h5>
+                                </div>
+                                <div class="col-lg-3 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FPRICE">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TPRICE">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-10 mb-10">
+                        <div class="sch_carat">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-3 pr-0">
+                                    <h5 class="sch_master">Measurement</h5>
+                                </div>
+                                <div class="col-lg-11 col-md-10 col-sm-9 meas_sch pr-0">
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FMeasHeight">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TMeasHeight">
+                                    </mat-form-field>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FMeasLength">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TMeasLength">
+                                    </mat-form-field>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="FMeasWidth">
+                                    </mat-form-field>
+                                    <span class="mes_to">To</span>
+                                    <mat-form-field floatLabel="never">
+                                        <input type="text" matInput formControlName="TMeasWidth">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="main_sch">
+                        <p style="text-align:left;" class="sch_head3">
+                            Search Result - <span class="sch_res">({{TotalStoneFound}} Stones Found)</span>
+
+                            <span style="float:right;">
+
+                                <span (click)="mailXLS()"><i class="icon-mail sch_tp"></i></span>
+                                <span (click)="printDoc()"><i class="icon-print sch_tp"></i></span>
+                                <span (click)="printXLS()"><i class="icon-download sch_tp"></i></span>
+
+
+                            </span>
+                            <button type="submit">TEst</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="sch_result">
+                        <mat-chip-list class=" res_lst result_inline">
+                            <mat-chip>
+                                <i class="icon-search res_icon"></i>
+                                <span class="res_txt">Diamond Search</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-add-basket res_icon"></i>
+                                <span class="res_txt">Add to Basket</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-cart-with-user res_icon"></i>
+                                <span class="res_txt">My Basket</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-hold res_icon"></i>
+                                <span class="res_txt">Hold</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Confirm-Stone res_icon"></i>
+                                <span class="res_txt">Confirm Stone</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Confirm-Stone res_icon"></i>
+                                <span class="res_txt">My Order</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-Excel-Upload res_icon"></i>
+                                <span class="res_txt">Export To Excel</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-add-wishlist res_icon"></i>
+                                <span class="res_txt">Add To Wishlist</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <i class="icon-my-wishlist res_icon"></i>
+                                <span class="res_txt">My Wishlist</span>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                    <div class="sch_pcs">
+                        <mat-chip-list class=" res_lst pcs_inline">
+                            <mat-chip>
+                                Tot.Pcs. <span class="pcs_ans">{{selectedStones.length}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Tot.Cts. <span class="pcs_ans">{{totalCts}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Avg.Rap. <span class="pcs_ans">{{avgRap}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Avg.Disc. <span class="pcs_ans">{{avgDisc}}%</span>
+                            </mat-chip>
+                            <mat-chip>
+                                CT.Rate. <span class="pcs_ans">{{ctRate}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                Tot.Amt. <span class="pcs_ans">{{totAmount}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                F.Ct.Rate. <span class="pcs_ans">{{fCtRate}}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                F.Tot.Amt. <span class="pcs_ans">{{fTotAmount}}</span>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div class="col-md-12 tbl_responsive res_ttbl mt-10" *ngIf="searchResultAry.length>0">
+                    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 tbl_res">
+                        <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+                            <!--<th mat-header-cell *matHeaderCellDef> {{column}} <input type="checkbox"></th>-->
+                            <th mat-header-cell *matHeaderCellDef class="tbl_hesdr"><b style="font-weight: 1000;">{{showDisplayName(column)}}<span
+                                    *ngIf="column=='checkbox'"><input [checked]="allStoneSelected"
+                                                                      (click)="selectAllStone()" type="checkbox"></span></b>
+                            </th>
+                            <!--<td mat-cell (click)="clickTD(column,element)"  *matCellDef="let element"> <span *ngIf="column=='hash'"><i class="icon-up_arroww hid icon-down-arrow"></i></span>{{element[column]}} </td>-->
+                            <td mat-cell (click)="clickTD(column,element)" *matCellDef="let element">
+                                <span *ngIf="column=='hash'"><i class="{{upOrDown(element,expandedElement)}} hid"></i></span>
+                                <span *ngIf="column=='checkbox'">
+                                    <input (click)="selectStone(element)" [checked]="element.selected" type="checkbox">
+                                </span>
+                                <span *ngIf="column!='PId'" class="ngtd_txt">{{element[column]}}</span>
+                                <span *ngIf="column=='PId'"><a href="/stonedetail/{{element[column]}}" target="_blank" class="td_maintxt">{{element[column]}}</a></span>
+
+                                <!--<pre>{{element | json}}</pre>-->
+                            </td>
+                        </ng-container>
+                        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+                        <ng-container matColumnDef="expandedDetail">
+                            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                                <div class="example-element-detail"
+                                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                    <!--<pre>{{expandedElement | json}}</pre>-->
+                                    <table cellpadding="0" cellspacing="3px" border="1px">
+                                        <tbody>
+                                        <tr>
+                                            <td rowspan="11" class="tbltr">
+                                                <!--<img src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/5756-85.JPG"-->
+                                                     <!--class="stn_img">-->
+                                                <img src="{{element.PhotoPath}}"
+                                                     class="stn_img">
+                                            </td>
+                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td rowspan="11" class="tbltr">-->
+                                                <!--<h1>ssd</h1>-->
+                                                <!--<iframe src="{{element.PHOTOPATH}}"-->
+                                                        <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                                        <!--allowfullscreen></iframe>-->
+                                            <!--</td>-->
+                                        <!--</tr>-->
+                                        <tr>
+                                            <td rowspan="11" class="tbltr">
+
+                                                <img src="{{element.CertiPath}}"
+                                                     class="stn_img">
+                                                <!--<iframe src="{{element.CertiPath}}"-->
+                                                        <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                                        <!--allowfullscreen></iframe>-->
+                                                <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf"-->
+                                                        <!--class="stn_img" scrolling="no" frameborder="0"-->
+                                                        <!--allowfullscreen></iframe>-->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Stone ID</span></td>
+                                            <td class="tdsnd">{{element.PId}}</td>
+                                            <td class="tdfrst"><span>Cut</span></td>
+                                            <td class="tdsnd">{{element.GCT_Name}}</td>
+                                            <td class="tdfrst"><span>Shade</span></td>
+                                            <td class="tdsnd">{{element.BSHD_Name}}</td>
+                                            <td class="tdfrst"><span>Side Inclusion</span></td>
+                                            <td class="tdsnd">-----</td>
+                                            <td class="tdfrst"><span>Measurement</span></td>
+                                            <td class="tdsnd">{{element.Meas}}</td>
+                                            <td class="tdfrst"><span>Pv.Angle</span></td>
+                                            <td class="tdsnd">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Shape</span></td>
+                                            <td class="tdsnd">{{element.S_Name}}</td>
+                                            <td class="tdfrst"><span>Polish</span></td>
+                                            <td class="tdsnd">{{element.GPO_Name}}</td>
+                                            <td class="tdfrst"><span>Eye Clean </span></td>
+                                            <td class="tdsnd">{{element.EC_Name}}</td>
+                                            <td class="tdfrst"><span>Table Open</span></td>
+                                            <td class="tdsnd">NONE-OPEN</td>
+                                            <td class="tdfrst"><span>Table</span></td>
+                                            <td class="tdsnd">{{element.Table1}}</td>
+                                            <td class="tdfrst"><span>Pv.Depth</span></td>
+                                            <td class="tdsnd">----</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Carat</span></td>
+                                            <td class="tdsnd">{{element.Carat}}</td>
+                                            <td class="tdfrst"><span>Symmetry</span></td>
+                                            <td class="tdsnd">{{element.GSY_Name}}</td>
+                                            <td class="tdfrst"><span>Table Black</span></td>
+                                            <td class="tdsnd">----</td>
+                                            <td class="tdfrst"><span>Side Open</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Depth</span></td>
+                                            <td class="tdsnd">{{element.TotDepth}}</td>
+                                            <td class="tdfrst"><span>Star Length</span></td>
+                                            <td class="tdsnd">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Color</span></td>
+                                            <td class="tdsnd">{{element.GC_Name}}</td>
+                                            <td class="tdfrst"><span>Fluorescence</span></td>
+                                            <td class="tdsnd">{{element.GFL_Name}}</td>
+                                            <td class="tdfrst"><span>Side Black</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Extra Facet</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Ratio</span></td>
+                                            <td class="tdsnd">{{element.Ratio}}</td>
+                                            <td class="tdfrst"><span>Lower Half</span></td>
+                                            <td class="tdsnd"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Clarity</span></td>
+                                            <td class="tdsnd">{{element.GQ_Name}}</td>
+                                            <td class="tdfrst"><span>NG Comm.</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Table Side Black</span></td>
+                                            <td class="tdsnd">----</td>
+                                            <td class="tdfrst"><span>Girdle(%)</span></td>
+                                            <td class="tdsnd">----</td>
+                                            <td class="tdfrst"><span>Type 2A</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"></td>
+                                            <td class="tdsnd"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Lab</span></td>
+                                            <td class="tdsnd">{{element.CR_Name}}</td>
+                                            <td class="tdfrst"><span>Origin</span></td>
+                                            <td class="tdsnd">{{element.origin}}</td>
+                                            <td class="tdfrst"><span>Table Inclusion</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Luster</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Cr.Angle</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>H&amp;A</span></td>
+                                            <td class="tdsnd">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Certificate No.</span></td>
+                                            <td class="tdsnd">{{element.CertNo}}</td>
+                                            <td class="tdfrst"><span>Location</span></td>
+                                            <td class="tdsnd">{{element.Loc_Name}}</td>
+                                            <td class="tdfrst"><span>Table Side Inclusion</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Culet</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Cr.Height</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Natural</span></td>
+                                            <td class="tdsnd">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdfrst"><span>Fancy Color</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Key to Symbols</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span>Report Comm.</span></td>
+                                            <td class="tdsnd">---</td>
+                                            <td class="tdfrst"><span></span></td>
+                                            <td class="tdsnd"></td>
+                                            <td class="tdfrst"><span></span></td>
+                                            <td class="tdsnd"></td>
+                                            <td class="tdfrst"><span></span></td>
+                                            <td class="tdsnd"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--<div class="example-element-diagram">-->
+                                    <!--<div class="example-element-position"> {{element.position}} </div>-->
+                                    <!--<div class="example-element-symbol"> {{element.symbol}} </div>-->
+                                    <!--<div class="example-element-name"> {{element.name}} </div>-->
+                                    <!--<div class="example-element-weight"> {{element.weight}} </div>-->
+                                    <!--</div>-->
+                                    <!--<div class="example-element-description">-->
+                                    <!--{{element.description}}-->
+                                    <!--<span class="example-element-description-attribution"> &#45;&#45; Wikipedia </span>-->
+                                    <!--</div>-->
+                                </div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                        <!--<tr mat-row *matRowDef="let element; columns: columnsToDisplay;"-->
+                        <!--class="example-element-row"-->
+                        <!--[class.example-expanded-row]="expandedElement === element"-->
+                        <!--(click)="expandedElement = element"-->
+                        <!--&gt;-->
+                        <!--</tr>-->
+                        <!--(click)="expandedElement=expandShrinkelem(expandedElement, element)"-->
+                        <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+                            class="example-element-row"
+                            [class.example-expanded-row]="expandedElement === element">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

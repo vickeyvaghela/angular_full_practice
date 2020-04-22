@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular8-helloworld-example-tutorial": {
+    "narolagems": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -18,14 +18,22 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/img/favicon.ico"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/home.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "src/assets/css/NarolaNew.css",
+              "node_modules/animate.css/animate.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/custom.js",
+              "node_modules/wowjs/dist/wow.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -37,10 +45,9 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -48,6 +55,11 @@
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4mb",
                   "maximumError": "5mb"
                 }
               ]
@@ -57,7 +69,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "narolagems:build"
+            "browserTarget": "narolagems:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -79,8 +92,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/img/favicon.ico"
             ],
             "styles": [
               "src/styles.css"
@@ -114,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "narolagems"
+    }
+  },
+  "defaultProject": "narolagems",
+  "cli": {
+    "analytics": "3f0a3b98-6d6e-428c-b9f7-2f38c1b8dc74"
+  }
 }
