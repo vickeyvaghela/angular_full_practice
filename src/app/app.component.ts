@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'spring boot-angular8-example-tutorial';
+  title = 'narolagems';
+  onActivate(e){
+    console.log('hash');
+  }
+  constructor() {
+    // this.wowService.init();
+  }
+
 }

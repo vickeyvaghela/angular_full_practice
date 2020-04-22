@@ -1,17 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import { NgforComponent } from './ngfor/ngfor.component';
-import { NgifComponent } from './ngif/ngif.component';
-import { NgSwitchComponent } from './ng-switch/ng-switch.component';
+
+//import { AuthService } from './auth.service';
+//import { AuthGuard } from './auth.guard';
+// import { AuthGuard } from './front/services/auth.guard';
+//import { AuthService } from './front/services/auth.service'
+
+
+import { HomeComponent } from './front/home/home.component';
+
+
 
 const routes: Routes = [
-  {path: '', component: HelloWorldComponent},
-  {path: 'hello-world', component: HelloWorldComponent},
-  {path: 'ng-for', component: NgforComponent},
-  {path: 'ng-if', component: NgifComponent},
-  {path: 'ng-switch', component: NgSwitchComponent}
+  { path: '', component: HomeComponent },
+  { path: 'login', component: HomeComponent }
 ];
+// const routes: Routes = [
+//   { path: '', component: HomeComponent },
+//   { path: 'UserPanel', component: UserpanelComponent, canActivate: [AuthGuard] },
+// ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
