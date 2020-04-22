@@ -275,8 +275,8 @@ a:hover, a:focus {
 
 .ab_head {
     font-family: "Marcellus", serif;
-    font-size: 80px;
-    font-weight: bold;
+    font-size: 48px;
+    text-transform: uppercase;
 }
 
 .craft_head {
@@ -463,11 +463,23 @@ button:focus {
     }
 
     .csr_bg {
-        min-height: 700px;
+        min-height: 730px;
     }
 
     .csr_img {
-        padding-top: 150px;
+        padding-top: 100px;
+    }
+
+    .csr_sec {
+        padding-top: 60px;
+    }
+
+    .csr_para {
+        font-size: 15px;
+    }
+
+    .office{
+        padding: 200px 44px 20px;
     }
 
     .pro_bg {
@@ -509,7 +521,7 @@ button:focus {
     }
 
     .craft_sec {
-        padding-top: 400px;
+        padding-top: 380px;
     }
 
     .about_sec {
@@ -528,6 +540,10 @@ button:focus {
 
     .cont_bg1 {
         min-height: 700px;
+    }
+
+    .ab_para {
+        font-size: 18px;
     }
 
     .contact_map {
@@ -561,7 +577,6 @@ button:focus {
     }
 
     .pro_para {
-        font-size: 12px;
         margin-top: 10px;
     }
 
@@ -581,12 +596,16 @@ button:focus {
         min-height: 340px;
     }
 
-    .ab_head {
-        font-size: 60px;
+    .craft_sec {
+        padding-top: 330px;
     }
 
-    .craft_sec {
-        padding-top: 220px;
+    .crf_para {
+        font-size: 18px;
+    }
+
+    .crf_bg {
+        min-height: 680px;
     }
 }
 
@@ -599,12 +618,20 @@ button:focus {
         font-size: 14px;
     }
 
+    .about_sec {
+        padding-top: 150px;
+    }
+
     .off_add {
         font-size: 14px;
     }
 
     .res_pro {
         margin-top: 0px;
+    }
+
+    .crf_bg {
+        min-height: 340px;
     }
 
     .cert_res {
@@ -666,15 +693,23 @@ button:focus {
     }
 
     .craft_head {
-        font-size: 30px;
+        font-size: 26px;
     }
 
     .crf_para {
-        font-size: 11px;
+        font-size: 9px;
     }
 
     .craft_sec {
-        padding-top: 200px;
+        padding-top: 160px;
+    }
+
+    .pro_para {
+        font-size: 16px;
+    }
+
+    .prod_mtxt, .prod_mtxt1 {
+        text-align: justify;
     }
 }
 
@@ -859,10 +894,6 @@ button:focus {
 
 .mod_head {
     border-bottom: 1px solid #253646;
-}
-
-.mod_head {
-    padding: 1.7rem 1rem;
 }
 
 .cls_mod {

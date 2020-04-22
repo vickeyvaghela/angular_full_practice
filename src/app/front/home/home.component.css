@@ -18,7 +18,8 @@
     text-transform: uppercase;
     color: #253646;
 }
-.recpth{
+
+.recpth {
     margin-bottom: 20px;
 }
 
@@ -46,7 +47,7 @@
     color: #7C87A9;
 }
 
-.chk_term .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+.chk_term .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
     background-color: #267491;
 }
 
@@ -83,15 +84,15 @@
 /* Gender */
 
 .gend_male {
-    border-radius: 6px 0px 0px 6px!important;
+    border-radius: 6px 0px 0px 6px !important;
 }
 
 .gend_fem {
-    border-radius: 0px 6px 6px 0px!important;
+    border-radius: 0px 6px 6px 0px !important;
 }
 
 .gender_chip .mat-chip-list-wrapper input.mat-input-element, .mat-chip-list-wrapper .mat-standard-chip {
-    margin: 0px!important;
+    margin: 0px !important;
     border: 1px solid #e0e0e0;
     border-radius: 0px;
     background-color: #fff;
@@ -106,20 +107,26 @@
 }
 
 .gender_chip .mat-chip-selected {
-    background-color: #267491!important;
+    background-color: #267491 !important;
+}
+
+.mod_head {
+    padding: 1.7rem 1rem;
 }
 
 .mt-20 {
     margin-top: 20px;
 }
-.mb_regs{
-    margin-bottom:20px;
+
+.mb_regs {
+    margin-bottom: 20px;
 }
+
 /* scroll-css */
 
 #myModal3 .modal-body {
     overflow-y: scroll;
-    scrollbar-width: thin; 
+    scrollbar-width: thin;
 }
 
 #reg_scrl::-webkit-scrollbar-track {
@@ -136,3 +143,17 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #C2C7D9;
 }
+
+@media screen and (max-width: 1366px) {
+    .mod_head {
+        padding: 1.2rem 1rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .mod_head {
+        padding: 1.7rem 1rem;
+    }
+}
+
+

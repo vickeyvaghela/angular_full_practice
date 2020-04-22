@@ -36,7 +36,7 @@
     height: 20px;
 }
 
-btn_updte {
+.btn_updte {
     background: #253646;
     border: 1px solid #E8ECEF;
     border-radius: 10px;
@@ -62,6 +62,10 @@ btn_updte {
     padding: 10px 20px;
 }
 
+.btn_updphoto:hover, .btn_updphoto:active, .btn_updphoto:focus{
+    color:#fff;
+}
+
 .btn_prf {
     background: #253646;
     border: 1px solid #E8ECEF;
@@ -76,7 +80,11 @@ btn_updte {
     margin-top: 10px;
 }
 
-.btn_updte:hover, .btn_updte:active {
+.btn_prf:hover, .btn_prf:active, .btn_prf:focus{
+    color: #fff;
+}
+
+.btn_updte:hover, .btn_updte:active, .btn_updte:focus {
     color: #fff;
 }
 
