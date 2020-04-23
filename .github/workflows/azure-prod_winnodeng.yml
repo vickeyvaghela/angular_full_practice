@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'winnodeng'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4572a40732094d0695aed879a5ee8919 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_dc66954456d54b2d95fe590e1e0cc7e8 }}
         package: .
