@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { AuthService } from '../services/auth.service'
+// import { AuthService } from '../services/auth.service'
 import {Router} from "@angular/router"
 import { ViewEncapsulation } from '@angular/core'
 
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   submitted = false;
   invalidCred = false;
 
-  constructor(private authServObj: AuthService,private router: Router) { }
+  constructor(private router: Router) { }
 
   // public resolved(captchaResponse: string) {
   //   console.log(`Resolved captcha with response: ${captchaResponse}`);
