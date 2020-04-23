@@ -3,7 +3,8 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle dash_tog" data-toggle="collapse" data-target="#narolanav">
+                    <button type="button" class="navbar-toggle dash_tog" data-toggle="collapse"
+                            data-target="#narolanav">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -29,58 +30,67 @@
 
             <div class="col-lg-4 col-md-4 col-sm-12 col-lg-push-8 dtl_tab">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="tab-content">
-                        <div id="Image" class="tab-pane fade in " [ngClass]="{'active' : disPlay=='image'}" *ngIf="disPlay=='image'">
-                            <div class="stn_img">
-                                <!--<h1>before {{stoneDetail.PhotoPath}}</h1>-->
-                                <!--<h1>image {{transform(stoneDetail.PhotoPath)}}</h1>-->
-                                <div *ngIf="stoneDetail.PhotoPath">
-                                    <img [src]="transform(stoneDetail.PhotoPath)" class="det_img">
-                                </div>
-                                <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=5756-70&btn=0&sv=0&z=0" class="det_vdeo" scrolling="no"></iframe>-->
-                            </div>
-                        </div>
-                        <div id="Videosss" class="tab-pane fade in " [ngClass]="{'active' : disPlay=='video'}" *ngIf="disPlay=='video'">
-                            <div class="stn_vdeo">
-                                <div *ngIf="stoneDetail.VideoPath">
-                                    <iframe [src]="transform(stoneDetail.VideoPath)" class="det_vdeo" scrolling="no"></iframe>
-                                    <!--<iframe src='https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf' class="det_vdeo" scrolling="no"></iframe>-->
+                    <div class="pl_tb">
+                        <div class="tab-content">
+                            <div id="Image" class="tab-pane fade in " [ngClass]="{'active' : disPlay=='image'}"
+                                 *ngIf="disPlay=='image'">
+                                <div class="stn_img">
+                                    <!--<h1>before {{stoneDetail.PhotoPath}}</h1>-->
+                                    <!--<h1>image {{transform(stoneDetail.PhotoPath)}}</h1>-->
+                                    <div *ngIf="stoneDetail.PhotoPath">
+                                        <img [src]="transform(stoneDetail.PhotoPath)" class="det_img">
+                                    </div>
+                                    <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimImg/360Viewer/HD4/Vision360.html?d=5756-70&btn=0&sv=0&z=0" class="det_vdeo" scrolling="no"></iframe>-->
                                 </div>
                             </div>
-                        </div>
-                        <div id="certisss" class="tab-pane fade in" [ngClass]="{'active' : disPlay=='certi'}" *ngIf="disPlay=='certi'">
-                            <div class="stn_vdeo">
-                                <!--<div *ngIf="stoneDetail.CertiPath">-->
-                                <div >
+                            <div id="Videosss" class="tab-pane fade in " [ngClass]="{'active' : disPlay=='video'}"
+                                 *ngIf="disPlay=='video'">
+                                <div class="stn_vdeo">
+                                    <div *ngIf="stoneDetail.VideoPath">
+                                        <iframe [src]="transform(stoneDetail.VideoPath)" class="det_vdeo"
+                                                scrolling="no"></iframe>
+                                        <!--<iframe src='https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf' class="det_vdeo" scrolling="no"></iframe>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="certisss" class="tab-pane fade in" [ngClass]="{'active' : disPlay=='certi'}"
+                                 *ngIf="disPlay=='certi'">
+                                <div class="stn_vdeo">
+                                    <!--<div *ngIf="stoneDetail.CertiPath">-->
+                                    <div>
+                                        <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf" class="det_vdeo" scrolling="no"></iframe>-->
+                                        <!--<img [src]="transform(stoneDetail.CertiPath)" class="det_vdeo">-->
+                                        <iframe [src]="transform(stoneDetail.CertiPath)" class="det_vdeo"
+                                                scrolling="yes"></iframe>
+                                    </div>
                                     <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf" class="det_vdeo" scrolling="no"></iframe>-->
-                                    <!--<img [src]="transform(stoneDetail.CertiPath)" class="det_vdeo">-->
-                                    <iframe [src]="transform(stoneDetail.CertiPath)" class="det_vdeo" scrolling="yes"></iframe>
                                 </div>
-                                <!--<iframe src="https://pcknstg.blob.core.windows.net/hdfile/DimCrt/2346957796.Pdf" class="det_vdeo" scrolling="no"></iframe>-->
                             </div>
                         </div>
+                        <ul class="nav nav-pills pil_act justify-content-center">
+                            <li class="active">
+                                <a (click)="disPlay='image';attachUrl=stoneDetail.PhotoPath;" data-toggle="pill"
+                                   class="pil_hed">Image</a>
+                                <!--<a id="imageLi" data-toggle="pill" href="#Image" class="pil_hed">Image</a>-->
+                            </li>
+                            <li>
+                                <!--<a data-toggle="pill" href="#Video" class="pil_hed">Video</a>-->
+                                <a data-toggle="pill" (click)="disPlay='video';attachUrl=stoneDetail.VideoPath;"
+                                   class="pil_hed">Video</a>
+                            </li>
+                            <li>
+                                <!--<a data-toggle="pill" href="#certi" class="pil_hed">Certificate</a>-->
+                                <a data-toggle="pill" (click)="disPlay='certi';attachUrl=stoneDetail.CertiPath;"
+                                   class="pil_hed">Certificate</a>
+                            </li>
+                        </ul>
                     </div>
-
-
-                    <ul class="nav nav-pills pil_act justify-content-center">
-                        <li class="active">
-                            <a (click)="disPlay='image';attachUrl=stoneDetail.PhotoPath;" data-toggle="pill" class="pil_hed">Image</a>
-                            <!--<a id="imageLi" data-toggle="pill" href="#Image" class="pil_hed">Image</a>-->
-                        </li>
-                        <li >
-                            <!--<a data-toggle="pill" href="#Video" class="pil_hed">Video</a>-->
-                            <a data-toggle="pill" (click)="disPlay='video';attachUrl=stoneDetail.VideoPath;" class="pil_hed">Video</a>
-                        </li>
-                        <li>
-                            <!--<a data-toggle="pill" href="#certi" class="pil_hed">Certificate</a>-->
-                            <a data-toggle="pill" (click)="disPlay='certi';attachUrl=stoneDetail.CertiPath;" class="pil_hed">Certificate</a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="disPlay!='video'">
                     <div class="stn_vdeo1">
                         <div class="input-group grp-search">
-                            <input type="text" placeholder="Email Details" [(ngModel)]="email" class="form-control frm_ipn">
+                            <input type="text" placeholder="Email Details" [(ngModel)]="email"
+                                   class="form-control frm_ipn">
                             <span class="input-group-addon grp_add" (click)="sendEmail()">
                                 <i class="icon-mail_send detl_icon"></i>
                             </span>
@@ -106,23 +116,23 @@
                     </mat-chip-list>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 bg_whl">
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="col-md-2 col-sm-2 col-xs-2 plpr_head">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="col-md-2 col-sm-2 col-xs-3 plpr_head">
                             <i class="icon-Single_6 mark_shp"></i><br>
                             <span class="stn_round">Oval</span>
                         </div>
-                        <div class="col-md-10 col-sm-10 col-xs-10">
+                        <div class="col-md-10 col-sm-10 col-xs-9">
                             <p class="txt_shp">
                                 <span>{{stoneDetail.PId}}</span><br>
                                 <span>{{stoneDetail.Carat}} CT</span>
                             </p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="col-md-2 col-sm-2 col-xs-2 plpr_head">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="col-md-2 col-sm-2 col-xs-3 plpr_head">
                             <i class="icon-Confirm-Stone mark_shp"></i>
                         </div>
-                        <div class="col-md-10 col-sm-10 col-xs-10">
+                        <div class="col-md-10 col-sm-10 col-xs-9">
                             <p class="txt_shp1">
                                 <span>{{stoneDetail.GC_Name}}</span>
                                 <br>
@@ -130,11 +140,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="col-md-2 col-sm-2 col-xs-2 plpr_head">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="col-md-2 col-sm-2 col-xs-3 plpr_head">
                             <i class="icon-dollar mark_shp"></i>
                         </div>
-                        <div class="col-md-10 col-sm-10 col-xs-10">
+                        <div class="col-md-10 col-sm-10 col-xs-9">
                             <p class="txt_shp">
                                 <span>{{stoneDetail.GRate}} $/Ct</span>
                                 <br>
@@ -142,11 +152,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="col-md-2 col-sm-2 col-xs-2 plpr_head">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="col-md-2 col-sm-2 col-xs-3 plpr_head">
                             <i class="icon-certificate mark_shp"></i>
                         </div>
-                        <div class="col-md-10 col-sm-10 col-xs-10">
+                        <div class="col-md-10 col-sm-10 col-xs-9">
                             <p class="txt_shp">
                                 <span>Narola Certified</span>
                                 <br>

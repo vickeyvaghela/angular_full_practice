@@ -8,8 +8,8 @@ import Swal from 'sweetalert2'
 @Component({
   selector: 'app-stonedetail',
   templateUrl: './stonedetail.component.html',
-  // styleUrls: ['/node_modules/bootstrap3/dist/css/bootstrap.min.css','./stonedetail.component.css']
-  styleUrls: ['./stonedetail.component.css']
+  styleUrls: ['/node_modules/bootstrap3/dist/css/bootstrap.min.css','./stonedetail.component.css']
+  // styleUrls: ['./stonedetail.component.css']
 })
 export class StonedetailComponent implements OnInit {
 

@@ -161,7 +161,6 @@
     max-height: 100%;
     max-width: 100%;
     margin: 0 auto 10px;
-    margin-top: 20px;
 }
 
 .det_img {
@@ -254,17 +253,23 @@
     font-size: 20px;
 }
 
+.pl_tb {
+    border: 1px solid #C0C4C6;
+    border-radius: 4px;
+}
+
 .pil_hed {
     font-family: Rubik;
     font-style: normal;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 14px;
     color: #267491;
     text-align: center;
+    padding: 12px 26px !important;
 }
 
 .pil_act {
-    padding: 0px 170px;
+    padding: 10px 120px;
 }
 
 .pil_act .active .pil_hed {
@@ -346,7 +351,7 @@ div.blueTable {
 /* Responsive */
 @media screen and (max-width: 1600px) {
     .pil_act {
-        padding: 0px 120px;
+        padding: 10px 70px;
     }
 
     .stn_img {
@@ -372,7 +377,7 @@ div.blueTable {
 
 @media screen and (max-width: 1440px) {
     .pil_act {
-        padding: 0px 90px;
+        padding: 10px 40px;
     }
 
     .stn_img {
@@ -402,7 +407,7 @@ div.blueTable {
     }
 
     .pil_act {
-        padding: 0px 75px;
+        padding: 10px 30px;
     }
 
     .tbcell3 {
@@ -436,7 +441,7 @@ div.blueTable {
 
 @media screen and (max-width: 1280px) {
     .pil_act {
-        padding: 0px 60px;
+        padding: 10px 20px;
     }
 
     .stn_img {
@@ -466,7 +471,12 @@ div.blueTable {
     }
 
     .pil_act {
-        padding: 0px 24px;
+        padding: 10px 10px;
+    }
+
+    .pil_hed {
+        font-size: 12px;
+        padding: 10px 18px !important;
     }
 
     .stn_img {
@@ -492,7 +502,7 @@ div.blueTable {
 
 @media screen and (max-width: 768px) {
     .pil_act {
-        padding: 0px 220px;
+        padding: 10px 200px;
     }
 
     .icntxt_detail .mat-chip {
@@ -547,7 +557,11 @@ div.blueTable {
     }
 
     .pil_act {
-        padding: 0px 20px;
+        padding: 10px 20px;
+    }
+
+    .plpr_head{
+        margin-bottom: 10px;
     }
 
     .icn_rght {
