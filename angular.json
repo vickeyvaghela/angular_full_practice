@@ -26,7 +26,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/NarolaNew.css"
+              "src/assets/css/NarolaNew.css",
+              "src/web.config"
             ],
             "scripts": [
               "src/assets/js/custom.js"

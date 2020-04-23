@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  // public resolved(captchaResponse: string) {
-  //   console.log(`Resolved captcha with response: ${captchaResponse}`);
-  // }
+  public resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
   ngOnInit(): void {
     this.loadScript();
     this.myform = new FormGroup({
